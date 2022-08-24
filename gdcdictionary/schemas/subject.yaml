@@ -1,0 +1,91 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "subject"
+title: Subject
+type: object
+namespace: https://toxdatacommons.com
+category: administrative
+program: '*'
+project: '*'
+description: >
+  The collection of all data related to a specific subject in the
+  context of a specific experiment. 
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: experiments 
+    backref: subjects
+    label: member_of
+    target_type: experiment
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - experiments
+  - organism
+  - experimental_setting
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+# subject properties
+properties:
+  type:
+    type: string
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  state:
+    $ref: "_definitions.yaml#/state"
+  submitter_id:
+    type:
+      - string
+      - "null"
+  organism:
+    term:
+      $ref: "_terms.yaml#/organism"
+    enum:
+      - Homo sapiens [NCBITaxon_9606]
+      - Mus musculus [NCBITaxon_10090]
+      - Rattus norvegicus [NCBITaxon_10116]
+      - Drosophila melanogaster [NCBITaxon_7227]
+      - Danio rerio [NCBITaxon_7955]
+      - Xenopus laevis [NCBITaxon_8355]
+  experimental_setting:
+    description: "The type of bioassay performed [bao#BAO_0020005]."
+    enum:
+      - ex vivo [bao#BAO_0020006]
+      - in silico [bao#BAO_0020007]
+      - in vitro [bao#BAO_0020008]
+      - in vivo [bao#BAO_0020009]
+      
+  lab_identifier:
+    type:
+      - string
+
+  positive_control:
+    type: boolean
+    
+  negative_control:
+    type: boolean
+
+  experiments: 
+    $ref: "_definitions.yaml#/to_one"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

@@ -1,0 +1,86 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "housing_conditions"
+title: Housing conditions
+type: object
+namespace: https://toxdatacommons.com
+category: administrative
+program: '*'
+project: '*'
+description: >
+  Housing conditions.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - submitter_id
+  - type
+  - cage_id
+
+links:
+  - name: subjects
+    backref: housing_conditions
+    label: describes
+    target_type: subject
+    multiplicity: many_to_many
+    required: true
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+  type:
+    enum: [ "housing_conditions" ]
+
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+
+  state:
+    $ref: "_definitions.yaml#/state"
+
+  submitter_id:
+    type:
+      - string
+
+  cage_id:
+    type:
+      - string
+      
+  average_vivarium_temperature:
+    description: "Average temperature of the vivarium or water (fish) for the duration of the experiment in celsius."
+    type:
+      - number
+     
+  average_vivarium_humidity:
+    description: "Average humidity of the vivarium for the duration of the experiment in percent."
+    type:
+      - number
+     
+  vivarium_light_cycle:
+    description: "The light cycle during the experiment denoted as light:dark (e.g., 12:12)"
+    type:
+      - string
+ 
+  cage_type:
+    description: "The type of container or cage used to house the biological replicate"
+    enum:
+      - Innovive cage
+      - Optimice cage
+       
+  bedding_type:
+    description: "The type of bedding used to house the biological replicate"
+    enum:
+      - ALPHA-dri (Shepherd Specialty Papers)
+       
+  subjects:
+    $ref: "_definitions.yaml#/to_many"

@@ -1,0 +1,62 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "pcr_assay"
+title: PCR assay details
+type: object
+namespace: http://gdc.nci.nih.gov
+category: notation
+project: '*'
+program: '*'
+description: "GDC QC run metadata."
+additionalProperties: false
+submittable: false
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: qrtpcr
+    label: generated_from
+    target_type: qrtpcr
+    multiplicity: many_to_one
+    required: true
+    backref: pcr_assay
+  - name: aliquot
+    label: generated_from
+    target_type: aliquot
+    multiplicity: many_to_one
+    required: true
+    backref: pcr_assay
+  - name: raw_reads
+    label: generated_from
+    target_type: raw_reads
+    multiplicity: many_to_one
+    required: true
+    backref: pcr_assay
+
+required:
+  - submitter_id
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  $ref: "_definitions.yaml#/workflow_properties"
+  type:
+    enum: [ "pcr_assay" ]
+
+  assay:
+    enum:
+      - Digital droplet
+      - TaqMan
+      - SYBR green
+      - Nanostring
+          
+  qrtpcr:
+    $ref: "_definitions.yaml#/to_one"

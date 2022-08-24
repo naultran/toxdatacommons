@@ -1,0 +1,103 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "genetic_intervention"
+title: Genetic intervention
+type: object
+namespace: https://toxdatacommons.com
+category: clinical
+program: '*'
+project: '*'
+description: >
+  The monitoring of individual biological replicates during the course of the experiment.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - submitter_id
+  - type
+
+
+links:
+  - name: subjects
+    backref: genetic_intervention
+    label: describes
+    target_type: subject
+    multiplicity: many_to_one
+    required: true
+  - name: animal_infos
+    backref: genetic_intervention
+    label: describes
+    target_type: animal_info
+    multiplicity: many_to_one
+    required: true
+  - name: cell_details
+    backref: genetic_intervention
+    label: describes
+    target_type: cell_details
+    multiplicity: many_to_one
+    required: true
+    
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+  type:
+    enum: [ "repeated_gross_pathology" ]
+
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+
+  state:
+    $ref: "_definitions.yaml#/state"
+
+  submitter_id:
+    type:
+      - string
+
+  target_gene:
+    description: "official symbol"
+    type:
+      - string
+    
+  target_region:
+    description: "coordinates"
+    type: 
+      - string
+  
+  genetic_intervention_method:
+    enum:
+      - siRNA
+      - CRISPR
+      - CRISPRa
+      - CRISPRi
+      - Germline
+      - Inducible
+      - AAV
+  
+  inducer:
+    enum:
+      - Tamoxifen
+      - AAV8
+      
+  multiplicity of infection:
+    type:
+      - number
+
+
+  is_control:
+    type: boolean
+    
+  subjects:
+    $ref: "_definitions.yaml#/to_one"
+  animal_infos:
+    $ref: "_definitions.yaml#/to_one"

@@ -1,0 +1,78 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "nucleotide_qc"
+title: Nucleotide aliquot QC
+type: object
+namespace: https://toxdatacommons.com
+category: notation
+project: '*'
+program: '*'
+description: "GDC QC run metadata."
+additionalProperties: false
+submittable: false
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: fastq_file
+    label: generated_from
+    target_type: fastq_file
+    multiplicity: many_to_one
+    required: true
+    backref: nucleotide_qc
+  - name: qrtpcr
+    label: generated_from
+    target_type: qrtpcr
+    multiplicity: many_to_one
+    required: true
+    backref: nucleotide_qc
+  - name: aliquot
+    label: generated_from
+    target_type: aliquot
+    multiplicity: many_to_one
+    required: true
+    backref: nucleotide_qc
+        
+required:
+  - submitter_id
+  - type
+  - RIN
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  type:
+    enum: [ "nucleotide_qc" ]
+
+  assay:
+    $ref: "_terms.yaml#/assay"
+    enum:
+      - Agilent Bioanalyzer
+      - Caliper
+      - Gel electrophoresis
+
+  RIN:
+    $ref: "_terms.yaml#/RIN"
+    type:
+      - number
+  
+  a260_a280_ratio:
+    $ref: "_terms.yaml#/a260_a280_ratio"
+    type:
+      - number
+  
+  concentration:
+    $ref: "_terms.yaml#/concentration"
+    type:
+      - number
+
+  aliquot:
+    $ref: "_definitions.yaml#/to_many"
