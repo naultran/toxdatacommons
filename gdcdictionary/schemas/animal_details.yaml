@@ -1,0 +1,95 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "animal_info"
+title: Animal details
+type: object
+namespace: https://toxdatacommons.com
+category: administrative
+program: '*'
+project: '*'
+description: >
+  Data for the characterization of the individual biological replicates.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: subjects
+    backref: animal_infos
+    label: describes
+    target_type: subject
+    multiplicity: one_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - subject
+  - strain
+ 
+uniqueKeys:
+  #unclear if want submitter ID for clinical
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+  type:
+    enum: [ "animal_info" ]
+
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+
+  state:
+    $ref: "_definitions.yaml#/state"
+
+  submitter_id:
+    type:
+      - string
+      - "null"
+ 
+  strain:
+    description: "Provide strain information associated to the source biological material."
+    type: string
+
+  lab_animal_vendor: 
+    $ref: "_terms.yaml#/lab_animal_vendor"
+    type: string
+
+  sex: 
+    description: ""
+    enum:
+      - female
+      - male
+      - unknown
+      - unspecified
+      - not reported
+      
+  age_assigned:
+    description: "Postnal age at which the biological replicate was received from the vendor or assigned to the experiment in days"
+    type: number
+  
+  start_weight:
+    description: "Weight of the biological replicate upon designation to the project in grams (g)"
+    type: number  
+
+  euthanasia_method:
+    $ref: "_terms.yaml#/euthanasia_method"
+    type:
+      - string
+    
+  subjects:
+    $ref: "_definitions.yaml#/to_one"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

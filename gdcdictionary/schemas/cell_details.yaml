@@ -1,0 +1,103 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "cell_details"
+title: Cell details
+type: object
+namespace: https://toxdatacommons.com
+category: administrative
+program: '*'
+project: '*'
+description: >
+  Data for the characterization of the patient by means of segementing the population (e.g.,
+  characterization by age, sex, or race).
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: subjects
+    backref: cell_details
+    label: describes
+    target_type: subject
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - subject
+  - cell_line
+  
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+  type:
+    type: string
+
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+
+  state:
+    $ref: "_definitions.yaml#/state"
+
+  submitter_id:
+    type:
+      - string
+
+  cell_line:
+    $ref: "_terms.yaml#/cell_line"
+    enum:
+      - primary cultured liver cell
+      - Hepa 1-6 cell
+      - Hepa-1c1c7 cell
+      - Hep G2 cell
+
+  primary_cell:
+    #$ref: "_terms.yaml#/primary_cell"
+    type: boolean
+
+  adherent_cell_line:
+    $ref: "_terms.yaml#/adherent_cell_line"
+    type: boolean
+
+  sex_a_cell_line_derived_from:
+    $ref: "_terms.yaml#/sex_a_cell_line_derived_from"
+    enum:
+      - Female
+      - Male
+      - Unknown
+      - Not applicable
+
+  strain_a_cell_line_derives_from:
+    $ref: "_terms.yaml#/strain_a_cell_line_derives_from"
+    type:
+      - string
+
+  tissue_a_cell_line_derives_from:
+    $ref: "_terms.yaml#/tissue_a_cell_line_derives_from"
+    type:
+      - string
+      
+  cell_line_source:
+    $ref: "_terms.yaml#/cell_line_source"
+    type:
+      - string    
+
+  subjects:
+    $ref: "_definitions.yaml#/to_one"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

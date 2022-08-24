@@ -1,0 +1,74 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "in_vitro_protocol"
+title: In Vitro protocol
+type: object
+namespace: https://toxdatacommons.com
+category: administrative
+program: '*'
+project: '*'
+description: >
+  Information pertaining to processed results obtained from slides; often in the form of counts.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: incubation_conditions
+    backref: in_vitro_protocol
+    label: data_from
+    target_type: incubation_conditions
+    multiplicity: many_to_many
+    required: true
+  - name: cell_details
+    backref: in_vitro_protocol
+    label: data_from
+    target_type: cell_details
+    multiplicity: many_to_many
+    required: true
+  - name: treatment
+    backref: in_vitro_protocol
+    label: data_from
+    target_type: treatment
+    multiplicity: many_to_many
+    required: true
+    
+required:
+  - submitter_id
+  - type
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  type:
+    enum: [ "targeted_protein_notation" ]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  state:
+    $ref: "_definitions.yaml#/state"
+  submitter_id:
+    type:
+      - string
+      - "null"
+  
+  protocol_doi:
+    type: string
+  
+  project_id:
+    type: string
+  aliquot:
+    $ref: "_definitions.yaml#/to_many"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

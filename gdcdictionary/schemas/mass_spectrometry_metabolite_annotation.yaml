@@ -1,0 +1,71 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "mass_spectrometry_metabolite_annotation"
+title: Integration of protein signal
+type: object
+namespace: https://toxdatacommons.com
+category: analysis
+program: '*'
+project: '*'
+description: >
+  Method used to quantitate the amount of protein in an aliquot.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: mass_spectrometry_metabolomics_data_file
+    backref: mass_spectrometry_metabolite_annotation
+    label: data_from
+    target_type: mass_spectrometry_metabolomics_data_file
+    multiplicity: many_to_many
+    required: true
+
+required:
+  - submitter_id
+  - type
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  type:
+    enum: [ "targeted_protein_notation" ]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  state:
+    $ref: "_definitions.yaml#/state"
+  submitter_id:
+    type:
+      - string
+      - "null"
+  
+  target_file:
+    type: string
+    
+  normalization_data:
+    type: string
+    
+  software:
+    enum:
+      - ImageJ
+      - ProteinSimple Compass SW
+      - Saphire
+
+  project_id:
+    type: string
+  aliquot:
+    $ref: "_definitions.yaml#/to_many"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

@@ -1,0 +1,113 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "targeted_protein_notation"
+title: Protein target details
+type: object
+namespace: https://toxdatacommons.com
+category: notation
+program: '*'
+project: '*'
+description: >
+  Details of the.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: targeted_protein_data
+    backref: targeted_protein_notation
+    label: data_from
+    target_type: targeted_protein_data
+    multiplicity: many_to_many
+    required: true
+  - name: aliquot
+    backref: targeted_protein_notation
+    label: data_from
+    target_type: aliquot
+    multiplicity: many_to_many
+    required: true
+required:
+  - submitter_id
+  - type
+  - assay
+  - antibody_vendor
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  type:
+    enum: [ "targeted_protein_notation" ]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  state:
+    $ref: "_definitions.yaml#/state"
+  submitter_id:
+    type:
+      - string
+      - "null"
+
+  assay:
+    enum:
+      - native gel
+      - SDS-PAGE gel
+      - gradient gel
+      - fixed gel
+      - Wes capillary electrophoresis
+  
+  target_protein_uniprot_id:
+    $ref: "_terms.yaml#/target_protein_uniprot_id"
+    type:
+      - string
+  
+  antibody_catalog_number:
+    type:
+      - string
+      
+  antibody_vendor:
+    type:
+      - string
+  
+  antibody_dilution:
+    type:
+      - string    
+      
+  secondary_antibody_catalog_number:
+    type:
+      - string
+      
+  secondary_antibody_vendor:
+    type:
+      - string
+      
+  gel_percentage:
+    type:
+      - number
+      
+  imaging_model:
+    enum:
+      - BioRat ChemiDoc
+      - Sapphire Western Blot imager
+      - Wes Compass Software
+
+  protocol_doi:
+    type:
+      - string      
+
+  project_id:
+    type: string
+  aliquot:
+    $ref: "_definitions.yaml#/to_many"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

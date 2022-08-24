@@ -1,0 +1,97 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "slide_image"
+title: Slide Image
+type: object
+namespace: https://toxdatacommons.com
+category: data_file
+program: '*'
+project: '*'
+description: >
+  Data file containing image of a slide.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+  - file_state
+  - error_type
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+    - name: aliquot
+      backref: slide_images
+      label: data_from
+      target_type: aliquot
+      multiplicity: many_to_one
+      required: true
+
+required:
+  - submitter_id
+  - type
+  - file_name
+  - file_size
+  - md5sum
+  - data_category
+  - data_type
+  - data_format
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  $ref: "_definitions.yaml#/data_file_properties"
+  type:
+    enum: [ "slide_image" ]
+  data_category:
+    term:
+      $ref: "_terms.yaml#/data_category"
+    enum:
+      - Slide Image
+      - Slide Scan
+      - Mass Cytometry
+
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    enum:
+      - Image
+      - Single Cell Image
+      - Raw IMC Data
+      - Single Channel IMC Image
+      - Scanned Slide
+      
+  data_format:
+    term:
+      $ref: "_terms.yaml#/data_format"
+    enum:
+      - TIFF
+      - JPEG
+      - PNG
+      - VSI
+
+  magnification:
+    description: "Magnification of the image if not a scan"
+    type:
+      - number
+    
+  frame_identifier:
+    description: "Name, number, or other identifier given to the frame of the slide from which this image was taken."
+    type: string
+
+  aliquot:
+    $ref: "_definitions.yaml#/to_one"
+  project_id:
+    type: string
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

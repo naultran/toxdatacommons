@@ -1,0 +1,724 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "slide_histopathology"
+title: Histological evaluation details
+type: object
+namespace: https://toxdatacommons.com
+category: notation
+program: '*'
+project: '*'
+description: >
+  Information pertaining to processed results obtained from slides; often in the form of counts.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: aliquot
+    backref: slide_notation
+    label: data_from
+    target_type: aliquot
+    multiplicity: many_to_many
+    required: true
+  - name: slide_image
+    backref: slide_notation
+    label: data_from
+    target_type: slide_image
+    multiplicity: many_to_many
+    required: true
+    
+required:
+  - submitter_id
+  - type
+  - assay
+  - morphology
+  - severity
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  type:
+    enum: [ "slide_histopathology" ]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  state:
+    $ref: "_definitions.yaml#/state"
+  submitter_id:
+    type:
+      - string
+      - "null"
+  
+  assay:
+    enum:
+      - H&E
+      - Picrosirius red
+      - Oil Red O
+      - Immunohistochemistry
+  
+  target_molecule:
+    type:
+      - string
+      
+  morphology:
+    $_ref: "_terms.yaml#/morphology"
+    enum:
+      - Accessory adrenocortical nodule
+      - Accumulation
+      - Adamantinoma
+      - Adenoacanthoma
+      - Adenocarcinoma
+      - Adenolipoma
+      - Adenoma
+      - Adenomatosis
+      - Adenomyosis
+      - Adenosquamous carcinoma
+      - Adhesion
+      - Agenesis
+      - Alopecia
+      - Alveolar/bronchiolar adenoma
+      - Alveolar/bronchiolar carcinoma
+      - Amelanotic melanoma
+      - Ameloblastic odontoma
+      - Ameloblastoma
+      - Amphophilic-vacuolar adenoma
+      - Amphophilic-vacuolar carcinoma
+      - Amyloid
+      - Aneurysm
+      - Angiectasis
+      - Angiolipoma
+      - Apoptosis
+      - Arteriosclerosis
+      - Arteritis
+      - Atelectasis
+      - Atherosclerosis
+      - Atresia
+      - Atrophy
+      - Atypia
+      - Atypical residual bodies
+      - Bacteria
+      - Basal cell adenoma
+      - Basal cell carcinoma
+      - Basophilic focus
+      - Basosquamous tumor
+      - Bezoar
+      - Blood clot
+      - Bone, decreased
+      - Bone, increased
+      - Bronchiectasis
+      - Bulla
+      - Calculus
+      - Callus
+      - Carcinoma
+      - Carcinosarcoma
+      - Cardiomyopathy
+      - Cast
+      - Cataract
+      - Cellular atypia
+      - Cholangiocarcinoma
+      - Cholangioma
+      - Cholesteatoma
+      - Chondrodysplasia
+      - Chondroma
+      - Chondrosarcoma
+      - Chordoma
+      - Choriocarcinoma
+      - Choristoma
+      - Chronic-progressive nephropathy
+      - Chylothorax
+      - Clear cell focus
+      - Cleft
+      - Compression
+      - Concretion
+      - Congestion
+      - Contracture
+      - Corpora amylacea
+      - Corpus hemorrhagicum
+      - Corpus luteum
+      - Craniopharyngioma
+      - Cryptorchid
+      - Crystal
+      - Cyst
+      - Cyst, congenital
+      - Cystadenocarcinoma
+      - Cystadenoma
+      - Cystic keratinizing epithelioma
+      - Cytomegaly
+      - Cytoplasmic alteration
+      - Decidua
+      - Decreased area
+      - Decreased lymphocytes
+      - Decreased neutrophils
+      - Decreased number
+      - Decreased size
+      - Deformity
+      - Degeneration
+      - Demyelination
+      - Depletion
+      - Dermoid cyst
+      - Detachment
+      - Developmental defect
+      - Diestrus
+      - Dilation
+      - Diverticulum
+      - DNTP Standard Term
+      - Dysgenesis
+      - Dysplasia
+      - Ecchymosis
+      - Ectopic tissue
+      - Edema
+      - Embolus
+      - Embryonal remnant
+      - Emphysema
+      - Endometriosis
+      - Eosinophilic focus
+      - Eosinophilic granules
+      - Ependymoma
+      - Epidermal inclusion cyst
+      - Epithelioma
+      - Erosion
+      - Erythrophagocytosis
+      - Estrus
+      - Exfoliated germ cell
+      - Extramedullary hematopoiesis
+      - Fatty change
+      - Fibroadenoma
+      - Fibroma
+      - Fibro-osseous lesion
+      - Fibrosarcoma
+      - Fibrosis
+      - Fibrous histiocytoma
+      - Fibrous osteodystrophy
+      - Fistula
+      - Foam cell
+      - Focus
+      - Foreign body
+      - Fracture
+      - Fungus
+      - Galactocele
+      - Ganglioneuroblastoma
+      - Ganglioneuroma
+      - Giant cell
+      - GIST
+      - Glioma
+      - Gliosis
+      - Glomerulonephritis
+      - Glomerulopathy
+      - Glomerulosclerosis
+      - Glycogen depletion
+      - Granular cell tumor
+      - Granuloma
+      - Granulosa cell tumor
+      - Hamartoma
+      - Hemangioma
+      - Hemangiopericytoma
+      - Hemangiosarcoma
+      - Hematoma
+      - Hemopericardium
+      - Hemorrhage
+      - Hepatoblastoma
+      - Hepatocellular adenoma
+      - Hepatocellular carcinoma
+      - Hepatocholangiocarcinoma
+      - Hepatocholangioma
+      - Hepatodiaphragmatic nodule
+      - Hernia
+      - Hibernoma
+      - Histiocytic sarcoma
+      - Histiocytosis
+      - Hyaline membrane
+      - Hydrocephalus
+      - Hydronephrosis
+      - Hydrothorax
+      - Hyperkeratosis
+      - Hyperostosis
+      - Hyperplasia
+      - Hypertrophy
+      - Hypoplasia
+      - Hyposegmentation
+      - Immature
+      - Impaction
+      - Increased area
+      - Increased number
+      - Increased size
+      - Infarct
+      - Infiltration, cellular
+      - Inflammation
+      - Intrahepatocellular erythrocytes
+      - Intussusception
+      - Karyomegaly
+      - Keratin cyst
+      - Keratoacanthoma
+      - Leiomyoma
+      - Leiomyosarcoma
+      - Leukemia
+      - Leydig cell adenoma
+      - Leydig cell carcinoma
+      - Leydig cell tumor
+      - Lipoma
+      - Liposarcoma
+      - Lymphangiectasis
+      - Lymphangioma
+      - Lymphangiosarcoma
+      - Lymphoma
+      - Malformation
+      - Malocclusion
+      - Mast cell tumor
+      - Medulloblastoma
+      - Melanoma
+      - Meningioma
+      - Mesothelioma
+      - Metaplasia
+      - Metestrus
+      - Microphthalmia
+      - Mineral
+      - Mixed cell focus
+      - Mucification
+      - Mucocele
+      - Myelofibrosis
+      - Myoepithelioma
+      - Myxoma
+      - Myxosarcoma
+      - Necrosis
+      - Neovascularization
+      - Nephroblastoma
+      - Neural crest tumor
+      - Neuroblastoma
+      - Neuroendocrine tumor
+      - Neurofibroma
+      - Neurofibrosarcoma
+      - Nodular hyperplasia
+      - Nodule
+      - Obstruction
+      - Obstructive nephropathy
+      - Odontoma
+      - Oligodendroglioma
+      - Oncocytoma
+      - Osteochondroma
+      - Osteochondrosis
+      - Osteofibrosis
+      - Osteoma
+      - Osteosarcoma
+      - Ovotestis
+      - Papilloma
+      - Paraganglioma
+      - Parasite
+      - Perforation
+      - Persistent cloaca
+      - Pheochromocytoma
+      - Phthisis bulbi
+      - Pigment
+      - Pilomatrixoma
+      - Plasma cell tumor
+      - Polyovular
+      - Polyp
+      - Polyp, glandular
+      - Polyp, stromal
+      - Proestrus
+      - Proteinosis
+      - Regeneration
+      - Renal mesenchymal tumor
+      - Retention, spermatid
+      - Retinoblastoma
+      - Rhabdomyoma
+      - Rhabdomyosarcoma
+      - Sarcoma
+      - Schwannoma
+      - Secretory depletion
+      - Seminoma
+      - Sertoli cell tumor
+      - Sex cord stromal tumor
+      - Sperm granuloma
+      - Spermatocele
+      - Squamous cell carcinoma
+      - Squamous cell papilloma
+      - Steatosis
+      - Stellate cell tumor
+      - Stromal sarcoma
+      - Supernumerary structure
+      - Swelling
+      - Syncytial alteration
+      - Synechia
+      - Teratoma
+      - Thecoma
+      - Thrombus
+      - Thymoma
+      - Torsion
+      - Trichoepithelioma
+      - Tubulostromal adenoma
+      - Tubulostromal carcinoma
+      - Ulcer
+      - Urothelial adenoma
+      - Urothelial carcinoma
+      - Vacuolation
+      - Vacuolation, cytoplasmic
+      - Vesicle
+      - Yolk sac carcinoma  
+
+  severity:
+    type:
+      - string
+    
+  is_neoplastic:
+    type:
+      - boolean
+  
+  is_malignant:
+    type:
+      - boolean
+    
+  is_systemic:
+    type:
+      - boolean
+  
+  is_metastatic:
+    type:
+      - boolean  
+      
+  location:
+    enum:
+      - Abdominal
+      - Accessory
+      - Acidophil
+      - Acinar cell
+      - Acinus
+      - Adipocyte
+      - Adipose tissue
+      - Adnexa
+      - Adventitia
+      - Alveolar epithelium
+      - Alveolar-bronchiolar
+      - Alveolar-bronchiolar epithelium
+      - Alveolus
+      - Ameloblast
+      - Amphophilic-vacuolar
+      - Ampulla
+      - Anorectal junction
+      - Anterior chamber
+      - Anterior lobe
+      - Antral
+      - Aortic valve
+      - Arch
+      - Arteriole
+      - Artery
+      - Atrioventricular valve
+      - Atrium
+      - Auricular appendage
+      - Axillary
+      - Axon
+      - BALT
+      - Basal cell
+      - Basement membrane
+      - Basophil
+      - Bile canaliculi
+      - Bile duct
+      - Blood vessel
+      - Bowman's capsule
+      - Brachial
+      - Brain Stem
+      - Bronchial
+      - Bronchiole
+      - Bronchus
+      - Buccal
+      - Bursa
+      - Calvarium
+      - Capillary
+      - Capsule
+      - Caput
+      - Cardia
+      - Carina
+      - Carotid
+      - Cartilage
+      - Cauda
+      - Caudate lobe
+      - C-Cell
+      - Centrilobular
+      - Cerebellum
+      - Cerebrum
+      - Cervical
+      - Chief cell
+      - Choroid
+      - Choroid plexus
+      - Chromophobe
+      - Ciliary body
+      - Collecting duct
+      - Colloid
+      - Conjunctiva
+      - Connective tissue
+      - Cornea
+      - Corpus callosum
+      - Corpus luteum
+      - Cortex
+      - Corticomedullary junction
+      - Costochondral junction
+      - Cranial
+      - Craniopharyngeal duct
+      - Cranium
+      - Cytoplasm
+      - Deep cervical
+      - Dentin
+      - Dermis
+      - Diaphragm
+      - Diencephalon
+      - Digit
+      - Distal
+      - Dorsal
+      - Dorsal lobe
+      - Dorsolateral lobe
+      - Dorsum
+      - Duct
+      - Ductus deferens
+      - Enamel
+      - Endocardium
+      - Endometrium
+      - Endosteum
+      - Endothelial cell
+      - Endothelium
+      - Entorhinal cortex
+      - Ependymal cell
+      - Epicardium
+      - Epidermis
+      - Epididymal
+      - Epiglottis
+      - Epiphysis
+      - Epithelial cell
+      - Epithelium
+      - Erythrocyte
+      - Erythroid cell
+      - External ear
+      - Extraorbital
+      - Eyelid
+      - Face
+      - Femoral
+      - Flocculus
+      - Follicle
+      - Follicular cell
+      - Foot
+      - Forelimb
+      - Fourth ventricle
+      - Fundus
+      - GALT
+      - Gastrocnemius
+      - Germ cell
+      - Germinal center
+      - Germinal epithelium
+      - Gingiva
+      - Glial cell
+      - Glomerulus
+      - Goblet cell
+      - Granulocyte
+      - Granulosa cell
+      - Hair
+      - Hair follicle
+      - Head
+      - Hepatic
+      - Hepatocyte
+      - Hilar
+      - Hindlimb
+      - Hippocampus
+      - Histiocyte
+      - Humerus
+      - Hypothalamus
+      - Iliac
+      - Incisor
+      - Inguinal
+      - Inner ear
+      - Intercostal
+      - Interstitial cell
+      - Interstitium
+      - Interventricular septum
+      - Intervertebral disc
+      - Intimal
+      - Iris
+      - Joint
+      - Jugular
+      - Kupffer cell
+      - Lateral lobe
+      - Lateral ventricle
+      - Lateral wall
+      - Lens
+      - Ligament
+      - Limiting ridge
+      - Lip
+      - Lobe, left
+      - Lobe, median
+      - Lobe, right
+      - Lobe, right diaphragmatic
+      - Lumbar
+      - Lumen
+      - Lymphatic
+      - Lymphatic sinus
+      - Lymphatic vessel
+      - Lymphocyte
+      - Lymphoid tissue
+      - Macrophage
+      - Mandible
+      - Mandibular
+      - Mast cell
+      - Maxilla
+      - Maxillary
+      - Medial
+      - Mediastinum
+      - Medulla
+      - Medullary cord
+      - Medullary sinus
+      - Megakaryocyte
+      - Meninges
+      - Mesenteric
+      - Mesothelium
+      - Mesovarium
+      - Metacarpus
+      - Metatarsus
+      - Middle ear
+      - Midzonal
+      - Molar
+      - Mucosa
+      - Muscularis
+      - Myelin
+      - Myeloid cell
+      - Myocardium
+      - Myometrium
+      - Nares
+      - Nasolacrimal duct
+      - Nasopharyngeal duct
+      - Neck
+      - Neuron
+      - Neuropil
+      - Nipple
+      - Nose
+      - Nucleus
+      - Odontoblast
+      - Olfactory bulb
+      - Olfactory epithelium
+      - Olfactory epithelium, glands
+      - Optic
+      - Optic nerve
+      - Oral cavity
+      - Oval cell
+      - Ovarian
+      - Palate
+      - PALS
+      - Pancreatic
+      - Papilla
+      - Papillary muscle
+      - Paracortex
+      - Paraovarian tissue
+      - Parietal
+      - Parotid
+      - Pars distalis
+      - Pars intermedia
+      - Pars nervosa
+      - Patella
+      - Paw
+      - Pelvis
+      - Penis
+      - Peribronchial
+      - Peribronchiolar
+      - Pericardium
+      - Periorbital
+      - Peripheral
+      - Periportal
+      - Peritoneum
+      - Perivascular
+      - Phalanges
+      - Pinna
+      - Piriform cortex
+      - Plasma cell
+      - Popliteal
+      - Portal vein
+      - Posterior chamber
+      - Proximal
+      - Pulmonary vein
+      - Pulp
+      - Pylorus
+      - Radial
+      - Radius
+      - Rathke's cleft
+      - Red pulp
+      - Renal
+      - Renal tubule
+      - Respiratory epithelium
+      - Respiratory epithelium, glands
+      - Rete ovarii
+      - Rete testis
+      - Retina
+      - Retrobulbar
+      - Retroperitoneal
+      - Rib
+      - Rostral
+      - Sacrum
+      - Sartorius
+      - Scapula
+      - Schwann cell
+      - Sclera
+      - Scrotum
+      - Sebaceous gland
+      - Seminiferous tubule
+      - Septum
+      - Serosa
+      - Sertoli cell
+      - Sinus
+      - Sinusoid
+      - Site of application
+      - Site of tattoo
+      - Sperm
+      - Spermatid
+      - Spermatogonia
+      - Squamous epithelium
+      - Stellate cell
+      - Sternum
+      - Stroma
+      - Subcapsular
+      - Subcutaneous tissue
+      - Sublingual
+      - Submandibular
+      - Submucosa
+      - Subpleura
+      - Sweat gland
+      - Synovial tissue
+      - Tail
+      - Tarsus
+      - Telencephalon
+      - Tendon
+      - Thecal cell
+      - Thigh
+      - Thoracic
+      - Tibia
+      - Tongue
+      - Transitional epithelium
+      - Tricuspid valve
+      - Trigeminal
+      - Turbinate
+      - Ulna
+      - Urothelium
+      - Valve
+      - Vein
+      - Ventral lobe
+      - Ventricle
+      - Venule
+      - Vertebra
+      - Visceral
+      - Vitreous
+      - Vomeronasal organ
+      - Vulva
+      - White matter
+      - White pulp
+      - X-zone
+
+  project_id:
+    type: string
+  slide_image:
+    $ref: "_definitions.yaml#/to_one"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
