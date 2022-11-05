@@ -59,17 +59,14 @@ properties:
   investigator_affiliation:
     description: "The investigator's affiliation with respect to a research institution."
     type: string
-  date_collected:
-    description: "The date or date range in which the project data was collected."
+  investigator_orcid:
+    description: "The investigator's ORCID fom ORCID.org."
     type: string
   availability_type:
     description: "Is the project open or restricted?"
     enum:
       - Open
       - Restricted
-  availability_mechanism:
-    description: "Mechanism by which the project will be made avilable."
-    type: string
   support_source:
     description: "The name of source providing support/grant resources."
     type: string
@@ -124,24 +121,7 @@ properties:
         # DEPRECATED(2016-03-01): synonymous with closed. included for
         #                         backwards compatibility
         - legacy
-
-  released:
-    description: |
-      To release a project is to tell the GDC to include all submitted
-      entities in the next GDC index.
-    default: false
-    type: boolean
-
-  releasable:
-    description: |
-      A project can only be released by the user when `releasable` is true.
-    default: false
-    type: boolean
-
-  intended_release_date:
-    description: Tracks a Project's intended release date.
-    type: string
-    format: date-time
+        
   dbgap_accession_number:
     type: string
     description: "The dbgap accession number provided for the project."

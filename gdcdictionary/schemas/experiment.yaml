@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "experiment"
 title: Experiment
 type: object
-namespace: http://bloodprofilingatlas.org/bpa/
+namespace: https://toxdatacommons.com
 category: administrative
 program: '*'
 project: '*'
@@ -50,54 +50,35 @@ properties:
     type:
       - string
       - "null"
-  number_experimental_group:
-    description: "The number denoting this experiment's place within the group within the whole."
-    type:
-      - integer
-  number_samples_per_experimental_group:
-    description: "The number of samples contained within this experimental group."
-    type:
-      - integer
-  experimental_description:
-    description: "A brief description of the experiment being performed."
-    type:
-      - string
-  experimental_intent:
-    description: "Summary of the goals the experiment is designed to discover."
-    type:
-      - string
-  associated_experiment:
-    description: "The submitter_id for any experiment with which this experiment is associated, paired, or matched."
-    type:
-      - string
-  type_of_sample:
-    description: "String indicator identifying the types of samples as contrived or clinical."
-    type:
-      - string
-  type_of_specimen:
-    description: "Broad description of the specimens used in the experiment."
-    type:
-      - string
-  marker_panel_description:
-    description: "Brief description of the marker panel used in this experiment."
-    type: string
-  somatic_mutations_identified:
-    description: "Are somatic mutations identified for this experiment?"
-    type: boolean
-  indels_identified:
-    description: "Are indels identified in this experiment?"
-    type: boolean
-  copy_numbers_identified:
-    description: "Are copy number variations identified in this experiment?"
-    type: boolean
-  type_of_data:
-    description: "Is the data raw or processed?"
+  study_design:
     enum:
-      - Raw
-      - Processed
-  data_description:
-    description: "Brief description of the data being provided for this experiment."
-    type: string
+      - dose response design
+      - case control design
+      - cross sectional design   
+      - genetic modification design
+      - sex design
+      - time series design  
+  study_type:
+    enum:
+      - Teratology
+      - Short term
+      - Long term
+      - Bacterial mutagenicity
+      - Drosophila germ cell mutagenicity
+      - In vitro micronucleus
+      - In vivo alkaline comet assay
+      - Mammalian cell cytogenetics
+      - Mammalian cell mutagenicity
+      - Micronucleus
+      - Rodent cytogenetics
+      - ADME
+      - Immunotoxicology
+      - Nematode
+      - RACB
+      - Tox21 - Phase II
+      - Toxicogenomics
+      - Toxicokinetics
+      - Zebrafish
   projects:
     $ref: "_definitions.yaml#/to_one_project"
   project_id:

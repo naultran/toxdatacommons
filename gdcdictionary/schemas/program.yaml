@@ -38,4 +38,4 @@ properties:
     description: "Full name/title of the program."
   dbgap_accession_number:
     type: string
-    description: "The dbgap accession number provided for the program."
+    description: "Short identifier for the program (e.g., MSUSRC)"
