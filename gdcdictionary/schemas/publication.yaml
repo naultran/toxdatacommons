@@ -3,11 +3,11 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "publication"
 title: Publication
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://toxdatacommons.com
 category: administrative
 program: '*'
 project: '*'
-description: "Publication for a project."
+description: "Publication for an experiment."
 additionalProperties: false
 submittable: true
 validators: null
@@ -20,17 +20,17 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: projects
+  - name: experiments
     backref: publications
     label: refers_to
-    target_type: project
+    target_type: experiment
     multiplicity: many_to_many
     required: true
 
 required:
   - submitter_id
   - type
-  - projects
+  - experiments
 
 uniqueKeys:
   - [ id ]
@@ -52,10 +52,10 @@ properties:
     type: string
   doi:
     type: string
-  projects:
-    $ref: "_definitions.yaml#/to_many_project"
+  experiments:
+    $ref: "_definitions.yaml#/to_many"
   project_id:
-    type: string
+    $ref: "_definitions.yaml#/project_id"
   created_datetime:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:

@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "acknowledgement"
 title: Acknowledgement 
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://toxdatacommons.com
 category: administrative
 program: '*'
 project: '*'
@@ -20,17 +20,17 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: projects
+  - name: experiments
     backref: acknowledgements 
     label: contribute_to
-    target_type: project
+    target_type: experiment
     multiplicity: many_to_many
     required: true
 
 required:
   - submitter_id
   - type
-  - projects
+  - experiments
 
 uniqueKeys:
   - [ id ]
@@ -51,10 +51,10 @@ properties:
   acknowledgee:
     description: "The indvidiual or group being acknowledged by the project."
     type: string
-  projects:
-    $ref: "_definitions.yaml#/to_many_project"
+  experiments:
+    $ref: "_definitions.yaml#/to_many"
   project_id:
-    type: string
+    $ref: "_definitions.yaml#/project_id"
   created_datetime:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:
