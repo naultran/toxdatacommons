@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "submitted_unaligned_reads"
-title: Submitted Unaligned Reads
+id: "submitted_methylation"
+title: Submitted Methylation
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://www.bloodpac.org/ 
 category: data_file
 program: '*'
 project: '*'
-description: "Data file containing unaligned reads that have not been GDC Harmonized."
+description: "DNA methylation data files contain information on raw and normalized signal intensities, detection confidence and calculated beta values for methylated and unmethylated probes. DNA methylation is an epigenetic mark which can be associated with transcriptional inactivity when located in promoter regions."
 additionalProperties: false
 submittable: true
 validators: null
@@ -25,17 +25,17 @@ links:
   - exclusive: false
     required: true
     subgroup:
-    - name: read_groups
-      backref: submitted_unaligned_reads_files # pretty ugly
-      label: data_from
-      target_type: read_group
-      multiplicity: many_to_one
-      required: false
     - name: core_metadata_collections
-      backref: submitted_unaligned_reads_files
+      backref: submitted_methylation_files
       label: data_from
       target_type: core_metadata_collection
       multiplicity: many_to_many
+      required: false
+    - name: aliquots
+      backref: submitted_methylation_files
+      label: data_from
+      target_type: aliquot
+      multiplicity: many_to_one
       required: false
 
 required:
@@ -47,7 +47,6 @@ required:
   - data_category
   - data_type
   - data_format
-  - experimental_strategy
 
 uniqueKeys:
   - [ id ]
@@ -56,37 +55,32 @@ uniqueKeys:
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
   type:
-    enum: [ "submitted_unaligned_reads" ]
+    enum: [ "submitted_methylation" ]
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
     enum:
-      - Sequencing Data
-      - Sequencing Reads
-      - Raw Sequencing Data
+      - Methylation Data
   data_type:
     term:
       $ref: "_terms.yaml#/data_type"
-    enum: [ "Unaligned Reads" ]
+    enum: [ "Methylation Intensity Values" ]
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
     enum:
-      - BAM
-      - FASTQ
-  experimental_strategy:
-    term:
-      $ref: "_terms.yaml#/experimental_strategy"
+      - IDAT
+  assay_method: 
     enum:
-      - WGS
-      - WXS
-      - Low Pass WGS
-      - Validation
-      - RNA-Seq
-      - miRNA-Seq
-      - Total RNA-Seq
-      - DNA Panel
-  read_groups:
+      - Methylation Array
+  assay_instrument:
+    enum:
+      - Illumina
+  assay_instrument_model:
+    enum:
+      - Illumina Infinium HumanMethylation450
+      - Illumina Infinium HumanMethylation450K
+  aliquots:
     $ref: "_definitions.yaml#/to_one"
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"
