@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "publication"
 title: Publication
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: http://toxdatacommons.com
 category: administrative
 program: '*'
 project: '*'
@@ -49,6 +49,9 @@ properties:
       - string
       - "null"
   pmid:
+    description: "PubMed unique identifier of an article [data_1187]."
+    type: string
+  dntp_report_number:
     type: string
   doi:
     type: string

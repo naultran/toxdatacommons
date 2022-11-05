@@ -26,11 +26,17 @@ links:
   - exclusive: false
     required: true
     subgroup:
-    - name: read_alignment
+    - name: read_groups
       backref: submitted_aligned_reads_files # pretty ugly
       label: data_from
-      target_type: read_alignment
+      target_type: read_group
       multiplicity: one_to_many
+      required: false
+    - name: core_metadata_collections
+      backref: submitted_aligned_reads_files
+      label: data_from
+      target_type: core_metadata_collection
+      multiplicity: many_to_many
       required: false
 
 required:

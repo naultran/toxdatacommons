@@ -1,5 +1,397 @@
 id: _terms
 
+CEBS_acc_no:
+  description: >
+    A CRID assigned by CEBS, the Chemical Effects in Biological Systems database 
+    maintained by the US National Toxicology Program (https://cebs.niehs.nih.gov/cebs/) 
+    which is sufficient to look up an investigation or study in CEBS
+  termDef:
+    term: CEBS acc no
+    source: DNTP
+    cde_id: MD-239
+    cde_version: 1.0
+    term_url:  
+
+data_submission_contact_zip:
+  description: >
+    zip / postal code of data submission contact
+  termDef:
+    term: data submission contact zip / postal code
+    source: DNTP
+    cde_id: MD-167
+    cde_version: 1.0
+    term_url:
+data_submission_contact_state:
+  description: >
+    state of publication contact
+  termDef:
+    term: Data submission contact state
+    source: DNTP
+    cde_id: MD-171
+    cde_version: 1.0
+    term_url:
+data_submission_contact_name:
+  description: >
+    the name of the person bearing the data submission contact representative role
+  termDef:
+    term: data submission contact name
+    source: DNTP
+    cde_id: MD-217
+    cde_version: 1.0
+    term_url:
+data_submission_contact_institution_postal_address:
+  description: >
+    postal address of data submission contact
+  termDef:
+    term: data submission contact institution postal address
+    source: DNTP
+    cde_id: MD-254
+    cde_version: 1.0
+    term_url:
+data_submission_contact_country_name:
+  description: >
+    country name of publication contact
+  termDef:
+    term: data submission contact country name
+    source: DNTP
+    cde_id: MD-255
+    cde_version: 1.0
+    term_url:
+data_submission_contact_email:
+  description: >
+    email address of data submission contact
+  termDef:
+    term: data submission contact email
+    source: DNTP
+    cde_id: MD-256
+    cde_version: 1.0
+    term_url:
+data_submission_contact_telephone:
+  description: >
+    telephone number of data submission contact
+  termDef:
+    term: data submission contact telephone
+    source: DNTP
+    cde_id: MD-257
+    cde_version: 1.0
+    term_url:
+data_submission_contact_lab:
+  description: >
+    lab name of data submission contact
+  termDef:
+    term: data submission contact lab
+    source: DNTP
+    cde_id: MD-258
+    cde_version: 1.0
+    term_url:
+data_submission_contact_department:
+  description: >
+    department of data submission contact
+  termDef:
+    term: data submission contact department
+    source: DNTP
+    cde_id: MD-259
+    cde_version: 1.0
+    term_url:
+data_submission_contact_institution:
+  description: >
+    institution of data submission contact
+  termDef:
+    term: data submission contact institution
+    source: DNTP
+    cde_id: MD-260
+    cde_version: 1.0
+    term_url:
+data_submission_contact_institution_city:
+  description: >
+    city of data submission contact
+  termDef:
+    term: data submission contact institution city
+    source: DNTP
+    cde_id: MD-261
+    cde_version: 1.0
+    term_url:
+data_submission_contact_orcid:
+  description: >
+    the ORCID of the person bearing the data submission contact representative role
+  termDef:
+    term: data submission contact ORCID
+    source: DNTP
+    cde_id: 
+    cde_version: 1.0
+    term_url:
+
+study_design:
+  description: >
+    A plan specification comprised of protocols (which may specify how and what kinds of data will be gathered) that are executed as part of an investigation and is realized during a study design execution.
+  termDef:
+    term: study design
+    source: DNTP
+    cde_id: MD-2
+    cde_version: 1.0
+    term_url:
+
+number_of_cohorts:
+  description: >
+    The number of groups or cohorts that are part of the study.
+  termDef:
+    term: 
+    source: DNTP
+    cde_id: 
+    cde_version: 1.0
+    term_url:
+
+strain:
+  description: >
+    An organism that is bred to have some uniform behavioral, morphological, physiological, or genetic characteristics with similarly bred organisms
+  termDef:
+    term: strain
+    source: DNTP
+    cde_id: MD-36
+    cde_version: 1.0
+    term_url:
+
+lab_animal_vendor:
+  description: >
+    A vendor which supplies the lab animal used as a subject in a study
+  termDef:
+    term: lab animal vendor
+    source: DNTP
+    cde_id: MD-53
+    cde_version: 1.0
+    term_url:
+
+euthanasia_method:
+  description: >
+    The mechanism by which a life is ended, usually in order to relieve pain and suffering.
+  termDef:
+    term: Euthanasia Method
+    source: NCIT
+    cde_id: NCIT_C90336
+    cde_version: 1.0
+    term_url: http://purl.obolibrary.org/obo/NCIT_C90336
+
+test_article:
+  description: >
+    A substance with a defined atomic or molecular structure that results from, or takes part in, reactions involving changes in its structure, composition, or properties.
+  termDef:
+    term: test article
+    source: DNTP
+    cde_id: MD-24
+    cde_version: 1.0
+    term_url:
+
+test_article_vendor:
+  description: >
+    A vendor which supplies the test article used in a study
+  termDef:
+    term: test article vendor
+    source: DNTP
+    cde_id: MD-94
+    cde_version: 1.0
+    term_url:
+    
+test_article_vendor_catalog_number:
+  description: >
+    A CRID assigned to a test article by the test article vendor
+  termDef:
+    term: test article vendor catalog number
+    source: DNTP
+    cde_id: MD-95
+    cde_version: 1.0
+    term_url:
+    
+test_article_purity:
+  description: >
+    the purity of the test article administered to a subject in a study
+  termDef:
+    term: test article purity
+    source: DNTP
+    cde_id: MD-100
+    cde_version: 1.0
+    term_url:
+
+route:
+  description: >
+    route of administration
+  termDef:
+    term: route
+    source: DNTP
+    cde_id: MD-32
+    cde_version: 1.0
+    term_url:
+
+dose_amount:
+  description: >
+    A measurement datum that measures the quantity of something that may be administered to an organism or that an organism may be exposed to. Quantities of nutrients, drugs, vaccines and toxins are referred to as doses.
+  termDef:
+    term: dose amount
+    source: DNTP
+    cde_id: MD-25
+    cde_version: 1.0
+    term_url:
+    
+dose_amount_unit:
+  description: >
+    unit for amount administered in one dose administration
+  termDef:
+    term: dose amount unit
+    source: DNTP
+    cde_id: MD-26
+    cde_version: 1.0
+    term_url:
+
+target_protein_uniprot_id:
+  description: >
+    The uniprot indentifier for the protein being evaluated with the assay.
+  termDef:
+    term: target_protein_uniprot_id
+    source:
+    cde_id:
+    cde_version:
+    term_url:
+
+morphology:
+  description: >
+    The size or shape of subcellular structures, cells, or multicellular structures.  
+  termDef:
+    term: morphology
+    source:
+    cde_id:
+    cde_version:
+    term_url:
+##### 
+
+adherent_cell_line:
+  description: >
+    legacy LIMS flag indicating that cultured cells are adherent
+  termDef:
+    term: adherent cell line
+    source: DNTP
+    cde_id: MD-360
+    cde_version: 1.0
+    term_url:
+cell_line:
+  description: >
+    A cultured cell population that represents a genetically stable and homogenous population of cultured cells that shares a common propagation history (i.e. has been successively passaged together in culture).
+  termDef:
+    term: cell line
+    source: DNTP
+    cde_id: MD-82
+    cde_version: 1.0
+    term_url:
+cell_line_name:
+  description: >
+    see cell line ontology (https://www.ebi.ac.uk/ols/ontologies/clo)
+  termDef:
+    term: cell line name
+    source: DNTP
+    cde_id: MD-90
+    cde_version: 1.0
+    term_url:
+cell_line_source:
+  description: >
+    A vendor or other supplier which supplies the cell line used as a subject in a study
+  termDef:
+    term: cell line source
+    source: DNTP
+    cde_id: MD-91
+    cde_version: 1.0
+    term_url:
+cell_type:
+  description: >
+    A cell type is a classification used to identify cells that share morphological or phenotypical features
+  termDef:
+    term: cell type
+    source: DNTP
+    cde_id: MD-92
+    cde_version: 1.0
+    term_url:
+disease_of_tissue_a_cell_line_derives_from:
+  description: >
+    product of establishing a cell line to a tissue with a particular disease start (from mpath or other ontology)
+  termDef:
+    term: disease of tissue a cell line derives from
+    source: DNTP
+    cde_id: MD-89
+    cde_version: 1.0
+    term_url:
+establishing_a_cell_line:
+  description: >
+    a process whereby a new type of cell line is created, either through passaging of a primary cell culture to relative genetic stability and compositional homogeneity, or through some experimental modification of an existing cell line to produce a new line with novel characteristics (e.g. immortalization or some other stable genetic modification, or selection of some defined subset).…
+  termDef:
+    term: establishing a cell line
+    source: DNTP
+    cde_id: MD-84
+    cde_version: 1.0
+    term_url:
+organ_a_cell_line_derives_from_:
+  description: >
+    product of establishing a cell line to an organ (see UBERON for list of organs)
+  termDef:
+    term: organ a cell line derives from 
+    source: DNTP
+    cde_id: MD-85
+    cde_version: 1.0
+    term_url:
+sex_a_cell_line_derived_from:
+  description: >
+    product of establishing a cell line to a particular sex of lab animal
+  termDef:
+    term: sex a cell line derived from
+    source: DNTP
+    cde_id: MD-88
+    cde_version: 1.0
+    term_url:
+single-cell_RNA_sequencing_assay:
+  description: >
+    An RNA sequencing assay that uses RNA extracts as input that can be traced to a single cell of origin.
+  termDef:
+    term: single-cell RNA sequencing assay
+    source: DNTP
+    cde_id: MD-111
+    cde_version: 1.0
+    term_url:
+strain_a_cell_line_derives_from:
+  description: >
+    product of establishing a cell line to a strain of lab animal
+  termDef:
+    term: strain a cell line derives from
+    source: DNTP
+    cde_id: MD-87
+    cde_version: 1.0
+    term_url:
+tissue_a_cell_line_derives_from:
+  description: >
+    product of establishing a cell line to a tissue
+  termDef:
+    term: tissue a cell line derives from
+    source: DNTP
+    cde_id: MD-86
+    cde_version: 1.0
+    term_url:
+
+assay:
+  description: >
+    A planned process with the objective to produce information about the material entity that is the evaluant, by physically examining it or its proxies.
+  termDef:
+    term: assay
+    source: DNTP
+    cde_id: MD-99
+    cde_version: 1.0
+    term_url:
+    
+enrichment_in_cage:
+  description: >
+    description of material added to lab animal cage to reduce monotony
+  termDef:
+    term: enrichment in cage
+    source: DNTP
+    cde_id: MD-351
+    cde_version: 1.0
+    term_url:
+    
+#####
 28s_16s_ribosomal_rna_ratio:
   description: >
     The 28S/18S ribosomal RNA band ratio used to assess the quality of total RNA.
@@ -1839,3 +2231,12 @@ years_smoked:
     cde_id: 3137957
     cde_version: 1.0
     term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=3137957&version=1.0"
+organism:
+  description: >
+    A material entity that is an individual living system, such as animal, plant, bacteria or virus, that is capable of replicating or reproducing, growth and maintenance in the right environment. An organism may be unicellular or made up, like humans, of many billions of cells divided into specialized tissues and organs.
+  termDef:
+    term: OBI_0100026
+    source: null
+    cde_id: null
+    cde_version: null
+    term_url: "http://purl.obolibrary.org/obo/OBI_0100026"

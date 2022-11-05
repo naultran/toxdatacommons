@@ -4,8 +4,8 @@ id: "read_group"
 title: Read Group
 type: object
 description: "Sequencing reads from one lane of an NGS experiment."
-namespace: http://gdc.nci.nih.gov
-category: biospecimen
+namespace: https://toxdatacommons.com
+category: notation
 project: '*'
 program: '*'
 additionalProperties: false
@@ -20,13 +20,25 @@ systemProperties:
   - state
 
 links:
-  - name: aliquots
+  - name: fastq_file
     label: derived_from
-    target_type: aliquot
+    target_type: fastq_file
     multiplicity: many_to_one
     required: true
-    backref: read_groups
-
+    backref: read_group
+  - name: submitted_aligned_reads
+    label: derived_from
+    target_type: submitted_aligned_reads
+    multiplicity: many_to_one
+    required: true
+    backref: read_group  
+  - name: submitted_unaligned_reads
+    label: derived_from
+    target_type: submitted_unaligned_reads
+    multiplicity: many_to_one
+    required: true
+    backref: read_group 
+      
 required:
   - type
   - submitter_id
@@ -104,10 +116,7 @@ properties:
       - Validation
       - Amplicon
       - Other
-  RIN:
-    term:
-      $ref: "_terms.yaml#/RIN"
-    type: number
+
   flow_cell_barcode:
     term:
       $ref: "_terms.yaml#/flow_cell_barcode"

@@ -8,7 +8,7 @@ project: '*'
 category: administrative
 description: >
   Any specifically defined piece of work that is undertaken or attempted to meet a single
-  requirement. (NCIt C47885)
+  requirement. (GSSO_004441)
 additionalProperties: false
 submittable: true
 validators: null
@@ -23,7 +23,6 @@ systemProperties:
 required:
   - code
   - name
-  - dbgap_accession_number
   - programs
 
 uniqueKeys:
@@ -42,7 +41,7 @@ constraints: null
 
 properties:
   type:
-    type: string
+    enum: [ "project" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -53,29 +52,75 @@ properties:
   code:
     type: string
     description: "Unique identifier for the project."
-  investigator_name:
-    description: "Name of the principal investigator for the project."
+    
+  investigation_description:
+    description: "An overview of the project objectives and approaches"
     type: string
-  investigator_affiliation:
-    description: "The investigator's affiliation with respect to a research institution."
+
+  data_submission_contact_name:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_name"
     type: string
-  date_collected:
-    description: "The date or date range in which the project data was collected."
+
+  data_submission_contact_orcid:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_orcid" 
     type: string
+      
+  data_submission_contact_email:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_email"
+    type: string
+  
+  data_submission_contact_telephone:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_telephone"
+    type: string
+    
+  data_submission_contact_department:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_department"
+    type: string
+
+  data_submission_contact_institution:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_institution"
+    type: string
+
+  data_submission_contact_institution_postal_address:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_institution_postal_address"
+    type: string
+
+  data_submission_contact_institution_city:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_institution_city"
+    type: string
+
+  data_submission_contact_state:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_state"
+    type: string
+      
+  data_submission_contact_zip:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_zip"      
+    type: string
+
   availability_type:
     description: "Is the project open or restricted?"
     enum:
       - Open
       - Restricted
-  availability_mechanism:
-    description: "Mechanism by which the project will be made avilable."
-    type: string
+      
   support_source:
     description: "The name of source providing support/grant resources."
     type: string
+    
   support_id:
     description: "The ID of the source providing support/grant resources."
     type: string
+    
   programs:
     $ref: "_definitions.yaml#/to_one"
     description: >
@@ -127,8 +172,8 @@ properties:
 
   released:
     description: |
-      To release a project is to tell the GDC to include all submitted
-      entities in the next GDC index.
+      To release a project is to tell the MSU SRC DMAC to include all submitted
+      entities in the next TDC index.
     default: false
     type: boolean
 
@@ -142,6 +187,3 @@ properties:
     description: Tracks a Project's intended release date.
     type: string
     format: date-time
-  dbgap_accession_number:
-    type: string
-    description: "The dbgap accession number provided for the project."

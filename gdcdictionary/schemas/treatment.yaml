@@ -4,7 +4,7 @@ id: "treatment"
 title: Treatment
 type: object
 namespace: http://gdc.nci.nih.gov
-category: administrative
+category: clinical
 program: '*'
 project: '*'
 description: >
@@ -24,18 +24,19 @@ systemProperties:
 required:
   - submitter_id
   - type
-  - test_article_dtxsid
-  - vehicle_dtxsid
 
 links:
-  - name: subjects
+  - name: diagnoses
     backref: treatments
     label: describes #need better term here
-    target_type: subject
-    multiplicity: many_to_many
+    target_type: diagnosis
+    multiplicity: many_to_one
     required: true
 
+
+
 uniqueKeys:
+  #unclear if want submitter ID for clinical
   - [id]
   - [project_id, submitter_id]
 
@@ -55,143 +56,162 @@ properties:
       - string
       - "null"
 
-  test_article:
-    $ref: "_terms.yaml#/test_article"
-    type:
-      - string
-      
-  test_article_dtxsid:
-    description: "The test article identifier from the CompTox Chemicals Dashboard (https://comptox.epa.gov/dashboard/)"
-    type:
-      - string
-      
-  vehicle_article:
-    type:
-      - string
+  days_to_treatment:
+    term:
+      $ref: "_terms.yaml#/days_to_treatment"
+    type: number
 
-  vehicle_article_dtxsid:
-    description: "The vehicle identifier from the CompTox Chemicals Dashboard (https://comptox.epa.gov/dashboard/)"
-    type:
-      - string
-      - "null"
+  days_to_treatment_end:
+    term:
+      $ref: "_terms.yaml#/days_to_treatment_end"
+    type: number
 
-  test_article_vendor:
-    $ref: "_terms.yaml#/test_article_vendor"
-    type:
-      - string  
-      
-  test_article_vendor_catalog_number:
-    $ref: "_terms.yaml#/test_article_vendor_catalog_number"
-    type:
-      - string        
+  days_to_treatment_start:
+    term:
+      $ref: "_terms.yaml#/days_to_treatment_start"
+    type: number
 
-  test_article_lot_number:
-    type:
-      - string        
+  therapeutic_agents:
+    term:
+      $ref: "_terms.yaml#/therapeutic_agents"
+    type: string
 
-  test_article_purity:
-    $ref: "_terms.yaml#/test_article_purity"
-    type:
-      - number  
-      
-  test_article_storage_temperature:
-    type:
-      - number 
-
-  route:
+  treatment_anatomic_site:
+    term:
+      $ref: "_terms.yaml#/treatment_anatomic_site"
     enum:
-      - Administration via Cytapheresis
-      - Administration via Fistula
-      - Administration via Stoma
-      - Auricular Route of Administration
-      - Combination Route of Administration
-      - Concomitant Medication Route of Administration
-      - Dental Route of Administration
-      - Dietary Route of Administration
-      - Drop Instillation Route of Administration
-      - Electro-osmosis Route of Administration
-      - Endotracheal Route of Administration
-      - Enteral Route of Administration
-      - Epilesional Route of Administration
-      - Exposure Route of Administration
-      - Exposure as Collected Route of Administration
-      - External Route of Administration
-      - Extracorporeal Circulation Route of Administration
-      - Genitourinary Route of Administration
-      - Immersion Route of Exposure
-      - In Beehive Route of Administration
-      - In Vitro Route of Administration
-      - Inhalation Route of Administration
-      - Injection Route of Administration
-      - Intestinal Route of Administration
-      - Intracavernous Route of Administration
-      - Intracavitary Route of Administration
-      - Intracholangiopancreatic Route of Administration
-      - Intracochlear Route of Administration
-      - Intraglandular Route of Administration
-      - Intrajejunal Route of Administration
-      - Intralesional Route of Administration
-      - Intramandibular Route of Administration
-      - Intrapalatal Route of Administration
-      - Intraparenchymal Route of Administration
-      - Intrasurgical Site Route of Administration
-      - Intrathalamic Route of Administration
-      - Intraurethral Route of Administration
-      - Intravaginal Route of Administration
-      - Iontophoresis Route of Administration
-      - Laryngeal Route of Administration
-      - Laryngotracheal Route of Administration
-      - Microdialysis Route of Administration
-      - Mucosal Route of Administration
-      - Nasal Route of Administration
-      - Oculonasal Route of Administration
-      - Ophthalmic Route of Administration
-      - Oral Gavage Route of Administration
-      - Oral Route of Administration
-      - Other Route of Administration
-      - Parenteral Route of Administration    
+      - Abdomen, total
+      - Arm
+      - Ascites
+      - Axillary
+      - Body, total
+      - Bone
+      - Bone, non-spine
+      - Brain, focal
+      - Brain, whole
+      - Brain-C2
+      - Breast
+      - Cervical
+      - Chest Wall
+      - Effusion
+      - Epitrochlear
+      - Eye
+      - Femoral
+      - Gastrointestinal, Colon
+      - Gastrointestinal, Gallbladder
+      - Gastrointestinal, Intestine
+      - Gastrointestinal, Liver
+      - Gastrointestinal, NOS
+      - Gastrointestinal, Pancreas
+      - Gastrointestinal, Rectum
+      - Gastrointestinal, Stomach
+      - Genitourinary, Bladder
+      - Genitourinary, Kidney
+      - Genitourinary, NOS
+      - Genitourinary, Prostate
+      - Genitourinary, Prostate and Seminal Vesicles
+      - Head
+      - Head, Face, or Neck
+      - Hilar
+      - Iliac-common
+      - Iliac-external
+      - Inguinal
+      - Internal Mammary Nodes
+      - Leg
+      - Lung
+      - Lymph Nodes
+      - Lymph node, distant (specify site)
+      - Lymph node, locoregional (specify site)
+      - Mantle
+      - Mediastinal
+      - Mediastinum
+      - Mesenteric
+      - Occipital
+      - Other
+      - Paraaortic
+      - Parametrium
+      - Parotid
+      - Pelvis
+      - Popliteal
+      - Primary tumor site
+      - Prostate
+      - Prostate Bed
+      - Prostate, Seminal Vesicles and Lymph Nodes
+      - Rectum
+      - Retroperitoneal
+      - Sacrum
+      - Seminal vesicles
+      - Shoulder
+      - Skin, lower extremity, local
+      - Skin, total
+      - Skin, trunk, local
+      - Skin, upper extremity, local
+      - Spine
+      - Spine, whole
+      - Splenic
+      - Submandibular
+      - Supraclavicular
+      - Supraclavicular/Axillary Level 3
+      - Thorax
+      - Trunk
+      - Unknown
+      - Not Reported
+      - Not Allowed To Collect
 
-  administration_volume:
-    description: "The volume in which the test article was administered in vivo or in vitro in microliters (uL)"
-    type:
-      - number
-      
-  number_of_administrations:
-    description: "The number of times the test article was administered in the duration of the experiment"
-    type:
-      - number
+  treatment_intent_type:
+    term:
+      $ref: "_terms.yaml#/treatment_intent_type"
+    type: string
 
-  administration_interval:
-    description: "The amount of time between individual administrations of the test article in days"
-    type:
-      - number
-      
-  dose_amount:
-    type:
-      - number
-      
-  dose_amount_unit:
+  treatment_or_therapy:
+    term:
+      $ref: "_terms.yaml#/treatment_or_therapy"
     enum:
-      - milligram per kilogram
-      - microgram per kilogram
-      - milligram per kilogram per day
-      - microgram per kilogram per day
-      - nanomolar
-      - micromolar
-      - millimolar
-            
-  test_article_administration_zt:
-    type:
-      - number    
+      - "yes"
+      - "no"
+      - unknown
+      - not reported
 
-  treatment_start_age:
-    type:
-      - string
-      
-  treatment_end_age:
-    type:
-      - string
+  treatment_outcome:
+    term:
+      $ref: "_terms.yaml#/treatment_outcome"
+    enum:
+      - Complete Response
+      - Partial Response
+      - Treatment Ongoing
+      - Treatment Stopped Due to Toxicity
+      - Unknown
 
-  subject:
-    $ref: "_definitions.yaml#/to_many"
+  treatment_type:
+    term:
+      $ref: "_terms.yaml#/treatment_type"
+    enum:
+      - Ablation
+      - Chemotherapy
+      - Concurrent Chemoradiation
+      - Cryoablation
+      - Embolization
+      - Hormone Therapy
+      - Internal Radiation
+      - Immunotherapy (Including Vaccines)
+      - Other
+      - Pharmaceutical Therapy
+      - Radiation Therapy
+      - Stem Cell Treatment
+      - Surgery
+      - Targeted Molecular Therapy
+      - Unknown
+      - Not Reported
+      - Not Allowed To Collect
 
+  diagnoses:
+    $ref: "_definitions.yaml#/to_one"
+
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+
+  # ======== Timestamps ========
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

@@ -1,13 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "submitted_unaligned_reads"
-title: Submitted Unaligned Reads
+id: "submitted_somatic_mutation"
+title: Submitted Somatic Mutation
 type: object
 namespace: http://gdc.nci.nih.gov
 category: data_file
 program: '*'
 project: '*'
-description: "Data file containing unaligned reads that have not been GDC Harmonized."
+description: >
+  Data file containing somatic mutation calls from a read group.
 additionalProperties: false
 submittable: true
 validators: null
@@ -25,16 +26,16 @@ links:
   - exclusive: false
     required: true
     subgroup:
-    - name: read_groups
-      backref: submitted_unaligned_reads_files # pretty ugly
-      label: data_from
-      target_type: read_group
-      multiplicity: many_to_one
-      required: false
     - name: core_metadata_collections
-      backref: submitted_unaligned_reads_files
+      backref: submitted_somatic_mutations
       label: data_from
       target_type: core_metadata_collection
+      multiplicity: many_to_many
+      required: false
+    - name: read_groups
+      backref: submitted_somatic_mutations
+      label: derived_from
+      target_type: read_group
       multiplicity: many_to_many
       required: false
 
@@ -43,10 +44,10 @@ required:
   - type
   - file_name
   - file_size
+  - data_format
   - md5sum
   - data_category
   - data_type
-  - data_format
   - experimental_strategy
 
 uniqueKeys:
@@ -56,37 +57,27 @@ uniqueKeys:
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
   type:
-    enum: [ "submitted_unaligned_reads" ]
+    enum: [ "submitted_somatic_mutation" ]
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
-    enum:
-      - Sequencing Data
-      - Sequencing Reads
-      - Raw Sequencing Data
+    type: string
   data_type:
     term:
       $ref: "_terms.yaml#/data_type"
-    enum: [ "Unaligned Reads" ]
+    type: string 
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
-    enum:
-      - BAM
-      - FASTQ
+    type: string
   experimental_strategy:
     term:
       $ref: "_terms.yaml#/experimental_strategy"
-    enum:
-      - WGS
-      - WXS
-      - Low Pass WGS
-      - Validation
-      - RNA-Seq
-      - miRNA-Seq
-      - Total RNA-Seq
-      - DNA Panel
+    type: string 
+  total_variants:
+    description: "The total number of variants detected carrying a base change difference from the reference genome."
+    type: integer
   read_groups:
-    $ref: "_definitions.yaml#/to_one"
+    $ref: "_definitions.yaml#/to_many"
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"

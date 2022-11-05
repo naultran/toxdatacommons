@@ -7,7 +7,7 @@ category: administrative
 program: '*'
 project: '*'
 description: >
-  A broad framework of goals to be achieved. (NCIt C52647)
+  A broad framework of goals to be achieved. (NCIT_C52647)
 additionalProperties: false
 submittable: false
 validators: null
@@ -17,16 +17,15 @@ systemProperties:
 
 required:
   - name
-  - dbgap_accession_number
 
 uniqueKeys:
   - [id]
   - [name]
 
 links: []
-
 # Program is the root entity and so it is the only entity
 # without a project or parents.
+
 properties:
   type:
     type: string
@@ -34,8 +33,8 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   name:
-    type: string
     description: "Full name/title of the program."
-  dbgap_accession_number:
-    type: string
-    description: "The dbgap accession number provided for the program."
+    enum:
+      - Michigan State University Superfund Research Program
+      - Chemical Effects in Biological Systems (CEBS)
+      # It is assumed that these can be added over time. 

@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "acknowledgement"
 title: Acknowledgement 
 type: object
-namespace: http://toxdatacommons.com
+namespace: http://gdc.nci.nih.gov
 category: administrative
 program: '*'
 project: '*'

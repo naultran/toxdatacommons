@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "sample"
 title: Sample
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://toxdatacommons.com
 category: biospecimen
 program: '*'
 project: '*'
@@ -27,25 +27,19 @@ systemProperties:
 required:
   - submitter_id
   - type
-  - cases
+  - subject
 
 uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
 links:
-  - name: cases
+  - name: subject
     backref: samples
     label: derived_from
-    target_type: case
+    target_type: subject
     multiplicity: many_to_one #not sure
     required: true
-  - name: diagnoses
-    backref: samples
-    label: related_to
-    target_type: diagnosis
-    multiplicity: many_to_one
-    required: false
 
 # Sample properties: keep TCGA-specific fields
 properties:
@@ -348,76 +342,29 @@ properties:
       - Unknown
       - Not Reported
       - Not Allowed To Collect
-  composition:
-    term:
-      $ref: "_terms.yaml#/composition"
-    enum:
-      - Buccal Cells
-      - Buffy Coat
-      - Bone Marrow Components
-      - Bone Marrow Components NOS
-      - Control Analyte
-      - Cell
-      - Circulating Tumor Cell (CTC)
-      - Derived Cell Line
-      - EBV Immortalized
-      - Fibroblasts from Bone Marrow Normal
-      - Granulocytes
-      - Human Original Cells
-      - Lymphocytes
-      - Mononuclear Cells from Bone Marrow Normal
-      - Peripheral Blood Components NOS
-      - Peripheral Blood Nucleated Cells
-      - Pleural Effusion
-      - Plasma
-      - Peripheral Whole Blood
-      - Serum
-      - Saliva
-      - Sputum
-      - Solid Tissue
-      - Whole Bone Marrow
-      - Unknown
-      - Not Reported
-      - Not Allowed To Collect
-  current_weight:
-    term:
-      $ref: "_terms.yaml#/current_weight"
-    type: number
-  days_to_collection:
+
+  date_collected:
     term:
       $ref: "_terms.yaml#/days_to_collection"
     type: integer
-  days_to_sample_procurement:
-    term:
-      $ref: "_terms.yaml#/days_to_sample_procurement"
-    type: integer
-  diagnosis_pathologically_confirmed:
-    term:
-      ref: "_terms.yaml#/diagnosis_pathologically_confirmed"
-    enum:
-      - "Yes"
-      - "No"
-      - Unknown
-  freezing_method:
-    term:
-      $ref: "_terms.yaml#/freezing_method"
-    type: string
-  initial_weight:
-    term:
-      $ref: "_terms.yaml#/initial_weight"
-    type: number
-  intermediate_dimension:
-    terms:
-      $ref: "_terms.yaml#/intermediate_dimension"
-    type: string
-  is_ffpe:
-    term:
-      $ref: "_terms.yaml#/is_ffpe"
-    type: boolean
-  longest_dimension:
-    terms:
-      $ref: "_terms.yaml#/longest_dimension"
-    type: string
+
+  weight_at_collection:
+    description: "The weight of the sample at collection in milligram (mg)"
+    type: 
+      - number
+      - "not measured"
+
+  sample_collection_volume:
+    description: "The volume of the sample at collection in milliliters (mL)."
+    type: 
+      - number
+      - "not measured"
+
+  cell_count_at_collection:
+    description: "The number of cells in the collected sample" 
+    type:
+      - number    
+ 
   method_of_sample_procurement:
     term:
       $ref: "_terms.yaml#/method_of_sample_procurement"
@@ -478,205 +425,8 @@ properties:
       - Unknown
       - Not Reported
       - Not Allowed To Collect
-  oct_embedded:
-    term:
-      $ref: "_terms.yaml#/oct_embedded"
-    type: string
-  preservation_method:
-    term:
-      $ref: "_terms.yaml#/preservation_method"
-    enum:
-      - Cryopreserved
-      - FFPE
-      - Fresh
-      - OCT
-      - Snap Frozen
-      - Frozen
-      - Unknown
-      - Not Reported
-      - Not Allowed To Collect
-  sample_type:
-    description: "Characterization of the sample as either clinical or contrived."
-    enum:
-      - Additional Metastatic
-      - Additional - New Primary
-      - Blood Derived Cancer - Bone Marrow, Post-treatment
-      - Blood Derived Cancer - Peripheral Blood, Post-treatment
-      - Blood Derived Normal
-      - Bone Marrow Normal
-      - Buccal Cell Normal
-      - Cell Line Derived Xenograft Tissue
-      - Cell Lines
-      - cfDNA
-      - Circulating Tumor Cell (CTC)
-      - Control Analyte
-      - Clinical
-      - Contrived
-      - ctDNA
-      - DNA
-      - EBV Immortalized Normal
-      - FFPE Recurrent
-      - FFPE Scrolls
-      - Fibroblasts from Bone Marrow Normal
-      - GenomePlex (Rubicon) Amplified DNA
-      - Granulocytes
-      - Human Tumor Original Cells
-      - Metastatic
-      - Mononuclear Cells from Bone Marrow Normal
-      - Primary Blood Derived Cancer - Peripheral Blood
-      - Recurrent Blood Derived Cancer - Peripheral Blood
-      - Pleural Effusion
-      - Primary Blood Derived Cancer - Bone Marrow
-      - Primary Tumor
-      - Primary Xenograft Tissue
-      - Post neo-adjuvant therapy
-      - Recurrent Blood Derived Cancer - Bone Marrow
-      - Recurrent Tumor
-      - Repli-G (Qiagen) DNA
-      - Repli-G X (Qiagen) DNA
-      - RNA
-      - Slides
-      - Solid Tissue Normal
-      - Total RNA
-      - Xenograft Tissue
-      - Unknown
-      - Not Reported
-      - Not Allowed To Collect
-  sample_type_id:
-    term:
-      $ref: "_terms.yaml#/sample_type_id"
-    enum:
-      - '01'
-      - '02'
-      - '03'
-      - '04'
-      - '05'
-      - '06'
-      - '07'
-      - '08'
-      - '09'
-      - '10'
-      - '11'
-      - '12'
-      - '13'
-      - '14'
-      - '15'
-      - '16'
-      - '20'
-      - '40'
-      - '41'
-      - '42'
-      - '50'
-      - '60'
-      - '61'
-      - '99'
-  sample_volume:
-    description: "The volume of the sample in mL."
-    type: number
-  shortest_dimension:
-    term:
-      $ref: "_terms.yaml#/shortest_dimension"
-    type: string
-  time_between_clamping_and_freezing:
-    term:
-      $ref: "_terms.yaml#/time_between_clamping_and_freezing"
-    type: string
-  time_between_excision_and_freezing:
-    term:
-      $ref: "_terms.yaml#/time_between_excision_and_freezing"
-    type: string
-  tissue_type:
-    term:
-      $ref: "_terms.yaml#/tissue_type"
-    enum:
-      - Tumor
-      - Normal
-      - Abnormal
-      - Peritumoral
-      - Contrived
-      - Unknown
-      - Not Reported
-      - Not Allowed To Collect
-  tumor_code:
-    term:
-      $ref: "_terms.yaml#/tumor_code"
-    enum:
-      - Non cancerous tissue
-      - Diffuse Large B-Cell Lymphoma (DLBCL)
-      - Lung Cancer (all types)
-      - Lung Adenocarcinoma
-      - Non-small Cell Lung Carcinoma (NSCLC)
-      - Colon Cancer (all types)
-      - Breast Cancer (all types)
-      - Cervical Cancer (all types)
-      - Anal Cancer (all types)
-      - Acute lymphoblastic leukemia (ALL)
-      - Acute myeloid leukemia (AML)
-      - Induction Failure AML (AML-IF)
-      - Neuroblastoma (NBL)
-      - Osteosarcoma (OS)
-      - Ewing sarcoma
-      - Wilms tumor (WT)
-      - Clear cell sarcoma of the kidney (CCSK)
-      - Rhabdoid tumor (kidney) (RT)
-      - CNS, ependymoma
-      - CNS, glioblastoma (GBM)
-      - CNS, rhabdoid tumor
-      - CNS, low grade glioma (LGG)
-      - CNS, medulloblastoma
-      - CNS, other
-      - NHL, anaplastic large cell lymphoma
-      - NHL, Burkitt lymphoma (BL)
-      - Rhabdomyosarcoma
-      - Soft tissue sarcoma, non-rhabdomyosarcoma
-      - Castration-Resistant Prostate Cancer (CRPC)
-      - Prostate Cancer
-      - Hepatocellular Carcinoma (HCC)
-  tumor_code_id:
-    term:
-      $ref: "_terms.yaml#/tumor_code_id"
-    enum:
-      - "00"
-      - "01"
-      - "02"
-      - "03"
-      - "04"
-      - "10"
-      - "20"
-      - "21"
-      - "30"
-      - "40"
-      - "41"
-      - "50"
-      - "51"
-      - "52"
-      - "60"
-      - "61"
-      - "62"
-      - "63"
-      - "64"
-      - "65"
-      - "70"
-      - "71"
-      - "80"
-      - "81"
-  tumor_descriptor:
-    term:
-      $ref: "_terms.yaml#/tumor_descriptor"
-    enum:
-      - Metastatic
-      - Not Applicable
-      - Primary
-      - Recurrence
-      - Xenograft
-      - NOS
-      - Unknown
-      - Not Reported
-      - Not Allowed To Collect
-    description: "A description of the tumor from which the sample was derived." # TOREVIEW
-  cases:
-    $ref: "_definitions.yaml#/to_one"
-  diagnoses:
+
+  subject:
     $ref: "_definitions.yaml#/to_one"
   project_id:
     type: string
