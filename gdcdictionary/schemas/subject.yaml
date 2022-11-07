@@ -1,6 +1,6 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "case"
+id: "subject"
 title: Subject
 type: object
 namespace: http://gdc.nci.nih.gov
@@ -23,7 +23,7 @@ systemProperties:
 
 links:
   - name: experiments 
-    backref: cases
+    backref: subjects
     label: member_of
     target_type: experiment
     multiplicity: many_to_one
@@ -52,6 +52,35 @@ properties:
       - string
       - "null"
 
+  organism:
+    enum:
+      - Homo sapiens [NCBITaxon_9606]
+      - Mus musculus [NCBITaxon_10090]
+      - Rattus norvegicus [NCBITaxon_10116]
+      - Drosophila melanogaster [NCBITaxon_7227]
+      - Danio rerio [NCBITaxon_7955]
+      - Xenopus laevis [NCBITaxon_8355]
+  strain:
+    description: "Provide strain information associated to the source biological material."
+    type: string    
+  lab_animal_vendor: 
+    description: ""
+    type: string
+  sex: 
+    description: ""
+    enum:
+      - female
+      - male
+      - unknown
+      - unspecified
+      - not reported
+  age_assigned:
+    description: "Postnal age at which the biological replicate was received from the vendor or assigned to the experiment in days"
+    type: number
+  euthanasia_method:
+    $ref: "_terms.yaml#/euthanasia_method"
+    type:
+      - string
 
   experiments: 
     $ref: "_definitions.yaml#/to_one"

@@ -33,6 +33,8 @@ required:
   - submitter_id
   - type
   - projects
+  - organism
+  - experimental_setting
 
 uniqueKeys:
   - [ id ]
@@ -50,6 +52,7 @@ properties:
     type:
       - string
       - "null"
+      
   study_design:
     enum:
       - dose response design
@@ -57,7 +60,8 @@ properties:
       - cross sectional design   
       - genetic modification design
       - sex design
-      - time series design  
+      - time series design 
+      
   study_type:
     enum:
       - Teratology
@@ -79,6 +83,24 @@ properties:
       - Toxicogenomics
       - Toxicokinetics
       - Zebrafish
+      
+  organism:
+    enum:
+      - Homo sapiens [NCBITaxon_9606]
+      - Mus musculus [NCBITaxon_10090]
+      - Rattus norvegicus [NCBITaxon_10116]
+      - Drosophila melanogaster [NCBITaxon_7227]
+      - Danio rerio [NCBITaxon_7955]
+      - Xenopus laevis [NCBITaxon_8355]
+      
+  experimental_setting:
+    description: "The type of bioassay performed [bao#BAO_0020005]."
+    enum:
+      - ex vivo [bao#BAO_0020006]
+      - in silico [bao#BAO_0020007]
+      - in vitro [bao#BAO_0020008]
+      - in vivo [bao#BAO_0020009]
+      
   projects:
     $ref: "_definitions.yaml#/to_one_project"
   project_id:
