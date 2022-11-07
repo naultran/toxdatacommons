@@ -3,13 +3,12 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "treatment"
 title: Treatment
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://toxdatacommons.com
 category: clinical
 program: '*'
 project: '*'
 description: >
-  Record of the administration and intention of therapeutic agents provided to a patient to alter
-  the course of a pathologic process.
+  Update.
 additionalProperties: false
 submittable: true
 validators: null
@@ -26,14 +25,12 @@ required:
   - type
 
 links:
-  - name: diagnoses
+  - name: subjects
     backref: treatments
-    label: describes #need better term here
-    target_type: diagnosis
+    label: describes
+    target_type: subject
     multiplicity: many_to_one
     required: true
-
-
 
 uniqueKeys:
   #unclear if want submitter ID for clinical
@@ -55,162 +52,91 @@ properties:
     type:
       - string
       - "null"
-
-  days_to_treatment:
-    term:
-      $ref: "_terms.yaml#/days_to_treatment"
+  test_article_dtxsid:
+    description: "The test article identifier from the CompTox Chemicals Dashboard (https://comptox.epa.gov/dashboard/)"
+    type: 
+      - string 
+      - "null"
+  vehicle_article_dtxsid:
+    description: "The vehicle identifier from the CompTox Chemicals Dashboard (https://comptox.epa.gov/dashboard/)"
+    type:
+      - string
+      - "null"
+  route:
+    enum:
+      - Administration via Cytapheresis
+      - Administration via Fistula
+      - Administration via Stoma
+      - Auricular Route of Administration
+      - Combination Route of Administration
+      - Concomitant Medication Route of Administration
+      - Dental Route of Administration
+      - Dietary Route of Administration
+      - Drop Instillation Route of Administration
+      - Electro-osmosis Route of Administration
+      - Endotracheal Route of Administration
+      - Enteral Route of Administration
+      - Epilesional Route of Administration
+      - Exposure Route of Administration
+      - Exposure as Collected Route of Administration
+      - External Route of Administration
+      - Extracorporeal Circulation Route of Administration
+      - Genitourinary Route of Administration
+      - Immersion Route of Exposure
+      - In Beehive Route of Administration
+      - In Vitro Route of Administration
+      - Inhalation Route of Administration
+      - Injection Route of Administration
+      - Intestinal Route of Administration
+      - Intracavernous Route of Administration
+      - Intracavitary Route of Administration
+      - Intracholangiopancreatic Route of Administration
+      - Intracochlear Route of Administration
+      - Intraglandular Route of Administration
+      - Intrajejunal Route of Administration
+      - Intralesional Route of Administration
+      - Intramandibular Route of Administration
+      - Intrapalatal Route of Administration
+      - Intraparenchymal Route of Administration
+      - Intrasurgical Site Route of Administration
+      - Intrathalamic Route of Administration
+      - Intraurethral Route of Administration
+      - Intravaginal Route of Administration
+      - Iontophoresis Route of Administration
+      - Laryngeal Route of Administration
+      - Laryngotracheal Route of Administration
+      - Microdialysis Route of Administration
+      - Mucosal Route of Administration
+      - Nasal Route of Administration
+      - Oculonasal Route of Administration
+      - Ophthalmic Route of Administration
+      - Oral Gavage Route of Administration
+      - Oral Route of Administration
+      - Other Route of Administration
+      - Parenteral Route of Administration    
+  administration_volume:
+    description: "The volume in which the test article was administered in vivo or in vitro in microliters (uL)"
     type: number
-
-  days_to_treatment_end:
-    term:
-      $ref: "_terms.yaml#/days_to_treatment_end"
+  dose_amount:
     type: number
-
-  days_to_treatment_start:
-    term:
-      $ref: "_terms.yaml#/days_to_treatment_start"
-    type: number
-
-  therapeutic_agents:
-    term:
-      $ref: "_terms.yaml#/therapeutic_agents"
-    type: string
-
-  treatment_anatomic_site:
-    term:
-      $ref: "_terms.yaml#/treatment_anatomic_site"
+  dose_amount_unit:
     enum:
-      - Abdomen, total
-      - Arm
-      - Ascites
-      - Axillary
-      - Body, total
-      - Bone
-      - Bone, non-spine
-      - Brain, focal
-      - Brain, whole
-      - Brain-C2
-      - Breast
-      - Cervical
-      - Chest Wall
-      - Effusion
-      - Epitrochlear
-      - Eye
-      - Femoral
-      - Gastrointestinal, Colon
-      - Gastrointestinal, Gallbladder
-      - Gastrointestinal, Intestine
-      - Gastrointestinal, Liver
-      - Gastrointestinal, NOS
-      - Gastrointestinal, Pancreas
-      - Gastrointestinal, Rectum
-      - Gastrointestinal, Stomach
-      - Genitourinary, Bladder
-      - Genitourinary, Kidney
-      - Genitourinary, NOS
-      - Genitourinary, Prostate
-      - Genitourinary, Prostate and Seminal Vesicles
-      - Head
-      - Head, Face, or Neck
-      - Hilar
-      - Iliac-common
-      - Iliac-external
-      - Inguinal
-      - Internal Mammary Nodes
-      - Leg
-      - Lung
-      - Lymph Nodes
-      - Lymph node, distant (specify site)
-      - Lymph node, locoregional (specify site)
-      - Mantle
-      - Mediastinal
-      - Mediastinum
-      - Mesenteric
-      - Occipital
-      - Other
-      - Paraaortic
-      - Parametrium
-      - Parotid
-      - Pelvis
-      - Popliteal
-      - Primary tumor site
-      - Prostate
-      - Prostate Bed
-      - Prostate, Seminal Vesicles and Lymph Nodes
-      - Rectum
-      - Retroperitoneal
-      - Sacrum
-      - Seminal vesicles
-      - Shoulder
-      - Skin, lower extremity, local
-      - Skin, total
-      - Skin, trunk, local
-      - Skin, upper extremity, local
-      - Spine
-      - Spine, whole
-      - Splenic
-      - Submandibular
-      - Supraclavicular
-      - Supraclavicular/Axillary Level 3
-      - Thorax
-      - Trunk
-      - Unknown
-      - Not Reported
-      - Not Allowed To Collect
-
-  treatment_intent_type:
-    term:
-      $ref: "_terms.yaml#/treatment_intent_type"
-    type: string
-
-  treatment_or_therapy:
-    term:
-      $ref: "_terms.yaml#/treatment_or_therapy"
-    enum:
-      - "yes"
-      - "no"
-      - unknown
-      - not reported
-
-  treatment_outcome:
-    term:
-      $ref: "_terms.yaml#/treatment_outcome"
-    enum:
-      - Complete Response
-      - Partial Response
-      - Treatment Ongoing
-      - Treatment Stopped Due to Toxicity
-      - Unknown
-
-  treatment_type:
-    term:
-      $ref: "_terms.yaml#/treatment_type"
-    enum:
-      - Ablation
-      - Chemotherapy
-      - Concurrent Chemoradiation
-      - Cryoablation
-      - Embolization
-      - Hormone Therapy
-      - Internal Radiation
-      - Immunotherapy (Including Vaccines)
-      - Other
-      - Pharmaceutical Therapy
-      - Radiation Therapy
-      - Stem Cell Treatment
-      - Surgery
-      - Targeted Molecular Therapy
-      - Unknown
-      - Not Reported
-      - Not Allowed To Collect
-
-  diagnoses:
-    $ref: "_definitions.yaml#/to_one"
-
+      - milligram per kilogram
+      - microgram per kilogram
+      - milligram per kilogram per day
+      - microgram per kilogram per day
+      - nanomolar
+      - micromolar
+      - millimolar
+  test_article_administration_zt:
+    type: number  
+  test_article_administration_age:
+    type: number    
+    
+  subjects:
+    $ref: "_definitions.yaml#/to_many"
   project_id:
     $ref: "_definitions.yaml#/project_id"
-
-  # ======== Timestamps ========
   created_datetime:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:
