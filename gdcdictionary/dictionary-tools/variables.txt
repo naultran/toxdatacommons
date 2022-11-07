@@ -70,3 +70,6 @@ treatment	added	dose_amount
 treatment	added	dose_amount_unit									
 treatment	added	test_article_administration_zt									
 treatment	added	test_article_administration_age									
+substance	added	dtxsid									
+substance	added	substance_name									
+sample	update										
