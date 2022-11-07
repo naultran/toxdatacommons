@@ -78,9 +78,7 @@ properties:
     description: "Postnal age at which the biological replicate was received from the vendor or assigned to the experiment in days"
     type: number
   euthanasia_method:
-    $ref: "_terms.yaml#/euthanasia_method"
-    type:
-      - string
+    type: string
 
   experiments: 
     $ref: "_definitions.yaml#/to_one"
