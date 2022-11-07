@@ -62,3 +62,11 @@ subject	added	lab_animal_vendor
 subject	added	sex									
 subject	added	age_assigned									
 subject	added	euthanasia_method									
+treatment	added	test_article_dtxsid									
+treatment	added	vehicle_article_dtxsid									
+treatment	added	route									
+treatment	added	administration_volume									
+treatment	added	dose_amount									
+treatment	added	dose_amount_unit									
+treatment	added	test_article_administration_zt									
+treatment	added	test_article_administration_age									

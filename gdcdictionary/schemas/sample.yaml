@@ -27,25 +27,19 @@ systemProperties:
 required:
   - submitter_id
   - type
-  - cases
+  - subjects
 
 uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
 links:
-  - name: cases
+  - name: subjects
     backref: samples
     label: derived_from
-    target_type: case
+    target_type: subject
     multiplicity: many_to_one #not sure
     required: true
-  - name: diagnoses
-    backref: samples
-    label: related_to
-    target_type: diagnosis
-    multiplicity: many_to_one
-    required: false
 
 # Sample properties: keep TCGA-specific fields
 properties:
@@ -674,9 +668,7 @@ properties:
       - Not Reported
       - Not Allowed To Collect
     description: "A description of the tumor from which the sample was derived." # TOREVIEW
-  cases:
-    $ref: "_definitions.yaml#/to_one"
-  diagnoses:
+  subjects:
     $ref: "_definitions.yaml#/to_one"
   project_id:
     type: string
