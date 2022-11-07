@@ -5,3 +5,9 @@ subject	create	subject	administrative		The collection of all data related to a s
 treatment	delete													
 treatment	create	Treatment	clinical		Update.		treatments	describes	subject	many_to_many	TRUE			
 substance	create	Substance	administrative		Metadata concerning substances used for treatment.									
+exposure	delete													
+family_history	delete													
+diagnosis	delete													
+clinical_test	delete													
+demographic	delete													
+case	delete													
