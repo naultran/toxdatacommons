@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "slide_image"
 title: Slide Image
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://toxdatacommons.com
 category: data_file
 program: '*'
 project: '*'
@@ -26,10 +26,10 @@ links:
   - exclusive: false
     required: true
     subgroup:
-    - name: slides
+    - name: aliquots
       backref: slide_images
       label: data_from
-      target_type: slide
+      target_type: aliquot
       multiplicity: many_to_one
       required: false
     - name: core_metadata_collections

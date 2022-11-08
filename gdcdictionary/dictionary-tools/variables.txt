@@ -91,3 +91,19 @@ sample	delete	time_between_clamping_and_freezing
 sample	delete	tumor_code									
 sample	delete	tumor_code_id									
 sample	delete	tumor_descriptor									
+weight_measurement	update	unit									
+weight_measurement	update		"Data file containing gross measurements on a subject, sample, aliquot, diet, or housing conditions. 
+  The file should be a comma-separated file with two columns [hours_since_start, value]. "								
+aliquot	delete	aliquot_quantity									
+aliquot	delete	aliquot_volume									
+aliquot	delete	amount									
+aliquot	update	analyte_type				"      - DNA
+      - total RNA
+      - microRNA
+      - Metabolites
+      - Protein
+      - Tisse section 
+      - Cell suspension"					
+aliquot	delete	analyte_type_id									
+aliquot	delete	concentration									
+aliquot	update	analyte_preparation_protocol									

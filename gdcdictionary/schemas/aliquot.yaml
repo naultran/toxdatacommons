@@ -55,40 +55,23 @@ properties:
     description: >
       The legacy barcode used before prior to the use
       UUIDs. For TCGA this is bcraliquotbarcode.
-  aliquot_quantity:
-    term:
-      $ref: "_terms.yaml#/aliquot_quantity"
-    type: number
-  aliquot_volume:
-    term:
-      $ref: "_terms.yaml#/aliquot_volume"
-    type: number
-  amount:
-    term:
-      $ref: "_terms.yaml#/amount"
-    type: number
+
   analyte_type:
     term:
       $ref: "_terms.yaml#/analyte_type"
-    type: string
-  analyte_type_id:
-    term:
-      $ref: "_terms.yaml#/analyte_type_id"
-    enum:
-      - D
-      - E
-      - G
-      - H
-      - R
-      - S
-      - T
-      - W
-      - X
-      - Y
-  concentration:
-    term:
-      $ref: "_terms.yaml#/concentration"
-    type: number
+    enum: 
+      - DNA
+      - total RNA
+      - microRNA
+      - Metabolites
+      - Protein
+      - Tisse section 
+      - Cell suspension
+  analyte_preparation_protocol:
+    description: "A protocols.io DOI"
+    type:
+      - string
+
   project_id:
     $ref: "_definitions.yaml#/project_id"
   source_center:
