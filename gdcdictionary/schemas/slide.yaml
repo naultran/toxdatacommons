@@ -21,10 +21,10 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: samples
+  - name: aliquots
     backref: slides
     label: derived_from
-    target_type: sample
+    target_type: aliquot
     multiplicity: many_to_many
     required: true
 

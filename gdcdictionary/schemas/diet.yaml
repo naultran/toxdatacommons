@@ -1,0 +1,72 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "diet"
+title: Diet
+type: object
+namespace: https://toxdatacommons.com
+category: clinical
+program: '*'
+project: '*'
+description: >
+  Update.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - submitter_id
+  - type
+
+links:
+  - name: subjects
+    backref: treatments
+    label: describes
+    target_type: subject
+    multiplicity: many_to_one
+    required: true
+
+uniqueKeys:
+  #unclear if want submitter ID for clinical
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+  type:
+    enum: [ "treatment" ]
+
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+
+  state:
+    $ref: "_definitions.yaml#/state"
+
+  submitter_id:
+    type:
+      - string
+      - "null"
+  feed_name:
+    type: string
+  feed_description:
+    type: string
+  feed_source:
+    type: string
+  feed_catalog_number:
+    type: string
+
+    
+  subjects:
+    $ref: "_definitions.yaml#/to_many"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
