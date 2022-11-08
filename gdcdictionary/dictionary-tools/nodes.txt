@@ -4,10 +4,17 @@ acknowledgements	update		administrative				acknowledgements	contribute_to	experi
 subject	create	subject	administrative		The collection of all data related to a specific subject in the context of a specific experiment.		subjects	member_of	experiment	many_to_one	TRUE			
 treatment	delete													
 treatment	create	Treatment	clinical		Update.		treatments	describes	subject	many_to_many	TRUE			
-substance	create	Substance	administrative		Metadata concerning substances used for treatment.									
+substance	create	Substance	administrative		Metadata concerning substances used for treatment.		substances	describes	experiment; treatment	many_to_many	FALSE			
 exposure	delete													
 family_history	delete													
 diagnosis	delete													
 clinical_test	delete													
 demographic	delete													
 case	delete													
+weight_measurement	create	Weight measurements			"Data file containing measured weights of a subject, sample, aliquot, or diet."									
+submitted_copy_number	delete													
+submitted_somatic_mutation	delete													
+submitted_methylation	delete													
+diet	create													
+housing	create													
+slide	update								aliquot					

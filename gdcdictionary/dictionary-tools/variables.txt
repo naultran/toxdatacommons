@@ -12,51 +12,51 @@ experiment	delete	indels_identified
 experiment	delete	copy_numbers_identified									
 experiment	delete	type_of_data									
 experiment	delete	data_description									
-experiment	added	study_design			enum	"dose response design
-case control design
-cross sectional design
-genetic modification design
-sex design
-time series design"					
-experiment	added	study_type			enum	"	
-Teratology
-Short term
-Long term
-Bacterial mutagenicity
-Drosophila germ cell mutagenicity
-In vitro micronucleus
-In vivo alkaline comet assay
-Mammalian cell cytogenetics
-Mammalian cell mutagenicity
-Micronucleus
-Rodent cytogenetics
-ADME
-Immunotoxicology
-Nematode
-RACB
-Tox21 - Phase II
-Toxicogenomics
-Toxicokinetics
-Zebrafish"					
+experiment	added	study_design			enum	dose response design					
+case control design											
+cross sectional design											
+genetic modification design											
+sex design											
+"time series design"""											
+experiment	added	study_type			enum	"	"					
+Teratology											
+Short term											
+Long term											
+Bacterial mutagenicity											
+Drosophila germ cell mutagenicity											
+In vitro micronucleus											
+In vivo alkaline comet assay											
+Mammalian cell cytogenetics											
+Mammalian cell mutagenicity											
+Micronucleus											
+Rodent cytogenetics											
+ADME											
+Immunotoxicology											
+Nematode											
+RACB											
+Tox21 - Phase II											
+Toxicogenomics											
+Toxicokinetics											
+"Zebrafish"""											
 case	delete	consent_codes									
 case	delete	primary_site									
 case	delete	disease_type									
-experiment	added	experimental_setting			enum	"      - ex vivo
-      - in silico
-      - in vitro
-      - in vivo"	TRUE				
-experiment	added	organism			enum	"      - Homo sapiens [NCBITaxon_9606]
-      - Mus musculus [NCBITaxon_10090]
-      - Rattus norvegicus [NCBITaxon_10116]
-      - Drosophila melanogaster [NCBITaxon_7227]
-      - Danio rerio [NCBITaxon_7955]
-      - Xenopus laevis [NCBITaxon_8355]"	TRUE				
-subject	added	organism			enum	"      - Homo sapiens [NCBITaxon_9606]
-      - Mus musculus [NCBITaxon_10090]
-      - Rattus norvegicus [NCBITaxon_10116]
-      - Drosophila melanogaster [NCBITaxon_7227]
-      - Danio rerio [NCBITaxon_7955]
-      - Xenopus laevis [NCBITaxon_8355]"	TRUE				
+experiment	added	experimental_setting			enum	      - ex vivo					
+      - in silico											
+      - in vitro											
+"      - in vivo"""	TRUE										
+experiment	added	organism			enum	      - Homo sapiens [NCBITaxon_9606]					
+      - Mus musculus [NCBITaxon_10090]											
+      - Rattus norvegicus [NCBITaxon_10116]											
+      - Drosophila melanogaster [NCBITaxon_7227]											
+      - Danio rerio [NCBITaxon_7955]											
+"      - Xenopus laevis [NCBITaxon_8355]"""	TRUE										
+subject	added	organism			enum	      - Homo sapiens [NCBITaxon_9606]					
+      - Mus musculus [NCBITaxon_10090]											
+      - Rattus norvegicus [NCBITaxon_10116]											
+      - Drosophila melanogaster [NCBITaxon_7227]											
+      - Danio rerio [NCBITaxon_7955]											
+"      - Xenopus laevis [NCBITaxon_8355]"""	TRUE										
 subject	added	strain	Provide strain information associated to the source biological material.								
 subject	added	lab_animal_vendor									
 subject	added	sex									
@@ -70,6 +70,24 @@ treatment	added	dose_amount
 treatment	added	dose_amount_unit									
 treatment	added	test_article_administration_zt									
 treatment	added	test_article_administration_age									
-substance	added	dtxsid									
+substance	added	dtxsid	Identifier from the CompTox Chemicals Dashboard (https://comptox.epa.gov/dashboard/)								
 substance	added	substance_name									
-sample	update										
+sample	delete	composition									
+sample	delete	current_weight									
+sample	delete	days_to_collection									
+sample	delete	days_to_sample_procurement									
+sample	delete	diagnosis_pathologically_confirmed									
+sample	delete	freezing_method									
+sample	delete	initial_weight									
+sample	delete	intermediate_dimension									
+sample	delete	is_ffpe									
+sample	delete	longest_dimension									
+sample	delete	oct_embedded									
+sample	delete	sample_type									
+sample	delete	sample_type_id									
+sample	delete	sample_volume									
+sample	delete	shortest_dimension									
+sample	delete	time_between_clamping_and_freezing									
+sample	delete	tumor_code									
+sample	delete	tumor_code_id									
+sample	delete	tumor_descriptor									
