@@ -14,3 +14,5 @@ schema = dump_schemas_from_dir(directory="../gdcdictionary/schemas")
 
 with open('schema.json', 'w') as json_file:
     json.dump(schema, json_file)
+    
+    
