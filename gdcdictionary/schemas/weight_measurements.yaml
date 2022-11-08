@@ -1,14 +1,15 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "weight_measurement"
-title: Weight measurements
+title: Gross measurements
 type: object
 namespace: https://toxdatacommons.com
 category: data_file
 program: '*'
 project: '*'
 description: >
-  Data file containing measured weights of a subject, sample, aliquot, or diet.
+  Data file containing gross measurements on a subject, sample, aliquot, diet, or housing conditions. 
+  The file should be a comma-separated file with two columns [hours_since_start, value]. 
 additionalProperties: false
 submittable: true
 validators: null
@@ -59,9 +60,17 @@ links:
           target_type: diet
           multiplicity: many_to_one
           required: false
+        - name: housings
+          backref: weight_measurements
+          label: describes
+          target_type: housing
+          multiplicity: many_to_one
+          required: false
+          
 required:
   - submitter_id
   - type
+  - unit
   - file_name
   - file_size
   - data_format
@@ -78,6 +87,17 @@ properties:
   $ref: "_definitions.yaml#/data_file_properties"
   type:
     enum: [ "weight_measurement" ]
+  unit:
+    enum:
+      - microgram
+      - milligram
+      - kilogram
+      - microliter
+      - milliliter
+      - celsius
+      - percent
+      - milliliter
+      - square micrometers
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"

@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "subject"
 title: Subject
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://toxdatacommons.com
 category: administrative
 program: '*'
 project: '*'
@@ -75,7 +75,7 @@ properties:
       - unspecified
       - not reported
   age_assigned:
-    description: "Postnal age at which the biological replicate was received from the vendor or assigned to the experiment in days"
+    description: "Postnal age at which the biological replicate was received from the vendor or assigned to the experiment in days. This is the date considered as day 0"
     type: number
   euthanasia_method:
     type: string
