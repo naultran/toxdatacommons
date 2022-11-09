@@ -92,18 +92,32 @@ sample	delete	tumor_code
 sample	delete	tumor_code_id									
 sample	delete	tumor_descriptor									
 weight_measurement	update	unit									
-weight_measurement	update		"Data file containing gross measurements on a subject, sample, aliquot, diet, or housing conditions. 
-  The file should be a comma-separated file with two columns [hours_since_start, value]. "								
+weight_measurement	update		"Data file containing gross measurements on a subject, sample, aliquot, diet, or housing conditions. "								
+"  The file should be a comma-separated file with two columns [hours_since_start, value]. """											
 aliquot	delete	aliquot_quantity									
 aliquot	delete	aliquot_volume									
 aliquot	delete	amount									
-aliquot	update	analyte_type				"      - DNA
-      - total RNA
-      - microRNA
-      - Metabolites
-      - Protein
-      - Tisse section 
-      - Cell suspension"					
+aliquot	update	analyte_type									
 aliquot	delete	analyte_type_id									
 aliquot	delete	concentration									
 aliquot	update	analyte_preparation_protocol									
+project	delete	support_source	The name of source providing support/grant resources.								
+project	delete	support_id	The ID of the source providing support/grant resources.								
+subject	update	organism	The species of the individual subject associated with the experiment.			"      - Bos taurus
+      - Danio rerio
+      - Drosophila melanogaster
+      - Homo sapiens
+      - Mus musculus
+      - Oncorhynchus mykiss
+      - Rattus norvegicus
+      - Xenopus laevis"					
+subject	update	strain	The species strain of the individual subject associated with the experiment.			"      - C57BL6j
+      - C57BL6crl
+      - BALB/Cj
+      - Sprague-Dawley
+      - Dahl SS "					
+subject	delete	lab_animal_vendor									
+subject	added	vendor									
+subject	delete	organism									
+subject	added	age_assigned_date									
+subject	added	euthanasia_date									

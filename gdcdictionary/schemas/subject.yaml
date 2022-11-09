@@ -52,19 +52,16 @@ properties:
       - string
       - "null"
 
-  organism:
-    enum:
-      - Homo sapiens [NCBITaxon_9606]
-      - Mus musculus [NCBITaxon_10090]
-      - Rattus norvegicus [NCBITaxon_10116]
-      - Drosophila melanogaster [NCBITaxon_7227]
-      - Danio rerio [NCBITaxon_7955]
-      - Xenopus laevis [NCBITaxon_8355]
   strain:
-    description: "Provide strain information associated to the source biological material."
-    type: string    
-  lab_animal_vendor: 
-    description: ""
+    description: "The species strain of the individual subject associated with the experiment. To add more strains please contact the commons administrators"
+    enum: 
+      - C57BL6j
+      - C57BL6crl
+      - BALB/Cj
+      - Sprague-Dawley
+      - Dahl SS      
+  vendor: 
+    description: "The commercial or private source of the referenced material."
     type: string
   sex: 
     description: ""
@@ -77,9 +74,13 @@ properties:
   age_assigned:
     description: "Postnal age at which the biological replicate was received from the vendor or assigned to the experiment in days. This is the date considered as day 0"
     type: number
+  age_assigned_date:
+    description: ""
+    type: string
   euthanasia_method:
     type: string
-
+  euthanasia_date:
+    type: string
   experiments: 
     $ref: "_definitions.yaml#/to_one"
   project_id:
