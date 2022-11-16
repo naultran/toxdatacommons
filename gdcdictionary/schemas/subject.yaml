@@ -34,7 +34,7 @@ links:
     - name: treatments
       backref: subjects
       label: describes
-      target_type: treatments
+      target_type: treatment
       multiplicity: many_to_many
       required: false
 
