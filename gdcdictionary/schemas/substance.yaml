@@ -27,12 +27,6 @@ links:
     target_type: experiment
     multiplicity: many_to_many
     required: false
-  - name: treatments
-    backref: substances
-    label: describes
-    target_type: treatment
-    multiplicity: many_to_many
-    required: false
 
 required:
   - submitter_id
