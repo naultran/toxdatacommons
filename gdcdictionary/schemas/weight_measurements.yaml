@@ -40,31 +40,31 @@ links:
           backref: weight_measurements
           label: describes
           target_type: subject
-          multiplicity: many_to_one
+          multiplicity: one_to_many
           required: false
         - name: samples
           backref: weight_measurements
           label: describes
           target_type: sample
-          multiplicity: many_to_one
+          multiplicity: one_to_many
           required: false
         - name: aliquots
           backref: weight_measurements
           label: describes
           target_type: aliquot
-          multiplicity: many_to_one
+          multiplicity: one_to_many
           required: false
         - name: diets
           backref: weight_measurements
           label: describes
           target_type: diet
-          multiplicity: many_to_one
+          multiplicity: one_to_many
           required: false
         - name: housings
           backref: weight_measurements
           label: describes
           target_type: housing
-          multiplicity: many_to_one
+          multiplicity: many_to_many
           required: false
           
 required:
@@ -115,10 +115,14 @@ properties:
       $ref: "_terms.yaml#/experimental_strategy"
     type: string 
   subjects:
-    $ref: "_definitions.yaml#/to_one"
+    $ref: "_definitions.yaml#/to_many"
   samples:
-    $ref: "_definitions.yaml#/to_one"
+    $ref: "_definitions.yaml#/to_many"
   aliquots:
-    $ref: "_definitions.yaml#/to_one"
+    $ref: "_definitions.yaml#/to_many"
+  diets:
+    $ref: "_definitions.yaml#/to_many"
+  housings:
+    $ref: "_definitions.yaml#/to_many"
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"

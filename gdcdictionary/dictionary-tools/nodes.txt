@@ -18,3 +18,9 @@ submitted_methylation	delete
 diet	create													
 housing	create													
 slide	update								aliquot					
+aligned_reads_index														
+submitted_aligned_reads														
+submitted_unaligned_reads														
+read_group_qc														
+read_group														
+experimental_metadata														

@@ -25,12 +25,21 @@ required:
   - type
 
 links:
-  - name: subjects
-    backref: treatments
-    label: describes
-    target_type: subject
-    multiplicity: many_to_one
+  - exclusive: false
     required: true
+    subgroup:
+    - name: experiments
+      backref: treatments
+      label: describes
+      target_type: experiment
+      multiplicity: many_to_one
+      required: true
+    - name: substances
+      backref: treatments
+      label: describes
+      target_type: substance
+      multiplicity: many_to_one
+      required: true
 
 uniqueKeys:
   #unclear if want submitter ID for clinical
@@ -133,8 +142,10 @@ properties:
   test_article_administration_age:
     type: number    
     
-  subjects:
-    $ref: "_definitions.yaml#/to_many"
+  experiments:
+    $ref: "_definitions.yaml#/to_one"
+  substances:
+    $ref: "_definitions.yaml#/to_one"
   project_id:
     $ref: "_definitions.yaml#/project_id"
   created_datetime:

@@ -1,0 +1,60 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "aliquot_qc"
+title: Aliquot QC
+type: object
+namespace: https://toxdatacommons.com
+category: data_file
+program: '*'
+project: '*'
+description: >
+  Information pertaining to processed results obtained from slides; often in the form of counts.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: aliquots
+    backref: aliquot_qc
+    label: data_from
+    target_type: aliquot
+    multiplicity: many_to_many
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - aliquots
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  type:
+    enum: [ "aliquot_qc" ]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  state:
+    $ref: "_definitions.yaml#/state"
+  submitter_id:
+    type:
+      - string
+      - "null"
+
+  aliquots:
+    $ref: "_definitions.yaml#/to_many"
+  project_id:
+    type: string
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

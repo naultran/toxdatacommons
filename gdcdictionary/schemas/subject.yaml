@@ -22,12 +22,21 @@ systemProperties:
   - state
 
 links:
-  - name: experiments 
-    backref: subjects
-    label: member_of
-    target_type: experiment
-    multiplicity: many_to_one
+  - exclusive: false
     required: true
+    subgroup:
+    - name: experiments 
+      backref: subjects
+      label: member_of
+      target_type: experiment
+      multiplicity: many_to_one
+      required: true
+    - name: treatments
+      backref: subjects
+      label: describes
+      target_type: treatments
+      multiplicity: many_to_many
+      required: false
 
 required:
   - submitter_id
@@ -55,9 +64,12 @@ properties:
   strain:
     description: "The species strain of the individual subject associated with the experiment. To add more strains please contact the commons administrators"
     enum: 
-      - C57BL6j
-      - C57BL6crl
-      - BALB/Cj
+      - C57BL/6NCrl
+      - C57BL/6J
+      - 129/Sv
+      - FVB/N
+      - BALB/cJ
+      - C3H/HeJ
       - Sprague-Dawley
       - Dahl SS      
   vendor: 
@@ -83,6 +95,8 @@ properties:
     type: string
   experiments: 
     $ref: "_definitions.yaml#/to_one"
+  treatments: 
+    $ref: "_definitions.yaml#/to_many"
   project_id:
     $ref: "_definitions.yaml#/project_id"
   created_datetime:
