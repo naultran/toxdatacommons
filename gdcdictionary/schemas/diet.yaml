@@ -25,10 +25,10 @@ required:
   - type
 
 links:
-  - name: subjects
+  - name: housings
     backref: diets
     label: describes
-    target_type: subject
+    target_type: housing
     multiplicity: many_to_one
     required: true
 
@@ -60,9 +60,14 @@ properties:
     type: string
   feed_catalog_number:
     type: string
-
-    
-  subjects:
+  study_time:
+    type: number
+  feeding_approach:
+    enum:
+      - ad libitum
+      - night restricted diet
+      - day restricted diet  
+  housings:
     $ref: "_definitions.yaml#/to_many"
   project_id:
     $ref: "_definitions.yaml#/project_id"

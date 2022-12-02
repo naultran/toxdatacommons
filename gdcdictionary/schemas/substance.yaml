@@ -60,8 +60,6 @@ properties:
 
   experiments:
     $ref: "_definitions.yaml#/to_many"
-  treatments:
-    $ref: "_definitions.yaml#/to_many"
   project_id:
     $ref: "_definitions.yaml#/project_id" 
   created_datetime:

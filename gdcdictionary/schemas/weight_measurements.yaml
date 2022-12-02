@@ -87,17 +87,7 @@ properties:
   $ref: "_definitions.yaml#/data_file_properties"
   type:
     enum: [ "weight_measurement" ]
-  unit:
-    enum:
-      - microgram
-      - milligram
-      - kilogram
-      - microliter
-      - milliliter
-      - celsius
-      - percent
-      - milliliter
-      - square micrometers
+
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
@@ -109,10 +99,6 @@ properties:
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
-    type: string 
-  experimental_strategy:
-    term:
-      $ref: "_terms.yaml#/experimental_strategy"
     type: string 
   subjects:
     $ref: "_definitions.yaml#/to_many"

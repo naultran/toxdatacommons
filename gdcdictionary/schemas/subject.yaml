@@ -86,13 +86,21 @@ properties:
   age_assigned:
     description: "Postnal age at which the biological replicate was received from the vendor or assigned to the experiment in days. This is the date considered as day 0"
     type: number
+  study_start_age:
+    type: number
+  experiment_start_date:
+    type: string
+  age_unit:
+    enum:
+      - postnatal day (PND)
+      - developmental age
   age_assigned_date:
     description: ""
     type: string
   euthanasia_method:
-    type: string
-  euthanasia_date:
-    type: string
+    enum:
+      - Carbon dioxide asphyxiation
+      - Cervical dislocation
   experiments: 
     $ref: "_definitions.yaml#/to_one"
   treatments: 
