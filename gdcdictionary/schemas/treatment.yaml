@@ -61,16 +61,6 @@ properties:
     type:
       - string
       - "null"
-  test_article_dtxsid:
-    description: "The test article identifier from the CompTox Chemicals Dashboard (https://comptox.epa.gov/dashboard/)"
-    type: 
-      - string 
-      - "null"
-  vehicle_article_dtxsid:
-    description: "The vehicle identifier from the CompTox Chemicals Dashboard (https://comptox.epa.gov/dashboard/)"
-    type:
-      - string
-      - "null"
   route:
     enum:
       - Administration via Cytapheresis
@@ -139,9 +129,23 @@ properties:
       - millimolar
   test_article_administration_zt:
     type: number  
-  test_article_administration_age:
-    type: number    
-    
+  test_article_administration_time:
+    type: number     
+  test_article_administration_time_unit:
+    enum: 
+      - day
+      - hour
+      - week
+      - month 
+  test_article_administration_duration:
+    description: "The duration of exposure when administered in through environmental factors."
+    type: number
+  test_article_administration_duration_unit:
+    enum: 
+      - day
+      - hour
+      - week
+      - month     
   experiments:
     $ref: "_definitions.yaml#/to_one"
   substances:

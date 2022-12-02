@@ -54,7 +54,12 @@ properties:
       - "null"
   cage_id:
     type: string
- 
+  bedding_type:
+    type: string
+  cage_type:
+    type: string
+  vivarium_light_cycle:
+    type: string
   subjects:
     $ref: "_definitions.yaml#/to_many"
   project_id:
