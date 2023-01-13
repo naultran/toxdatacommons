@@ -97,6 +97,9 @@ properties:
   age_assigned_date:
     description: ""
     type: string
+  euthanasia_day:
+    description: "day of euthanasia relative to the start date (starting at 0)"
+    type: number
   euthanasia_method:
     enum:
       - Carbon dioxide asphyxiation
