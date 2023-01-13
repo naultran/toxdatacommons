@@ -1,0 +1,74 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "read_alignment"
+title: Read alignment
+type: object
+namespace: https://toxdatacommons.com
+category: analysis
+program: '*'
+project: '*'
+description: >
+  Information pertaining to processed results obtained from slides; often in the form of counts.
+additionalProperties: false
+submittable: false
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+links:
+  - name: submitted_unaligned_reads_files
+    backref: read_alignment
+    label: performed_on
+    target_type: submitted_unaligned_reads
+    multiplicity: many_to_many
+    required: false
+  - name: submitted_aligned_reads_files
+    backref: read_alignment
+    label: outputs
+    target_type: submitted_aligned_reads
+    multiplicity: many_to_many
+    required: false
+required:
+  - submitter_id
+  - type
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  $ref: "_definitions.yaml#/workflow_properties"
+  type:
+    enum: [ "read_alignment" ]
+    
+  workflow_type:
+    enum:
+      - STAR
+      - BWA-aln
+      - BWA-mem
+      - spinnaker
+      - salmon
+      - Bowtie2
+      
+  reference_genome:
+    description: ""
+    enum:
+      - 'GRCm39'
+      - 'mm10'
+  reference_genome_release:
+    description: ""
+    type: number
+    
+  workflow_link:
+    description:
+    type: string
+      
+  submitted_aligned_reads_files:
+    $_ref: "_definitions.yaml#/to_many"
+  submitted_unaligned_reads_files:
+    $_ref: "_definitions.yaml#/to_many"

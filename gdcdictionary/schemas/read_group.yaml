@@ -5,7 +5,7 @@ title: Read Group
 type: object
 description: "Sequencing reads from one lane of an NGS experiment."
 namespace: https://toxdatacommons.com
-category: notation
+category: biospecimen
 project: '*'
 program: '*'
 additionalProperties: false
@@ -177,10 +177,6 @@ properties:
     term:
       $ref: "_terms.yaml#/size_selection_range"
     type: string
-  adapter_name:
-    term:
-      $ref: "_terms.yaml#/adapter_name"
-    type: string
   adapter_sequence:
     term:
       $ref: "_terms.yaml#/adapter_sequence"
@@ -210,9 +206,6 @@ properties:
     type: boolean
   read_length:
     type: integer
-  read_group_name:  # it may be good to assign UUID to read group
-    description: "Read Group Name"
-    type: string
   barcoding_applied:
     description: "True/False: was barcoding applied?"
     type: boolean
