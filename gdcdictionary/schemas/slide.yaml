@@ -1,0 +1,84 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "slide"
+title: Slide
+type: object
+namespace: https://toxdatacommons.com
+category: biospecimen
+program: '*'
+project: '*'
+description: >
+  A digital image, microscopic or otherwise, of any sample, portion, or sub-part thereof. (GDC)
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: aliquots
+    backref: slides
+    label: derived_from
+    target_type: aliquot
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - samples
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+# slide properties
+properties:
+  type:
+    type: string
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  state:
+    $ref: "_definitions.yaml#/state"
+  submitter_id:
+    type:
+      - string
+      - "null"
+  assay:
+    description: ""
+    enum:
+      - IHC
+  probe_type:
+    description: ""
+    enum:
+      - Chemical
+  probe_name:
+    description: ""
+    type: string
+  probe_provider:
+    description: ""
+    type: string
+  probe_catalog_number:
+    description: ""
+    type: string
+  probe_concentration:
+    description: ""
+    type: string
+  detection_method:
+    description: ""
+    type: string
+
+  aliquots:
+    $ref: "_definitions.yaml#/to_one"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
