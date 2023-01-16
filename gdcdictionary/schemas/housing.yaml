@@ -29,7 +29,7 @@ links:
     backref: housings
     label: describes
     target_type: subject
-    multiplicity: many_to_one
+    multiplicity: many_to_many
     required: true
 
 uniqueKeys:

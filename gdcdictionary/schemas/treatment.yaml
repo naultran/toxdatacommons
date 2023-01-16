@@ -38,7 +38,7 @@ links:
       backref: treatments
       label: describes
       target_type: substance
-      multiplicity: many_to_one
+      multiplicity: many_to_many
       required: true
 
 uniqueKeys:
@@ -149,7 +149,7 @@ properties:
   experiments:
     $ref: "_definitions.yaml#/to_one"
   substances:
-    $ref: "_definitions.yaml#/to_one"
+    $ref: "_definitions.yaml#/to_many"
   project_id:
     $ref: "_definitions.yaml#/project_id"
   created_datetime:
