@@ -67,6 +67,7 @@ properties:
       - Protein
       - Tisse section 
       - Cell suspension
+      - Histology slide
   analyte_preparation_protocol:
     description: "A protocols.io DOI"
     type:

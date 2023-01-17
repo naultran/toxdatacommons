@@ -31,7 +31,6 @@ links:
 required:
   - submitter_id
   - type
-  - samples
 
 uniqueKeys:
   - [id]

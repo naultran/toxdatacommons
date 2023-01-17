@@ -39,7 +39,7 @@ uniqueKeys:
 
 properties:
   type:
-    enum: [ "treatment" ]
+    enum: [ "housing" ]
 
   id:
     $ref: "_definitions.yaml#/UUID"
