@@ -22,3 +22,11 @@ sudo sysctl -w vm.max_map_count=262144 # changes the value
 sysctl vm.max_map_count # verifies that it has changed
 ```
 > To make this change permanent use ```sudo nano /etc/sysctl.conf``` and add ``` vm.max_map_count=262144``` following line at the end of the document.
+
+
+#### Useful commands
+```
+kubectl get pods # list running pods
+kubectl logs {pod_name} # get logs for a pod
+kubectl describe pods {pod_name} # Explains why it might be stuck in pending
+```
