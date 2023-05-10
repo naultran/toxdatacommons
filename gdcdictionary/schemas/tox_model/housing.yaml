@@ -1,0 +1,69 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "housing"
+title: housing
+type: object
+category: miate
+program: '*'
+project: '*'
+description: >
+  description of housing.
+additionalProperties: false
+submittable: true
+validators: []
+
+systemProperties: []
+
+required:
+  - type
+  - submitter_id
+  - housing_change_date
+  - cage_id
+  - bedding_type
+  - cage_type
+  - vivarium_temperature(C)
+  - vivarium_humidity(%)
+  - vivarium_light_cycle
+  - provenance
+
+uniqueKeys:
+  - [ submitter_id ]
+  - [ cage_id ]
+
+links:
+  - name: subject
+    backref: housing
+    label: member_of
+    target_type: subject
+    multiplicity: many_to_many
+    required: true
+
+properties: 
+  type:
+    type: string
+  submitter_id:
+    type: string
+  housing_change_date:
+    type: date
+  cage_id:
+    type: string
+  bedding_type:
+    enum:
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+      - ALPHA-dri
+      - corn cob
+      - wood shavings
+  cage_type:
+    type: string
+  vivarium_temperature(C):
+    type: float
+  vivarium_humidity(%):
+    type: float
+  vivarium_light_cycle:
+    type: string
+  provenance:
+    type: string

@@ -1,0 +1,116 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "subject"
+title: subject
+type: object
+category: miate
+program: '*'
+project: '*'
+description: >
+  description of subject.
+additionalProperties: false
+submittable: true
+validators: []
+
+systemProperties: []
+
+required:
+  - type
+  - studyID
+  - investigationID
+  - subjectID
+  - start_date
+  - start_date_age
+  - experiement_start_date
+  - experiement_start_zt
+  - sex
+  - strain
+  - strain_source
+  - euthanasia_date
+  - euthanasia_zt
+  - euthanasia_method
+  - provenance
+
+uniqueKeys:
+  - [ subjectID ]
+
+links:
+  - name: experiment
+    backref: subject
+    label: member_of
+    target_type: experiment
+    multiplicity: many_to_one
+    required: true
+
+properties: 
+  type: 
+    type: string
+  studyID:
+    type: string
+    description: ""
+  investigationID:
+    type: string
+    description: ""
+  subjectID:
+    type: string
+    description: ""
+  start_date:
+    type: date
+    description: ""
+  start_date_age:
+    type: integer
+    description: ""
+  experiement_start_date:
+    type: date
+    description: ""
+  experiement_start_zt:
+    type: integer
+    description: ""
+  sex:
+    enum:
+      - male
+      - female
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+    description: ""
+  strain:
+    enum: 
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+      - C57BL/6NCrl
+      - C57BL/6J
+      - 129/Sv
+      - FVB/N
+      - BALB/cJ
+      - C3H/HeJ
+      - Sprague-Dawley
+      - Dahl SS
+    description: ""
+  strain_source:
+    type: string
+    description: ""
+  euthanasia_date:
+    type: date
+    description: ""
+  euthanasia_zt:
+    type: string
+    description: ""
+  euthanasia_method:
+    enum: 
+      - Carbon dioxide asphyxiation
+      - Cervical dislocation
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+    description: ""
+  provenance: 
+    type: string
+    description: ""

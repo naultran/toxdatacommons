@@ -1,0 +1,119 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "experiment"
+title: experiment
+type: object
+category: miate
+program: '*'
+project: '*'
+description: >
+  description of experiment.
+additionalProperties: false
+submittable: true
+validators: []
+
+systemProperties: []
+
+required: 
+  - type
+  - studyID
+  - investigationID
+  - study_design
+  - study_type
+  - experimental_setting
+  - organism
+  - provenance
+
+
+uniqueKeys: 
+  - [ studyID ]
+
+
+links: 
+  - name: investigation
+    backref: experiment
+    label: member_of
+    target_type: investigation
+    multiplicity: many_to_one
+    required: true
+
+properties:
+  type:
+    type: string
+  studyID:
+    type: string
+    description: ""
+  investigationID:
+    type: string
+    description: ""
+  study_design:
+    enum:
+      - dose response design
+      - case control design
+      - cross sectional design
+      - genetic modification design
+      - sex design
+      - time series design
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+    description: "A plan specification comprised of protocols (which may specify how
+      and what kinds of data will be gathered) that are executed as part of an investigation
+      and is realized during a study design execution."
+  study_type: 
+    enum:
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+      - Teratology
+      - Short term
+      - Long term
+      - Bacterial mutagenicity
+      - Drosophila germ cell mutagenicity
+      - In vitro micronucleus
+      - In vivo alkaline comet assay
+      - Mammalian cell cytogenetics
+      - Mammalian cell mutagenicity
+      - Micronucleus
+      - Rodent cytogenetics
+      - ADME
+      - Immunotoxicology
+      - Nematode
+      - RACB
+      - Tox21 - Phase II
+      - Toxicogenomics
+      - Toxicokinetics
+      - Zebrafish
+    description: "A categorical value specification that specifies the type of study
+      from a list of study types"
+  experimental_setting:
+    enum:
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+      - in vivo
+      - ex vivo
+    description: ""
+  organism:
+    enum:
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+      - Homo sapiens
+      - Mus musculus
+      - Rattus norvegicus
+      - Drosophila melanogaster
+      - Danio rerio
+      - Xenopus laevis
+    description: ""
+  provenance: 
+    type: string
+    description: ""

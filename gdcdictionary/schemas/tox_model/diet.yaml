@@ -1,0 +1,69 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "diet"
+title: diet
+type: object
+category: miate
+program: '*'
+project: '*'
+description: >
+  description of diet.
+additionalProperties: false
+submittable: true
+validators: []
+
+systemProperties: []
+
+required:
+  - type
+  - submitter_id
+  - cage_id
+  - feed_catalog_number
+  - feed_description
+  - feed_name
+  - feed_vendor
+  - water_type
+  - feed_paradigm
+  - provenance
+
+
+uniqueKeys:
+  - [ submitter_id ]
+  - [ cage_id ]
+
+links:
+  - name: housing
+    backref: diet
+    label: member_of
+    target_type: housing
+    multiplicity: many_to_one
+    required: true
+
+properties: 
+  type:
+    type: string
+  submitter_id:
+    type: string
+  cage_id:
+    type: string 
+  feed_catalog_number:
+    type: string
+  feed_description:
+    type: string
+  feed_name:
+    type: string
+  feed_vendor:
+    type: string
+  water_type:
+    type: string
+  feed_paradigm:
+    enum: 
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+      - ad libitum
+      - restricted
+  provenance:
+    type: string

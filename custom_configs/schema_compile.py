@@ -10,7 +10,7 @@ from dictionaryutils import dump_schemas_from_dir
 import json
 
 #import dictionaryutils
-schema = dump_schemas_from_dir(directory="../gdcdictionary/schemas")
+schema = dump_schemas_from_dir(directory="/Users/apple/toxdatacommons/gdcdictionary/schemas/tox_model")
 
 with open('schema.json', 'w') as json_file:
     json.dump(schema, json_file)
