@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "treatment_"
-title: treatment_
+id: "treatment"
+title: treatment
 type: object
 category: miate
 program: '*'
 project: '*'
 description: >
-  description of treatment_.
+  description of treatment.
 additionalProperties: false
 submittable: true
 validators: null
