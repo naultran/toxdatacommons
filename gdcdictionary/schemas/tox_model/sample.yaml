@@ -29,11 +29,11 @@ required:
 
 
 uniqueKeys:
-  - [ sampleID ]
+  - [sampleID]
 
 links:
-  - name: subject
-    backref: sample
+  - name: subjects
+    backref: samples
     label: member_of
     target_type: subject
     multiplicity: many_to_one
@@ -46,8 +46,8 @@ properties:
     type: string
   studyID:
     type: string
-  subjectID:
-    type: string
+  subjects:
+    $ref: "_definitions.yaml#/to_one"
   date:
     type: date
   biospecimen_anatomic_site:

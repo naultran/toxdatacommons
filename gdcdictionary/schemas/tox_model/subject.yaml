@@ -16,7 +16,7 @@ systemProperties: []
 
 required:
   - type
-  - studyID
+  - projects
   - investigationID
   - subjectID
   - start_date
@@ -35,19 +35,18 @@ uniqueKeys:
   - [ subjectID ]
 
 links:
-  - name: experiment
-    backref: subject
+  - name: projects
+    backref: subjectID
     label: member_of
-    target_type: experiment
+    target_type: project
     multiplicity: many_to_one
     required: true
 
 properties: 
   type: 
     type: string
-  studyID:
-    type: string
-    description: ""
+  projects:
+    $ref: "_definitions.yaml#/to_one_project"
   investigationID:
     type: string
     description: ""

@@ -17,8 +17,8 @@ systemProperties: []
 required:
   - type
   - submitter_id
-  - cage_id
   - feed_catalog_number
+  - housings
   - feed_description
   - feed_name
   - feed_vendor
@@ -29,11 +29,10 @@ required:
 
 uniqueKeys:
   - [ submitter_id ]
-  - [ cage_id ]
 
 links:
-  - name: housing
-    backref: diet
+  - name: housings
+    backref: diets
     label: member_of
     target_type: housing
     multiplicity: many_to_one
@@ -41,13 +40,13 @@ links:
 
 properties: 
   type:
-    type: string
+    enum: [study.diet]
   submitter_id:
     type: string
-  cage_id:
-    type: string 
   feed_catalog_number:
     type: string
+  housings:
+    $ref: "_definitions.yaml#/to_one" 
   feed_description:
     type: string
   feed_name:

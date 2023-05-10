@@ -17,8 +17,9 @@ systemProperties: []
 required:
   - type
   - submitter_id
-  - housing_change_date
   - cage_id
+  - subjects
+  - housing_change_date
   - bedding_type
   - cage_type
   - vivarium_temperature(C)
@@ -28,11 +29,10 @@ required:
 
 uniqueKeys:
   - [ submitter_id ]
-  - [ cage_id ]
 
 links:
-  - name: subject
-    backref: housing
+  - name: subjects
+    backref: diets
     label: member_of
     target_type: subject
     multiplicity: many_to_many
@@ -40,13 +40,15 @@ links:
 
 properties: 
   type:
-    type: string
+    enum: [study.housing]
   submitter_id:
     type: string
-  housing_change_date:
-    type: date
   cage_id:
     type: string
+  subjects:
+    $ref: "_definitions.yaml#/to_many"
+  housing_change_date:
+    type: date
   bedding_type:
     enum:
       - Not applicable

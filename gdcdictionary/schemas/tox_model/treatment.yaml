@@ -17,7 +17,7 @@ systemProperties: []
 required:
   - type
   - submitter_id
-  - subjectID
+  - subjects
   - date
   - administration_volume(ml)
   - dose_amount
@@ -35,8 +35,8 @@ uniqueKeys:
   - [ submitter_id ]
 
 links:
-  - name: subject
-    backref: treatment
+  - name: subjects
+    backref: treatments
     label: member_of
     target_type: treatment
     multiplicity: many_to_one
@@ -47,8 +47,8 @@ properties:
     type: string
   submitter_id:
     type: string
-  subjectID:
-    type: string
+  subjects:
+    $ref: "_definitions.yaml#/to_one"
   date:
     type: date
   administration_volume(ml):

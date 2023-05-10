@@ -1,23 +1,28 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "experiment"
-title: experiment
+id: "project"
+title: project
 type: object
 category: miate
 program: '*'
 project: '*'
 description: >
-  description of experiment.
+  description of project.
 additionalProperties: false
 submittable: true
-validators: []
+validators: null
 
-systemProperties: []
+systemProperties: 
+  - id
+  - state
+  - released
+  - releasable
+  - intended_release_date
 
 required: 
   - type
   - studyID
-  - investigationID
+  - programs
   - study_design
   - study_type
   - experimental_setting
@@ -30,22 +35,72 @@ uniqueKeys:
 
 
 links: 
-  - name: investigation
-    backref: experiment
+  - name: programs
+    backref: studyID
     label: member_of
-    target_type: investigation
+    target_type: program
     multiplicity: many_to_one
     required: true
 
 properties:
   type:
-    type: string
+    enum: [study.experiment]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+    description: "UUID for the project."
+  state:
+    description: |
+      The possible states a project can be in.  All but `open` are
+      equivalent to some type of locked state.
+    default: open
+    enum:
+        # open: the only state users can perform 'upload' actions
+        # possible actions in `open`:
+        #   - upload (no state change)
+        #   - review -> review
+        #   - release (project.released -> true)
+        - open
+
+        # locked: admin has locked project for review
+        # possible actions in `locked`:
+        #   - open -> open
+        #   - submit -> submitted
+        #   - release (project.released -> true)
+        - review
+
+        # submitted: An admin has submitted project, it is locked against
+        #            upload.
+        # possible actions in `submitted`:
+        #   - process -> processing
+        #   - release (project.released -> true)
+        - submitted
+
+        # processing: The system is processing data in the project and
+        #             is locked against upload and submission
+        #   - (system transition to open)
+        #   - release (project.released -> true)
+        - processing
+
+
+        # closed: The closed state is introduced to replace the
+        #         ``legacy`` state and means that no further action
+        #         can be taken on the project
+        #   - (system transition to open)
+        #   - release (project.released -> true)
+        - closed
+
+        # DEPRECATED(2016-03-01): synonymous with closed. included for
+        #                         backwards compatibility
+        - legacy
+        
   studyID:
     type: string
     description: ""
-  investigationID:
-    type: string
-    description: ""
+  programs:
+    $ref: "_definitions.yaml#/to_one"
+    description: >
+      Indicates that the project is logically part of the indicated project.
   study_design:
     enum:
       - dose response design
