@@ -54,13 +54,13 @@ properties:
     type: string
     description: ""
   start_date:
-    type: date
+    type: string
     description: ""
   start_date_age:
     type: integer
     description: ""
   experiement_start_date:
-    type: date
+    type: string
     description: ""
   experiement_start_zt:
     type: integer
@@ -95,7 +95,7 @@ properties:
     type: string
     description: ""
   euthanasia_date:
-    type: date
+    type: string
     description: ""
   euthanasia_zt:
     type: string

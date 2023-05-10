@@ -50,7 +50,7 @@ properties:
   subjects:
     $ref: "_definitions.yaml#/to_one"
   date:
-    type: date
+    type: string
   administration_volume(ml):
     type: float
   dose_amount: 

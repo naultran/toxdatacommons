@@ -48,7 +48,7 @@ properties:
   subjects:
     $ref: "_definitions.yaml#/to_many"
   housing_change_date:
-    type: date
+    type: string
   bedding_type:
     enum:
       - Not applicable

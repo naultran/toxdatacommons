@@ -49,7 +49,7 @@ properties:
   subjects:
     $ref: "_definitions.yaml#/to_one"
   date:
-    type: date
+    type: string
   biospecimen_anatomic_site:
     enum: 
       - Missing
