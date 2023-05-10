@@ -10,9 +10,14 @@ description: >
   description of sample.
 additionalProperties: false
 submittable: true
-validators: []
+validators: null
 
-systemProperties: []
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
 
 required:
   - type
@@ -29,6 +34,7 @@ required:
 
 
 uniqueKeys:
+  - [id]
   - [sampleID]
 
 links:
@@ -41,7 +47,10 @@ links:
 
 properties: 
   type:
-    type: string
+    enum: [sample]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
   sampleID:
     type: string
   studyID:
@@ -407,4 +416,12 @@ properties:
     type: float
   provenance: 
     type: string
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    type: string
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
 

@@ -10,9 +10,14 @@ description: >
   description of subject.
 additionalProperties: false
 submittable: true
-validators: []
+validators: null
 
-systemProperties: []
+systemProperties: 
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
 
 required:
   - type
@@ -32,7 +37,8 @@ required:
   - provenance
 
 uniqueKeys:
-  - [ subjectID ]
+  - [id]
+  - [subjectID]
 
 links:
   - name: projects
@@ -44,7 +50,10 @@ links:
 
 properties: 
   type: 
-    type: string
+    enum: [study.subject]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
   projects:
     $ref: "_definitions.yaml#/to_one_project"
   investigationID:
@@ -113,3 +122,12 @@ properties:
   provenance: 
     type: string
     description: ""
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    type: string
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+

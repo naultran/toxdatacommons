@@ -31,7 +31,7 @@ required:
 
 
 uniqueKeys: 
-  - [ studyID ]
+  - [studyID]
 
 
 links: 

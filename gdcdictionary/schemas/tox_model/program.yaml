@@ -39,9 +39,7 @@ uniqueKeys:
   - [investigationID]
 
 links: []
-
 # program is the root entity of miate and so it is the only entity
-
 
 properties:
   id:

@@ -10,9 +10,14 @@ description: >
   description of treatment.
 additionalProperties: false
 submittable: true
-validators: []
+validators: null
 
-systemProperties: []
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
 
 required:
   - type
@@ -32,6 +37,7 @@ required:
   - provenance
 
 uniqueKeys:
+  - [id]
   - [ submitter_id ]
 
 links:
@@ -44,7 +50,10 @@ links:
 
 properties: 
   type:
-    type: string
+    enum: [study.treatment]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
   submitter_id:
     type: string
   subjects:
@@ -137,3 +146,11 @@ properties:
     type: string
   provenance:
     type: string
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
