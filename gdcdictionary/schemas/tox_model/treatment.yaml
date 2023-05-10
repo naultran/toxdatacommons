@@ -44,7 +44,7 @@ links:
   - name: subjects
     backref: treatments
     label: member_of
-    target_type: treatment
+    target_type: subject
     multiplicity: many_to_one
     required: true
 
