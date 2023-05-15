@@ -40,7 +40,7 @@ links:
     backref: FCS_file_name
     label: member_of
     target_type: flourescence_reagent
-    multiplicity: one_to_one
+    multiplicity: one_to_many
     required: true
 
 properties:
@@ -51,7 +51,7 @@ properties:
   submitter_id:
     type: string
   flourescence_reagents:
-    $ref: "_definitions.yaml#/to_one"
+    $ref: "_definitions.yaml#/to_many"
   file_name: 
     type: string
   file_size: 
