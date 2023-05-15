@@ -1,0 +1,94 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "data_analysis"
+title: data_analysis
+type: object
+category: miflowcyt
+program: '*'
+project: '*'
+description: >
+  description of data analysis.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+  - analysis_protocol
+  - analysis_protocol_DOI
+  - FCS_file_name
+  - compensation_description
+  - transformation_purpose
+  - transformation_description
+  - gate_description
+  - gate_statistics
+  - gate_boundaries
+  - WS_file_name
+  - provenance
+
+
+uniqueKeys:
+  - [id]
+  - [submitter_id]
+
+links:
+  - name: WS_file_name
+    backref: data_analysises
+    label: member_of
+    target_type: FCS_file
+    multiplicity: one_to_many
+    required: true
+  - name: FCS_file_name
+    backref: data_analysises
+    label: member_of
+    target_type: WS_file
+    multiplicity: one_to_many
+    required: true
+  
+properties:
+  type:
+    enum: [data_analysis]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+  submitter_id:
+    type: string
+  analysis_protocol:
+    type: string
+  analysis_protocol_DOI:
+    type: string
+  FCS_file_name:
+    $ref: "_definitions.yaml#/to_many"
+  compensation_description:
+    type: string
+  transformation_purpose:
+    type: string
+  transformation_description:
+    type: string
+  gate_description:
+    type: string
+  gate_statistics:
+    type: string
+  gate_boundaries:
+    type: string
+  WS_file_name:
+    $ref: "_definitions.yaml#/to_many"
+  provenance:
+    type: string
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    type: string
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  
+

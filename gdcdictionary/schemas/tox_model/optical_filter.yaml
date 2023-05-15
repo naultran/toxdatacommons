@@ -1,0 +1,81 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "optical_filter"
+title: optical_filter
+type: object
+category: miflowcyt
+program: '*'
+project: '*'
+description: >
+  description of optical filter.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+  - instruments
+  - type_optical_filter
+  - transmitted_wave_lengths
+  - installation_date
+  - other_optical_filter
+  - provenance
+
+uniqueKeys:
+  - [id]
+  - [submitter_id]
+links:
+  - name: instruments
+    backref: optical_filters
+    label: member_of
+    target_type: instrument
+    multiplicity: many_to_one
+    required: true
+
+properties:
+  type:
+    enum: [optical_filter]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+  submitter_id:
+    type: string
+  instruments:
+    $ref: "_definitions.yaml#/to_one"
+  type_optical_filter:
+    enum:
+      - band pass filter
+      - long pass filter
+      - dichroic long pass filters
+      - textshort pass filter
+      - dichroic short pass filter
+      - polarizer excitation filter
+      - grating, prism
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+  transmitted_wave_lengths:
+    type: string
+  installation_date:
+    type: string
+  other_optical_filter:
+    type: string
+  provenance: 
+    type: string
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    type: string
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

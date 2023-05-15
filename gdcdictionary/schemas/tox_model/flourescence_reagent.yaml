@@ -1,0 +1,110 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "flourescence_reagent"
+title: flourescence_reagent
+type: object
+category: miflowcyt
+program: '*'
+project: '*'
+description: >
+  description of flourescence_reagent.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+  - samples
+  - instruments
+  - staining_protocol
+  - staining_protocol_DOI
+  - characteristics_being_measured
+  - analyte_detector
+  - analyte_reporter
+  - clone_name_or_number
+  - reagent_manufacturer_name
+  - reagent_catalogue_number
+  - staining_status
+  - other_fluorescence_reagent
+  - provenance
+
+uniqueKeys:
+  - [id]
+  - [submitter_id]
+
+links:
+  - name: samples
+    backref: flourescence_reagents
+    label: member_of
+    target_type: sample
+    multiplicity: many_to_one
+    required: true
+  - name: instruments
+    backref: flourescence_reagents
+    label: member_of
+    target_type: instrument
+    multiplicity: many_to_one
+    required: true
+
+properties: 
+  type:
+    enum: [flourescence_reagent]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+  submitter_id:
+    type: string
+  samples:
+    $ref: "_definitions.yaml#/to_one"
+  instruments: 
+    $ref: "_definitions.yaml#/to_one"
+  staining_protocol:
+    type: string
+  staining_protocol_DOI: 
+    type: string
+  characteristics_being_measured: 
+    type: string
+  analyte_detector: 
+    type: string
+  analyte_reporter:
+    type: string
+  clone_name_or_number: 
+    type: string
+  reagent_manufacturer_name: 
+    type: string
+  reagent_catalogue_number:
+    type: string
+  staining_status: 
+    enum:
+      - stained
+      - unstained
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+  other_fluorescence_reagent: 
+    type: string
+  provenance: 
+    type: string
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    type: string
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+
+
+
+
+  
+  

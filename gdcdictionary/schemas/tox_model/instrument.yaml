@@ -1,0 +1,79 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "instrument"
+title: instrument
+type: object
+category: miflowcyt
+program: '*'
+project: '*'
+description: >
+  description of instrument.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+  - flow_cell_type
+  - other_flow_cell
+  - manufacturer
+  - configuration_settings
+  - other_instrument
+  - provenance
+
+uniqueKeys:
+  - [id]
+  - [submitter_id]
+
+properties:
+  type: 
+    enum: [instrument]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+  flow_cell_type:
+    enum:
+      - jet-in-air
+      - quartz cuvette
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+  other_flow_cell:
+    type: string
+  manufacturer:
+    enum:
+      - BD Biosciences
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+  configuration_settings:
+    enum:
+      - The instrument has not been altered
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+  other_instrument:
+    type: string
+  provenance:
+    type: string
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    type: string
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

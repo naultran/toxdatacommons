@@ -1,0 +1,78 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "WS_file"
+title: WS_file
+type: object
+category: miflowcyt
+program: '*'
+project: '*'
+description: >
+  description of WS file.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+  - flourescence_reagents
+  - file_name
+  - file_size
+  - md5sum
+  - data_category
+  - data_type
+  - data_format
+  - provenance
+
+uniqueKeys:
+  - [id]
+  - [submitter_id]
+
+links:
+  - name: flourescence_reagents
+    backref: WS_file_name
+    label: member_of
+    target_type: flourescence_reagent
+    multiplicity: one_to_one
+    required: true
+
+properties:
+  type:
+    enum: [WS]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+  submitter_id:
+    type: string
+  flourescence_reagents:
+    $ref: "_definitions.yaml#/to_one"
+  file_name: 
+    type: string
+  file_size: 
+    type: string
+  md5sum: 
+    type: string
+  data_category: 
+    type: string
+  data_type: 
+    type: string
+  data_format: 
+    type: string
+  provenance: 
+    type: string
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    type: string
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+
+

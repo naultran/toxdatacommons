@@ -1,0 +1,89 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "optical_detector"
+title: optical_detector
+type: object
+category: miflowcyt
+program: '*'
+project: '*'
+description: >
+  description of optical detector.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+  - instruments
+  - name
+  - type_optical_detector
+  - voltage
+  - amplification_type
+  - amplification_factor
+  - other_optical_detector
+  - provenace
+
+uniqueKeys:
+  - [id]
+  - [submitter_id]
+links:
+  - name: instruments
+    backref: optical_detectors
+    label: member_of
+    target_type: instrument
+    multiplicity: many_to_one
+    required: true
+
+properties:
+  type:
+    enum: [optical_detector]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+  submitter_id:
+    type: string
+  instruments:
+    $ref: "_definitions.yaml#/to_one"
+  name:
+    type: string
+  type_optical_detector:
+    enum: 
+      - photodiode
+      - photomultiplier tube
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+  voltage:
+    type: float
+  amplification_type:
+    enum:
+      - linear
+      - log
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+  amplification_factor:
+    type: float
+  other_optical_detector:
+    type: string
+  provenance: 
+    type: string
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    type: string
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

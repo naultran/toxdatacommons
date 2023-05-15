@@ -1,0 +1,88 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "light_source_instrument"
+title: light_source_instrument
+type: object
+category: miflowcyt
+program: '*'
+project: '*'
+description: >
+  description of light source instrument.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+  - instruments
+  - light_source_type
+  - excitatory_wave_length
+  - power_at_excitatory_wave_length
+  - polarization
+  - beam
+  - other_light_source_instrument
+  - provenance
+
+uniqueKeys:
+  - [id]
+  - [submitter_id]
+links:
+  - name: instruments
+    backref: light_source_instruments
+    label: member_of
+    target_type: instrument
+    multiplicity: many_to_one
+    required: true
+
+properties:
+  type:
+    enum: [light_source_instrument]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+  submitter_id:
+    type: string
+  instruments:
+    $ref: "_definitions.yaml#/to_one"
+  light_source_type:
+    enum: 
+      - mercury-vapor lamp
+      - xenon lamp
+      - diode laser
+      - dye laser
+      - gas laser
+      - solid state laser
+      - light-emitting diode
+      - tungsten halogen lamp
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+  excitatory_wave_length:
+    type: string
+  power_at_excitatory_wave_length:
+    type: string
+  polarization:
+    type: string
+  beam:
+    type: string
+  other_light_source_instrument:
+    type: string
+  provenance: 
+    type: string
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    type: string
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
