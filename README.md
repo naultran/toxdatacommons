@@ -29,4 +29,5 @@ sysctl vm.max_map_count # verifies that it has changed
 kubectl get pods # list running pods
 kubectl logs {pod_name} # get logs for a pod
 kubectl describe pods {pod_name} # Explains why it might be stuck in pending
+helm uninstall {chart_name}
 ```
