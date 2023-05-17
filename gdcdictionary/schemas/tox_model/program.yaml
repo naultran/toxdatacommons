@@ -20,20 +20,20 @@ required:
   - investigationID
   - dbgap_accession_number
   - program_title
-  - investigation_description
+#  - investigation_description
   - contact_name
-  - investigator_orcid
+#  - investigator_orcid
   - contact_email
-  - contact_telephone
-  - contact_department
-  - contact_institution
-  - location
-  - support_source
-  - support_id
-  - PMC_id
-  - DOI
-  - PMID
-  - provenance
+#  - contact_telephone
+#  - contact_department
+#  - contact_institution
+#  - location
+#  - support_source
+#  - support_id
+#  - PMC_id
+#  - DOI
+#  - PMID
+#  - provenance
 
 uniqueKeys:
   - [id]
