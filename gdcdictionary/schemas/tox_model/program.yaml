@@ -18,6 +18,7 @@ systemProperties:
 required:
   - type
   - investigationID
+  - dbgap_accession_number
   - program_title
   - investigation_description
   - contact_name
@@ -50,6 +51,9 @@ properties:
   investigationID:
     type: string
     description: ""
+  dbgap_accession_number:
+    type: string
+    description: "Short identifier for the program (e.g., MSUSRC)"
   program_title:
     type: string
     description: "A textual entity that denotes an investigation"
