@@ -31,4 +31,6 @@ kubectl logs {pod_name} # get logs for a pod
 kubectl describe pods {pod_name} # Explains why it might be stuck in pending
 helm uninstall {chart_name}
 kubectl edit ingress revproxy
+kubectl edit deployment -n kube-system traefik
+kubectl rollout restart deployment traefik -n kube-system
 ```
