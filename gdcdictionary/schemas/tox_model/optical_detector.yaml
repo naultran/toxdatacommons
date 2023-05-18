@@ -29,7 +29,7 @@ required:
   - amplification_type
   - amplification_factor
   - other_optical_detector
-  - provenace
+#  - provenace
 
 uniqueKeys:
   - [id]

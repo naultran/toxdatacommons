@@ -30,7 +30,7 @@ required:
   - preservation_method
   - weight
   - volume
-  - provenance
+#  - provenance
 
 
 uniqueKeys:

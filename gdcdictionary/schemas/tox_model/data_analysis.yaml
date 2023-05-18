@@ -32,7 +32,7 @@ required:
   - gate_statistics
   - gate_boundaries
   - WS_file_name
-  - provenance
+#  - provenance
 
 
 uniqueKeys:

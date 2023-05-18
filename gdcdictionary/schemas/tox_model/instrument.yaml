@@ -27,7 +27,7 @@ required:
   - manufacturer
   - configuration_settings
   - other_instrument
-  - provenance
+#  - provenance
 
 uniqueKeys:
   - [id]

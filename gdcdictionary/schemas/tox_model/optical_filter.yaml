@@ -27,7 +27,7 @@ required:
   - transmitted_wave_lengths
   - installation_date
   - other_optical_filter
-  - provenance
+#  - provenance
 
 uniqueKeys:
   - [id]

@@ -30,7 +30,7 @@ required:
   - vivarium_temperature(C)
   - vivarium_humidity(%)
   - vivarium_light_cycle
-  - provenance
+#  - provenance
 
 uniqueKeys:
   - [id]

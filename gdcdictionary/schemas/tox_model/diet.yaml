@@ -29,7 +29,7 @@ required:
   - feed_vendor
   - water_type
   - feed_paradigm
-  - provenance
+#  - provenance
 
 
 uniqueKeys:

@@ -34,7 +34,7 @@ required:
   - reagent_catalogue_number
   - staining_status
   - other_fluorescence_reagent
-  - provenance
+#  - provenance
 
 uniqueKeys:
   - [id]

@@ -29,7 +29,7 @@ required:
   - polarization
   - beam
   - other_light_source_instrument
-  - provenance
+#  - provenance
 
 uniqueKeys:
   - [id]

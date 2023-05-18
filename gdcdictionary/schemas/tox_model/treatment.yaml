@@ -34,7 +34,7 @@ required:
   - test_article_dtxsid
   - vehicle_name
   - vehicle_dtxsid
-  - provenance
+#  - provenance
 
 uniqueKeys:
   - [id]

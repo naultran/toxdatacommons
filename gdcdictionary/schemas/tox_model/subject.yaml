@@ -34,7 +34,7 @@ required:
   - euthanasia_date
   - euthanasia_zt
   - euthanasia_method
-  - provenance
+#  - provenance
 
 uniqueKeys:
   - [id]

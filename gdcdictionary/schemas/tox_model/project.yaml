@@ -22,12 +22,13 @@ systemProperties:
 required: 
   - type
   - studyID
+  - dbgap_accession_number
   - programs
   - study_design
   - study_type
   - experimental_setting
   - organism
-  - provenance
+#  - provenance
 
 
 uniqueKeys: 
@@ -172,3 +173,7 @@ properties:
   provenance: 
     type: string
     description: ""
+  dbgap_accession_number:
+    type: string
+    description: "The dbgap accession number provided for the project."
+
