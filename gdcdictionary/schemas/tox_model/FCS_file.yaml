@@ -29,6 +29,7 @@ required:
   - data_category
   - data_type
   - data_format
+  - core_metadata_collections
 #  - provenance
 
 uniqueKeys:
@@ -83,4 +84,5 @@ properties:
     $ref: "_definitions.yaml#/datetime"
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"
+    description: " projectid"
 

@@ -1,0 +1,107 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "extraction"
+title: extraction
+type: object
+category: mass_spec_metabolomics
+program: '*'
+project: '*'
+description: >
+  description of extraction.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+  - samples
+  - extraction_protocol
+  - extraction_protocol_DOI
+  - derivitization
+  - extract_preservation_method
+  - calibration_standard
+
+uniqueKeys:
+  - [id]
+  - [ submitter_id ]
+
+links:
+  - name: samples
+    backref: extractions
+    label: member_of
+    target_type: sample
+    multiplicity: many_to_one
+    required: true
+
+properties:
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  type:
+    enum: [extraction]
+  submitter_id:
+    type: string
+  samples:
+    $ref: "_definitions.yaml#/to_one"
+  extraction_protocol:
+    type: string
+    description: "A brief description of the flow cytometry protocol"
+  extraction_protocol_DOI:
+    type: string
+    description: "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io"
+  derivitization:
+    enum:
+      - diazomethane
+      - hexamethyldisilazane
+      - methyl iodide potassium
+      - N-methyl-(tert-butyldimethylsilyl)trifluoroacetamide
+      - N-methyl-N-(trimethylsilyl)
+      - triﬂuoroacetamide
+      - N-trimethylsilyl-imidazole
+      - N,N-dimethylformamidedimethylacetale
+      - N,O-Bis-(Trimethylsilyl)acetamide
+      - N,O-bis(trimethylsilyl)triﬂuoroacetamide
+      - pyridine
+      - tert-Butyldimethylsilyl
+      - trimethylchlorosilane
+      - trimethylphenylammoniumhydroxide
+      - Trimethylsilyldiethylamine
+      - trimethylsulphonium hydroxide
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+  extract_preservation_method:
+    enum:
+      - Room temperature
+      - -20C
+      - -80C
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+    description: "The chemical agent used for the derivatization reaction"
+  calibration_standard: 
+    type: string
+    description: "Indicate the name of the chemical compound used as calibration standard."
+  provenance:
+    type: string
+    description: "template version"
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

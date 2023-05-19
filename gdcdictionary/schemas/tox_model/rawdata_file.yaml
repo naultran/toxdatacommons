@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "WS_file"
-title: WS_file
+id: "rawdata_file"
+title: rawdata_file
 type: object
-category: miflowcyt
+category: mass_spec_metabolomics
 program: '*'
 project: '*'
 description: >
-  description of WS file.
+  description of rawdata_file.
 additionalProperties: false
 submittable: true
 validators: null
@@ -22,7 +22,7 @@ systemProperties:
 required:
   - type
   - submitter_id
-  - flourescence_reagents
+  - extractions
   - file_name
   - file_size
   - md5sum
@@ -30,21 +30,20 @@ required:
   - data_type
   - data_format
   - core_metadata_collections
- # - provenance
 
 uniqueKeys:
   - [id]
-  - [submitter_id]
+  - [ submitter_id ]
 
 links:
-  - name: flourescence_reagents
-    backref: WS_file_name
+  - name: extractions
+    backref: rawDataFiles
     label: member_of
-    target_type: flourescence_reagent
-    multiplicity: one_to_one
+    target_type: extraction
+    multiplicity: one_to_many
     required: true
   - name: core_metadata_collections
-    backref: WS_file_name
+    backref: rawDataFiles
     label: data_from
     target_type: core_metadata_collection
     multiplicity: many_to_many
@@ -52,13 +51,13 @@ links:
 
 properties:
   type:
-    enum: [WS]
+    enum: [rawdata_file]
   id:
     $ref: "_definitions.yaml#/UUID"
   submitter_id:
     type: string
   flourescence_reagents:
-    $ref: "_definitions.yaml#/to_one"
+    $ref: "_definitions.yaml#/to_many"
   file_name: 
     type: string
   file_size: 
@@ -85,5 +84,4 @@ properties:
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"
     description: " projectid"
-
 

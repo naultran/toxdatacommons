@@ -21,7 +21,7 @@ systemProperties:
 
 required:
   - type
-  - submitter_id
+  - submitter_id #analyte
   - samples
   - instruments
   - staining_protocol

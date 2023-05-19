@@ -1,0 +1,86 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "chromatography"
+title: chromatography
+type: object
+category: mass_spec_metabolomics
+program: '*'
+project: '*'
+description: >
+  description of chromatography.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+  - extractions
+  - chromatography_protocol
+  - chromatography_protocol_DOI
+  - chromatography_column
+
+uniqueKeys:
+  - [id]
+  - [ submitter_id ]
+
+links:
+  - name: extractions
+    backref: chromatographys
+    label: member_of
+    target_type: extraction
+    multiplicity: many_to_one
+    required: true
+
+properties:
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  type:
+    enum: [chromatography]
+  submitter_id:
+    type: string
+  extractions:
+    $ref: "_definitions.yaml#/to_one"
+  # required part
+  chromatography_protocol:
+    type: string
+    description: "A brief description of the flow cytometry protocol"
+  chromatography_protocol_DOI:
+    type: string
+    description: "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io"
+  chromatography_column:
+    type: string
+    description: "The name of the chromatography column"
+  # liquid
+  elution_program:
+    type: string
+    description: "Description of the elution program using the following scheme"
+  flow_rate:
+    type: string
+    description: "Report the flow rate of the elution buffer through column in amount per minute."
+  # gas
+  carrier_gas:
+    type: string
+    description: "The composition of the carrier gas (modile phase)"
+  oven_temperature_program:
+    type: string
+    description: "The description of the gas chromatography oven temperature program"
+  provenance:
+    type: string
+    description: "template version"
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

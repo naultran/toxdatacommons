@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "WS_file"
-title: WS_file
+id: "metaboliteID"
+title: metaboliteID
 type: object
-category: miflowcyt
+category: mass_spec_metabolomics
 program: '*'
 project: '*'
 description: >
-  description of WS file.
+  description of data metaboliteID.
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,55 +21,48 @@ systemProperties:
 
 required:
   - type
-  - submitter_id
-  - flourescence_reagents
-  - file_name
-  - file_size
-  - md5sum
-  - data_category
-  - data_type
-  - data_format
-  - core_metadata_collections
- # - provenance
+  - submitter_id # metabolite_name
+  - data_analysis_msmes # data_analysis_id
+  - metabolite_name
+  - refmet_name
+  - dtxsid
+  - inchikey
+  - mass
+  - elution_tume
 
 uniqueKeys:
   - [id]
-  - [submitter_id]
+  - [ submitter_id ]
 
 links:
-  - name: flourescence_reagents
-    backref: WS_file_name
+  - name: data_analysis_msmes
+    backref: metaboliteIDs
     label: member_of
-    target_type: flourescence_reagent
-    multiplicity: one_to_one
+    target_type: data_analysis_mass_spec_metabolomics
+    multiplicity: many_to_one
     required: true
-  - name: core_metadata_collections
-    backref: WS_file_name
-    label: data_from
-    target_type: core_metadata_collection
-    multiplicity: many_to_many
-    required: false
 
 properties:
   type:
-    enum: [WS]
+    enum: [metaboliteID]
   id:
     $ref: "_definitions.yaml#/UUID"
   submitter_id:
     type: string
-  flourescence_reagents:
+    description: "metabolite_name"
+  data_analysis_msmes:
     $ref: "_definitions.yaml#/to_one"
-  file_name: 
+  metabolite_name:
     type: string
-  file_size: 
+  refmet_name:
     type: string
-  md5sum: 
+  dtxsid:
     type: string
-  data_category: 
+  inchikey:
     type: string
-  data_type: 
+  mass:
     type: string
-  data_format: 
+  elution_time:
     type: string
   provenance: 
     type: string
@@ -82,8 +75,5 @@ properties:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:
     $ref: "_definitions.yaml#/datetime"
-  core_metadata_collections:
-    $ref: "_definitions.yaml#/to_many"
-    description: " projectid"
-
+  
 
