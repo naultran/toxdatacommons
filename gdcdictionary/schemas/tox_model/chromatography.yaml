@@ -36,7 +36,7 @@ links:
     backref: chromatographys
     label: member_of
     target_type: extraction
-    multiplicity: many_to_one
+    multiplicity: one_to_many
     required: true
 
 properties:
@@ -48,7 +48,7 @@ properties:
   submitter_id:
     type: string
   extractions:
-    $ref: "_definitions.yaml#/to_one"
+    $ref: "_definitions.yaml#/to_many"
   # required part
   chromatography_protocol:
     type: string
