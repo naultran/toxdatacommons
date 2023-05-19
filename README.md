@@ -34,3 +34,41 @@ kubectl edit ingress revproxy
 kubectl edit deployment -n kube-system traefik
 kubectl rollout restart deployment traefik -n kube-system
 ```
+
+### Creating a `local` certificate using route 53
+#### Link of DNS
+To be able to create a certificate it is necessary that the deployment be public facing. This can be done by adding to the `/etc/hosts` file as below:
+```
+<machine ip-address> fairtox.com
+```
+_fairtox.com was purchased through route53_
+
+#### Create certificate
+A certificate can be created using [certbot](https://certbot.eff.org/). It will ask you to create a DNS TXT record
+```
+sudo certbot certonly --manual --preferred-challenges=dns -d fairtox.com
+```
+- Log in to the AWS Management Console and navigate to the Route 53 service.
+- Select your hosted zone for the fairtox.com domain.
+- Click on "Create Record Set" to add a new DNS record.
+- In the "Name" field, enter _acme-challenge
+- Set the "Type" to "TXT".
+- In the "Value" field, enter the verification value provided by Certbot.
+- __WAIT UNTIL IT IS UPDATED (1 - 5 min)__
+- Click on "Create" or "Save" to add the DNS TXT record.
+
+#### Create secret
+```
+kubectl create secret tls <secret-name> --cert=<path-to-certificate.pem> --key=<path-to-key.pem>
+```
+
+#### Update ingress
+```
+kubectl edit ingress <ingress-name>
+
+  tls:
+  - hosts:
+    - fairtox.com
+    secretName: <secret-name>
+```
+#### Wait for changes to propagate
