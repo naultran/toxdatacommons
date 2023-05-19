@@ -121,7 +121,7 @@ properties:
     description: ""
   provenance: 
     type: string
-    description: ""
+    description: "template version"
   state:
     $ref: "_definitions.yaml#/state"
   project_id:

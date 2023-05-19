@@ -72,6 +72,7 @@ properties:
     type: string
   provenance: 
     type: string
+    description: "template version"
   state:
     $ref: "_definitions.yaml#/state"
   project_id:

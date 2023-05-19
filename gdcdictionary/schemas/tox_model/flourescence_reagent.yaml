@@ -67,20 +67,31 @@ properties:
     $ref: "_definitions.yaml#/to_one"
   staining_protocol:
     type: string
+    description: "A brief description of the flow cytometry protocol"
   staining_protocol_DOI: 
     type: string
+    description: "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io"
   characteristics_being_measured: 
     type: string
+    description: >
+      The relative amount of molecules, properties, or processes being evaluated (e.g., CD25, apoptosis, membrane permeability, cell viability, oxidative burst). The characteristic(s) being measured shall be provided whenever there is ambiguity about the analyte being measured, such as when sample processing affects detection of the analyte (e.g., propidium iodide example in Table 1). The optical detector (e.g., FL1) or parameter (e.g., FL1-H) used primarily for this measurement shall be indicated.
   analyte_detector: 
     type: string
+    description: >
+      What plays the role of the analyte? Which substance or chemical constituent is the subject of interest of the analytical procedure, what target is specifically bound by the analyte detector (e.g., CD25)?
   analyte_reporter:
     type: string
+    description: >
+      (Fluorochrome) What plays the role of analyte reporter? Which component of the fluorescence reagent reports the presents of the analyte to the flow cytometer? What substance (label) is used to generate the measured signal (e.g., FITC)?
   clone_name_or_number: 
     type: string
+    description: "If the probe is a monoclonal antibody, the clone name or number shall be provided."
   reagent_manufacturer_name: 
     type: string
+    description: "The reagent manufacturer shall be specified (e.g., MIFlowCyt Reagent Inc.)."
   reagent_catalogue_number:
     type: string
+    description: "The reagent catalogue number shall be specified."
   staining_status: 
     enum:
       - stained
@@ -92,8 +103,11 @@ properties:
       - Restricted access
   other_fluorescence_reagent: 
     type: string
+    description: >
+      When secondary antibodies are used, the primary analyte (the analyte bound by the primary antibody) and the reporter component of the secondary antibody (the reporter that generates the measured signal) shall be clearly specified as described in 2.4.2, 2.4.3, and 2.4.4. If relevant, the primary and secondary antibodies shall be described individually (e.g., in the case that the use of a secondary antibody significantly impacts the interpretation of results because of nonspecific fluorescence, etc.). The description should also contain other relevant details which may include lot number, concentration, label incorporation method, separation technique, antibody staining procedures, and wash steps.
   provenance: 
     type: string
+    description: "template version"
   state:
     $ref: "_definitions.yaml#/state"
   project_id:

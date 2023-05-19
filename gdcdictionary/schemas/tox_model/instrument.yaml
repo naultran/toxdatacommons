@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "instrument"
 title: instrument
 type: object
-category: miflowcyt
+category: miflowcyt&mass_spec_metabolomics
 program: '*'
 project: '*'
 description: >
@@ -21,12 +21,13 @@ systemProperties:
 
 required:
   - type
-  - submitter_id
-  - flow_cell_type
-  - other_flow_cell
+  - submitter_id # model
+#------- miflowcyt
+#  - flow_cell_type
+#  - other_flow_cell
   - manufacturer
-  - configuration_settings
-  - other_instrument
+#  - configuration_settings
+#  - other_instrument
 #  - provenance
 
 uniqueKeys:
@@ -38,6 +39,15 @@ properties:
     enum: [instrument]
   id:
     $ref: "_definitions.yaml#/UUID"
+  submitter_id:
+    enum:
+      - BD FACSAria
+      - Xevo TQ-S
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
   flow_cell_type:
     enum:
       - jet-in-air
@@ -47,16 +57,23 @@ properties:
       - Not collected
       - Not provided
       - Restricted access
+    decription: "The flow cell type (e.g., stream-in-air, cuvette) including the material shall be provided."
   other_flow_cell:
     type: string
+    description: >
+      Other relevant flow cell details should be provided and may include flow cell manufacturer name (e.g., MIFlowCyt Optics, Inc.) and model number (e.g., PRO-CFC-75), flow cell outside shape (e.g., rectangular with an attached sphere, spherical, square) and dimensions, flow channel shape (e.g., rectangular, circular, triangular) and dimensions, sheath flow velocity (e.g., 10 l/s), sheath flow pump type (e.g., gas pressure, vacuum, gear), sample flow velocity (e.g., 7.5 l/s) and sample flow pump (e.g., gas pressure, syringe).
   manufacturer:
     enum:
       - BD Biosciences
+      - Agilent
+      - Waters
       - Not applicable
       - Missing
       - Not collected
       - Not provided
       - Restricted access
+    description: >
+      The instrument manufacturer shall be specified by stating its name (e.g., MIFlowCyt Cytometry Systems, Inc.). A URL pointing to manufacturer web pages may also be provided.
   configuration_settings:
     enum:
       - The instrument has not been altered
@@ -65,10 +82,32 @@ properties:
       - Not collected
       - Not provided
       - Restricted access
+    description: "The system and its configurations have significant impact on experimental results and as such the following shall be provided"
   other_instrument:
     type: string
+    description: >
+      Additional relevant instrument details should be provided and may include machine-specific information such as information about automated agitation, temperature control, controlled volume dispensing, sampling from microtiter plates, auto-boost, auto-flush, etc. Other custom settings shall be provided if relevant and may include setting name, description, and value.
+  scan_polarity:
+    enum:
+      - negative scan
+      - positive scan
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+  ionization_type:
+    type: string
+    description: "The method by which gas phase ions are generated from the sample."
+  detector_type:
+    type: string
+    description: "Type of detector used in the mass spectrometer."
+  mass_analyzer_type:
+    type: string
+    description: "Mass analyzer separates the ions according to their mass-to-charge ratio."
   provenance:
     type: string
+    description: "template version"
   state:
     $ref: "_definitions.yaml#/state"
   project_id:

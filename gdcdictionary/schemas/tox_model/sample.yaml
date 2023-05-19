@@ -416,6 +416,7 @@ properties:
     type: float
   provenance: 
     type: string
+    description: "template version"
   state:
     $ref: "_definitions.yaml#/state"
   project_id:

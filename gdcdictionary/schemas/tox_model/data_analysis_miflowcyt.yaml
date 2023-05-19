@@ -1,0 +1,107 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "data_analysis_miflowcyt"
+title: data_analysis_miflowcyt
+type: object
+category: miflowcyt
+program: '*'
+project: '*'
+description: >
+  description of data analysis.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+  - analysis_protocol
+  - analysis_protocol_DOI
+  - FCS_file_name
+  - compensation_description
+  - transformation_purpose
+  - transformation_description
+  - gate_description
+  - gate_statistics
+  - gate_boundaries
+  - WS_file_name
+#  - provenance
+
+
+uniqueKeys:
+  - [id]
+  - [submitter_id]
+
+links:
+  - name: WS_file_name
+    backref: data_analysises
+    label: member_of
+    target_type: FCS_file
+    multiplicity: one_to_many
+    required: true
+  - name: FCS_file_name
+    backref: data_analysises
+    label: member_of
+    target_type: WS_file
+    multiplicity: one_to_many
+    required: true
+  
+properties:
+  type:
+    enum: [data_analysis]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+  submitter_id:
+    type: string
+  analysis_protocol:
+    type: 
+    description: "A brief description of the flow cytometry protocol"
+  analysis_protocol_DOI:
+    type: string
+    description: " A DOI to a version controlled protocol, preferably available on a repository such as protocols.io"
+  FCS_file_name:
+    $ref: "_definitions.yaml#/to_many"
+    description: "The list-mode data files (e.g., FCS files [18]) shall be provided directly or details on how they may be requested shall be stated."
+  compensation_description:
+    type: string
+  transformation_purpose:
+    type: string
+    description: "The purpose of each performed transformation shall be specified (e.g., data visualization, background correction, statistical analysis, quantitative flow cytometry, etc.)."
+  transformation_description:
+    type: string
+    description: >
+      Either the exact mathematical formulas/algorithms of each data transformation shall be supplied using an open and freely available specification, or a description of each transformation shall be provided.
+  gate_description:
+    type: string
+    description: >
+      The subpopulation identified by the gate shall be briefly described (e.g., “IL-4 producing helper T cells of the CD3+CD4+ phenotype”).
+  gate_statistics:
+    type: string
+    description: >
+      Percentage of events within the gate shall be provided specifically stating the denominator. The denominator shall be either the total population of events (e.g., percentage of lymphocytes based on the total number of events) or another gate (e.g., percentage of CD4+ lymphocytes based on all lymphocytes). When the denominator is another gate, this shall also be exactly specified in recursive fashion so that the gating strategy can be followed up to the original data set. The denominator may not necessarily be a containing (superset) population for some statistics (e.g., the donor / host blood cell ratio).
+  gate_boundaries:
+    type: string
+    description: >
+      Either the exact mathematical descriptions of each gate boundary shall be provided using an open and freely available specification, or this information shall be provided in the form of images.
+  WS_file_name:
+    $ref: "_definitions.yaml#/to_many"
+  provenance:
+    type: string
+    description: "template version"
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    type: string
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  
+

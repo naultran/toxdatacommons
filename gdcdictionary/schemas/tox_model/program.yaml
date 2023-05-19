@@ -111,6 +111,6 @@ properties:
     description: "A globally unique identifier for a biomedical article, as assigned"
   provenance:
     type: string
-    description: ""
+    description: "template version"
 
 
