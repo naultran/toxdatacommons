@@ -22,6 +22,7 @@ systemProperties:
 required:
   - submitter_id
   - extractions
+  - name
   - ms_protocol
   - ms_protocol_DOI
 
@@ -34,7 +35,7 @@ links:
     backref: ms_methods
     label: member_of
     target_type: extraction
-    multiplicity: one_to_many
+    multiplicity: many_to_one
     required: true
 
 properties:
@@ -46,7 +47,10 @@ properties:
   submitter_id:
     type: string
   extractions:
-    $ref: "_definitions.yaml#/to_many"
+    $ref: "_definitions.yaml#/to_one"
+  name: 
+    type: string
+    description: "name of ms_method"
   ms_protocol:
     type: string
   ms_protocol_DOI: 

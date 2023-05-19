@@ -22,6 +22,7 @@ systemProperties:
 required:
   - type
   - submitter_id
+  - name
   - extractions
   - chromatography_protocol
   - chromatography_protocol_DOI
@@ -36,7 +37,7 @@ links:
     backref: chromatographys
     label: member_of
     target_type: extraction
-    multiplicity: one_to_many
+    multiplicity: many_to_one
     required: true
 
 properties:
@@ -48,8 +49,11 @@ properties:
   submitter_id:
     type: string
   extractions:
-    $ref: "_definitions.yaml#/to_many"
+    $ref: "_definitions.yaml#/to_one"
   # required part
+  name:
+    type: string
+    description: "name of chromatography"
   chromatography_protocol:
     type: string
     description: "A brief description of the flow cytometry protocol"
