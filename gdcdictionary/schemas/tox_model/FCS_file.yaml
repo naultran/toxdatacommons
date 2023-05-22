@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "FCS_file"
 title: FCS_file
 type: object
-category: miflowcyt
+category: data_file
 program: '*'
 project: '*'
 description: >
