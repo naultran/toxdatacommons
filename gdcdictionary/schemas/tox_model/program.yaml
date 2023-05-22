@@ -47,7 +47,7 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   type:
-    enum: [investigation]
+    enum: [program]
   name:
     type: string
     description: "investigationID"
