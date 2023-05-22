@@ -50,7 +50,7 @@ properties:
     enum: [investigation]
   name:
     type: string
-    description: ""
+    description: "investigationID"
   dbgap_accession_number:
     type: string
     description: "Short identifier for the program (e.g., MSUSRC)"
