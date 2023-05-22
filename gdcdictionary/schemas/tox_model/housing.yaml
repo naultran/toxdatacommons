@@ -27,8 +27,8 @@ required:
   - housing_change_date
   - bedding_type
   - cage_type
-  - vivarium_temperature(C)
-  - vivarium_humidity(percentage)
+  - vivarium_temperature_C
+  - vivarium_humidity_percentage
   - vivarium_light_cycle
 #  - provenance
 
@@ -38,7 +38,7 @@ uniqueKeys:
 
 links:
   - name: subjects
-    backref: diets
+    backref: housings
     label: member_of
     target_type: subject
     multiplicity: many_to_many
@@ -70,9 +70,9 @@ properties:
       - wood shavings
   cage_type:
     type: string
-  vivarium_temperature(C):
+  vivarium_temperature_C:
     type: float
-  vivarium_humidity(percentage):
+  vivarium_humidity_percentage:
     type: float
   vivarium_light_cycle:
     type: string
