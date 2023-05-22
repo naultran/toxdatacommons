@@ -23,6 +23,7 @@ required:
   - type
   - projects
   - investigationID
+  - submitter_id
   - subjectID
   - start_date
   - start_date_age
@@ -62,6 +63,8 @@ properties:
   subjectID:
     type: string
     description: ""
+  submitter_id:
+    type: string
   start_date:
     type: string
     description: ""
