@@ -40,18 +40,21 @@ uniqueKeys:
   - [project_id, submitter_id]
 
 links:
-  - name: flourescence_reagents
-    backref: WS_file_name
-    label: member_of
-    target_type: flourescence_reagent
-    multiplicity: one_to_one
+  - exclusive: false
     required: true
-  - name: core_metadata_collections
-    backref: WS_file_name
-    label: data_from
-    target_type: core_metadata_collection
-    multiplicity: many_to_many
-    required: false
+    subgroup:
+    - name: flourescence_reagents
+      backref: WS_file_name
+      label: member_of
+      target_type: flourescence_reagent
+      multiplicity: one_to_one
+      required: true
+    - name: core_metadata_collections
+      backref: WS_file_name
+      label: data_from
+      target_type: core_metadata_collection
+      multiplicity: many_to_many
+      required: false
 
 properties:
   type:

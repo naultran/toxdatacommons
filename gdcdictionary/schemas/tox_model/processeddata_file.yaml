@@ -39,18 +39,21 @@ uniqueKeys:
   - [project_id, submitter_id ]
 
 links:
-  - name: extractions
-    backref: processedDataFiles
-    label: member_of
-    target_type: extraction
-    multiplicity: one_to_many
+  - exclusive: false
     required: true
-  - name: core_metadata_collections
-    backref: processedDataFiles
-    label: data_from
-    target_type: core_metadata_collection
-    multiplicity: many_to_many
-    required: false
+    subgroup:
+    - name: extractions
+      backref: processedDataFiles
+      label: member_of
+      target_type: extraction
+      multiplicity: one_to_many
+      required: true
+    - name: core_metadata_collections
+      backref: processedDataFiles
+      label: data_from
+      target_type: core_metadata_collection
+      multiplicity: many_to_many
+      required: false
 
 properties:
   type:
