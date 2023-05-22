@@ -37,10 +37,10 @@ uniqueKeys:
   - [project_id, submitter_id]
 
 links:
-  - name: subjects
+  - name: cases
     backref: housings
     label: member_of
-    target_type: subject
+    target_type: case
     multiplicity: many_to_many
     required: true
 
@@ -54,7 +54,7 @@ properties:
     type: string
   cageID:
     type: string
-  subjects:
+  cases:
     $ref: "_definitions.yaml#/to_many"
   housing_change_date:
     type: string

@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "sample"
-title: sample
+id: "aliquot"
+title: aliquot
 type: object
 category: miate
 program: '*'
@@ -38,16 +38,16 @@ uniqueKeys:
   - [project_id, submitter_id]
 
 links:
-  - name: subjects
-    backref: samples
+  - name: cases
+    backref: aliquots
     label: member_of
-    target_type: subject
+    target_type: case
     multiplicity: many_to_one
     required: true
 
 properties: 
   type:
-    enum: ["sample"]
+    enum: ["aliquot"]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -55,7 +55,7 @@ properties:
     type: string
   studyID:
     type: string
-  subjects:
+  case:
     $ref: "_definitions.yaml#/to_one"
   date:
     type: string

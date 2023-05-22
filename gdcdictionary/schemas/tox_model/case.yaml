@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "subject"
-title: subject
+id: "case"
+title: case
 type: object
 category: miate
 program: '*'
@@ -43,7 +43,7 @@ uniqueKeys:
 
 links:
   - name: projects
-    backref: subjects
+    backref: cases
     label: member_of
     target_type: project
     multiplicity: many_to_one
@@ -51,7 +51,7 @@ links:
 
 properties: 
   type: 
-    enum: ["subject"]
+    enum: ["case"]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
