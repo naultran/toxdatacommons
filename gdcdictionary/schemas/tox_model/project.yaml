@@ -33,12 +33,12 @@ required:
 
 
 uniqueKeys: 
-  - [studyID]
+  - [code]
 
 
 links: 
   - name: programs
-    backref: studyID
+    backref: projects
     label: member_of
     target_type: program
     multiplicity: many_to_one
