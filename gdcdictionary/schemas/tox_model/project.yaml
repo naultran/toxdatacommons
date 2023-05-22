@@ -95,9 +95,9 @@ properties:
         #                         backwards compatibility
         - legacy
         
-  studyID:
+  code:
     type: string
-    description: ""
+    description: "studyID"
   programs:
     $ref: "_definitions.yaml#/to_one"
     description: >
