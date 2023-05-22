@@ -45,7 +45,7 @@ links:
 
 properties:
   type:
-    enum: [study.experiment]
+    enum: [project]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
