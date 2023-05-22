@@ -24,7 +24,7 @@ required:
   - submitter_id
   - subjects
   - date
-  - administration_volume(ml)
+  - administration_volume_ml
   - dose_amount
   - dose_amount_unit
   - route
@@ -60,7 +60,7 @@ properties:
     $ref: "_definitions.yaml#/to_one"
   date:
     type: string
-  administration_volume(ml):
+  administration_volume_ml:
     type: float
   dose_amount: 
     type: float   
