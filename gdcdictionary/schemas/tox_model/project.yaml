@@ -33,6 +33,7 @@ required:
 
 
 uniqueKeys: 
+  - [ id ]
   - [code]
 
 

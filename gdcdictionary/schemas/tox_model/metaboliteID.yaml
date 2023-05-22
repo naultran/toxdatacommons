@@ -38,7 +38,7 @@ links:
   - name: data_analysis_msmes
     backref: metaboliteIDs
     label: member_of
-    target_type: data_analysis_mass_spec_metabolomics
+    target_type: data_analysis_msm
     multiplicity: many_to_one
     required: true
 

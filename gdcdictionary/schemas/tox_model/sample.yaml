@@ -35,7 +35,7 @@ required:
 
 uniqueKeys:
   - [id]
-  - [sampleID]
+  - [sampleID, submitter_id]
 
 links:
   - name: subjects
