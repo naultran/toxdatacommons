@@ -96,7 +96,7 @@ properties:
         - legacy
   code:
     type: string
-    description: "studyID"
+    description: "Unique identifier for the project, studyID"
   programs:
     $ref: "_definitions.yaml#/to_one"
     description: >
