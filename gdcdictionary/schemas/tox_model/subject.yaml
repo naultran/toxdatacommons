@@ -27,8 +27,8 @@ required:
   - subjectID
   - start_date
   - start_date_age
-  - experiement_start_date
-  - experiement_start_zt
+  - experiment_start_date
+  - experiment_start_zt
   - sex
   - strain
   - strain_source
@@ -71,10 +71,10 @@ properties:
   start_date_age:
     type: integer
     description: ""
-  experiement_start_date:
+  experiment_start_date:
     type: string
     description: ""
-  experiement_start_zt:
+  experiment_start_zt:
     type: integer
     description: ""
   sex:
