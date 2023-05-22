@@ -18,6 +18,9 @@ systemProperties:
   - state
   - created_datetime
   - updated_datetime
+  - file_state
+  - error_type
+
 
 required:
   - type
@@ -76,7 +79,7 @@ properties:
   state:
     $ref: "_definitions.yaml#/state"
   project_id:
-    type: string
+    $ref: "_definitions.yaml#/project_id"
   created_datetime:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:

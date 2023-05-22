@@ -92,7 +92,7 @@ properties:
   state:
     $ref: "_definitions.yaml#/state"
   project_id:
-    type: string
+    $ref: "_definitions.yaml#/project_id"
   created_datetime:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:

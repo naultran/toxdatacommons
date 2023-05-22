@@ -39,11 +39,11 @@ required:
 
 uniqueKeys:
   - [id]
-  - [subjectID]
+  - [subjectID, submitter_id]
 
 links:
   - name: projects
-    backref: subjectID
+    backref: subjects
     label: member_of
     target_type: project
     multiplicity: many_to_one
@@ -128,9 +128,11 @@ properties:
   state:
     $ref: "_definitions.yaml#/state"
   project_id:
-    type: string
+    $ref: "_definitions.yaml#/project_id"
   created_datetime:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:
     $ref: "_definitions.yaml#/datetime"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
 

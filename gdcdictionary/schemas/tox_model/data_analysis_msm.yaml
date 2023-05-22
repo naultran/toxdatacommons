@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "data_analysis_mass_spec_metabolomics"
-title: data_analysis_mass_spec_metabolomics
+id: "data_analysis_msm"
+title: data_analysis_msm
 type: object
 category: mass_spec_metabolomics
 program: '*'
@@ -87,7 +87,7 @@ properties:
   state:
     $ref: "_definitions.yaml#/state"
   project_id:
-    type: string
+    $ref: "_definitions.yaml#/project_id"
   created_datetime:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:

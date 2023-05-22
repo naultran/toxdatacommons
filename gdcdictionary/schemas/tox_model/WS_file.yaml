@@ -18,6 +18,9 @@ systemProperties:
   - state
   - created_datetime
   - updated_datetime
+  - file_state
+  - error_type
+
 
 required:
   - type
