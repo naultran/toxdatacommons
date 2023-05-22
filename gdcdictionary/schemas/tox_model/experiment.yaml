@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "experiment"
-title: experiment
+title: Experiment
 type: object
 category: miate
 program: '*'

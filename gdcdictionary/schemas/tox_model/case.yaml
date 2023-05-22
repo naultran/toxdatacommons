@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "case"
-title: case
+title: Case
 type: object
 category: miate
 program: '*'
