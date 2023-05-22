@@ -47,7 +47,7 @@ links:
 
 properties:
   type:
-    enum: [project]
+    enum: ["project"]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
