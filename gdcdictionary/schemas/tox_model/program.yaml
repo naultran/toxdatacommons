@@ -17,7 +17,7 @@ systemProperties:
 
 required:
   - type
-  - investigationID
+  - name
   - dbgap_accession_number
   - program_title
 #  - investigation_description
@@ -48,7 +48,7 @@ properties:
     systemAlias: node_id
   type:
     enum: [investigation]
-  investigationID:
+  name:
     type: string
     description: ""
   dbgap_accession_number:
