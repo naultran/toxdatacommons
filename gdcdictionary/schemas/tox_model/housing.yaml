@@ -28,7 +28,7 @@ required:
   - bedding_type
   - cage_type
   - vivarium_temperature(C)
-  - vivarium_humidity(%)
+  - vivarium_humidity(percentage)
   - vivarium_light_cycle
 #  - provenance
 
@@ -72,7 +72,7 @@ properties:
     type: string
   vivarium_temperature(C):
     type: float
-  vivarium_humidity(%):
+  vivarium_humidity(percentage):
     type: float
   vivarium_light_cycle:
     type: string
