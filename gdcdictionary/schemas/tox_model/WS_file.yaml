@@ -90,6 +90,5 @@ properties:
     $ref: "_definitions.yaml#/datetime"
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"
-    description: " projectid"
 
 
