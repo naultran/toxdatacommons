@@ -30,7 +30,7 @@ required:
 
 uniqueKeys:
   - [id]
-  - [ submitter_id ]
+  - [ project_id, submitter_id ]
 
 links:
   - name: extractions
@@ -45,7 +45,7 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   type:
-    enum: [chromatography]
+    enum: ["chromatography"]
   submitter_id:
     type: string
   extractions:

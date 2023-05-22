@@ -34,7 +34,7 @@ required:
 
 uniqueKeys:
   - [id]
-  - [submitter_id]
+  - [project_id, submitter_id]
 
 links:
   - name: subjects
@@ -46,7 +46,7 @@ links:
 
 properties: 
   type:
-    enum: [study.housing]
+    enum: ["housing"]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id

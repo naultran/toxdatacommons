@@ -36,7 +36,7 @@ required:
 
 uniqueKeys:
   - [id]
-  - [ submitter_id ]
+  - [ project_id, submitter_id ]
 
 links:
   - name: extractions
@@ -54,7 +54,7 @@ links:
 
 properties:
   type:
-    enum: [rawdata_file]
+    enum: ["rawdata_file"]
   id:
     $ref: "_definitions.yaml#/UUID"
   submitter_id:

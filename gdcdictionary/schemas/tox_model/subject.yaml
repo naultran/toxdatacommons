@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "subject"
 title: subject
 type: object
-category: Administrative
+category: miate
 program: '*'
 project: '*'
 description: >
@@ -39,7 +39,7 @@ required:
 
 uniqueKeys:
   - [id]
-  - [subjectID, submitter_id]
+  - [project_id, submitter_id]
 
 links:
   - name: projects
@@ -51,7 +51,7 @@ links:
 
 properties: 
   type: 
-    enum: [subject]
+    enum: ["subject"]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id

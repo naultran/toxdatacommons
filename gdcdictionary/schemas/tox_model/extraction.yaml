@@ -31,7 +31,7 @@ required:
 
 uniqueKeys:
   - [id]
-  - [ submitter_id ]
+  - [  project_id, submitter_id ]
 
 links:
   - name: samples
@@ -46,7 +46,7 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   type:
-    enum: [extraction]
+    enum: ["extraction"]
   submitter_id:
     type: string
   samples:

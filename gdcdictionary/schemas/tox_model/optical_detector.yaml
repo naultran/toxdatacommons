@@ -33,7 +33,7 @@ required:
 
 uniqueKeys:
   - [id]
-  - [submitter_id]
+  - [project_id, submitter_id]
 links:
   - name: instruments
     backref: optical_detectors
@@ -44,7 +44,7 @@ links:
 
 properties:
   type:
-    enum: [optical_detector]
+    enum: ["optical_detector"]
   id:
     $ref: "_definitions.yaml#/UUID"
   submitter_id:

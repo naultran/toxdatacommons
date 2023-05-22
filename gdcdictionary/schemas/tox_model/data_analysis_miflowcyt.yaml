@@ -37,7 +37,7 @@ required:
 
 uniqueKeys:
   - [id]
-  - [submitter_id]
+  - [ project_id, submitter_id]
 
 links:
   - name: WS_file_name
@@ -55,7 +55,7 @@ links:
   
 properties:
   type:
-    enum: [data_analysis_miflowcyt]
+    enum: ["data_analysis_miflowcyt"]
   id:
     $ref: "_definitions.yaml#/UUID"
   submitter_id:

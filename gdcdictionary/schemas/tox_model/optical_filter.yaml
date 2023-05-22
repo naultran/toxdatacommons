@@ -31,7 +31,7 @@ required:
 
 uniqueKeys:
   - [id]
-  - [submitter_id]
+  - [project_id, submitter_id]
 links:
   - name: instruments
     backref: optical_filters
@@ -42,7 +42,7 @@ links:
 
 properties:
   type:
-    enum: [optical_filter]
+    enum: ["optical_filter"]
   id:
     $ref: "_definitions.yaml#/UUID"
   submitter_id:

@@ -28,7 +28,7 @@ required:
 
 uniqueKeys:
   - [id]
-  - [ submitter_id ]
+  - [ project_id, submitter_id ]
 
 links:
   - name: extractions
@@ -43,7 +43,7 @@ properties:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   type:
-    enum: [ms_method]
+    enum: ["ms_method"]
   submitter_id:
     type: string
   extractions:

@@ -33,7 +33,7 @@ required:
 
 uniqueKeys:
   - [id]
-  - [submitter_id]
+  - [project_id, submitter_id]
 links:
   - name: instruments
     backref: light_source_instruments
@@ -44,7 +44,7 @@ links:
 
 properties:
   type:
-    enum: [light_source_instrument]
+    enum: ["light_source_instrument"]
   id:
     $ref: "_definitions.yaml#/UUID"
   submitter_id:

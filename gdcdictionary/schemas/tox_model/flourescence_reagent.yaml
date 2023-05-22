@@ -38,7 +38,7 @@ required:
 
 uniqueKeys:
   - [id]
-  - [submitter_id]
+  - [project_id, submitter_id]
 
 links:
   - name: samples
@@ -56,7 +56,7 @@ links:
 
 properties: 
   type:
-    enum: [flourescence_reagent]
+    enum: ["flourescence_reagent"]
   id:
     $ref: "_definitions.yaml#/UUID"
   submitter_id:

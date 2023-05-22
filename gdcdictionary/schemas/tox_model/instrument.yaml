@@ -32,11 +32,11 @@ required:
 
 uniqueKeys:
   - [id]
-  - [submitter_id]
+  - [project_id, submitter_id]
 
 properties:
   type: 
-    enum: [instrument]
+    enum: ["instrument"]
   id:
     $ref: "_definitions.yaml#/UUID"
   submitter_id:
