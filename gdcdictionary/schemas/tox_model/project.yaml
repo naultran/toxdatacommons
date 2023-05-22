@@ -21,7 +21,7 @@ systemProperties:
 
 required: 
   - type
-  - studyID
+  - code
   - dbgap_accession_number
   - programs
   - study_design
@@ -94,7 +94,6 @@ properties:
         # DEPRECATED(2016-03-01): synonymous with closed. included for
         #                         backwards compatibility
         - legacy
-        
   code:
     type: string
     description: "studyID"
