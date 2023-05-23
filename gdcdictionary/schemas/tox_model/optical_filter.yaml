@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "optical_filter"
 title: optical_filter
 type: object
-category: miflowcyt
+category: administrative
 program: '*'
 project: '*'
 description: >

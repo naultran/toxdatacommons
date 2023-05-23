@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "rawdata_file"
 title: rawdata_file
 type: object
-category: mass_spec_metabolomics
+category: data_file
 program: '*'
 project: '*'
 description: >
@@ -32,7 +32,6 @@ required:
   - data_category
   - data_type
   - data_format
-  - core_metadata_collections
 
 uniqueKeys:
   - [id]
@@ -43,33 +42,24 @@ links:
     required: true
     subgroup:
     - name: extractions
-      backref: rawDataFiles
+      backref: rawdata_files
       label: member_of
       target_type: extraction
       multiplicity: one_to_many
       required: true
     - name: core_metadata_collections
-      backref: rawDataFiles
+      backref: rawdata_files
       label: data_from
       target_type: core_metadata_collection
       multiplicity: many_to_many
       required: false
 
 properties:
+  $ref: "_definitions.yaml#/data_file_properties"
   type:
     enum: ["rawdata_file"]
-  id:
-    $ref: "_definitions.yaml#/UUID"
-  submitter_id:
-    type: string
   flourescence_reagents:
     $ref: "_definitions.yaml#/to_many"
-  file_name: 
-    type: string
-  file_size: 
-    type: string
-  md5sum: 
-    type: string
   data_category: 
     type: string
   data_type: 

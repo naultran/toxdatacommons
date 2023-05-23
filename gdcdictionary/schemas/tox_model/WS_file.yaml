@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "WS_file"
 title: WS_file
 type: object
-category: miflowcyt
+category: data_file
 program: '*'
 project: '*'
 description: >
@@ -32,7 +32,6 @@ required:
   - data_category
   - data_type
   - data_format
-  - core_metadata_collections
  # - provenance
 
 uniqueKeys:
@@ -44,33 +43,24 @@ links:
     required: true
     subgroup:
     - name: flourescence_reagents
-      backref: WS_file_name
+      backref: WS_files
       label: member_of
       target_type: flourescence_reagent
       multiplicity: one_to_one
       required: true
     - name: core_metadata_collections
-      backref: WS_file_name
+      backref: WS_files
       label: data_from
       target_type: core_metadata_collection
       multiplicity: many_to_many
       required: false
 
 properties:
+  $ref: "_definitions.yaml#/data_file_properties"
   type:
     enum: ["WS"]
-  id:
-    $ref: "_definitions.yaml#/UUID"
-  submitter_id:
-    type: string
   flourescence_reagents:
     $ref: "_definitions.yaml#/to_one"
-  file_name: 
-    type: string
-  file_size: 
-    type: string
-  md5sum: 
-    type: string
   data_category: 
     type: string
   data_type: 

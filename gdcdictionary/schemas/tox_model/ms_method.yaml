@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "ms_method"
 title: ms_method
 type: object
-category: mass_spec_metabolomics
+category: analysis
 program: '*'
 project: '*'
 description: >

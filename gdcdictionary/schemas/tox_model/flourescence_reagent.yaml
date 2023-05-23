@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "flourescence_reagent"
 title: flourescence_reagent
 type: object
-category: miflowcyt
+category: administrative
 program: '*'
 project: '*'
 description: >

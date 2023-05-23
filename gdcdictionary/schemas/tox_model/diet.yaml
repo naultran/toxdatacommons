@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "diet"
 title: diet
 type: object
-category: miate
+category: administrative
 program: '*'
 project: '*'
 description: >

@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "metaboliteID"
 title: metaboliteID
 type: object
-category: mass_spec_metabolomics
+category: notation
 program: '*'
 project: '*'
 description: >

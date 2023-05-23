@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "light_source_instrument"
 title: light_source_instrument
 type: object
-category: miflowcyt
+category: administrative
 program: '*'
 project: '*'
 description: >

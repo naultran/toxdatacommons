@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "project"
 title: project
 type: object
-category: Administrative
+category: administrative
 program: '*'
 project: '*'
 description: >

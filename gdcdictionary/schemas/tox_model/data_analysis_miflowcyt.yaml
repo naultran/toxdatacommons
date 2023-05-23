@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "data_analysis_miflowcyt"
 title: data_analysis_miflowcyt
 type: object
-category: miflowcyt
+category: analysis
 program: '*'
 project: '*'
 description: >

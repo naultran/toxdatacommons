@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "aliquot"
 title: Aliquot
 type: object
-category: miate
+category: biospecimen
 program: '*'
 project: '*'
 description: >
