@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "aliquot"
-title: Aliquot
+id: "sample"
+title: Samples
 type: object
 category: biospecimen
 program: '*'
@@ -38,16 +38,16 @@ uniqueKeys:
   - [project_id, submitter_id]
 
 links:
-  - name: cases
-    backref: aliquots
+  - name: subjects
+    backref: samples
     label: member_of
-    target_type: case
+    target_type: subject
     multiplicity: many_to_one
     required: true
 
 properties: 
   type:
-    enum: ["aliquot"]
+    enum: ["sample"]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -55,7 +55,7 @@ properties:
     type: string
   studyID:
     type: string
-  case:
+  subjects:
     $ref: "_definitions.yaml#/to_one"
   date:
     type: string

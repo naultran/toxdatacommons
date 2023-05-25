@@ -41,10 +41,10 @@ uniqueKeys:
   - [project_id, submitter_id]
 
 links:
-  - name: aliquots
+  - name: samples
     backref: flourescence_reagents
     label: member_of
-    target_type: aliquot
+    target_type: sample
     multiplicity: many_to_one
     required: true
   - name: instruments
@@ -61,7 +61,7 @@ properties:
     $ref: "_definitions.yaml#/UUID"
   submitter_id:
     type: string
-  aliquot:
+  samples:
     $ref: "_definitions.yaml#/to_one"
   instruments: 
     $ref: "_definitions.yaml#/to_one"

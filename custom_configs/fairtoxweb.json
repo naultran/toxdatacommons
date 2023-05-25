@@ -1,0 +1,209 @@
+{
+    "gaTrackingId": "undefined",
+    "graphql": {
+      "boardCounts": [
+        {
+          "graphql": "_subject_count",
+          "name": "Subject",
+          "plural": "Subjects"
+        },
+        {
+          "graphql": "_sample_count",
+          "name": "Sample",
+          "plural": "Samples"
+        },
+        {
+          "graphql": "_project_count",
+          "name": "Project",
+          "plural": "Projects"
+        }
+      ],
+      "chartCounts": [
+        {
+          "graphql": "_subject_count",
+          "name": "Subject"
+        },
+        {
+          "graphql": "_sample_count",
+          "name": "Sample"
+        },
+        {
+          "graphql": "_project_count",
+          "name": "Project"
+        }
+      ],
+      "projectDetails": "boardCounts"
+    },
+    "components": {
+      "appName": "Tox Data Commons",
+      "index": {
+        "introduction": {
+          "heading": "Tox Data Commons",
+          "text": "The Tox Data Commons supports the management, analysis and sharing of genomics data for the canine research community and aims to accelerate opportunities for discovery and development for the treatment and prevention of canine cancer. The data commons supports cross-project analyses by harmonizing data from different projects through the collaborative development of a data dictionary, providing an API for data queries and download, and providing a cloud-based analysis workspace with rich tools and resources.",
+          "link": "/submission"
+        },
+        "buttons": [
+          {
+            "name": "Define Data Field",
+            "icon": "data-field-define",
+            "body": "The Generic Data Commons define the data in a general way. Please study the dictionary before you start browsing.",
+            "link": "/DD",
+            "label": "Learn more"
+          },
+          {
+            "name": "Explore Data",
+            "icon": "data-explore",
+            "body": "The Exploration Page gives you insights and a clear overview under selected factors.",
+            "link": "/explorer",
+            "label": "Explore data"
+          },
+          {
+            "name": "Access Data",
+            "icon": "data-access",
+            "body": "Use our selected tool to filter out the data you need.",
+            "link": "/query",
+            "label": "Query data"
+          },
+          {
+            "name": "Submit Data",
+            "icon": "data-submit",
+            "body": "Submit Data based on the dictionary.",
+            "link": "/submission",
+            "label": "Submit data"
+          }
+        ]
+      },
+      "navigation": {
+        "title": "Tox Data Commons",
+        "items": [
+          {
+            "icon": "dictionary",
+            "link": "/DD",
+            "color": "#18453B",
+            "name": "Dictionary"
+          },
+          {
+            "icon": "exploration",
+            "link": "/explorer",
+            "color": "#18453B",
+            "name": "Exploration"
+          },
+          {
+            "icon": "files",
+            "link": "/files",
+            "color": "#18453B",
+            "name": "Files"
+          },
+          {
+            "icon": "query",
+            "link": "/query",
+            "color": "#18453B",
+            "name": "Query"
+          },
+          {
+            "icon": "workspace",
+            "link": "#hostname#workspace/",
+            "color": "#18453B",
+            "name": "Workspace"
+          },
+          {
+            "icon": "profile",
+            "link": "/identity",
+            "color": "#18453B",
+            "name": "Profile"
+          }
+        ]
+      },
+      "login": {
+        "title": "Tox Data Commons",
+        "subTitle": "explore, analyze, and share research data",
+        "text": "This website analyzes and shares genomic architecture of tox and runs analysis, easy to navigate visualizations for data-driven discovery for tox.",
+        "contact": "If you have any questions about access or the registration process, please contact ",
+        "email": "support@datacommons.io"
+      }
+    },
+    "featureFlags": {
+      "explorer": true
+    },
+    "dataExplorerConfig": {
+      "charts": {
+        "program": {
+          "chartType": "count",
+          "title": "Programs"
+        },
+        "project": {
+          "chartType": "count",
+          "title": "Projects"
+        },
+        "subject": {
+            "chartType": "count",
+            "title": "Subjects"
+          },
+        "sex": {
+          "chartType": "bar",
+          "title": "Sex"
+        },
+        "euthanasia_method": {
+          "chartType": "bar",
+          "title": "Euthanasia Method"
+        },
+        "data_format": {
+          "chartType": "bar",
+          "title": "Data Format"
+        }
+      },
+      "filters": {
+        "tabs": [
+          {
+            "title": "Project",
+            "fields":[
+              "study_design",
+              "study_type",
+              "experimental_setting",
+              "organism"
+            ]
+          }
+        ]
+      },
+      "table": {
+        "enabled": true,
+        "fields": [
+          "code",
+          "study_design",
+          "study_type",
+          "experimental_setting",
+          "organism",
+          "data_format"
+        ]
+      },
+      "buttons": [
+        {
+          "enabled": true,
+          "type": "data",
+          "title": "Download All Data",
+          "leftIcon": "user",
+          "rightIcon": "download",
+          "fileName": "data.json"
+        },
+        {
+          "enabled": true,
+          "type": "export-to-workspace",
+          "title": "Export to Workspace",
+          "leftIcon": "datafile",
+          "rightIcon": "external-link"
+        }
+      ],
+      "guppyConfig": {
+        "dataType": "subject",
+        "nodeCountTitle": "Subjects",
+        "fieldMapping": [
+        ],
+        "manifestMapping": {
+          "resourceIndexType": "file",
+          "resourceIdField": "object_id",
+          "referenceIdFieldInResourceIndex": "subject_id",
+          "referenceIdFieldInDataIndex": "subject_id"
+        }
+      }
+    }
+  }

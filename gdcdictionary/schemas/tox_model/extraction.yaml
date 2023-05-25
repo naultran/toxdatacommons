@@ -34,10 +34,10 @@ uniqueKeys:
   - [  project_id, submitter_id ]
 
 links:
-  - name: aliquots
+  - name: samples
     backref: extractions
     label: member_of
-    target_type: aliquot
+    target_type: sample
     multiplicity: many_to_one
     required: true
 
@@ -49,7 +49,7 @@ properties:
     enum: ["extraction"]
   submitter_id:
     type: string
-  aliquot:
+  samples:
     $ref: "_definitions.yaml#/to_one"
   extraction_protocol:
     type: string

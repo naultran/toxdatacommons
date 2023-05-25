@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "experiment"
-title: Experiment
+id: "treatment"
+title: Treatment
 type: object
 category: administrative
 program: '*'
@@ -41,22 +41,22 @@ uniqueKeys:
   - [project_id, submitter_id]
 
 links:
-  - name: cases
-    backref: experiments
+  - name: subjects
+    backref: treatments
     label: member_of
-    target_type: case
+    target_type: subject
     multiplicity: many_to_one
     required: true
 
 properties: 
   type:
-    enum: ["experiment"]
+    enum: ["treatment"]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
   submitter_id:
     type: string
-  cases:
+  subjects:
     $ref: "_definitions.yaml#/to_one"
   date:
     type: string
