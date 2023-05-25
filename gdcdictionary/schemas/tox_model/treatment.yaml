@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "treatment"
-title: Treatment
+title: treatment
 type: object
 category: administrative
 program: '*'

@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "subject"
-title: Subject
+title: subject
 type: object
 category: administrative
 program: '*'

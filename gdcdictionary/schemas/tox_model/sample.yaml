@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "sample"
-title: Samples
+title: sample
 type: object
 category: biospecimen
 program: '*'
