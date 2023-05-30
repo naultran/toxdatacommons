@@ -96,4 +96,140 @@ portal: // port name you want to override
 
 ```
 
+### template of .yaml file for node
+normal node
+```
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "node_name"
+title: node_name
+type: object
+category: category of node
+program: '*'
+project: '*'
+description: >
+  description
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id #
+  - targets #external key pointing to the previous node
+  ...
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+links:
+  - name: targets
+    backref: node_names
+    label: member_of
+    target_type: target
+    multiplicity: many_to_one/one_to_one....
+    required: true
+
+
+properties: 
+  type:
+    enum: ["node_name"]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+  submitter_id:
+    type: string
+  targets:
+    $ref: "_definitions.yaml#/to_one" / "_definitions.yaml#/to_many" # depening on links
+  ....
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+
+```
+node of data file which link to core_metadata_collection
+```
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "node_file"
+title: node_file
+type: object
+category: data_file
+program: '*'
+project: '*'
+description: >
+  description.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+  - file_state
+  - error_type
+
+required:
+  - type
+  - submitter_id
+  - targets
+  ...
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+    - name: targets
+      backref: node_files
+      label: member_of
+      target_type: target
+      multiplicity: one_to_one/one_to_many
+      required: true
+    - name: core_metadata_collections
+      backref: node_files
+      label: data_from
+      target_type: core_metadata_collection
+      multiplicity: many_to_many
+      required: false
+  
+properties:
+  $ref: "_definitions.yaml#/data_file_properties"
+  type:
+    enum: ["WS"]
+  targets:
+    $ref: "_definitions.yaml#/to_one"/"_definitions.yaml#/to_many"
+  ...
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    type: string
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_many"
+
+
+```
+
 #### Wait for changes to propagate
