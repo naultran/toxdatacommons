@@ -79,16 +79,16 @@ This part can customize the website.
 
 For example,
 1. You want to customize the fence [link for the fence's values.yaml](https://github.com/uc-cdis/gen3-helm/blob/master/helm/fence/values.yaml). And what you want to change is the [USER_YAML](https://github.com/uc-cdis/gen3-helm/blob/master/helm/fence/values.yaml#LL479C2-L479C2) part. In the values.yaml which will be pushed to gen3/gen3, you should add:
-```
-fence: // port name you want to override
-// the following is what you want to change
+```{yaml}
+fence: # port name you want to override
+# the following is what you want to change
   USER_YAML: |
       ....things you want to customize...
 ```
 2. If you want to customize the [portal](https://github.com/uc-cdis/gen3-helm/blob/master/helm/portal/values.yaml) to read the image we prebuild([instruction to prebuild the portal](https://github.com/uc-cdis/gen3-helm/blob/4415e61a992e9c9113bc7f1531ec8387d3886404/docs/portal/prebuild-portal.md)). And [image](https://github.com/uc-cdis/gen3-helm/blob/master/helm/portal/values.yaml#L65) is the part we want to change.
-```
-portal: // port name you want to override
-// the following is what you want to change
+```{yaml}
+portal: # port name you want to override
+# the following is what you want to change
   image:
     repository: <repository name in rancher destop>
     pullPolicy: IfNotPresent
