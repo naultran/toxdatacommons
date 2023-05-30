@@ -85,7 +85,7 @@ fence: // port name you want to override
   USER_YAML: |
       ....things you want to customize...
 ```
-2. If you want to customize the portal to read the image we prebuild([instruction to prebuild the portal](https://github.com/uc-cdis/gen3-helm/blob/4415e61a992e9c9113bc7f1531ec8387d3886404/docs/portal/prebuild-portal.md)). And [image](https://github.com/uc-cdis/gen3-helm/blob/master/helm/portal/values.yaml#L65) is the part we want to change.
+2. If you want to customize the [portal](https://github.com/uc-cdis/gen3-helm/blob/master/helm/portal/values.yaml) to read the image we prebuild([instruction to prebuild the portal](https://github.com/uc-cdis/gen3-helm/blob/4415e61a992e9c9113bc7f1531ec8387d3886404/docs/portal/prebuild-portal.md)). And [image](https://github.com/uc-cdis/gen3-helm/blob/master/helm/portal/values.yaml#L65) is the part we want to change.
 ```
 portal: // port name you want to override
 // the following is what you want to change
