@@ -40,16 +40,16 @@ uniqueKeys:
   - [ project_id, submitter_id]
 
 links:
-  - name: WS_file_name
+  - name: WS_files
     backref: data_analysises
     label: member_of
     target_type: WS_file
     multiplicity: many_to_one
     required: true
-  - name: FCS_file_name
+  - name: fcs_files
     backref: data_analysises
     label: member_of
-    target_type: FCS_file
+    target_type: fcs_file
     multiplicity: many_to_one
     required: true
   
@@ -66,7 +66,7 @@ properties:
   analysis_protocol_DOI:
     type: string
     description: " A DOI to a version controlled protocol, preferably available on a repository such as protocols.io"
-  FCS_file_name:
+  fcs_files:
     $ref: "_definitions.yaml#/to_one"
     description: "The list-mode data files (e.g., FCS files [18]) shall be provided directly or details on how they may be requested shall be stated."
   compensation_description:
@@ -90,7 +90,7 @@ properties:
     type: string
     description: >
       Either the exact mathematical descriptions of each gate boundary shall be provided using an open and freely available specification, or this information shall be provided in the form of images.
-  WS_file_name:
+  WS_files:
     $ref: "_definitions.yaml#/to_one"
   provenance:
     type: string
