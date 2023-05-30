@@ -24,7 +24,7 @@ required:
   - submitter_id
   - analysis_protocol
   - analysis_protocol_DOI
-  - fcs_files
+  - FcsFiles
   - compensation_description
   - transformation_purpose
   - transformation_description
@@ -46,7 +46,7 @@ links:
     target_type: WS_file
     multiplicity: many_to_one
     required: true
-  - name: fcs_files
+  - name: FcsFiles
     backref: data_analysises
     label: member_of
     target_type: fcs_file
@@ -66,7 +66,7 @@ properties:
   analysis_protocol_DOI:
     type: string
     description: " A DOI to a version controlled protocol, preferably available on a repository such as protocols.io"
-  fcs_files:
+  FcsFiles:
     $ref: "_definitions.yaml#/to_one"
     description: "The list-mode data files (e.g., FCS files [18]) shall be provided directly or details on how they may be requested shall be stated."
   compensation_description:
