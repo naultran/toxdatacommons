@@ -71,4 +71,27 @@ kubectl edit ingress <ingress-name>
     - fairtox.com
     secretName: <secret-name>
 ```
+
+#### override the default values.yaml file
+This part can customize the website.
+* read the default values.yaml file [link for the all pods](https://github.com/uc-cdis/gen3-helm/tree/master/helm).
+* edit your own values.yaml.
+
+For example,
+1. You want to customize the fence [link for the fence's values.yaml](https://github.com/uc-cdis/gen3-helm/blob/master/helm/fence/values.yaml). And what you want to change is the [USER_YAML](https://github.com/uc-cdis/gen3-helm/blob/master/helm/fence/values.yaml#LL479C2-L479C2) part. In the values.yaml which will be pushed to gen3/gen3, you should add:
+```
+fence:
+  USER_YAML: |
+      ....things you want to customize...
+```
+2. If you want to customize the portal to read the image we prebuild([instruction to prebuild the portal](https://github.com/uc-cdis/gen3-helm/blob/4415e61a992e9c9113bc7f1531ec8387d3886404/docs/portal/prebuild-portal.md)). And this is the [part](https://github.com/uc-cdis/gen3-helm/blob/master/helm/portal/values.yaml#L65) we want to change.
+```
+portal:
+  image:
+    repository: <repository name in rancher destop>
+    pullPolicy: IfNotPresent
+    tag: <self defined tag which can be checked on rancher desktop>
+
+```
+
 #### Wait for changes to propagate
