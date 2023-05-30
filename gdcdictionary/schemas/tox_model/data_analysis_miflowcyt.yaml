@@ -24,14 +24,14 @@ required:
   - submitter_id
   - analysis_protocol
   - analysis_protocol_DOI
-  - FCS_file_name
+  - fcs_files
   - compensation_description
   - transformation_purpose
   - transformation_description
   - gate_description
   - gate_statistics
   - gate_boundaries
-  - WS_file_name
+  - WS_files
 #  - provenance
 
 
