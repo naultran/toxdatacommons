@@ -57,7 +57,7 @@ links:
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
   type:
-    enum: ["FCS"]
+    enum: ["FCS_file"]
   flourescence_reagents:
     $ref: "_definitions.yaml#/to_many"
   data_category: 

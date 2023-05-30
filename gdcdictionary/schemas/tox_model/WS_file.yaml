@@ -58,7 +58,7 @@ links:
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
   type:
-    enum: ["WS"]
+    enum: ["WS_file"]
   flourescence_reagents:
     $ref: "_definitions.yaml#/to_one"
   data_category: 

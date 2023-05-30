@@ -147,7 +147,7 @@ properties:
   submitter_id:
     type: string
   targets:
-    $ref: "_definitions.yaml#/to_one" / "_definitions.yaml#/to_many" # depening on links
+    $ref: "_definitions.yaml#/to_one" / "_definitions.yaml#/to_many" # depending on links' multiplicities
   ....
   state:
     $ref: "_definitions.yaml#/state"
@@ -214,7 +214,7 @@ links:
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
   type:
-    enum: ["WS"]
+    enum: ["node_file"]
   targets:
     $ref: "_definitions.yaml#/to_one"/"_definitions.yaml#/to_many"
   ...
