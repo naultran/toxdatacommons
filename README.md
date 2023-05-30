@@ -72,7 +72,7 @@ kubectl edit ingress <ingress-name>
     secretName: <secret-name>
 ```
 
-#### override the default values.yaml file
+### override the default values.yaml files
 This part can customize the website.
 * read the default values.yaml file [link for the all pods](https://github.com/uc-cdis/gen3-helm/tree/master/helm).
 * edit your own values.yaml.
