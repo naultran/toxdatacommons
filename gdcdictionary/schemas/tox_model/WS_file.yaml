@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "WS_file"
-title: WS_file
+id: "ws_file"
+title: ws_file
 type: object
 category: data_file
 program: '*'
@@ -43,13 +43,13 @@ links:
     required: true
     subgroup:
     - name: flourescence_reagents
-      backref: WS_files
+      backref: ws_files
       label: member_of
       target_type: flourescence_reagent
       multiplicity: one_to_one
       required: true
     - name: core_metadata_collections
-      backref: WS_files
+      backref: ws_files
       label: data_from
       target_type: core_metadata_collection
       multiplicity: many_to_many

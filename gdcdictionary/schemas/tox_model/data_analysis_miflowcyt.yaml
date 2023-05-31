@@ -31,7 +31,7 @@ required:
   - gate_description
   - gate_statistics
   - gate_boundaries
-  - WS_files
+  - ws_files
 #  - provenance
 
 
@@ -40,10 +40,10 @@ uniqueKeys:
   - [ project_id, submitter_id]
 
 links:
-  - name: WS_files
+  - name: ws_files
     backref: data_analysis_miflowcyts
     label: member_of
-    target_type: WS_file
+    target_type: ws_file
     multiplicity: many_to_one
     required: true
   - name: fcs_files
@@ -89,7 +89,7 @@ properties:
     type: string
     description: >
       Either the exact mathematical descriptions of each gate boundary shall be provided using an open and freely available specification, or this information shall be provided in the form of images.
-  WS_files:
+  ws_files:
     $ref: "_definitions.yaml#/to_one"
   provenance:
     type: string
