@@ -7,7 +7,7 @@ category: analysis
 program: '*'
 project: '*'
 description: >
-  description of data analysis.
+  description of miflowcyt's data analysis.
 additionalProperties: false
 submittable: true
 validators: null
@@ -24,7 +24,7 @@ required:
   - submitter_id
   - analysis_protocol
   - analysis_protocol_DOI
-  - FCS_files
+  - fcs_files
   - compensation_description
   - transformation_purpose
   - transformation_description
@@ -41,15 +41,15 @@ uniqueKeys:
 
 links:
   - name: WS_files
-    backref: data_analysises
+    backref: data_analysis_miflowcyts
     label: member_of
     target_type: WS_file
     multiplicity: many_to_one
     required: true
-  - name: FCS_files
-    backref: data_analysises
+  - name: fcs_files
+    backref: data_analysis_miflowcyts
     label: member_of
-    target_type: FCS_file
+    target_type: fcs_file
     multiplicity: many_to_one
     required: true
   
@@ -66,7 +66,7 @@ properties:
   analysis_protocol_DOI:
     type: string
     description: " A DOI to a version controlled protocol, preferably available on a repository such as protocols.io"
-  FCS_files:
+  fcs_files:
     $ref: "_definitions.yaml#/to_one"
   compensation_description:
     type: string

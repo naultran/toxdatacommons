@@ -26,10 +26,10 @@ required:
   - analysis_protocol
   - analysis_protocol_DOI
   - rawDataFiles
-  - Normalization
-  - Transformation
-  - TransformationPurpose
-  - TransformationDescription
+  - normalization
+  - transformation
+  - transformationPurpose
+  - transformationDescription
   - processedDataFiles
   - unit
 
@@ -68,13 +68,13 @@ properties:
     description: " A DOI to a version controlled protocol, preferably available on a repository such as protocols.io"
   rawDataFiles:
     $ref: "_definitions.yaml#/to_one"
-  Normalization:
+  normalization:
     type: string
-  Transformation: 
+  transformation: 
     type: string
-  TransformationPurpose: 
+  transformationPurpose: 
     type: string
-  TransformationDescription:
+  transformationDescription:
     type: string 
   processedDataFiles: 
     $ref: "_definitions.yaml#/to_one"

@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "FCS_file"
-title: FCS_file
+id: "fcs_file"
+title: fcs_file
 type: object
 category: data_file
 program: '*'
@@ -42,13 +42,13 @@ links:
     required: true
     subgroup:
     - name: flourescence_reagents
-      backref: FCS_files
+      backref: fcs_files
       label: member_of
       target_type: flourescence_reagent
       multiplicity: one_to_many
       required: true
     - name: core_metadata_collections
-      backref: FCS_files
+      backref: fcs_files
       label: data_from
       target_type: core_metadata_collection
       multiplicity: many_to_many
@@ -57,7 +57,7 @@ links:
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
   type:
-    enum: ["FCS_file"]
+    enum: ["fcs_file"]
   flourescence_reagents:
     $ref: "_definitions.yaml#/to_many"
   data_category: 
