@@ -53,4 +53,12 @@ properties:
     type: string
   provenance:
     type: string
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
 
