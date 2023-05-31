@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "data_analysis_msm2"
-title: data_analysis_msm2
+id: "data_analysis_miflowcyt"
+title: data_analysis_miflowcyt
 type: object
 category: analysis
 program: '*'
 project: '*'
 description: >
-  description of data anadata_analysis_mass_spec_metabolomicslysis.
+  description of data analysis.
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,44 +21,44 @@ systemProperties:
 
 required:
   - type
-  - submitter_id # data_analysis_id
-  - data_analysis_id
+  - submitter_id
   - analysis_protocol
   - analysis_protocol_DOI
   - FCS_files
-  - Normalization
-  - Transformation
-  - TransformationPurpose
-  - TransformationDescription
+  - compensation_description
+  - transformation_purpose
+  - transformation_description
+  - gate_description
+  - gate_statistics
+  - gate_boundaries
   - WS_files
-  - unit
+#  - provenance
+
 
 uniqueKeys:
   - [id]
-  - [ project_id, submitter_id ]
+  - [ project_id, submitter_id]
 
 links:
-  - name: FCS_files
-    backref: data_analysis_msmes
-    label: member_of
-    target_type: FCS_file
-    multiplicity: many_to_one
-    required: true
   - name: WS_files
-    backref: data_analysis_msmes
+    backref: data_analysises
     label: member_of
     target_type: WS_file
     multiplicity: many_to_one
     required: true
-
+  - name: FCS_files
+    backref: data_analysises
+    label: member_of
+    target_type: FCS_file
+    multiplicity: many_to_one
+    required: true
+  
 properties:
   type:
-    enum: ["data_analysis_msm2"]
+    enum: ["data_analysis_miflowcyt"]
   id:
     $ref: "_definitions.yaml#/UUID"
   submitter_id:
-    type: string
-  data_analysis_id:
     type: string
   analysis_protocol:
     type: string
@@ -68,20 +68,31 @@ properties:
     description: " A DOI to a version controlled protocol, preferably available on a repository such as protocols.io"
   FCS_files:
     $ref: "_definitions.yaml#/to_one"
-  Normalization:
+    description: "The list-mode data files (e.g., FCS files [18]) shall be provided directly or details on how they may be requested shall be stated."
+  compensation_description:
     type: string
-  Transformation: 
+  transformation_purpose:
     type: string
-  TransformationPurpose: 
+    description: "The purpose of each performed transformation shall be specified (e.g., data visualization, background correction, statistical analysis, quantitative flow cytometry, etc.)."
+  transformation_description:
     type: string
-  TransformationDescription:
-    type: string 
-  WS_files: 
+    description: >
+      Either the exact mathematical formulas/algorithms of each data transformation shall be supplied using an open and freely available specification, or a description of each transformation shall be provided.
+  gate_description:
+    type: string
+    description: >
+      The subpopulation identified by the gate shall be briefly described (e.g., “IL-4 producing helper T cells of the CD3+CD4+ phenotype”).
+  gate_statistics:
+    type: string
+    description: >
+      Percentage of events within the gate shall be provided specifically stating the denominator. The denominator shall be either the total population of events (e.g., percentage of lymphocytes based on the total number of events) or another gate (e.g., percentage of CD4+ lymphocytes based on all lymphocytes). When the denominator is another gate, this shall also be exactly specified in recursive fashion so that the gating strategy can be followed up to the original data set. The denominator may not necessarily be a containing (superset) population for some statistics (e.g., the donor / host blood cell ratio).
+  gate_boundaries:
+    type: string
+    description: >
+      Either the exact mathematical descriptions of each gate boundary shall be provided using an open and freely available specification, or this information shall be provided in the form of images.
+  WS_files:
     $ref: "_definitions.yaml#/to_one"
-  unit: 
-    type: string
-    description: nmol/mg total protein
-  provenance: 
+  provenance:
     type: string
     description: "template version"
   state:
@@ -92,3 +103,5 @@ properties:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:
     $ref: "_definitions.yaml#/datetime"
+  
+
