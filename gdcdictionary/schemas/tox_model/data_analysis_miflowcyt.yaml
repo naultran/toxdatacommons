@@ -68,7 +68,6 @@ properties:
     description: " A DOI to a version controlled protocol, preferably available on a repository such as protocols.io"
   FCS_files:
     $ref: "_definitions.yaml#/to_one"
-    description: "The list-mode data files (e.g., FCS files [18]) shall be provided directly or details on how they may be requested shall be stated."
   compensation_description:
     type: string
   transformation_purpose:
