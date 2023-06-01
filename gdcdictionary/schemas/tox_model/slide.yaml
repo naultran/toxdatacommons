@@ -1,0 +1,76 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "slide"
+title: slide
+type: object
+category: biospecimen
+program: '*'
+project: '*'
+description: >
+  description of extraction.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+  - aliquots
+  
+uniqueKeys:
+  - [id]
+  - [  project_id, submitter_id ]
+
+links:
+  - name: aliquots
+    backref: slides
+    label: member_of
+    target_type: aliquot
+    multiplicity: many_to_one
+    required: true
+
+properties:
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  type:
+    enum: ["slide"]
+  submitter_id:
+    type: string
+
+  assay:
+    description: General methodology used
+    type: string
+  probe_type: 
+    type: string
+  probe_name:
+    type: string
+  probe_provider:
+    type: string
+  probe_catalog_number:
+    type: string
+  probe_concentration:
+    type: string
+  detection_method:
+    type: string
+    
+  samples:
+    $ref: "_definitions.yaml#/to_one"
+  provenance:
+    type: string
+    description: "template version"
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

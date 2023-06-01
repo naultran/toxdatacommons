@@ -1,0 +1,78 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "aliquot"
+title: Aliquot
+type: object
+category: biospecimen
+program: '*'
+project: '*'
+description: >
+  Pertaining to a portion of the whole; any one of two or more samples of something, of the same
+  volume or weight.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+  - aliquots
+  
+uniqueKeys:
+  - [id]
+  - [  project_id, submitter_id ]
+
+links:
+  - name: samples
+    backref: aliquots
+    label: derived_from
+    target_type: sample
+    multiplicity: many_to_one
+    required: true
+
+properties:
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  type:
+    enum: ["aliquot"]
+  submitter_id:
+    type: string
+
+  analyte_type:
+    term:
+      $ref: "_terms.yaml#/analyte_type"
+    enum: 
+      - DNA
+      - total RNA
+      - microRNA
+      - Metabolites
+      - Protein
+      - Tisse section 
+      - Cell suspension
+      - Histology slide
+  analyte_preparation_protocol:
+    description: "A protocols.io DOI"
+    type:
+      - string
+    
+  provenance:
+    type: string
+    description: "template version"
+  samples:
+    $ref: "_definitions.yaml#/to_one"
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
