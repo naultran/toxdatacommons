@@ -71,7 +71,6 @@ properties:
     term:
       $ref: "_terms.yaml#/data_type"
     enum:
-    permissible_values:
       - whole slide scan
       - field of view image
       - Not applicable
@@ -93,7 +92,6 @@ properties:
       - Not collected
       - Not provided
       - Restricted access
-      
   slides:
     $ref: "_definitions.yaml#/to_one"
   core_metadata_collections:
