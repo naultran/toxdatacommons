@@ -25,11 +25,10 @@ required:
   - availability_type
   - dbgap_accession_number
   - programs
-  - study_design
-  - study_type
-  - experimental_setting
-  - organism
-#  - provenance
+  - description
+  - contact_name
+  - institution
+
 
 
 uniqueKeys: 
@@ -98,7 +97,7 @@ properties:
         - legacy
   code:
     type: string
-    description: "Unique identifier for the project, studyID"
+    description: "Unique identifier for the project"
   availability_type:
     description: "Is the project open or restricted?"
     enum:
@@ -108,78 +107,18 @@ properties:
     $ref: "_definitions.yaml#/to_one"
     description: >
       Indicates that the project is logically part of the indicated project.
-  study_design:
-    enum:
-      - dose response design
-      - case control design
-      - cross sectional design
-      - genetic modification design
-      - sex design
-      - time series design
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
-    description: "A plan specification comprised of protocols (which may specify how
-      and what kinds of data will be gathered) that are executed as part of an investigation
-      and is realized during a study design execution."
-  study_type: 
-    enum:
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
-      - Teratology
-      - Short term
-      - Long term
-      - Bacterial mutagenicity
-      - Drosophila germ cell mutagenicity
-      - In vitro micronucleus
-      - In vivo alkaline comet assay
-      - Mammalian cell cytogenetics
-      - Mammalian cell mutagenicity
-      - Micronucleus
-      - Rodent cytogenetics
-      - ADME
-      - Immunotoxicology
-      - Nematode
-      - RACB
-      - Tox21 - Phase II
-      - Toxicogenomics
-      - Toxicokinetics
-      - Zebrafish
-    description: "A categorical value specification that specifies the type of study
-      from a list of study types"
-  experimental_setting:
-    enum:
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
-      - in vivo
-      - ex vivo
-    description: ""
-  organism:
-    enum:
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
-      - Homo sapiens
-      - Mus musculus
-      - Rattus norvegicus
-      - Drosophila melanogaster
-      - Danio rerio
-      - Xenopus laevis
-    description: ""
-  provenance: 
-    type: string
-    description: "template version"
   dbgap_accession_number:
     type: string
     description: "The dbgap accession number provided for the project."
+  description:
+    type: string
+  contact_name:
+    type: string
+  institution:
+    type: string
+  email_address:
+    type: string
+  telephone_number:
+    type: string
+
 

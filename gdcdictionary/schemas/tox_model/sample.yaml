@@ -21,9 +21,8 @@ systemProperties:
 
 required:
   - type
-  - sampleID
-  - studyID
-  - subjectID
+  - submitter_id
+  - subjects
   - date
   - biospecimen_anatomic_site
   - method_of_sample_procurement
@@ -51,9 +50,7 @@ properties:
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
-  sampleID:
-    type: string
-  studyID:
+  submitter_id:
     type: string
   subjects:
     $ref: "_definitions.yaml#/to_one"

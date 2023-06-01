@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "funding"
-title: funding
+id: "contact"
+title: contact
 type: object
 category: administrative
 program: '*'
 project: '*'
 description: >
-  description of funding.
+  description of contact.
 additionalProperties: false
 submittable: true
 validators: null
@@ -15,44 +15,56 @@ validators: null
 systemProperties: 
   - id
   - project_id
-  - state
   - created_datetime
   - updated_datetime
+  - state
 
 required:
   - type
-  - submitter_id
   - studies
-  - support_source
-  - support_id
+  - submitter_id
+  - contact_name
+#  - provenance
 
 uniqueKeys:
   - [id]
-  - [  project_id, submitter_id ]
+  - [project_id, submitter_id]
 
 links:
   - name: studies
-    backref: fundings
+    backref: contacts
     label: member_of
     target_type: study
     multiplicity: many_to_many
     required: true
-properties:
-  id: 
+
+properties: 
+  type: 
+    enum: ["contact"]
+  id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
-  type:
-    enum: ["funding"]
+  studies:
+    $ref: "_definitions.yaml#/to_many"
   submitter_id:
     type: string
-  studies:
-    $ref: "_definitions.yaml#/to_many_project"
-  support_source:
+  contact_name:
     type: string
-  support_id:
+  contact_orcid:
     type: string
-  provenance:
+  contact_email:
     type: string
+  contact_telepnone:
+    type: string
+  contact_department:
+    type: string
+  contact_institution:
+    type: string
+  location:
+    type: string
+  provenance: 
+    type: string
+    description: "template version"
   state:
     $ref: "_definitions.yaml#/state"
   project_id:
@@ -61,4 +73,6 @@ properties:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:
     $ref: "_definitions.yaml#/datetime"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
 
