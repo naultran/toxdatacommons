@@ -41,7 +41,7 @@ links:
     backref: diets
     label: member_of
     target_type: housing
-    multiplicity: many_to_one
+    multiplicity: one_to_many
     required: true
 
 properties: 
@@ -55,7 +55,7 @@ properties:
   feed_catalog_number:
     type: string
   housings:
-    $ref: "_definitions.yaml#/to_one" 
+    $ref: "_definitions.yaml#/to_many" 
   feed_description:
     type: string
   feed_name:
