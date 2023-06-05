@@ -33,7 +33,7 @@ links:
       multiplicity: many_to_many
       required: false
     - name: core_metadata_collections
-      backref: slide_images
+      backref: flow_analysis_datas
       label: data_from
       target_type: core_metadata_collection
       multiplicity: many_to_many
