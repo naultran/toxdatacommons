@@ -1,0 +1,77 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "flow_analysis"
+title: Flow data analysis
+type: object
+category: analysis
+program: '*'
+project: '*'
+description: >
+  description of data anadata_analysis_mass_spec_metabolomicslysis.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+
+uniqueKeys:
+  - [id]
+  - [ project_id, submitter_id ]
+
+links:
+  - name: flow_datas
+    backref: flow_analysises
+    label: member_of
+    target_type: flow_data
+    multiplicity: many_to_many
+    required: true
+
+properties:
+  type:
+    enum: ["flow_analysis"]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+  submitter_id:
+    type: string
+
+  protocol:
+    type: string
+    description: "A brief description of the flow cytometry protocol"
+  protocol_doi:
+    type: string
+    description: " A DOI to a version controlled protocol, preferably available on a repository such as protocols.io"
+  compensation_description:
+    type: string
+  transformation_purpose: 
+    type: string
+  transformation_description: 
+    type: string
+  gate_description:
+    type: string 
+  gate_statistics: 
+    type: string
+  gate_boundaries: 
+    type: string
+  provenance: 
+    type: string
+    description: "template version"
+
+  flow_datas:
+    $ref: "_definitions.yaml#/to_many"
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

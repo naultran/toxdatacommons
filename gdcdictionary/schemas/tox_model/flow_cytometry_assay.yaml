@@ -1,0 +1,121 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "flow_cytometry_assay"
+title: Flow Cytometry Assay
+type: object
+category: biospecimen
+program: '*'
+project: '*'
+description: >
+  description of a flow cytometry assay.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+  - samples
+#  - provenance
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+links:
+  - name: aliquots
+    backref: flow_cytometry_assays
+    label: member_of
+    target_type: aliquot
+    multiplicity: many_to_many
+    required: true
+
+properties: 
+  type:
+    enum: ["flow_cytometry_assay"]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+  submitter_id:
+    type: string
+    
+  protocol:
+    type: string
+    description: "A brief description of the flow cytometry protocol"    
+  protocol_doi:
+    type: string
+    description: "A brief description of the flow cytometry protocol"    
+  quality_control_measures:
+    enum:
+      - STR profiling of source cells
+      - mycoplasma testing
+      - isotype control for antibody
+      - no antibody negative control
+      - positive control cell type
+      - Live/Dead staining
+      - unstained controls
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+  characteristics_being_measured: 
+    type: string
+    description: >
+      The relative amount of molecules, properties, or processes being evaluated (e.g., CD25, apoptosis, membrane permeability, cell viability, oxidative burst). The characteristic(s) being measured shall be provided whenever there is ambiguity about the analyte being measured, such as when sample processing affects detection of the analyte (e.g., propidium iodide example in Table 1). The optical detector (e.g., FL1) or parameter (e.g., FL1-H) used primarily for this measurement shall be indicated.    
+  analyte: 
+    type: string
+  analyte_detector: 
+    type: string
+    description: >
+      What plays the role of the analyte? Which substance or chemical constituent is the subject of interest of the analytical procedure, what target is specifically bound by the analyte detector (e.g., CD25)?
+  analyte_reporter:
+    type: string
+    description: >
+      (Fluorochrome) What plays the role of analyte reporter? Which component of the fluorescence reagent reports the presents of the analyte to the flow cytometer? What substance (label) is used to generate the measured signal (e.g., FITC)?
+  clone: 
+    type: string
+    description: "If the probe is a monoclonal antibody, the clone name or number shall be provided."
+  reagent_manufacturer: 
+    type: string
+    description: "The reagent manufacturer shall be specified (e.g., MIFlowCyt Reagent Inc.)."
+  reagent_catalogue:
+    type: string
+    description: "The reagent catalogue number shall be specified."
+  staining_status: 
+    enum:
+      - stained
+      - unstained
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+  other_reagent: 
+    type: string
+    description: >
+      When secondary antibodies are used, the primary analyte (the analyte bound by the primary antibody) and the reporter component of the secondary antibody (the reporter that generates the measured signal) shall be clearly specified as described in 2.4.2, 2.4.3, and 2.4.4. If relevant, the primary and secondary antibodies shall be described individually (e.g., in the case that the use of a secondary antibody significantly impacts the interpretation of results because of nonspecific fluorescence, etc.). The description should also contain other relevant details which may include lot number, concentration, label incorporation method, separation technique, antibody staining procedures, and wash steps.
+  provenance: 
+    type: string
+    description: "template version"
+
+  aliquots:
+    $ref: "_definitions.yaml#/to_many"    
+  instrument:
+    #$ref: "_definitions.yaml#/to_many"
+    type: string
+
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
