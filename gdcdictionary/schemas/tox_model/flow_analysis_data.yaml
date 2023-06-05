@@ -26,10 +26,10 @@ links:
   - exclusive: false
     required: true
     subgroup:
-    - name: flow_datas
+    - name: flow_analysises
       backref: flow_analysis_datas
       label: data_from
-      target_type: flow_data
+      target_type: flow_analysis
       multiplicity: many_to_many
       required: false
     - name: core_metadata_collections
@@ -91,7 +91,7 @@ properties:
     type: string
     description: "template version"      
       
-  flow_datas:
+  flow_analysises:
     $ref: "_definitions.yaml#/to_many"
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"
