@@ -55,9 +55,8 @@ properties:
     type: string
   unit: 
     type: string
-  analysis_protocol.submitter_id:
+  analysis_protocols:
     type: string 
-
   ms_raw_datas:
     $ref: "_definitions.yaml#/to_many"
   state:
