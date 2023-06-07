@@ -52,13 +52,13 @@ properties:
     type: string
     description: ""
   start_date_age:
-    type: integer
+    type: number
     description: ""
   experiment_start_date:
     type: string
     description: ""
   experiment_start_zt:
-    type: integer
+    type: number
     description: ""
   sex:
     enum:

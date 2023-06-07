@@ -64,9 +64,9 @@ properties:
   cage_type:
     type: string
   vivarium_temperature_C:
-    type: float
+    type: number
   vivarium_humidity_percentage:
-    type: float
+    type: number
   vivarium_light_cycle:
     type: string
   provenance:

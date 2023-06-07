@@ -413,9 +413,9 @@ properties:
   preservation_method:
     type: string
   weight:
-    type: float
+    type: number
   volume:
-    type: float
+    type: number
   provenance: 
     type: string
     description: "template version"

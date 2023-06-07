@@ -210,7 +210,7 @@ properties:
       - Restricted access
   grade:
     description: "Magnitude of pathological changes."
-    type: integer
+    type: number
   spontaneous_flag:
     description: "The flag shows whether the lesion occurred spontaneously. The flag
       value is TRUE if the lesion occurred spontaneously."

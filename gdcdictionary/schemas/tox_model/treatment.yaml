@@ -60,9 +60,9 @@ properties:
   date:
     type: string
   administration_volume_ml:
-    type: float
+    type: number
   dose_amount: 
-    type: float   
+    type: number   
   dose_amount_unit: 
     enum:
       - milligram per kilogram
@@ -132,9 +132,9 @@ properties:
       - Not provided
       - Restricted access
   test_article_administration_zt: 
-    type: integer
+    type: number
   test_article_administration_duration: 
-    type: float
+    type: number
   test_article_name: 
     type: string
   test_article_dtxsid:
