@@ -1,0 +1,76 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "culture_media"
+title: Culture media
+type: object
+category: administrative
+program: '*'
+project: '*'
+description: >
+  description of diet.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+
+uniqueKeys:
+  - [id]
+  - [  project_id, submitter_id ]
+
+links:
+  - name: culture_conditionss
+    backref: culture_medias
+    label: member_of
+    target_type: culture_conditions
+    multiplicity: one_to_many
+    required: true
+
+properties: 
+  type:
+    enum: ["culture_media"]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  submitter_id:
+    type: string
+ 
+ date:
+    type: string
+ protocol:
+    type: string
+ basal_medium:
+    type: string    
+ basal_medium_vendor:
+    type: string
+ basal_medium_lot_no:
+    type: string
+ culture_additives:
+    type: string     
+ culture_additives_concentration:
+    type: string
+ anitibiotic_name:
+    type: string
+ antibiotic_concentration:
+    type: string     
+    
+  provenance:
+    type: string
+    description: "template version"
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

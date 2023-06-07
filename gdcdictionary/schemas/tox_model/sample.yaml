@@ -37,12 +37,21 @@ uniqueKeys:
   - [project_id, submitter_id]
 
 links:
-  - name: subjects
-    backref: samples
-    label: member_of
-    target_type: subject
-    multiplicity: many_to_one
+  - exclusive: false
     required: true
+    subgroup:
+    - name: subjects
+      backref: treatments
+      label: member_of
+      target_type: subject
+      multiplicity: many_to_one
+      required: true
+    - name: cell_subjects
+      backref: treatments
+      label: member_of
+      target_type: cell_subjects
+      multiplicity: many_to_one
+      required: true
 
 properties: 
   type:

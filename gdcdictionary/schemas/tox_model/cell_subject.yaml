@@ -1,0 +1,109 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "cell_subject"
+title: Cell subject
+type: object
+category: administrative
+program: '*'
+project: '*'
+description: >
+  description of subject.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+required:
+  - type
+  - submitter_id
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+    - name: studies
+      backref: cell_subjects
+      label: member_of
+      target_type: study
+      multiplicity: many_to_one
+      required: true
+    - name: subjects
+      backref: cell_subjects
+      label: data_from
+      target_type: subject
+      multiplicity: many_to_many
+      required: false
+
+properties: 
+  type: 
+    enum: ["cell_subject"]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+
+  submitter_id:
+    type: string
+  cell_type:
+    type: string
+  organism:
+    type: string
+  race:
+    type: string
+  strain:
+    type: string
+  sex:
+    type: string
+  age:
+    type: string
+  passage_number:
+    type: string
+  lot_no:
+    type: string
+  source_organ:
+    type: string
+  lineage:
+    type: string
+  karyotype:
+    type: string
+  health_status:
+    type: string
+  modifications:
+    type: string
+  lineQC:
+    type: string
+  validation:
+    type: string
+  isolation_protocol:
+    type: string
+  stem_cell_protocol:
+    type: string
+  cell_line_protocol:
+    type: string
+  provenance:
+    type: string
+
+  studies:
+    $ref: "_definitions.yaml#/to_one"
+  subjects:
+    $ref: "_definitions.yaml#/to_many"
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+

@@ -1,0 +1,96 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "culture_conditions"
+title: Cell culture conditions
+type: object
+category: administrative
+program: '*'
+project: '*'
+description: >
+  description.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+links:
+  - name: cell_subjects
+    backref: culture_conditionss
+    label: member_of
+    target_type: cell_subject
+    multiplicity: many_to_many
+    required: true
+
+properties: 
+  type:
+    enum: ["culture_conditions"]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  submitter_id:
+    type: string
+
+  date:
+    type: string
+  culture_vessel:
+    type: string
+  vendor:
+    type: string
+  dimension:
+    type: string
+  size:
+    type: string
+  surfaceArea:
+    type: string
+  coating_substrate:
+    type: string
+  culture_vessel_location:
+    type: string
+  seeding_cell_density:
+    type: string
+  seeding_cell_date:
+    type: string
+  cellDensity:
+    type: string
+  incubator_vendor:
+    type: string
+  incubator_model:
+    type: string
+  co2_percent:
+    type: string
+  o2_percent:
+    type: string
+  temperature:
+    type: string
+  humidity:
+    type: string    
+  provenance:
+    type: string
+    description: "template version"
+
+  cell_subjects:
+    $ref: "_definitions.yaml#/to_many"
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
