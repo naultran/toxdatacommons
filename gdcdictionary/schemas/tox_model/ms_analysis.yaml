@@ -1,0 +1,70 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "ms_analysis"
+title: Mass spectrometry data analysis
+type: object
+category: analysis
+program: '*'
+project: '*'
+description: >
+  description of data anadata_analysis_mass_spec_metabolomics analysis.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+
+uniqueKeys:
+  - [id]
+  - [ project_id, submitter_id ]
+
+links:
+  - name: ms_raw_datas
+    backref: ms_analyses
+    label: member_of
+    target_type: ms_raw_data
+    multiplicity: many_to_many
+    required: true
+
+properties:
+  type:
+    enum: ["ms_analysis"]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+  submitter_id:
+    type: string
+
+  normalization:
+    type: string
+    description: "  "
+  transformation:
+    type: string
+    description: " "
+  transformation_purpose:
+    type: string
+  transformation_description: 
+    type: string
+  unit: 
+    type: string
+  analysis_protocol.submitter_id:
+    type: string 
+
+  ms_raw_datas:
+    $ref: "_definitions.yaml#/to_many"
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

@@ -58,6 +58,14 @@ properties:
       - Tisse section 
       - Cell suspension
       - Histology slide
+  derivitization:
+    description: ""
+    type:
+      - string
+  extract_preservation_method:
+    description: ""
+    type:
+      - string
   analyte_preparation_protocol:
     description: "A protocols.io DOI"
     type:

@@ -1,0 +1,85 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "mass_spec_assay"
+title: Mass Spectromerty Assay
+type: object
+category: administrative
+program: '*'
+project: '*'
+description: >
+  description of a flow cytometry assay.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+  - samples
+#  - provenance
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+links:
+  - name: aliquots
+    backref: mass_spec_assays
+    label: member_of
+    target_type: aliquot
+    multiplicity: many_to_many
+    required: true
+
+properties: 
+  type:
+    enum: ["flow_cytometry_assay"]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+  submitter_id:
+    type: string
+    
+  calibration_standard:
+    type: string  
+  chromatography_name:
+    type: string      
+  chromatography_column:
+    type: string  
+  chromatography_protocol:
+    type: string      
+  elution_program:
+    type: string  
+  flow_rate:
+    type: string      
+   carrier_gas:
+    type: string  
+  oven_temperature_program:
+    type: string  
+  ms_method_name:
+    type: string      
+  ms_protocol:
+    type: string  
+  provenance: 
+    type: string
+    description: "template version"
+
+  aliquots:
+    $ref: "_definitions.yaml#/to_many"    
+#  instrument:
+#    #$ref: "_definitions.yaml#/to_many"
+#    type: string
+
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

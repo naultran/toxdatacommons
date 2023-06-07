@@ -1,0 +1,72 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "metaboliteID"
+title: metaboliteID
+type: object
+category: notation
+program: '*'
+project: '*'
+description: >
+  description of data metaboliteID.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+
+uniqueKeys:
+  - [id]
+  - [ project_id, submitter_id ]
+
+links:
+  - name: ms_analysed_datas
+    backref: metabolite_ids
+    label: member_of
+    target_type: ms_analysed_data
+    multiplicity: many_to_many
+    required: true
+
+properties:
+  type:
+    enum: ["metabolite_id"]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+  submitter_id:
+    type: string
+    description: "metabolite_name"
+
+  metabolite_name:
+    type: string
+  refmet_name:
+    type: string
+  dtxsid:
+    type: string
+  inchikey:
+    type: string
+  mass:
+    type: string
+  elution_time:
+    type: string
+  provenance: 
+    type: string
+    description: "template version"
+    
+  ms_analysed_datas:
+    $ref: "_definitions.yaml#/to_many"
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

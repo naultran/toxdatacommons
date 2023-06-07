@@ -1,0 +1,97 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "ms_raw_data"
+title: Mass spectrometry raw data
+type: object
+namespace: https://toxdatacommons.com
+category: data_file
+program: '*'
+project: '*'
+description: >
+  Data file containing image of a slide.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+  - file_state
+  - error_type
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+    - name: mass_spec_assays
+      backref: ms_raw_datas
+      label: data_from
+      target_type: mass_spec_assay
+      multiplicity: many_to_many
+      required: false
+    - name: core_metadata_collections
+      backref: ms_raw_datas
+      label: data_from
+      target_type: core_metadata_collection
+      multiplicity: many_to_many
+      required: false
+
+required:
+  - submitter_id
+  - type
+  - file_name
+  - file_size
+  - md5sum
+  - data_category
+  - data_type
+  - data_format
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  $ref: "_definitions.yaml#/data_file_properties"
+  type:
+    enum: [ "flow_data" ]
+  data_category:
+    term:
+      $ref: "_terms.yaml#/data_category"
+    enum:
+      - flow cytometry ##
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    enum:
+      - flow cytometry ##
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+  data_format:
+    term:
+      $ref: "_terms.yaml#/data_format"
+    enum: 
+      - FCS ##
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
+  provenance: 
+    type: string
+    description: "template version"      
+      
+  mass_spec_assays:
+    $ref: "_definitions.yaml#/to_many"
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_many"
