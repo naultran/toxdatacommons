@@ -52,7 +52,7 @@ links:
     - name: cell_subjects
       backref: treatments
       label: member_of
-      target_type: cell_subjects
+      target_type: cell_subject
       multiplicity: many_to_one
       required: true
 
@@ -65,6 +65,8 @@ properties:
   submitter_id:
     type: string
   subjects:
+    $ref: "_definitions.yaml#/to_one"
+  cell_subjects:
     $ref: "_definitions.yaml#/to_one"
   date:
     type: string
@@ -163,7 +165,6 @@ properties:
     type: string   
   treatment_protocol:
     type: string     
-
   provenance:
     type: string
     description: "template version"

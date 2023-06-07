@@ -41,15 +41,15 @@ links:
     required: true
     subgroup:
     - name: subjects
-      backref: treatments
+      backref: samples
       label: member_of
       target_type: subject
       multiplicity: many_to_one
       required: true
     - name: cell_subjects
-      backref: treatments
+      backref: samples
       label: member_of
-      target_type: cell_subjects
+      target_type: cell_subject
       multiplicity: many_to_one
       required: true
 
@@ -62,6 +62,8 @@ properties:
   submitter_id:
     type: string
   subjects:
+    $ref: "_definitions.yaml#/to_one"
+  cell_subjects:
     $ref: "_definitions.yaml#/to_one"
   date:
     type: string
