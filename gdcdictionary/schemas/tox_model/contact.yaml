@@ -53,7 +53,7 @@ properties:
     type: string
   contact_email:
     type: string
-  contact_telepnone:
+  contact_telephone:
     type: string
   contact_department:
     type: string
