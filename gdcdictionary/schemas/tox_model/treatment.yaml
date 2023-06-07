@@ -1,5 +1,4 @@
 $schema: "http://json-schema.org/draft-04/schema#"
-
 id: "treatment"
 title: treatment
 type: object
@@ -154,7 +153,7 @@ properties:
   vehicle_dtxsid:
     type: string
     
-   addition_volume: 
+  addition_volume: 
     type: string
   stock_concentration:
     type: string
@@ -162,9 +161,9 @@ properties:
     type: string
   concentration_unit:
     type: string   
-   treatment_protocol:
+  treatment_protocol:
     type: string     
-    
+
   provenance:
     type: string
     description: "template version"

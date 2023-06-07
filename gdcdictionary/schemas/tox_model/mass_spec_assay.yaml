@@ -57,7 +57,7 @@ properties:
     type: string  
   flow_rate:
     type: string      
-   carrier_gas:
+  carrier_gas:
     type: string  
   oven_temperature_program:
     type: string  

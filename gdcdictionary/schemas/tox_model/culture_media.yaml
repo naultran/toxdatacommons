@@ -1,5 +1,4 @@
 $schema: "http://json-schema.org/draft-04/schema#"
-
 id: "culture_media"
 title: Culture media
 type: object
@@ -43,24 +42,23 @@ properties:
     systemAlias: node_id
   submitter_id:
     type: string
- 
- date:
+  date:
     type: string
- protocol:
+  protocol:
     type: string
- basal_medium:
+  basal_medium:
     type: string    
- basal_medium_vendor:
+  basal_medium_vendor:
     type: string
- basal_medium_lot_no:
+  basal_medium_lot_no:
     type: string
- culture_additives:
+  culture_additives:
     type: string     
- culture_additives_concentration:
+  culture_additives_concentration:
     type: string
- anitibiotic_name:
+  anitibiotic_name:
     type: string
- antibiotic_concentration:
+  antibiotic_concentration:
     type: string     
     
   provenance:
