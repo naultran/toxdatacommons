@@ -23,12 +23,7 @@ required:
   - type
   - submitter_id # metabolite_name
   - data_analysis_msmes # data_analysis_id
-  - metabolite_name
-  - refmet_name
-  - dtxsid
-  - inchikey
-  - mass
-  - elution_tume
+
 
 uniqueKeys:
   - [id]

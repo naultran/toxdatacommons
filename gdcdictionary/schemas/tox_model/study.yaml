@@ -22,13 +22,7 @@ systemProperties:
 required: 
   - type
   - submitter_id
-  - projects
-  - study_title
-  - study_description
-  - study_design
-  - study_type
-  - experimental_setting
-  - organism
+
 #  - provenance
 
 

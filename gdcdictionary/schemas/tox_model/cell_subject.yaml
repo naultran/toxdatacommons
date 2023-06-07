@@ -22,6 +22,8 @@ systemProperties:
 required:
   - type
   - submitter_id
+  - subjects
+  - studies
 
 uniqueKeys:
   - [id]

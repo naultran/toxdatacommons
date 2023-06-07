@@ -25,9 +25,7 @@ required:
   - availability_type
   - dbgap_accession_number
   - programs
-  - description
-  - contact_name
-  - institution
+
 
 
 

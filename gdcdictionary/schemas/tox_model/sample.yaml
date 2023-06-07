@@ -22,13 +22,7 @@ systemProperties:
 required:
   - type
   - submitter_id
-  - subjects
-  - date
-  - biospecimen_anatomic_site
-  - method_of_sample_procurement
-  - preservation_method
-  - weight
-  - volume
+
 #  - provenance
 
 

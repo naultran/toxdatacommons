@@ -22,9 +22,6 @@ systemProperties:
 required:
   - type
   - submitter_id
-  - studies
-  - support_source
-  - support_id
 
 uniqueKeys:
   - [id]

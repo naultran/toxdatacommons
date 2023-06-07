@@ -22,10 +22,7 @@ systemProperties:
 required:
   - type
   - submitter_id
-  - studies
-  - PMC_id
-  - DOI
-  - PMID
+
 
 uniqueKeys:
   - [id]

@@ -23,16 +23,7 @@ required:
   - type
   - studies
   - submitter_id
-  - start_date
-  - start_date_age
-  - experiment_start_date
-  - experiment_start_zt
-  - sex
-  - strain
-  - strain_source
-  - euthanasia_date
-  - euthanasia_zt
-  - euthanasia_method
+
 #  - provenance
 
 uniqueKeys:

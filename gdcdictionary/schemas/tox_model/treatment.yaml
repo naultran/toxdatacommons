@@ -21,18 +21,7 @@ systemProperties:
 required:
   - type
   - submitter_id
-  - subjects
-  - date
-  - administration_volume_ml
-  - dose_amount
-  - dose_amount_unit
-  - route
-  - test_article_administration_zt
-  - test_article_administration_duration
-  - test_article_name
-  - test_article_dtxsid
-  - vehicle_name
-  - vehicle_dtxsid
+
 #  - provenance
 
 uniqueKeys:
@@ -54,7 +43,7 @@ links:
       label: member_of
       target_type: cell_subject
       multiplicity: many_to_one
-      required: true
+      required: false
 
 properties: 
   type:

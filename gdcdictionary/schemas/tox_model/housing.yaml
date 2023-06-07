@@ -22,14 +22,7 @@ systemProperties:
 required:
   - type
   - submitter_id
-  - cageID
-  - subjects
-  - housing_change_date
-  - bedding_type
-  - cage_type
-  - vivarium_temperature_C
-  - vivarium_humidity_percentage
-  - vivarium_light_cycle
+
 #  - provenance
 
 uniqueKeys:

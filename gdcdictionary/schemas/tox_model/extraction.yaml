@@ -22,12 +22,7 @@ systemProperties:
 required:
   - type
   - submitter_id
-  - samples
-  - extraction_protocol
-  - extraction_protocol_DOI
-  - derivitization
-  - extract_preservation_method
-  - calibration_standard
+
 
 uniqueKeys:
   - [id]

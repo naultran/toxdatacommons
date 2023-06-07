@@ -22,13 +22,6 @@ systemProperties:
 required:
   - type
   - submitter_id
-  - feed_catalog_number
-  - housings
-  - feed_description
-  - feed_name
-  - feed_vendor
-  - water_type
-  - feed_paradigm
 #  - provenance
 
 

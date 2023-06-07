@@ -23,7 +23,6 @@ required:
   - type
   - studies
   - submitter_id
-  - contact_name
 #  - provenance
 
 uniqueKeys:

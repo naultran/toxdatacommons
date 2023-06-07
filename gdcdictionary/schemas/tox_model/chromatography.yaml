@@ -22,11 +22,7 @@ systemProperties:
 required:
   - type
   - submitter_id
-  - name
-  - extractions
-  - chromatography_protocol
-  - chromatography_protocol_DOI
-  - chromatography_column
+
 
 uniqueKeys:
   - [id]

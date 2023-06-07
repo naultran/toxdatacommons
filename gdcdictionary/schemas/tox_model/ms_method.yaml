@@ -21,10 +21,7 @@ systemProperties:
 
 required:
   - submitter_id
-  - extractions
-  - name
-  - ms_protocol
-  - ms_protocol_DOI
+  - type
 
 uniqueKeys:
   - [id]

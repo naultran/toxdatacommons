@@ -22,16 +22,8 @@ systemProperties:
 required:
   - type
   - submitter_id # data_analysis_id
-  - data_analysis_id
-  - analysis_protocol
-  - analysis_protocol_DOI
   - rawDataFiles
-  - normalization
-  - transformation
-  - transformationPurpose
-  - transformationDescription
   - processedDataFiles
-  - unit
 
 uniqueKeys:
   - [id]
