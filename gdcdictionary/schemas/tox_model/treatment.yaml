@@ -36,7 +36,7 @@ links:
       backref: treatments
       label: member_of
       target_type: subject
-      multiplicity: many_to_one
+      multiplicity: many_to_many
       required: true
     - name: cell_subjects
       backref: treatments
@@ -54,7 +54,7 @@ properties:
   submitter_id:
     type: string
   subjects:
-    $ref: "_definitions.yaml#/to_one"
+    $ref: "_definitions.yaml#/to_many"
   cell_subjects:
     $ref: "_definitions.yaml#/to_one"
   date:

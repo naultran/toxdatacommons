@@ -39,13 +39,13 @@ links:
       label: member_of
       target_type: subject
       multiplicity: many_to_one
-      required: true
+      required: false
     - name: cell_subjects
       backref: samples
       label: member_of
       target_type: cell_subject
       multiplicity: many_to_one
-      required: true
+      required: false
 
 properties: 
   type:
