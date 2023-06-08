@@ -22,7 +22,6 @@ systemProperties:
 required:
   - type
   - submitter_id
-  - samples
 #  - provenance
 
 uniqueKeys:
@@ -39,12 +38,11 @@ links:
 
 properties: 
   type:
-    enum: ["flow_cytometry_assay"]
+    enum: ["mass_spec_assay"]
   id:
     $ref: "_definitions.yaml#/UUID"
   submitter_id:
     type: string
-    
   calibration_standard:
     type: string  
   chromatography_name:
@@ -68,13 +66,11 @@ properties:
   provenance: 
     type: string
     description: "template version"
-
   aliquots:
     $ref: "_definitions.yaml#/to_many"    
 #  instrument:
 #    #$ref: "_definitions.yaml#/to_many"
 #    type: string
-
   state:
     $ref: "_definitions.yaml#/state"
   project_id:
