@@ -22,7 +22,6 @@ systemProperties:
 required:
   - type
   - submitter_id
-  - samples
 #  - provenance
 
 uniqueKeys:
@@ -44,7 +43,6 @@ properties:
     $ref: "_definitions.yaml#/UUID"
   submitter_id:
     type: string
-    
   protocol:
     type: string
     description: "A brief description of the flow cytometry protocol"    
@@ -65,6 +63,10 @@ properties:
       - Not collected
       - Not provided
       - Restricted access
+  staining_protocol:
+    type: string
+  staining_protocol_doi:
+    type: string
   characteristics_being_measured: 
     type: string
     description: >
@@ -107,7 +109,7 @@ properties:
 
   aliquots:
     $ref: "_definitions.yaml#/to_many"    
-  instrument:
+  instruments.submitter_id:
     #$ref: "_definitions.yaml#/to_many"
     type: string
 
