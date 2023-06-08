@@ -65,7 +65,7 @@ properties:
     description: ""
     type:
       - string
-  analyte_preparation_protocol:
+  analyte_protocol:
     description: "A protocols.io DOI"
     type:
       - string
