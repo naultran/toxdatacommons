@@ -106,13 +106,11 @@ properties:
   provenance: 
     type: string
     description: "template version"
-
   aliquots:
     $ref: "_definitions.yaml#/to_many"    
-  instruments.submitter_id:
+  instruments_submitter_id:
     #$ref: "_definitions.yaml#/to_many"
     type: string
-
   state:
     $ref: "_definitions.yaml#/state"
   project_id:
