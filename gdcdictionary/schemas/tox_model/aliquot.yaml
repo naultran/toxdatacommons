@@ -23,7 +23,6 @@ systemProperties:
 required:
   - type
   - submitter_id
-  - aliquots
   
 uniqueKeys:
   - [id]
