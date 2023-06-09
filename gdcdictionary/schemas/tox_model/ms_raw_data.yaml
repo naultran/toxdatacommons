@@ -51,7 +51,7 @@ uniqueKeys:
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
   type:
-    enum: [ "flow_data" ]
+    enum: [ "ms_raw_data" ]
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
