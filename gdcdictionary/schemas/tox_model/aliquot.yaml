@@ -57,6 +57,15 @@ properties:
       - Tisse section 
       - Cell suspension
       - Histology slide
+      - Biofluid
+      - Aqueous
+      - Lipophilic
+      - Two-phase
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
   derivitization:
     description: ""
     type:
@@ -69,7 +78,17 @@ properties:
     description: "A protocols.io DOI"
     type:
       - string
-    
+  extract_preservation_method:
+    description: ""
+    enum:
+      - Room temperature
+      - -20C
+      - -80C
+      - Not applicable
+      - Missing
+      - Not collected
+      - Not provided
+      - Restricted access
   provenance:
     type: string
     description: "template version"

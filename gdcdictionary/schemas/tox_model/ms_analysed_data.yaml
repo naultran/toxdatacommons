@@ -57,6 +57,9 @@ properties:
       $ref: "_terms.yaml#/data_category"
     enum:
       - flow cytometry ##
+      - targeted metabolomics
+      - untargeted metabolomic
+      - proteomics
       - Not applicable
       - Missing
       - Not collected
@@ -67,6 +70,7 @@ properties:
       $ref: "_terms.yaml#/data_type"
     enum:
       - flow cytometry ##
+      - integrated peaks
       - Not applicable
       - Missing
       - Not collected
@@ -77,6 +81,9 @@ properties:
       $ref: "_terms.yaml#/data_format"
     enum: 
       - FCS ##
+      - .txt
+      - .csv
+      - .RAW
       - Not applicable
       - Missing
       - Not collected
@@ -85,7 +92,6 @@ properties:
   provenance: 
     type: string
     description: "template version"      
-      
   flow_analysises:
     $ref: "_definitions.yaml#/to_many"
   core_metadata_collections:
