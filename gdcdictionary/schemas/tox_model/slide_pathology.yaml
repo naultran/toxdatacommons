@@ -40,7 +40,6 @@ links:
 required:
   - submitter_id
   - type
-  - slides
 
 uniqueKeys:
   - [ id ]

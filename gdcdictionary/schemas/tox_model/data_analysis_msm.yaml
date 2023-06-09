@@ -22,8 +22,6 @@ systemProperties:
 required:
   - type
   - submitter_id # data_analysis_id
-  - rawDataFiles
-  - processedDataFiles
 
 uniqueKeys:
   - [id]

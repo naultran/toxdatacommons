@@ -21,7 +21,6 @@ systemProperties:
 
 required:
   - type
-  - studies
   - submitter_id
 
 #  - provenance
