@@ -92,7 +92,7 @@ properties:
   provenance: 
     type: string
     description: "template version"      
-  flow_analysises:
+  ms_analyses:
     $ref: "_definitions.yaml#/to_many"
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"
