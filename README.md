@@ -231,5 +231,134 @@ properties:
 
 
 ```
+### code for upload data
+prerequirement
+```{python}
+import pandas as pd
+import numpy as np
+import subprocess
+import sys
+import gen3
+import json
+from gen3.submission import Gen3Submission
+from gen3.auth import Gen3Auth
+from gen3.index import Gen3Index
+from gen3.query import Gen3Query
+from gen3.metadata import Gen3Metadata
+from gen3.file import Gen3File
+import os
+
+# download and import some custom Python scripts from https://github.com/cgmeyer/gen3sdk-python
+# os.system("wget https://raw.githubusercontent.com/cgmeyer/gen3sdk-python/master/expansion/expansion.py")
+from expansion import Gen3Expansion
+
+api = 'https://fairtox.com/'
+cred = '/path/to/credential.json' # can be created under profile tab
+auth = Gen3Auth(api, refresh_file=cred)
+sub = Gen3Submission(api, auth)
+query = Gen3Query(auth)
+index = Gen3Index(auth)
+file = Gen3File(auth)
+metadata = Gen3Metadata(auth)
+exp = Gen3Expansion(api,auth,sub)
+```
+Create program
+```
+prog = 'program_name'
+
+prog_txt = """{
+    "dbgap_accession_number": "%s",
+    "type": "program",
+    "name": "%s"
+}""" % (prog,prog)
+
+prog_json = json.loads(prog_txt)
+data = sub.create_program(json=prog_json)
+```
+Create project
+```
+proj_txt = """{
+    "availability_type": "Open",
+    "code": "project_name",
+    "dbgap_accession_number": "project_name",
+    "type": "project",
+    "contact_name": "test",
+    "institution": "MSU",
+    "description": "test",
+    "email_address": "xxxxx@fdas.sdfs",
+    "telephone_number": "ssd-asdf-asdf"
+    }"""
+proj_json = json.loads(proj_txt)
+data = sub.create_project(program="program_name",json=proj_json) 
+```
+Upload a file
+```
+data = sub.submit_file(filename="path/to/file", project_id="program_name-project_name")
+```
+Upload a single record
+```
+import requests
+COMMONS = "https://fairtox.com/"
+API_KEY_FILEPATH = '/path/to/credential.json'
+
+projectname = 'project_name'
+programname = 'program_name'
+api_url = "{}/api/v0/submission/{}/{}".format(COMMONS,programname,projectname)
+jsondata = [ 
+{
+        "type": "type",
+        "feature1": "value1",
+        "feature2": "value2",
+        "feature3": "value3",
+        "external_link": [
+            {
+                "submitter_id": "xxxxxxssss"
+            }
+        ]
+}]
+print(jsondata)
+authn = Gen3Auth(COMMONS, refresh_file=API_KEY_FILEPATH)
+output = requests.put(api_url, auth=authn, json=jsondata)
+output.json()
+```
+When you try to upload a file, the feedback shows: 'latin-1' codec can't encode character '\uxxx' in position xxx. You could use this code:
+```
+import requests
+COMMONS = "https://fairtox.com/"
+API_KEY_FILEPATH = '/path/to/credential.json'
+
+projectname = 'project_name'
+programname = 'program_name'
+api_url = "{}/api/v0/submission/{}/{}".format(COMMONS,programname,projectname)
+df = pd.read_table('/path/to/file')
+col_name = df.columns.tolist()
+# this is external link
+col_name.remove("links.submitter_id")
+
+for _, row in df.iterrows():
+    jsondata = []
+    # this is for the external link
+    dic = {
+        "links": [
+            {
+                "submitter_id": row["links.submitter_id"]
+            }
+        ]
+    }
+
+    for i in col_name:
+        value = row[i]
+        if isinstance(value, float) and (value == float('inf') or value == float('-inf') or pd.isna(value)):
+            dic[i] = str(value)
+        else:
+            dic[i] = value
+
+    jsondata.append(dic)
+    print(jsondata)
+    authn = Gen3Auth(COMMONS, refresh_file=API_KEY_FILEPATH)
+    output = requests.put(api_url, auth=authn, json=jsondata)
+    output.json()
+```
+
 
 #### Wait for changes to propagate
