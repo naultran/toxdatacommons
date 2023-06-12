@@ -359,7 +359,7 @@ for _, row in df.iterrows():
     output = requests.put(api_url, auth=authn, json=jsondata)
     output.json()
 ```
-to upload node whose type is data files, we need insert the md5sum and file size. You can use the following code to automatically insert them.
+When uploading file to node whose type is data file, we need to insert the md5sum and file size in the file sheet. You can use the following code to automatically insert them.
 ```
 import pandas as pd
 import hashlib
