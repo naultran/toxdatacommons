@@ -359,6 +359,34 @@ for _, row in df.iterrows():
     output = requests.put(api_url, auth=authn, json=jsondata)
     output.json()
 ```
+to upload node whose type is data files, we need insert the md5sum and file size. You can use the following code to automatically insert them.
+```
+import pandas as pd
+import hashlib
+import os
+def calculate_md5(file_path):
+    """Calculate the MD5 checksum for a file."""
+    md5_hash = hashlib.md5()
+    with open(file_path, 'rb') as file:
+        for chunk in iter(lambda: file.read(4096), b''):
+            md5_hash.update(chunk)
+    return md5_hash.hexdigest()
 
+# Provide the file name list and DataFrame
+df = pd.read_table("/path/to/file.tsv")
+file_names = df["file_name"].to_list()
+
+folder_path = '/path/to/folder/containing/the/files'
+
+# Update the MD5 checksum for each file name in the DataFrame
+for file_name in file_names:
+    file_path = folder_path + file_name
+    md5_sum = calculate_md5(file_path)
+    file_size = os.path.getsize(file_path)
+    df.loc[df['file_name'] == file_name, 'md5sum'] = md5_sum
+    df.loc[df['file_name'] == file_name, 'file_size'] = file_size
+df['file_size'] = df['file_size'].astype(int)
+df.to_csv("/path/to/new/file.tsv", sep='\t', index=False)
+```
 
 #### Wait for changes to propagate
