@@ -21,6 +21,7 @@ systemProperties:
 required:
   - type
   - submitter_id
+  - treatment_protocol
 
 #  - provenance
 

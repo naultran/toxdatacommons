@@ -22,6 +22,9 @@ systemProperties:
 required:
   - type
   - submitter_id
+  - contact_institution
+  - contact_email
+  - contact_telephone
 #  - provenance
 
 uniqueKeys:
@@ -47,7 +50,14 @@ properties:
   submitter_id:
     type: string
   contact_name:
-    type: string
+    type: object
+    properties:
+      Last:
+        type: string
+      First:
+        type: string
+      Middle:
+        type: string
   contact_orcid:
     type: string
   contact_email:

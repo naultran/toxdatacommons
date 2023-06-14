@@ -60,6 +60,12 @@ properties:
     type: string
   data_format: 
     type: string
+  file_source_repository:
+    type: string
+  repository_accession_id:
+    type: string
+  repository_download_ftp:
+    type: string
   provenance: 
     type: string
     description: "template version"

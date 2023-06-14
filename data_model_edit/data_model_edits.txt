@@ -1,0 +1,372 @@
+address 								add (currently location?)	✅(added in project node)
+project.description						required					✅							
+contact.institute 						required					✅		💙
+contact.contact_name					Must be Last,First,Middle	✅    	💙 should edit DH later
+contact.email_address					required					✅		💙
+contact.telephone_number				required					✅		💙
+aliquot.method_of_sample_procurement	remove #CHECK THIS			🚨it is in sample
+sample.storage_vessel					add							✅		💙
+sample.collection_protocol				add							✅		💙
+treatment.treatment_protocol			required					✅		💙
+mass_spec_assay.sample_dilution										✅		💙
+mass_spec_assay.chromatography_name		change to chromatography_type (or add if this is the identifier) - enum: GC;Reversed phase;Normal phase;HILIC;CE;Ion exchange;Ion pair;Flow induction analysis;None (Direct infusion)	✅	💙
+mass_spec_assay.solventA				add							✅		💙
+mass_spec_assay.solventB				add							✅		💙
+mass_spec_assay.solventC				add							✅		💙
+file_source_repository					add to each data_file		✅	flow_data💙, flow_analysis_data💙, slide_image💙, ms_raw_data💙, ms_analysed_data💙, processeddata_file, rawdata_file
+repository_accession_id					add to each data_file		✅	flow_data💙, flow_analysis_data💙, slide_image💙, ms_raw_data💙, ms_analysed_data💙, processeddata_file, rawdata_file
+repository_download_ftp					add to each data_file		✅	flow_data💙, flow_analysis_data💙, slide_image💙, ms_raw_data💙, ms_analysed_data💙, processeddata_file, rawdata_file
+
+mass_spec_assay.chromatography_column	change to enum:				✅		💙
+		Acchrom XAqua C18 (150 x 2.1mm,5um)
+		ACE 5 C18-300 (100 x 2.1mm)
+		ACE 5 C8-300 (100 x 2.1mm)
+		ACE C18 (75 x 1mm,3um)
+		ACE Excel 2 C18-PFP (100 x 2.1mm,2um)
+		Agilent DB5-MS (15m x 0.25mm, 0.25um)
+		Agilent DB5-MS (30m x 0.25mm, 0.25um)
+		Agilent Eclipse XDB-C18 (100 x 3.0mm)
+		Agilent HP5-MS (30m x 0.25mm, 0.25 um)
+		Agilent InfinityLab Poroshell 120 EC-C18 (100 x 3mm,2.7um)
+		Agilent InfinityLab Poroshell 120 EC-C8 (100 x 2.1mm,2.5um)
+		Agilent InfinityLab Poroshell 120 EC-C8 (150 x 2.1mm,2.7um)
+		Agilent InfinityLab Poroshell 120 EC-C8 (50 x 2.1mm,2.7um)
+		Agilent InfinityLab Poroshell 120 Phenyl-Hexyl (150 x 3mm,1.9um)
+		Agilent Zorbax Eclipse Plus C18 (100 x 2.1mm, 1.8 um)
+		Agilent ZORBAX Eclipse Plus C18 (100 x 2.1mm,1.8um)
+		Agilent ZORBAX Eclipse Plus C18 (100 x 2.1mm,3.5um)
+		Agilent ZORBAX Eclipse Plus C18 (100 x 4.6mm,3.5um)
+		Agilent ZORBAX Eclipse Plus C18 (150 x 2.1mm,3.5um)
+		Agilent ZORBAX Eclipse Plus C18 (150 x 3mm,1.8um)
+		Agilent ZORBAX Eclipse Plus C18 (50 x 2.1mm,1.8um)
+		Agilent ZORBAX Eclipse XDB-C18 (100 x 4.6mm,1.8um)
+		Agilent ZORBAX Eclipse XDB-C18 (250 x 4.6mm,5um)
+		Agilent ZORBAX RRHD Extend-C18 (50 x 2.1mm,1.8um)
+		Agilent ZORBAX RRHD SB-C18 (100 x 2.1mm,1.8um)
+		Agilent ZORBAX RRHD SB-C18 (150 x 2.1mm,1.8um)
+		AMT HALO HILIC (150 x 4.6mm,1.7um)
+		EMD Millipore ZIC-HILIC (100 x 2.1 mm,3.5 um) 
+		GL Sciences Intersil ODS-3 (150 x 4.6mm,3um)
+		Hichrom Alltima HP C18 (150 x 2.1mm,3um)
+		Hichrom AMT HALO HILIC (150 x 4.6mm,2.7um)
+		Higgins Analytical TARGA C18 (100 x 2.1mm,5um)
+		Higgins Analytical TARGA C18 (50 x 2.1mm,5um)
+		Macherey-Nagel NUCLEODUR C18 Isis (100 x 2mm,1.8um)
+		Macherey-Nagel NUCLEODUR HILIC (150 x 2mm,1.8um)
+		Macherey-Nagel NUCLEOSHELL RP18 (150 x 2mm,2.7um)
+		Merck Discovery HS C18 (150 x 2.1mm,3um)
+		Merck Discovery HS F5 (PFP) (150 x 2.1mm,3um)
+		Merck Discovery HS F5 (PFP) (250 x 2.1mm,5um)
+		Merck SeQuant ZIC-HILIC (100 x 2.1mm,3.5um)
+		Merck SeQuant ZIC-HILIC (150 x 2.1mm,3.5um)
+		Merck SeQuant ZIC-HILIC (150 x 2.1mm,5um)
+		Merck SeQuant ZIC-HILIC (150 x 4.6mm,5um)
+		Merck SeQuant ZIC-pHILIC (100 x 2.1mm,5um)
+		Merck SeQuant ZIC-pHILIC (150 x 2.1mm,5um)
+		Merck SeQuant ZIC-pHILIC (150 x 4.6mm,5um)
+		Merck Supelco Ascentis Express C18 (100 x 2.1mm,2.7um)
+		Merck Supelco Ascentis Express C18 (100 x 4.6mm,2.7um)
+		Merck Supelco Ascentis Express C18 (150 x 2.1mm,2.7um)
+		Merck Supelco Ascentis Express C18 (50 x 2.1mm,2.7um)
+		Merck Supelco Ascentis Express C8 (50 x 2.1mm,2.7um)
+		MicroSolv Diamond Hydride (150 x 2.1mm,3.5um)
+		Microsolv Diamond hydride (150mm,4um)
+		Phenomenex Gemini C18 (50 x 4.6mm,5um)
+		Phenomenex Gemini NX-C18 (50 x 2mm,3um)
+		Phenomenex Jupiter C18 (150 x 2mm,5um)
+		Phenomenex Kinetex C18 (100 x 2.1mm,1.7um)
+		Phenomenex Kinetex C18 (100 x 2.1mm,2.6um)
+		Phenomenex Kinetex C18 (150 x 2.1mm,2.6um)
+		Phenomenex Kinetex C18 (150 x 2.1mm,1.7um)
+		Phenomenex Kinetex C18 (150 x 2.1mm,2.6um)
+		Phenomenex Kinetex C18 (150 x 2.1mm,5um)
+		Phenomenex Kinetex C18 (150 x 3mm,2.6um)
+		Phenomenex Kinetex C18 (50 x 2.1mm,1.7um)
+		Phenomenex Kinetex C8 (100 x 2.1mm,1.7um)
+		Phenomenex Kinetex EVO C18 (100 x 2.1mm,1.7um)
+		Phenomenex Kinetex HILIC (150 x 3mm,2.6um)
+		Phenomenex Kinetex HILIC (50 x 2.1mm,2.6um)
+		Phenomenex Kinetex HILIC 100A (50 x 2.1 mm,2.6um)
+		Phenomenex Kinetex PFP (100 x 2.1mm,2.6um)
+		Phenomenex Kinetex XB-C18 (150 x 2.1mm,1.7um)
+		Phenomenex Luna C5 (50 x 4.6mm,5um)
+		Phenomenex Luna NH2 (100 x 2mm,3um)
+		Phenomenex Luna NH2 (150 x 1mm,3um)
+		Phenomenex Luna NH2 (150 x 2.1mm,3um)
+		Phenomenex Luna NH2 (150 x 2mm,3um)
+		Phenomenex Synergi Fusion-RP (100 x 4.6mm,4um)
+		Phenomenex Synergi Fusion-RP (150 x 2mm,4um)
+		Phenomenex Synergi Hydro RP 100 A (100 x 2mm,2.5um)
+		Phenomenex Synergi Hydro-RP (100 x 2mm,2.5um)
+		Phenomenex Synergi Hydro-RP (150 x 2mm,4um)
+		Phenomenex Synergi Hydro-RP (250 x 2mm,4um)
+		Phenomenex Synergi Hydro-RP (50 x 2mm,4um)
+		Phenomenex Synergi Polar-RP (100 x 2.1mm,2.5um)
+		Phenomenex Zebron ZB-AAA (10m x 0.25mm)
+		Phenomenex Zebron ZB-WAXplus (30m x 0.25mm,0.25um)
+		Phenomenex, Kinetex HILIC (50 x 4.6mm,2.6um)
+		Restek Pinnacle DB Biphenyl (50 x 2.1mm,1.9um)
+		Restek Rtx-5Sil MS (30 x 0.25mm, 0.25um)
+		Sequant Merck SeQuant ZIC-HILIC (100 x 2.1mm,3.5um)
+		SeQuant ZIC- pHILIC (150 x 2.1mm,5um)
+		SeQuant ZIC-HILIC (100 x 2.1mm,3.5um)
+		SeQuant ZIC-HILIC (150 x 2.1mm,5um)
+		SeQuant ZIC-HILIC (150 x 4.6mm,3.5um)
+		Shodex ODP2 HP-4B 5um polymer (50 x 4.6mm)
+		Thermo Acclaim 120 C18 (150 x 2.1mm,2.2um)
+		Thermo Acclaim C30 (150 x 2.1mm,3um)
+		Thermo Acclaim C30 (150 x 3mm,3um)
+		Thermo Acclaim PepMap 100 C18 (150 x 0.075mm,2um)
+		Thermo Acclaim Polar Advantage II (150 x 3mm,3um)
+		Thermo Accucore C18 (100 x 2.1mm,2.6um)
+		Thermo Accucore C18 (150 x 2.1mm,2.6um)
+		Thermo Accucore C18 (100 x 2.1mm,2.6um)
+		Thermo Accucore C18 (30 x 2.1mm,2.6um)
+		Thermo Accucore C30 (150 x 2.1mm,2.6um)
+		Thermo Accucore HILIC (100 x 2.1mm,2.6um)
+		Thermo Accucore HILIC (50 x 2.1mm,2.6um)
+		Thermo AQUASIL C18 (50 x 2.1mm,5um)
+		Thermo BETASIL C1 (50 x 2.1mm,5um)
+		Thermo BETASIL Diol (150 x 2.1mm,5um)
+		Thermo Hamilton Anion Exchange (100 x 2.1mm,2.6um)
+		Thermo Hamilton Anion Exchange (100 x 2.1mm,7um)
+		Thermo Higgins C18 (50 x 2.1mm,3um)
+		Thermo Hypercarb (100 x 2.1mm,3um)
+		Thermo Hypercarb (100 x 2.1mm,5um)
+		Thermo Hypercarb (50 x 2.1mm,3um)
+		Thermo Hypersil GOLD aQ (100 x 2.1mm,1.9um)
+		Thermo Hypersil GOLD aQ (100 x 2mm,1.9um)
+		Waters AccQ Tag (100 x 2mm,1.7um)
+		Waters AccQ-Tag Ultra (100 x 2.1mm,1.7um)
+		Waters ACQUITY UPLC BEH Amide (100 x 2.1mm,1.7um)
+		Waters ACQUITY UPLC BEH Amide (150 x 2.1mm,1.7um)
+		Waters ACQUITY UPLC BEH Amide (50 x 2.1mm,1.7um)
+		Waters ACQUITY UPLC BEH C18 (100 x 1mm,2.1um)
+		Waters ACQUITY UPLC BEH C18 (100 x 2.1mm,1.7um)
+		Waters ACQUITY UPLC BEH C18 (150 x 1.7mm,2.1um)
+		Waters ACQUITY UPLC BEH C18 (150 x 1mm,1.7um)
+		Waters ACQUITY UPLC BEH C18 (150 x 2.1mm,1.7um)
+		Waters ACQUITY UPLC BEH C18 (30 x 2.1mm,1.7um)
+		Waters ACQUITY UPLC BEH C18 (50 x 2.1mm,1.7um)
+		Waters ACQUITY UPLC BEH C8 (100 x 1mm,1.7um)
+		Waters ACQUITY UPLC BEH C8 (100 x 2.1mm,1.7um)
+		Waters ACQUITY UPLC BEH C8 (150 x 2.1mm,1.7um)
+		Waters ACQUITY UPLC BEH HILIC (100 x 2.1mm,1.7um)
+		Waters ACQUITY UPLC BEH HILIC (150 x 2.1mm,1.7um)
+		Waters ACQUITY UPLC BEH Phenyl (100 x 2.1mm,1.7um)
+		Waters ACQUITY UPLC BEH Shield RP18 (50 x 2.1mm,1.7um)
+		Waters ACQUITY UPLC CSH C18 (100 x 1mm,1.7um)
+		Waters ACQUITY UPLC CSH C18 (100 x 2.1mm,1.7um)
+		Waters ACQUITY UPLC CSH C18 (150 x 2.1mm,1.7um)
+		Waters ACQUITY UPLC HSS C18 (100 x 2.1mm,1.8um)
+		Waters ACQUITY UPLC HSS CN (100 x 2.1mm,1.8um)
+		Waters ACQUITY UPLC HSS T3 (100 x 1mm,1.8um)
+		Waters ACQUITY UPLC HSS T3 (100 x 2.1mm,1.8um)
+		Waters ACQUITY UPLC HSS T3 (100 x 2.1mm,3um)
+		Waters ACQUITY UPLC HSS T3 (150 x 1mm,1.8um)
+		Waters ACQUITY UPLC HSS T3 (150 x 2.1mm,1.7um)
+		Waters ACQUITY UPLC HSS T3 (150 x 2.1mm,1.8um)
+		Waters ACQUITY UPLC HSS T3 (30 x 2.1mm,1.8um)
+		Waters ACQUITY UPLC HSS T3 (50 x 2.1mm,1.8um)
+		Waters Atlantis T3 (150 x 4.6mm,5um)
+		Waters CORTECS HILIC (100 x 2.1mm,1.6um)
+		Waters CORTECS UPLC C18 (150 x 2.1mm,1.6um)
+		Waters SunFire C18 (150 x 2.1mm,3.5um)
+		Waters SunFire C18 (50 x 4.6mm,3.5um)
+		Waters XBridge Amide (100 x 4.6mm,3.5um)
+		Waters XBridge BEH Amide (100 x 2.1mm,2.5um)
+		Waters XBridge BEH Amide (50 x 2.1mm,2.5um)
+		Waters XBridge BEH C18 (100 x 2.1mm,3.5um)
+		Waters XBridge BEH C18 (150 x 2.1mm,3.5um)
+		Waters XBridge BEH HILIC (150 x 4.6mm,5um)
+		Waters Xbridge BEH HILIC (75 x 2.1mm,2.5um)
+		Waters XBridge C18 (50 x 2.1mm,3um)
+		Waters XSelect HSS T3 XP (150 x 3mm,2.5um)
+
+mass_spec_assay.chromatography_instrument		add				✅		💙
+		Waters TQS
+		Agilent 1100
+		Agilent 1200
+		Agilent 1200 RR Series II
+		Agilent 1200SL
+		Agilent 1260
+		Agilent 1290
+		Agilent 1290 Infinity
+		Agilent 1290 Infinity II
+		Agilent 6210
+		Agilent 6220
+		Agilent 6490
+		Agilent 6490A
+		Agilent 6520
+		Agilent 6530
+		Agilent 6550
+		Agilent 6560
+		Agilent 6890N
+		Agilent 7100 CE
+		Agilent 7890A
+		Agilent 7890B
+		Agilent 7890N
+		Agilent CE
+		Cohesive TX2
+		Leco Pegasus 4D GC
+		Leco Pegasus III GC
+		Leco Pegasus IV GC
+		Shimadzu 10A
+		Shimadzu 20AD
+		Shimadzu CBM20A
+		Shimadzu GC-2010
+		Shimadzu GCMS-QP2010 ultra
+		Shimadzu Nexera X2
+		Thermo Accela 1250
+		Thermo Accela 600
+		Thermo Accela CTC
+		Thermo Dionex
+		Thermo Dionex Ultimate 3000
+		Thermo Dionex Ultimate 3000 RS
+		Thermo Dionex ICS-5000+
+		Thermo Trace 1310
+		Thermo Vanquish
+		Waters 2777C
+		Waters Acquity
+		Waters Acquity H-Class
+		Waters Acquity I-Class
+		Waters NanoAcquity
+mass_spec_assay.ms_method_name					change to ms_type (or add if this is the identifier) - enum:APCI;API;EI;ESI;MALDI		✅		💙
+mass_spec_assay.ion_mode						add enum:POSITIVE;NEGATIVE		✅			💙
+mass_spec_assay.ms_method_filename				add								✅			💙
+mass_spec_assay.chromatography_method_filename	add								✅			💙
+mass_spec_assay.instrument.submitter_id 		move to ms_method section					💙
+
+
+############ Instrument details - need to figure out how to handle these. 
+
+<select name="instrument_name_1" id="instrument_name_1" onchange="new_item(this.id);" fdprocessedid="pupn2o">
+<option>
+
+ABI Sciex 4000 QTrap
+ABI Sciex 5500 QTrap
+ABI Sciex 5600 TripleTOF
+ABI Sciex 5600+ TripleTOF
+ABI Sciex 6500 QTrap 
+ABI Sciex 6500+
+ABI Sciex 6600 TripleTOF
+ABI Sciex API 3200 QTrap
+ABI Sciex API 4000 QTrap
+ABI Sciex API 5000 QQQ
+ABI Sciex API 6500 QTrap
+ABI Sciex X500R QTOF
+Agilent 5973
+Agilent 5975
+Agilent 5975B
+Agilent 5975C
+Agilent 5977
+Agilent 5977A
+Agilent 5977B
+Agilent 6210 TOF
+Agilent 6220 TOF
+Agilent 6224 TOF
+Agilent 6230 TOF
+Agilent 6410 QQQ
+Agilent 6410A QQQ
+Agilent 6460 QQQ
+Agilent 6490 QQQ
+Agilent 6490A QQQ
+Agilent 6495 QQQ
+Agilent 6510 QTOF
+Agilent 6520 QTOF
+Agilent 6520B QTOF
+Agilent 6530 QTOF
+Agilent 6540 QTOF
+Agilent 6545 QTOF
+Agilent 6550 QTOF
+Agilent 6560 Ion Mobility
+Agilent 7200 QTOF
+Agilent 7890A
+Agilent CE-TOFMS
+Agilent G3250AA TOF
+Agilent G6490A
+Agilent G6530A
+Bruker Impact HD
+Bruker maXis Impact qTOF
+Bruker MicrOTOF II
+Bruker micrOTOF-Q IITM QTOF
+Bruker Solarix FT-ICR-MS
+Leco Citius LC-HRT
+Leco GC-TOF
+Leco Pegasus 4D GCxGC TOF
+Leco Pegasus HT TOF
+Leco Pegasus III GC TOF
+Leco Pegasus IV TOF
+Shimadzu 10A
+Shimadzu LCMS-IT-TOF
+Shimadzu QP2010 Plus
+Shimadzu QP2010 Ultra
+Shimadzu QP-5000
+Shimazu TQ8040
+Thermo Deca LCQ
+Thermo DeltaPlus Isotope Ratio MS
+Thermo Element 2 ICP
+Thermo Exactive Plus Orbitrap
+Thermo Fusion Orbitrap
+Thermo Fusion Tribrid Orbitrap
+Thermo ISQ LT
+Thermo ITQ
+Thermo LTQ
+Thermo LTQ Discovery Orbitrap
+Thermo LTQ XL
+Thermo LTQ-FT
+Thermo LTQ-FT Ultra
+Thermo Orbitrap Elite Hybrid Ion Trap-Orbitrap
+Thermo Orbitrap Exploris 480
+Thermo Orbitrap ID-X tribrid
+Thermo Q Exactive Focus
+Thermo Q Exactive HF hybrid Orbitrap
+Thermo Q Exactive HF-X Orbitrap
+Thermo Q Exactive Orbitrap
+Thermo Q Exactive Plus Orbitrap
+Thermo Quantiva
+Thermo Quantiva Access Max
+Thermo Quantiva QQQ
+Thermo Quantum Ultra
+Thermo Trace DSQ
+Thermo TSQ Quantis QQQ
+Thermo TSQ Quantum Ultra
+Thermo TSQ Vantage
+Thermo Velos LTQ Orbitrap
+Thermo Velos Pro Orbitrap
+Varian 210-MS GC Ion Trap
+Waters Micromass QTOF Premier
+Waters Quattro Premier XE
+Waters Synapt G1
+Waters Synapt G2 QTOF
+Waters Synapt G2 S QTOF
+Waters Synapt G2 Si QTOF
+Waters Synapt G2 XS QTOF
+Waters Ultima QTOF
+Waters Xevo TQ-XS
+Waters Xevo-G2-S
+Waters Xevo-G2-XS
+Waters Xevo-TQ
+Waters Xevo-TQ-S
+
+
+<select name="instrument_type_1" id="instrument_type_1" onchange="new_item(this.id);" fdprocessedid="6mhrhr">
+<option>
+
+GC x GC-TOF
+GC-ITQ
+GC-TOF
+Ion trap
+LTQ-FT
+Orbitrap
+FT-ICR
+QTOF
+QTRAP
+Single quadrupole
+Triple quadrupole
+Triple TOF
+Other
+
+Notation for solvent A/B:	<Solvent (vol/vol) percentage X/Y/Z>; <acid concentration (final % or mM)>; <Salts/additives(final % or mM)>  💙
+Examples:	100% water; 0.01% formic acid
+ 90% isopropanol/8% acetonitrile/2% water; 0.1% formic acid; 10 mM ammonium formate

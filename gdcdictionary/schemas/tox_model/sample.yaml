@@ -416,6 +416,10 @@ properties:
     type: number
   volume:
     type: number
+  storage_vessel:
+    type: string
+  collection_protocol: 
+    type: string
   provenance: 
     type: string
     description: "template version"

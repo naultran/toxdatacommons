@@ -25,6 +25,7 @@ required:
   - availability_type
   - dbgap_accession_number
   - programs
+  - description
 
 
 
@@ -117,6 +118,8 @@ properties:
   email_address:
     type: string
   telephone_number:
+    type: string
+  address:
     type: string
 
 

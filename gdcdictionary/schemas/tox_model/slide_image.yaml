@@ -87,6 +87,12 @@ properties:
       - Not collected
       - Not provided
       - Restricted access
+  file_source_repository:
+    type: string
+  repository_accession_id:
+    type: string
+  repository_download_ftp:
+    type: string
   slides:
     $ref: "_definitions.yaml#/to_one"
   core_metadata_collections:

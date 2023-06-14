@@ -81,6 +81,12 @@ properties:
       - Not collected
       - Not provided
       - Restricted access
+  file_source_repository:
+    type: string
+  repository_accession_id:
+    type: string
+  repository_download_ftp:
+    type: string
   provenance: 
     type: string
     description: "template version"      
