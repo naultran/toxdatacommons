@@ -56,6 +56,23 @@ foreign_key:
         submitter_id:
             type: string
 
+human_name:
+    type: object
+    # Allow true here because we can have other unique keys defined on
+    # a target type
+    additionalProperties: True
+    # Can either use 'id' which are GDC IDs (UUID) or 'submitter_id'
+    # which are user defined IDs ("submitter IDs in the backend")
+    properties:
+        Last:
+            type: string
+        First:
+            type: string
+        Middle:
+            type: string
+
+
+
 to_one:
   anyOf:
     - type: array

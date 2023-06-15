@@ -50,15 +50,13 @@ properties:
   submitter_id:
     type: string
   contact_name:
-    type: object
-    additionalProperties: True
-    properties:
-      Last:
-        type: string
-      First:
-        type: string
-      Middle:
-        type: string
+    anyOf:
+      - type: array
+        items:
+          $ref: "_definitions.yaml#/human_name"
+          minItems: 2
+          maxItems: 3
+      - $ref: "_definitions.yaml#/human_name"
   contact_orcid:
     type: string
   contact_email:

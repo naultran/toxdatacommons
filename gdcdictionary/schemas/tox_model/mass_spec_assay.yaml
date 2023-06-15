@@ -323,16 +323,14 @@ properties:
     type: string
   sample_dilution:
     type: string
-  solvent:
-    type: object
-    additionalProperties: True
-    properties:
-      solventA:
-        type: string
-      solventB:
-        type: string
-      solventC:
-        type: string
+  solventA:
+    type: string
+  solventB:
+    type: string
+  solventC:
+    type: string
+
+
   provenance: 
     type: string
     description: "template version"
