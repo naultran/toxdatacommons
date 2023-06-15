@@ -54,8 +54,9 @@ properties:
       - type: array
         items:
           $ref: "_definitions.yaml#/human_name"
-          minItems: 2
-          maxItems: 3
+          minItems: 1
+          maxItems: 1
+      - $ref: "_definitions.yaml#/human_name"
       - $ref: "_definitions.yaml#/human_name"
   contact_orcid:
     type: string
