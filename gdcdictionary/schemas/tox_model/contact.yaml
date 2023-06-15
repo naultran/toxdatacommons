@@ -51,6 +51,7 @@ properties:
     type: string
   contact_name:
     type: object
+    additionalProperties: True
     properties:
       Last:
         type: string

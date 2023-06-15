@@ -325,6 +325,7 @@ properties:
     type: string
   solvent:
     type: object
+    additionalProperties: True
     properties:
       solventA:
         type: string
