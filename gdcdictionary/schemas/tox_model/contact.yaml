@@ -49,15 +49,13 @@ properties:
     $ref: "_definitions.yaml#/to_many"
   submitter_id:
     type: string
-  contact_name:
-    anyOf:
-      - type: array
-        items:
-          $ref: "_definitions.yaml#/human_name"
-          minItems: 1
-          maxItems: 1
-      - $ref: "_definitions.yaml#/human_name"
-      - $ref: "_definitions.yaml#/human_name"
+  first_name:
+    type: string
+  middle_name:
+    type: string
+  last_name: 
+    type: string
+
   contact_orcid:
     type: string
   contact_email:

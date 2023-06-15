@@ -56,17 +56,6 @@ foreign_key:
         submitter_id:
             type: string
 
-human_name:
-  type: object
-  additionalProperties: True
-  properties:
-    Last:
-      type: string
-    First:
-      type: string
-    Middle:
-      type: string
-
 
 
 to_one:
