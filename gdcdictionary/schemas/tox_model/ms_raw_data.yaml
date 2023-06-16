@@ -53,42 +53,11 @@ properties:
   type:
     enum: [ "ms_raw_data" ]
   data_category:
-    term:
-      $ref: "_terms.yaml#/data_category"
-    enum:
-      - flow cytometry ##
-      - targeted metabolomics
-      - untargeted metabolomic
-      - proteomics
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
+    $ref: "_definitions.yaml#/data_category"
   data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
-    enum:
-      - flow cytometry ##
-      - chromatograms
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
+    $ref: "_definitions.yaml#/data_type"
   data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
-    enum: 
-      - FCS ##
-      - .RAW
-      - .txt
-      - .csv
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
+    $ref: "_definitions.yaml#/data_format"
   file_source_repository:
     type: string
   repository_accession_id:

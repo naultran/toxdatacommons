@@ -65,73 +65,9 @@ properties:
   dose_amount: 
     type: number   
   dose_amount_unit: 
-    enum:
-      - milligram per kilogram
-      - microgram per kilogram
-      - milligram per kilogram per day
-      - microgram per kilogram per day
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
+    $ref: "_definitions.yaml#/dose_amount_unit"
   route: 
-    enum:
-      - Administration via Cytapheresis
-      - Administration via Fistula
-      - Administration via Stoma
-      - Auricular Route of Administration
-      - Combination Route of Administration
-      - Concomitant Medication Route of Administration
-      - Dental Route of Administration
-      - Dietary Route of Administration
-      - Drop Instillation Route of Administration
-      - Electro-osmosis Route of Administration
-      - Endotracheal Route of Administration
-      - Enteral Route of Administration
-      - Epilesional Route of Administration
-      - Exposure Route of Administration
-      - Exposure as Collected Route of Administration
-      - External Route of Administration
-      - Extracorporeal Circulation Route of Administration
-      - Genitourinary Route of Administration
-      - Immersion Route of Exposure
-      - In Beehive Route of Administration
-      - In Vitro Route of Administration
-      - Inhalation Route of Administration
-      - Injection Route of Administration
-      - Intestinal Route of Administration
-      - Intracavernous Route of Administration
-      - Intracavitary Route of Administration
-      - Intracholangiopancreatic Route of Administration
-      - Intracochlear Route of Administration
-      - Intraglandular Route of Administration
-      - Intrajejunal Route of Administration
-      - Intralesional Route of Administration
-      - Intramandibular Route of Administration
-      - Intrapalatal Route of Administration
-      - Intraparenchymal Route of Administration
-      - Intrasurgical Site Route of Administration
-      - Intrathalamic Route of Administration
-      - Intraurethral Route of Administration
-      - Intravaginal Route of Administration
-      - Iontophoresis Route of Administration
-      - Laryngeal Route of Administration
-      - Laryngotracheal Route of Administration
-      - Microdialysis Route of Administration
-      - Mucosal Route of Administration
-      - Nasal Route of Administration
-      - Oculonasal Route of Administration
-      - Ophthalmic Route of Administration
-      - Oral Gavage Route of Administration
-      - Oral Route of Administration
-      - Other Route of Administration
-      - Parenteral Route of Administration
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
+    $ref: "_definitions.yaml#/route"
   test_article_administration_zt: 
     type: number
   test_article_administration_duration: 

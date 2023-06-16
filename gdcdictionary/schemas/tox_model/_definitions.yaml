@@ -282,3 +282,1089 @@ ubiquitous_properties:
     $ref: "#/datetime"
   updated_datetime:
     $ref: "#/datetime"
+
+
+# the features are enum
+analyte_type:
+  term:
+    $ref: "_terms.yaml#/analyte_type"
+  enum: 
+    - DNA
+    - total RNA
+    - microRNA
+    - Metabolites
+    - Protein
+    - Tisse section 
+    - Cell suspension
+    - Histology slide
+    - Biofluid
+    - Aqueous
+    - Lipophilic
+    - Two-phase
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+
+extract_preservation_method:
+  description: ""
+  enum:
+    - Room temperature
+    - -20C
+    - -80C
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+feed_paradigm:
+  enum: 
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+    - ad libitum
+    - restricte
+data_category:
+  term:
+    $ref: "_terms.yaml#/data_category"
+  enum:
+    - biological imaging
+    - flow cytometry
+    - targeted metabolomics
+    - untargeted metabolomic
+    - proteomics
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+data_type:
+  term:
+    $ref: "_terms.yaml#/data_type"
+  enum:
+    - flow cytometry
+    - integrated peaks
+    - chromatograms
+    - whole slide scan
+    - field of view image
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+data_format:
+  term:
+    $ref: "_terms.yaml#/data_format"
+  enum: 
+    - FCS
+    - .txt
+    - .csv
+    - .RAW
+    - zip
+    - gzip
+    - png
+    - tif
+    - tiff
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+
+quality_control_measures:
+  enum:
+    - STR profiling of source cells
+    - mycoplasma testing
+    - isotype control for antibody
+    - no antibody negative control
+    - positive control cell type
+    - Live/Dead staining
+    - unstained controls
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+staining_status: 
+  enum:
+    - stained
+    - unstained
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+bedding_type:
+  enum:
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+    - ALPHA-dri
+    - corn cob
+    - wood shavings
+
+chromatography_type:
+  enum:
+    - GC
+    - Reversed phase
+    - Normal phase
+    - HILIC
+    - CE
+    - Ion exchange
+    - Ion pair
+    - Flow induction analysis
+    - None(Direct infusion)      
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+
+chromatography_column:
+  enum:
+    - Acchrom XAqua C18 (150 x 2.1mm,5um)
+    - ACE 5 C18-300 (100 x 2.1mm)
+    - ACE 5 C8-300 (100 x 2.1mm)
+    - ACE C18 (75 x 1mm,3um)
+    - ACE Excel 2 C18-PFP (100 x 2.1mm,2um)
+    - Agilent DB5-MS (15m x 0.25mm, 0.25um)
+    - Agilent DB5-MS (30m x 0.25mm, 0.25um)
+    - Agilent Eclipse XDB-C18 (100 x 3.0mm)
+    - Agilent HP5-MS (30m x 0.25mm, 0.25 um)
+    - Agilent InfinityLab Poroshell 120 EC-C18 (100 x 3mm,2.7um)
+    - Agilent InfinityLab Poroshell 120 EC-C8 (100 x 2.1mm,2.5um)
+    - Agilent InfinityLab Poroshell 120 EC-C8 (150 x 2.1mm,2.7um)
+    - Agilent InfinityLab Poroshell 120 EC-C8 (50 x 2.1mm,2.7um)
+    - Agilent InfinityLab Poroshell 120 Phenyl-Hexyl (150 x 3mm,1.9um)
+    - Agilent Zorbax Eclipse Plus C18 (100 x 2.1mm, 1.8 um)
+    - Agilent ZORBAX Eclipse Plus C18 (100 x 2.1mm,1.8um)
+    - Agilent ZORBAX Eclipse Plus C18 (100 x 2.1mm,3.5um)
+    - Agilent ZORBAX Eclipse Plus C18 (100 x 4.6mm,3.5um)
+    - Agilent ZORBAX Eclipse Plus C18 (150 x 2.1mm,3.5um)
+    - Agilent ZORBAX Eclipse Plus C18 (150 x 3mm,1.8um)
+    - Agilent ZORBAX Eclipse Plus C18 (50 x 2.1mm,1.8um)
+    - Agilent ZORBAX Eclipse XDB-C18 (100 x 4.6mm,1.8um)
+    - Agilent ZORBAX Eclipse XDB-C18 (250 x 4.6mm,5um)
+    - Agilent ZORBAX RRHD Extend-C18 (50 x 2.1mm,1.8um)
+    - Agilent ZORBAX RRHD SB-C18 (100 x 2.1mm,1.8um)
+    - Agilent ZORBAX RRHD SB-C18 (150 x 2.1mm,1.8um)
+    - AMT HALO HILIC (150 x 4.6mm,1.7um)
+    - EMD Millipore ZIC-HILIC (100 x 2.1 mm,3.5 um) 
+    - GL Sciences Intersil ODS-3 (150 x 4.6mm,3um)
+    - Hichrom Alltima HP C18 (150 x 2.1mm,3um)
+    - Hichrom AMT HALO HILIC (150 x 4.6mm,2.7um)
+    - Higgins Analytical TARGA C18 (100 x 2.1mm,5um)
+    - Higgins Analytical TARGA C18 (50 x 2.1mm,5um)
+    - Macherey-Nagel NUCLEODUR C18 Isis (100 x 2mm,1.8um)
+    - Macherey-Nagel NUCLEODUR HILIC (150 x 2mm,1.8um)
+    - Macherey-Nagel NUCLEOSHELL RP18 (150 x 2mm,2.7um)
+    - Merck Discovery HS C18 (150 x 2.1mm,3um)
+    - Merck Discovery HS F5 (PFP) (150 x 2.1mm,3um)
+    - Merck Discovery HS F5 (PFP) (250 x 2.1mm,5um)
+    - Merck SeQuant ZIC-HILIC (100 x 2.1mm,3.5um)
+    - Merck SeQuant ZIC-HILIC (150 x 2.1mm,3.5um)
+    - Merck SeQuant ZIC-HILIC (150 x 2.1mm,5um)
+    - Merck SeQuant ZIC-HILIC (150 x 4.6mm,5um)
+    - Merck SeQuant ZIC-pHILIC (100 x 2.1mm,5um)
+    - Merck SeQuant ZIC-pHILIC (150 x 2.1mm,5um)
+    - Merck SeQuant ZIC-pHILIC (150 x 4.6mm,5um)
+    - Merck Supelco Ascentis Express C18 (100 x 2.1mm,2.7um)
+    - Merck Supelco Ascentis Express C18 (100 x 4.6mm,2.7um)
+    - Merck Supelco Ascentis Express C18 (150 x 2.1mm,2.7um)
+    - Merck Supelco Ascentis Express C18 (50 x 2.1mm,2.7um)
+    - Merck Supelco Ascentis Express C8 (50 x 2.1mm,2.7um)
+    - MicroSolv Diamond Hydride (150 x 2.1mm,3.5um)
+    - Microsolv Diamond hydride (150mm,4um)
+    - Phenomenex Gemini C18 (50 x 4.6mm,5um)
+    - Phenomenex Gemini NX-C18 (50 x 2mm,3um)
+    - Phenomenex Jupiter C18 (150 x 2mm,5um)
+    - Phenomenex Kinetex C18 (100 x 2.1mm,1.7um)
+    - Phenomenex Kinetex C18 (100 x 2.1mm,2.6um)
+    - Phenomenex Kinetex C18 (150 x 2.1mm,2.6um)
+    - Phenomenex Kinetex C18 (150 x 2.1mm,1.7um)
+    - Phenomenex Kinetex C18 (150 x 2.1mm,5um)
+    - Phenomenex Kinetex C18 (150 x 3mm,2.6um)
+    - Phenomenex Kinetex C18 (50 x 2.1mm,1.7um)
+    - Phenomenex Kinetex C8 (100 x 2.1mm,1.7um)
+    - Phenomenex Kinetex EVO C18 (100 x 2.1mm,1.7um)
+    - Phenomenex Kinetex HILIC (150 x 3mm,2.6um)
+    - Phenomenex Kinetex HILIC (50 x 2.1mm,2.6um)
+    - Phenomenex Kinetex HILIC 100A (50 x 2.1 mm,2.6um)
+    - Phenomenex Kinetex PFP (100 x 2.1mm,2.6um)
+    - Phenomenex Kinetex XB-C18 (150 x 2.1mm,1.7um)
+    - Phenomenex Luna C5 (50 x 4.6mm,5um)
+    - Phenomenex Luna NH2 (100 x 2mm,3um)
+    - Phenomenex Luna NH2 (150 x 1mm,3um)
+    - Phenomenex Luna NH2 (150 x 2.1mm,3um)
+    - Phenomenex Luna NH2 (150 x 2mm,3um)
+    - Phenomenex Synergi Fusion-RP (100 x 4.6mm,4um)
+    - Phenomenex Synergi Fusion-RP (150 x 2mm,4um)
+    - Phenomenex Synergi Hydro RP 100 A (100 x 2mm,2.5um)
+    - Phenomenex Synergi Hydro-RP (100 x 2mm,2.5um)
+    - Phenomenex Synergi Hydro-RP (150 x 2mm,4um)
+    - Phenomenex Synergi Hydro-RP (250 x 2mm,4um)
+    - Phenomenex Synergi Hydro-RP (50 x 2mm,4um)
+    - Phenomenex Synergi Polar-RP (100 x 2.1mm,2.5um)
+    - Phenomenex Zebron ZB-AAA (10m x 0.25mm)
+    - Phenomenex Zebron ZB-WAXplus (30m x 0.25mm,0.25um)
+    - Phenomenex, Kinetex HILIC (50 x 4.6mm,2.6um)
+    - Restek Pinnacle DB Biphenyl (50 x 2.1mm,1.9um)
+    - Restek Rtx-5Sil MS (30 x 0.25mm, 0.25um)
+    - Sequant Merck SeQuant ZIC-HILIC (100 x 2.1mm,3.5um)
+    - SeQuant ZIC- pHILIC (150 x 2.1mm,5um)
+    - SeQuant ZIC-HILIC (100 x 2.1mm,3.5um)
+    - SeQuant ZIC-HILIC (150 x 2.1mm,5um)
+    - SeQuant ZIC-HILIC (150 x 4.6mm,3.5um)
+    - Shodex ODP2 HP-4B 5um polymer (50 x 4.6mm)
+    - Thermo Acclaim 120 C18 (150 x 2.1mm,2.2um)
+    - Thermo Acclaim C30 (150 x 2.1mm,3um)
+    - Thermo Acclaim C30 (150 x 3mm,3um)
+    - Thermo Acclaim PepMap 100 C18 (150 x 0.075mm,2um)
+    - Thermo Acclaim Polar Advantage II (150 x 3mm,3um)
+    - Thermo Accucore C18 (100 x 2.1mm,2.6um)
+    - Thermo Accucore C18 (150 x 2.1mm,2.6um)
+    - Thermo Accucore C18 (30 x 2.1mm,2.6um)
+    - Thermo Accucore C30 (150 x 2.1mm,2.6um)
+    - Thermo Accucore HILIC (100 x 2.1mm,2.6um)
+    - Thermo Accucore HILIC (50 x 2.1mm,2.6um)
+    - Thermo AQUASIL C18 (50 x 2.1mm,5um)
+    - Thermo BETASIL C1 (50 x 2.1mm,5um)
+    - Thermo BETASIL Diol (150 x 2.1mm,5um)
+    - Thermo Hamilton Anion Exchange (100 x 2.1mm,2.6um)
+    - Thermo Hamilton Anion Exchange (100 x 2.1mm,7um)
+    - Thermo Higgins C18 (50 x 2.1mm,3um)
+    - Thermo Hypercarb (100 x 2.1mm,3um)
+    - Thermo Hypercarb (100 x 2.1mm,5um)
+    - Thermo Hypercarb (50 x 2.1mm,3um)
+    - Thermo Hypersil GOLD aQ (100 x 2.1mm,1.9um)
+    - Thermo Hypersil GOLD aQ (100 x 2mm,1.9um)
+    - Waters AccQ Tag (100 x 2mm,1.7um)
+    - Waters AccQ-Tag Ultra (100 x 2.1mm,1.7um)
+    - Waters ACQUITY UPLC BEH Amide (100 x 2.1mm,1.7um)
+    - Waters ACQUITY UPLC BEH Amide (150 x 2.1mm,1.7um)
+    - Waters ACQUITY UPLC BEH Amide (50 x 2.1mm,1.7um)
+    - Waters ACQUITY UPLC BEH C18 (100 x 1mm,2.1um)
+    - Waters ACQUITY UPLC BEH C18 (100 x 2.1mm,1.7um)
+    - Waters ACQUITY UPLC BEH C18 (150 x 1.7mm,2.1um)
+    - Waters ACQUITY UPLC BEH C18 (150 x 1mm,1.7um)
+    - Waters ACQUITY UPLC BEH C18 (150 x 2.1mm,1.7um)
+    - Waters ACQUITY UPLC BEH C18 (30 x 2.1mm,1.7um)
+    - Waters ACQUITY UPLC BEH C18 (50 x 2.1mm,1.7um)
+    - Waters ACQUITY UPLC BEH C8 (100 x 1mm,1.7um)
+    - Waters ACQUITY UPLC BEH C8 (100 x 2.1mm,1.7um)
+    - Waters ACQUITY UPLC BEH C8 (150 x 2.1mm,1.7um)
+    - Waters ACQUITY UPLC BEH HILIC (100 x 2.1mm,1.7um)
+    - Waters ACQUITY UPLC BEH HILIC (150 x 2.1mm,1.7um)
+    - Waters ACQUITY UPLC BEH Phenyl (100 x 2.1mm,1.7um)
+    - Waters ACQUITY UPLC BEH Shield RP18 (50 x 2.1mm,1.7um)
+    - Waters ACQUITY UPLC CSH C18 (100 x 1mm,1.7um)
+    - Waters ACQUITY UPLC CSH C18 (100 x 2.1mm,1.7um)
+    - Waters ACQUITY UPLC CSH C18 (150 x 2.1mm,1.7um)
+    - Waters ACQUITY UPLC HSS C18 (100 x 2.1mm,1.8um)
+    - Waters ACQUITY UPLC HSS CN (100 x 2.1mm,1.8um)
+    - Waters ACQUITY UPLC HSS T3 (100 x 1mm,1.8um)
+    - Waters ACQUITY UPLC HSS T3 (100 x 2.1mm,1.8um)
+    - Waters ACQUITY UPLC HSS T3 (100 x 2.1mm,3um)
+    - Waters ACQUITY UPLC HSS T3 (150 x 1mm,1.8um)
+    - Waters ACQUITY UPLC HSS T3 (150 x 2.1mm,1.7um)
+    - Waters ACQUITY UPLC HSS T3 (150 x 2.1mm,1.8um)
+    - Waters ACQUITY UPLC HSS T3 (30 x 2.1mm,1.8um)
+    - Waters ACQUITY UPLC HSS T3 (50 x 2.1mm,1.8um)
+    - Waters Atlantis T3 (150 x 4.6mm,5um)
+    - Waters CORTECS HILIC (100 x 2.1mm,1.6um)
+    - Waters CORTECS UPLC C18 (150 x 2.1mm,1.6um)
+    - Waters SunFire C18 (150 x 2.1mm,3.5um)
+    - Waters SunFire C18 (50 x 4.6mm,3.5um)
+    - Waters XBridge Amide (100 x 4.6mm,3.5um)
+    - Waters XBridge BEH Amide (100 x 2.1mm,2.5um)
+    - Waters XBridge BEH Amide (50 x 2.1mm,2.5um)
+    - Waters XBridge BEH C18 (100 x 2.1mm,3.5um)
+    - Waters XBridge BEH C18 (150 x 2.1mm,3.5um)
+    - Waters XBridge BEH HILIC (150 x 4.6mm,5um)
+    - Waters Xbridge BEH HILIC (75 x 2.1mm,2.5um)
+    - Waters XBridge C18 (50 x 2.1mm,3um)
+    - Waters XSelect HSS T3 XP (150 x 3mm,2.5um)
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+
+chromatography_instrument:
+  enum: 
+    - Waters TQS
+    - Agilent 1100
+    - Agilent 1200
+    - Agilent 1200 RR Series II
+    - Agilent 1200SL
+    - Agilent 1260
+    - Agilent 1290
+    - Agilent 1290 Infinity
+    - Agilent 1290 Infinity II
+    - Agilent 6210
+    - Agilent 6220
+    - Agilent 6490
+    - Agilent 6490A
+    - Agilent 6520
+    - Agilent 6530
+    - Agilent 6550
+    - Agilent 6560
+    - Agilent 6890N
+    - Agilent 7100 CE
+    - Agilent 7890A
+    - Agilent 7890B
+    - Agilent 7890N
+    - Agilent CE
+    - Cohesive TX2
+    - Leco Pegasus 4D GC
+    - Leco Pegasus III GC
+    - Leco Pegasus IV GC
+    - Shimadzu 10A
+    - Shimadzu 20AD
+    - Shimadzu CBM20A
+    - Shimadzu GC-2010
+    - Shimadzu GCMS-QP2010 ultra
+    - Shimadzu Nexera X2
+    - Thermo Accela 1250
+    - Thermo Accela 600
+    - Thermo Accela CTC
+    - Thermo Dionex
+    - Thermo Dionex Ultimate 3000
+    - Thermo Dionex Ultimate 3000 RS
+    - Thermo Dionex ICS-5000+
+    - Thermo Trace 1310
+    - Thermo Vanquish
+    - Waters 2777C
+    - Waters Acquity
+    - Waters Acquity H-Class
+    - Waters Acquity I-Class
+    - Waters NanoAcquity
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+ms_type:
+  enum:
+    - APCI
+    - API
+    - EI
+    - ESI
+    - MALDI   
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+
+ion_mode:
+  enum:
+    - POSITIVE
+    - NEGATIVE
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+
+biospecimen_anatomic_site:
+  enum: 
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+    - Abdomen
+    - Abdominal Wall
+    - Acetabulum
+    - Adenoid
+    - Adipose
+    - Adrenal
+    - Alveolar Ridge
+    - Amniotic Fluid
+    - Ampulla Of Vater
+    - Anal Sphincter
+    - Anal Sphincter
+    - Ankle
+    - Anorectum
+    - Antecubital Fossa
+    - Antrum
+    - Anus
+    - Aorta
+    - Aortic Body
+    - Appendix
+    - Aqueous Fluid
+    - Arm
+    - Artery
+    - Ascending Colon
+    - Ascending Colon
+    - Ascending Colon Hepatic Flexure
+    - Auditory Canal
+    - Autonomic Nervous System
+    - Axilla
+    - Back
+    - Bile Duct
+    - Bladder
+    - Blood
+    - Bone
+    - Bone Marrow
+    - Bowel
+    - Brain
+    - Brain Stem
+    - Breast
+    - Broad Ligament
+    - Bronchiole
+    - Bronchus
+    - Brow
+    - Buccal Cavity
+    - Buccal Mucosa
+    - Buttock
+    - Calf
+    - Capillary
+    - Cardia
+    - Carina
+    - Carotid Artery
+    - Carotid Body
+    - Cartilage
+    - Cecum
+    - Cell-Line
+    - Central Nervous System
+    - Cerebellum
+    - Cerebral Cortex
+    - Cerebrospinal Fluid
+    - Cerebrum
+    - Cervical Spine
+    - Cervix
+    - Chest
+    - Chest Wall
+    - Chin
+    - Clavicle
+    - Clitoris
+    - Colon
+    - Colon - Mucosa Only
+    - Common Duct
+    - Conjunctiva
+    - Connective Tissue
+    - Dermal
+    - Descending Colon
+    - Diaphragm
+    - Duodenum
+    - Ear
+    - Ear Canal
+    - Pinna (External)
+    - Effusion
+    - Elbow
+    - Endocrine Gland
+    - Epididymis
+    - Epidural Space
+    - Esophagogastric Junction
+    - Esophagus
+    - Esophagus - Mucosa Only
+    - Eye
+    - Fallopian Tube
+    - Femoral Artery
+    - Femoral Vein
+    - Femur
+    - Fibroblasts
+    - Fibula
+    - Finger
+    - Floor Of Mouth
+    - Fluid
+    - Foot
+    - Forearm
+    - Forehead
+    - Foreskin
+    - Frontal Cortex
+    - Frontal Lobe
+    - Fundus Of Stomach
+    - Gallbladder
+    - Ganglia
+    - Gastroesophageal Junction
+    - Gastrointestinal Tract
+    - Groin
+    - Gum
+    - Hand
+    - Hard Palate
+    - Head & Neck
+    - Head - Face Or Neck
+    - Nos
+    - Heart
+    - Hepatic
+    - Hepatic Duct
+    - Hepatic Vein
+    - Hip
+    - Hippocampus
+    - Humerus
+    - Hypopharynx
+    - Ileum
+    - Ilium
+    - Index Finger
+    - Ischium
+    - Islet Cells
+    - Jaw
+    - Jejunum
+    - Joint
+    - Kidney
+    - Knee
+    - Lacrimal Gland
+    - Large Bowel
+    - Laryngopharynx
+    - Larynx
+    - Leg
+    - Leptomeninges
+    - Ligament
+    - Lip
+    - Liver
+    - Lumbar Spine
+    - Lung
+    - Lymph Node
+    - Lymph Node(s) Axilla
+    - Lymph Node(s) Cervical
+    - Lymph Node(s) Distant
+    - Lymph Node(s) Epitrochlear
+    - Lymph Node(s) Femoral
+    - Lymph Node(s) Hilar
+    - Lymph Node(s) Iliac-Common
+    - Lymph Node(s) Iliac-External
+    - Lymph Node(s) Inguinal
+    - Lymph Node(s) Internal Mammary
+    - Lymph Node(s) Mammary
+    - Lymph Node(s) Mesenteric
+    - Lymph Node(s) Occipital
+    - Lymph Node(s) Paraaortic
+    - Lymph Node(s) Parotid
+    - Lymph Node(s) Pelvic
+    - Lymph Node(s) Popliteal
+    - Lymph Node(s) Regional
+    - Lymph Node(s) Retroperitoneal
+    - Lymph Node(s) Scalene
+    - Lymph Node(s) Splenic
+    - Lymph Node(s) Subclavicular
+    - Lymph Node(s) Submandibular
+    - Lymph Node(s) Supraclavicular
+    - Lymph Nodes(s) Mediastinal
+    - Mandible
+    - Maxilla
+    - Mediastinal Soft Tissue
+    - Mediastinum
+    - Mesentery
+    - Mesothelium
+    - Middle Finger
+    - Mitochondria
+    - Muscle
+    - Nails
+    - Nasal Cavity
+    - Nasal Soft Tissue
+    - Nasopharynx
+    - Neck
+    - Nerve
+    - Nerve(s) Cranial
+    - Occipital Cortex
+    - Ocular Orbits
+    - Omentum
+    - Oral Cavity
+    - Oral Cavity - Mucosa Only
+    - Oropharynx
+    - Other
+    - Ovary
+    - Palate
+    - Pancreas
+    - Paraspinal Ganglion
+    - Parathyroid
+    - Parotid Gland
+    - Patella
+    - Pelvis
+    - Penis
+    - Pericardium
+    - Periorbital Soft Tissue
+    - Peritoneal Cavity
+    - Peritoneum
+    - Pharynx
+    - Pineal
+    - Pineal Gland
+    - Pituitary Gland
+    - Placenta
+    - Pleura
+    - Popliteal Fossa
+    - Prostate
+    - Pylorus
+    - Rectosigmoid Junction
+    - Rectum
+    - Retina
+    - Retro-Orbital Region
+    - Retroperitoneum
+    - Rib
+    - Ring Finger
+    - Round Ligament
+    - Sacrum
+    - Salivary Gland
+    - Scalp
+    - Scapula
+    - Sciatic Nerve
+    - Scrotum
+    - Seminal Vesicle
+    - Shoulder
+    - Sigmoid Colon
+    - Sinus
+    - Sinus(es)
+    - Maxillary
+    - Skeletal Muscle
+    - Skin
+    - Skull
+    - Small Bowel
+    - Small Bowel - Mucosa Only
+    - Small Finger
+    - Soft Tissue
+    - Spinal Column
+    - Spinal Cord
+    - Spleen
+    - Splenic Flexure
+    - Sternum
+    - Stomach
+    - Stomach - Mucosa Only
+    - Subcutaneous Tissue
+    - Synovium
+    - Temporal Cortex
+    - Tendon
+    - Testis
+    - Thigh
+    - Thoracic Spine
+    - Thorax
+    - Throat
+    - Thumb
+    - Thymus
+    - Thyroid
+    - Tibia
+    - Tongue
+    - Tonsil
+    - Tonsil (Pharyngeal)
+    - Trachea / Major Bronchi
+    - Transverse Colon
+    - Trunk
+    - Umbilical Cord
+    - Ureter
+    - Urethra
+    - Urinary Tract
+    - Uterus
+    - Uvula
+    - Vagina
+    - Vas Deferens
+    - Vein
+    - Venous
+    - Vertebra
+    - Vulva
+    - White Blood Cells
+    - Wrist
+    - Not applicable
+
+method_of_sample_procurement:
+  enum: 
+    - Abdomino-perineal Resection of Rectum
+    - Anterior Resection of Rectum
+    - Aspirate
+    - Biopsy
+    - Blood Draw
+    - Bone Marrow Aspirate
+    - Core Biopsy
+    - Cystectomy
+    - Endo Rectal Tumor Resection
+    - Endoscopic Biopsy
+    - Endoscopic Mucosal Resection (EMR)
+    - Enucleation
+    - Excisional Biopsy
+    - Fine Needle Aspiration
+    - Full Hysterectomy
+    - Gross Total Resection
+    - Hand Assisted Laparoscopic Radical Nephrectomy
+    - Hysterectomy NOS
+    - Incisional Biopsy
+    - Indeterminant
+    - Laparoscopic Biopsy
+    - Laparoscopic Partial Nephrectomy
+    - Laparoscopic Radical Nephrectomy
+    - Laparoscopic Radical Prostatectomy with Robotics
+    - Laparoscopic Radical Prostatectomy without Robotics
+    - Left Hemicolectomy
+    - Lobectomy
+    - Local Resection (Exoresection wall resection)
+    - Lumpectomy
+    - Modified Radical Mastectomy
+    - Needle Biopsy
+    - Open Craniotomy
+    - Open Partial Nephrectomy
+    - Open Radical Nephrectomy
+    - Open Radical Prostatectomy
+    - Orchiectomy
+    - Other
+    - Other Surgical Resection
+    - Pan-Procto Colectomy
+    - Pneumonectomy
+    - Right Hemicolectomy
+    - Sigmoid Colectomy
+    - Simple Mastectomy
+    - Subtotal Resection
+    - Surgical Resection
+    - Thoracoscopic Biopsy
+    - Total Colectomy
+    - Total Mastectomy
+    - Transplant
+    - Transurethral resection (TURBT)
+    - Transverse Colectomy
+    - Tumor Resection
+    - Wedge Resection
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+
+finding_type:
+  description: "Pathological findings."
+  enum: 
+    - Accumulation, foam cell
+    - Adenoma, hepatocellular
+    - Alteration, cytoplasmic
+    - Alteration, nuclear
+    - Altered hepatocellular foci
+    - Angiectasis
+    - Anisonucleosis
+    - Arteriolosclerosis
+    - Arteritis
+    - Atrophy
+    - Atypia, cellular
+    - Atypia, nuclear
+    - Bacterium
+    - Calcification
+    - Cast, cellular
+    - Cast, hemoglobinogenous
+    - Cast,hyaline
+    - Cellular foci
+    - Cellular infiltration
+    - Cellular infiltration, lymphocyte
+    - Cellular infiltration, mononuclear cell
+    - Cellular infiltration, neutrophil
+    - Change, acidophilic
+    - Change, basophilic
+    - Change, eosinophilic
+    - Congestion
+    - Cyst
+    - Cyst, hemorrhagic
+    - Degeneration
+    - Degeneration, acidophilic, eosinophilic
+    - Degeneration, fatty
+    - Degeneration, granular
+    - Degeneration, granular, eosinophilic
+    - Degeneration, hydropic
+    - Degeneration, vacuolar
+    - Deposit, glycogen
+    - Deposit, hemosiderin
+    - Deposit, lipid
+    - Deposit, pigment
+    - Desquamation
+    - Dilatation
+    - Dilatation, cystic
+    - Disarrangement
+    - Dysplasia
+    - Ectopic tissue
+    - Edema
+    - Eosinophilic body
+    - Fibrosis
+    - Giant cell
+    - Granuloma
+    - Ground glass appearance
+    - Hematopoiesis, extramedullary
+    - Hemorrhage
+    - Hyaline droplet
+    - Hydronephrosis
+    - Hyperplasia
+    - Hyperplasia, regenerative
+    - Hypertrophy
+    - Hypoplasia
+    - Inclusion body, intracytoplasmic
+    - Increased mitosis
+    - Infarct
+    - Inflammation
+    - Inflammation, foreign body
+    - Inflammation, suppurative
+    - Karyomegaly
+    - Lesion,NOS
+    - Microgranuloma
+    - Mineralization
+    - Necrosis
+    - Necrosis, fibrinoid
+    - Nephroblastoma
+    - Nodule, hepatodiaphragmatic
+    - Phagocytosis
+    - Proliferation
+    - Proliferation, bile duct
+    - Proliferation, Kupffer cell
+    - Proliferation, oval cell
+    - Pyknosis
+    - Regeneration
+    - Scar
+    - Sclerosis, glomerulus
+    - Single cell necrosis
+    - Swelling
+    - Thickening
+    - Thrombus
+    - Tubulitis
+    - Vacuolization (Vacuolation), cytoplasmic
+    - Vacuolization, cytoplasmic
+    - Vacuolization, nuclear
+
+topography_type:
+  description: "Region of the organ where the pathological changes were found."
+  enum:
+    - Artery, interlobular
+    - Bile duct
+    - Bile duct cell
+    - Bile duct, interlobular
+    - Centrilobular
+    - Collecting tubule
+    - Cortex
+    - Cortico-medullary junction
+    - Distal tubule
+    - Glissons sheath
+    - Glomerular tuft
+    - Glomerulus
+    - Hepatic cord
+    - Hepatocyte
+    - Interlobular
+    - Interstitium, Connective tissue
+    - Ito cell
+    - Juxtaglomerular apparatus
+    - Kupffer cell
+    - Liver cell
+    - Lobule, peripheral zone
+    - Lymphatic
+    - Medulla
+    - Mesangial cell
+    - Mesangial matrix
+    - Midlobular
+    - Papilla
+    - Parenchyma
+    - Pelvic cavity
+    - Pelvic epithelium
+    - Pelvic mucosa
+    - Pelvis
+    - Periductular
+    - Peripheral
+    - Periportal
+    - Podocyte
+    - Portal
+    - Portal triad
+    - Proximal tubule
+    - Proximal tubule, segment 3
+    - Proximal tubule, straight
+    - Renal tubule
+    - Serosa
+    - Sinusoid
+    - Subcapsule
+    - Subserosa
+    - Transitional epithelium
+    - Tubular epithelium
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+
+scoring_system:
+  description: ""
+  enum:
+    - TGGates
+    - DrugMatrix
+    - 1-5
+    - NASH Score
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access   
+
+study_design:
+  enum:
+    - dose response design
+    - case control design
+    - cross sectional design
+    - genetic modification design
+    - sex design
+    - time series design
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+  description: "A plan specification comprised of protocols (which may specify how
+    and what kinds of data will be gathered) that are executed as part of an investigation
+    and is realized during a study design execution."
+
+study_type: 
+  enum:
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+    - Teratology
+    - Short term
+    - Long term
+    - Bacterial mutagenicity
+    - Drosophila germ cell mutagenicity
+    - In vitro micronucleus
+    - In vivo alkaline comet assay
+    - Mammalian cell cytogenetics
+    - Mammalian cell mutagenicity
+    - Micronucleus
+    - Rodent cytogenetics
+    - ADME
+    - Immunotoxicology
+    - Nematode
+    - RACB
+    - Tox21 - Phase II
+    - Toxicogenomics
+    - Toxicokinetics
+    - Zebrafish
+  description: "A categorical value specification that specifies the type of study
+    from a list of study types"
+
+experimental_setting:
+  enum:
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+    - in vivo
+    - ex vivo
+  description: ""
+
+organism:
+  enum:
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+    - Homo sapiens
+    - Mus musculus
+    - Rattus norvegicus
+    - Drosophila melanogaster
+    - Danio rerio
+    - Xenopus laevis
+  description: ""
+
+
+sex:
+  enum:
+    - male
+    - female
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+  description: ""
+
+strain:
+  enum: 
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+    - C57BL/6NCrl
+    - C57BL/6J
+    - 129/Sv
+    - FVB/N
+    - BALB/cJ
+    - C3H/HeJ
+    - Sprague-Dawley
+    - Dahl SS
+  description: ""
+
+euthanasia_method:
+  enum: 
+    - Carbon dioxide asphyxiation
+    - Cervical dislocation
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+  description: ""
+
+dose_amount_unit: 
+  enum:
+    - milligram per kilogram
+    - microgram per kilogram
+    - milligram per kilogram per day
+    - microgram per kilogram per day
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+
+
+route: 
+  enum:
+    - Administration via Cytapheresis
+    - Administration via Fistula
+    - Administration via Stoma
+    - Auricular Route of Administration
+    - Combination Route of Administration
+    - Concomitant Medication Route of Administration
+    - Dental Route of Administration
+    - Dietary Route of Administration
+    - Drop Instillation Route of Administration
+    - Electro-osmosis Route of Administration
+    - Endotracheal Route of Administration
+    - Enteral Route of Administration
+    - Epilesional Route of Administration
+    - Exposure Route of Administration
+    - Exposure as Collected Route of Administration
+    - External Route of Administration
+    - Extracorporeal Circulation Route of Administration
+    - Genitourinary Route of Administration
+    - Immersion Route of Exposure
+    - In Beehive Route of Administration
+    - In Vitro Route of Administration
+    - Inhalation Route of Administration
+    - Injection Route of Administration
+    - Intestinal Route of Administration
+    - Intracavernous Route of Administration
+    - Intracavitary Route of Administration
+    - Intracholangiopancreatic Route of Administration
+    - Intracochlear Route of Administration
+    - Intraglandular Route of Administration
+    - Intrajejunal Route of Administration
+    - Intralesional Route of Administration
+    - Intramandibular Route of Administration
+    - Intrapalatal Route of Administration
+    - Intraparenchymal Route of Administration
+    - Intrasurgical Site Route of Administration
+    - Intrathalamic Route of Administration
+    - Intraurethral Route of Administration
+    - Intravaginal Route of Administration
+    - Iontophoresis Route of Administration
+    - Laryngeal Route of Administration
+    - Laryngotracheal Route of Administration
+    - Microdialysis Route of Administration
+    - Mucosal Route of Administration
+    - Nasal Route of Administration
+    - Oculonasal Route of Administration
+    - Ophthalmic Route of Administration
+    - Oral Gavage Route of Administration
+    - Oral Route of Administration
+    - Other Route of Administration
+    - Parenteral Route of Administration
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access

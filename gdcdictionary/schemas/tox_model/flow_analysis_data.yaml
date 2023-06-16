@@ -52,35 +52,11 @@ properties:
   type:
     enum: [ "flow_analysis_data" ]
   data_category:
-    term:
-      $ref: "_terms.yaml#/data_category"
-    enum:
-      - flow cytometry
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
+    $ref: "_definitions.yaml#/data_category"
   data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
-    enum:
-      - flow cytometry
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
+    $ref: "_definitions.yaml#/data_type"
   data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
-    enum: 
-      - FCS
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
+    $ref: "_definitions.yaml#/data_format"
   file_source_repository:
     type: string
   repository_accession_id:

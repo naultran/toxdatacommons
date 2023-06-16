@@ -53,40 +53,11 @@ properties:
   type:
     enum: [ "slide_image" ]
   data_category:
-    term:
-      $ref: "_terms.yaml#/data_category"
-    enum:
-      - biological imaging
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
+    $ref: "_definitions.yaml#/data_category"
   data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
-    enum:
-      - whole slide scan
-      - field of view image
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
+    $ref: "_definitions.yaml#/data_type"
   data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
-    enum: 
-      - zip
-      - gzip
-      - png
-      - tif
-      - tiff
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
+    $ref: "_definitions.yaml#/data_format"
   file_source_repository:
     type: string
   repository_accession_id:

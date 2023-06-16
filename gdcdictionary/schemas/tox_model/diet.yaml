@@ -60,14 +60,7 @@ properties:
   water_type:
     type: string
   feed_paradigm:
-    enum: 
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
-      - ad libitum
-      - restricted
+    $ref: "_definitions.yaml#/feed_paradigm" 
   provenance:
     type: string
     description: "template version"

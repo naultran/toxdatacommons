@@ -50,19 +50,7 @@ properties:
     type: string
     description: "A brief description of the flow cytometry protocol"    
   quality_control_measures:
-    enum:
-      - STR profiling of source cells
-      - mycoplasma testing
-      - isotype control for antibody
-      - no antibody negative control
-      - positive control cell type
-      - Live/Dead staining
-      - unstained controls
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
+    $ref: "_definitions.yaml#/quality_control_measures"
   staining_protocol:
     type: string
   staining_protocol_doi:
@@ -91,14 +79,7 @@ properties:
     type: string
     description: "The reagent catalogue number shall be specified."
   staining_status: 
-    enum:
-      - stained
-      - unstained
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
+    $ref: "_definitions.yaml#/staining_status"
   other_reagent: 
     type: string
     description: >

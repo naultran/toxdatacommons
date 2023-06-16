@@ -46,26 +46,8 @@ properties:
     type: string
 
   analyte_type:
-    term:
-      $ref: "_terms.yaml#/analyte_type"
-    enum: 
-      - DNA
-      - total RNA
-      - microRNA
-      - Metabolites
-      - Protein
-      - Tisse section 
-      - Cell suspension
-      - Histology slide
-      - Biofluid
-      - Aqueous
-      - Lipophilic
-      - Two-phase
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
+    $ref: "_definitions.yaml#/analyte_type"
+
   derivitization:
     description: ""
     type:
@@ -79,16 +61,7 @@ properties:
     type:
       - string
   extract_preservation_method:
-    description: ""
-    enum:
-      - Room temperature
-      - -20C
-      - -80C
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
+    $ref: "_definitions.yaml#/extract_preservation_method"
   provenance:
     type: string
     description: "template version"

@@ -60,31 +60,9 @@ properties:
     type: number
     description: ""
   sex:
-    enum:
-      - male
-      - female
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
-    description: ""
+    $ref: "_definitions.yaml#/sex"
   strain:
-    enum: 
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
-      - C57BL/6NCrl
-      - C57BL/6J
-      - 129/Sv
-      - FVB/N
-      - BALB/cJ
-      - C3H/HeJ
-      - Sprague-Dawley
-      - Dahl SS
-    description: ""
+    $ref: "_definitions.yaml#/strain"
   strain_source:
     type: string
     description: ""
@@ -95,15 +73,7 @@ properties:
     type: string
     description: ""
   euthanasia_method:
-    enum: 
-      - Carbon dioxide asphyxiation
-      - Cervical dislocation
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
-    description: ""
+    $ref: "_definitions.yaml#/euthanasia_method"
   provenance: 
     type: string
     description: "template version"

@@ -52,15 +52,7 @@ properties:
   housing_change_date:
     type: string
   bedding_type:
-    enum:
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
-      - ALPHA-dri
-      - corn cob
-      - wood shavings
+    $ref: "_definitions.yaml#/bedding_type"
   cage_type:
     type: string
   vivarium_temperature_C:

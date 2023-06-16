@@ -58,155 +58,10 @@ properties:
       - string
       
   finding_type:
-    description: "Pathological findings."
-    enum: 
-      - Accumulation, foam cell
-      - Adenoma, hepatocellular
-      - Alteration, cytoplasmic
-      - Alteration, nuclear
-      - Altered hepatocellular foci
-      - Angiectasis
-      - Anisonucleosis
-      - Arteriolosclerosis
-      - Arteritis
-      - Atrophy
-      - Atypia, cellular
-      - Atypia, nuclear
-      - Bacterium
-      - Calcification
-      - Cast, cellular
-      - Cast, hemoglobinogenous
-      - Cast,hyaline
-      - Cellular foci
-      - Cellular infiltration
-      - Cellular infiltration, lymphocyte
-      - Cellular infiltration, mononuclear cell
-      - Cellular infiltration, neutrophil
-      - Change, acidophilic
-      - Change, basophilic
-      - Change, eosinophilic
-      - Congestion
-      - Cyst
-      - Cyst, hemorrhagic
-      - Degeneration
-      - Degeneration, acidophilic, eosinophilic
-      - Degeneration, fatty
-      - Degeneration, granular
-      - Degeneration, granular, eosinophilic
-      - Degeneration, hydropic
-      - Degeneration, vacuolar
-      - Deposit, glycogen
-      - Deposit, hemosiderin
-      - Deposit, lipid
-      - Deposit, pigment
-      - Desquamation
-      - Dilatation
-      - Dilatation, cystic
-      - Disarrangement
-      - Dysplasia
-      - Ectopic tissue
-      - Edema
-      - Eosinophilic body
-      - Fibrosis
-      - Giant cell
-      - Granuloma
-      - Ground glass appearance
-      - Hematopoiesis, extramedullary
-      - Hemorrhage
-      - Hyaline droplet
-      - Hydronephrosis
-      - Hyperplasia
-      - Hyperplasia, regenerative
-      - Hypertrophy
-      - Hypoplasia
-      - Inclusion body, intracytoplasmic
-      - Increased mitosis
-      - Infarct
-      - Inflammation
-      - Inflammation, foreign body
-      - Inflammation, suppurative
-      - Karyomegaly
-      - Lesion,NOS
-      - Microgranuloma
-      - Mineralization
-      - Necrosis
-      - Necrosis, fibrinoid
-      - Nephroblastoma
-      - Nodule, hepatodiaphragmatic
-      - Phagocytosis
-      - Proliferation
-      - Proliferation, bile duct
-      - Proliferation, Kupffer cell
-      - Proliferation, oval cell
-      - Pyknosis
-      - Regeneration
-      - Scar
-      - Sclerosis, glomerulus
-      - Single cell necrosis
-      - Swelling
-      - Thickening
-      - Thrombus
-      - Tubulitis
-      - Vacuolization (Vacuolation), cytoplasmic
-      - Vacuolization, cytoplasmic
-      - Vacuolization, nuclear
+    $ref: "_definitions.yaml#/finding_type"
 
   topography_type:
-    description: "Region of the organ where the pathological changes were found."
-    enum:
-      - Artery, interlobular
-      - Bile duct
-      - Bile duct cell
-      - Bile duct, interlobular
-      - Centrilobular
-      - Collecting tubule
-      - Cortex
-      - Cortico-medullary junction
-      - Distal tubule
-      - Glissons sheath
-      - Glomerular tuft
-      - Glomerulus
-      - Hepatic cord
-      - Hepatocyte
-      - Interlobular
-      - Interstitium, Connective tissue
-      - Ito cell
-      - Juxtaglomerular apparatus
-      - Kupffer cell
-      - Liver cell
-      - Lobule, peripheral zone
-      - Lymphatic
-      - Medulla
-      - Mesangial cell
-      - Mesangial matrix
-      - Midlobular
-      - Papilla
-      - Parenchyma
-      - Pelvic cavity
-      - Pelvic epithelium
-      - Pelvic mucosa
-      - Pelvis
-      - Periductular
-      - Peripheral
-      - Periportal
-      - Podocyte
-      - Portal
-      - Portal triad
-      - Proximal tubule
-      - Proximal tubule, segment 3
-      - Proximal tubule, straight
-      - Renal tubule
-      - Serosa
-      - Sinusoid
-      - Subcapsule
-      - Subserosa
-      - Transitional epithelium
-      - Tubular epithelium
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access
+    $ref: "_definitions.yaml#/topography_type"
   grade:
     description: "Magnitude of pathological changes."
     type: number
@@ -215,17 +70,7 @@ properties:
       value is TRUE if the lesion occurred spontaneously."
     type: boolean
   scoring_system:
-    description: ""
-    enum:
-      - TGGates
-      - DrugMatrix
-      - 1-5
-      - NASH Score
-      - Not applicable
-      - Missing
-      - Not collected
-      - Not provided
-      - Restricted access   
+    $ref: "_definitions.yaml#/scoring_system"
 
   slides:
     $ref: "_definitions.yaml#/to_one"
