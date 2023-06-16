@@ -363,6 +363,7 @@ data_format:
     - .txt
     - .csv
     - .RAW
+    - .mzML
     - zip
     - gzip
     - png
