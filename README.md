@@ -1,5 +1,5 @@
 # MSU SRC Tox Data Commons
-
+Editor: Rance Nault & Shuangyu Zhao
 ## Deployment of developer (local) instance of Gen3 using  Helm
 
 For more instruction see [this](https://github.com/uc-cdis/gen3-helm/blob/master/docs/gen3_developer_environments.md#running-gen3-on-a-laptop-for-devs) and [this](https://github.com/uc-cdis/gen3-helm/blob/master/docs/gen3_developer_environments.md#local-dev-linux-ubuntu--rancher-desktop-problems) or the [Gen3 helm website](https://helm.gen3.org).
@@ -95,6 +95,45 @@ portal: # port name you want to override
     tag: <self defined tag which can be checked on rancher desktop>
 
 ```
+
+
+### prebuild protal
+The official instructions of prebuilding portal are shown in this [website](https://github.com/uc-cdis/gen3-helm/blob/4415e61a992e9c9113bc7f1531ec8387d3886404/docs/portal/prebuild-portal.md). In this part, Some tips will be provided.
+
+1. To render the portal image, you should git pull the repository of gen3-helm first. And then locate to /gen3-helm/docs/portal/. ```Dockerfile``` is used to generate the portal image, and this location is where the command ```docker build -t image_name:image_tag .``` runs. In the configuration folder, a new sub-folder should be created to store the customized gitops.json, gitops.css and logo, whose name is always the portal's host name. Once you settle the name of folder, you should update the ```Dockerfile``` under the following instruction.
+```
+ARG CODE_VERSION=master
+FROM node:16 as builder
+
+ARG PORTAL_HOSTNAME=<the real host name which is consistent with the folder name settled.>
+```
+
+2. For the folder storing gitops.json, gitops.css and logo, the additional unmentioned folders or files should not be added, which means this folder only can store ```gitops.json```, ```gitops.css```, ```gitops-logo.png```, ```gitops-createdby.png``` and ```gitops-favicon.ico```.
+
+3. To customize the color of website, you should edit ```gitops.css```. I personally recommend you to open the developer view to make sure the objects' names. To customize the content of website, you could edit ```gitops.json```. By the way, you can find a wealth of examples [here](https://github.com/uc-cdis/cdis-manifest/tree/a71ecb66cd5cc09dc8c0c9dc34a1eb406255a9b0). 
+
+4. If you want to change the color of icons, you could use the filter to convert color.
+```
+.login-page__side-box {
+  filter: hue-rotate(292deg);
+}
+
+.index-button-bar__icon {
+  filter: hue-rotate(292deg);
+}
+
+```
+The rotation degree depends on target color and the original color. I highly recommend this [website](https://isotropic.co/tool/hex-color-to-css-filter/) to calculate the rotation degree.
+
+5. Because it is impossible to settle the website in one trail, so the disk possibly is filled with sleeping containers, unused images and volumes.
+```
+docker system prune --all --volumes  // remove all unused images, containers and volumes
+docker container prune  // remove all stopped containers
+docker image prune // delete all unused images
+```
+
+6. Every time you update the portal, the search engine possibly remember the older version, therefore, the website's appearance seems to be the same as before. You could open a private window to check it, or simply clean the history.
+
 
 ### template of .yaml file for node
 normal node
