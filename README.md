@@ -97,7 +97,7 @@ portal: # port name you want to override
 ```
 
 
-### prebuild protal
+### prebuild portal
 The official instructions of prebuilding portal are shown in this [website](https://github.com/uc-cdis/gen3-helm/blob/4415e61a992e9c9113bc7f1531ec8387d3886404/docs/portal/prebuild-portal.md). In this part, Some tips will be provided.
 
 1. To render the portal image, you should git pull the repository of gen3-helm first. And then locate to /gen3-helm/docs/portal/. ```Dockerfile``` is used to generate the portal image, and this location is where the command ```docker build -t image_name:image_tag .``` runs. In the configuration folder, a new sub-folder should be created to store the customized gitops.json, gitops.css and logo, whose name is always the portal's host name. Once you settle the name of folder, you should update the ```Dockerfile``` under the following instruction.
