@@ -71,6 +71,25 @@ kubectl edit ingress <ingress-name>
     - fairtox.com
     secretName: <secret-name>
 ```
+#### override the revproxy
+So you don't need to update ingress every time you reinstall the gen3
+```
+revproxy:
+  ingress:
+    enabled: true
+    annotations:
+    hosts:
+    - host: <hostname>
+      paths:
+        - path: /
+          pathType: Prefix
+    tls:
+      - secretName: <secret-name>
+        hosts:
+          - <hostname>
+
+```
+You can store this part in your values.yaml, and push it to gen3.
 
 ### Override the default values.yaml files
 This part can customize the website.
