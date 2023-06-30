@@ -10,12 +10,26 @@ from io import StringIO
 warnings.filterwarnings("ignore", category=UserWarning)
 
 class Gen3process:
-    # process data extracted from gen3
+    """
+    process data extracted from gen3
+    """
     def __init__(self, sub):
+        """ initialize the object
+        Args:
+            sub(obj): object created by Gen3Submission 
+        """
         self.sub = sub
 
     def process_node_data(self, node_name, keys, program, project, fileformat='tsv', external_links=[]):
-        # process the node data and return a dataframe
+        """ process the extracted metadata 
+        Args:
+            node_name(str): the name of node
+            keys(list): the names of properties which has multiple values and need to be separated into multiple rows
+            programs(str): the name of program
+            project(str): the name of project
+            fileformat(str): default input is tsv. 'json' and 'tsv' are the accepted input
+            external_links(list): you need input values only when fileformat='json', which is the plural of node name who is the upper level of this node
+        """
         data = self.sub.export_node(program=program, project=project, node_type=node_name, fileformat=fileformat)
         if fileformat == 'json':
             data = self.remove_newlines(data)
@@ -38,13 +52,20 @@ class Gen3process:
         return node_df
 
     def get_unique_values(self,dataframe, column_name):
-        # get unique value
+        """get unique value
+        Args:
+            dataframe(df): the whole dataframe
+            column_name(str): the column name where you extract the unique values 
+        """ 
         unique_values = dataframe[column_name].unique()
         unique_string = ','.join(map(str, unique_values))
         return unique_string
 
     def remove_newlines(self, obj):
-        # remove new lines
+        """remove newline Escape Sequence for the value from metadata extracted as json file 
+            Args:
+                obj(json): the object in json type
+        """
         if isinstance(obj, dict):
             return {key: self.remove_newlines(value) for key, value in obj.items()}
         elif isinstance(obj, list):
@@ -55,7 +76,10 @@ class Gen3process:
             return obj
 
     def rename_overlapping(self, dataframes, separator='.'):
-        # rename the overlapping columns
+        """rename the overlapping columns with nodenames.originalname
+            Args:
+                dataframes(list of tuples): [(nodenames1, df1), (nodenames2, df2)]
+        """
         for i, (node_names, df) in enumerate(dataframes):
             overlapping_columns = set(df.columns) & set(column for _, other_df in dataframes[i+1:] for column in other_df.columns)
             for column in overlapping_columns:
@@ -72,7 +96,10 @@ class Gen3process:
         return dataframes
 
     def merge_dataframes(self, dataframes):
-        # merge multiple dataframes based on submitter_id
+        """merge multiple dataframes based on submitter_id
+            Args:
+                dataframes(list of tuples): [(nodenames1, df1), (nodenames2, df2)]
+        """
         merged_df = None
         unmerged = dataframes
         while unmerged:
@@ -91,7 +118,12 @@ class Gen3process:
 
 
     def build_study(self, program, project, studies_to_match):
-        # build study dataframe
+        """build study dataframe
+            Args:
+                program(str): program name
+                project(str): project name
+                studies_to_match(str): study name
+        """
         # STUDY NODE
         study_df = self.process_node_data('study', ['submitter_id'], program=program, project=project)
         if studies_to_match:
@@ -112,8 +144,13 @@ class Gen3process:
 
         return merged_df
 
-    def build_subject(self, program, project, studies_to_match, subjects_to_match):
-        # build subject dataframe
+    def build_subject(self, program, project, studies_to_match):
+        """build subject dataframe
+            Args:
+                program(str): program name
+                project(str): project name
+                studies_to_match(str): study name
+        """
         # SUBJECT NODE
         subject_df = self.process_node_data('subject', ['studies.submitter_id'], program=program, project=project)
         if studies_to_match:
@@ -146,7 +183,12 @@ class Gen3process:
         return merged_df
 
     def build_sample(self, program, project, subjects_to_match):
-        # build sample dataframe
+        """build sample dataframe
+            Args:
+                program(str): program name
+                project(str): project name
+                studies_to_match(str): study name
+        """
         # SAMPLE NODE
         sample_df = self.process_node_data('sample', ['subjects.submitter_id'], program=program, project=project)
         if subjects_to_match:
