@@ -1,6 +1,6 @@
 # MSU SRC Tox Data Commons
 Editor: Rance Nault & Shuangyu Zhao
-## Deployment of developer (local) instance of Gen3 using  Helm
+## 1. Deployment of developer (local) instance of Gen3 using  Helm
 
 For more instruction see [this](https://github.com/uc-cdis/gen3-helm/blob/master/docs/gen3_developer_environments.md#running-gen3-on-a-laptop-for-devs) and [this](https://github.com/uc-cdis/gen3-helm/blob/master/docs/gen3_developer_environments.md#local-dev-linux-ubuntu--rancher-desktop-problems) or the [Gen3 helm website](https://helm.gen3.org).
 
@@ -154,7 +154,8 @@ docker image prune // delete all unused images
 6. Every time you update the portal, the search engine possibly remember the older version, therefore, the website's appearance seems to be the same as before. You could open a private window to check it, or simply clean the history.
 
 
-### template of .yaml file for node
+### building model for metadata(template)
+.yaml file
 normal node
 ```
 $schema: "http://json-schema.org/draft-04/schema#"
@@ -289,7 +290,8 @@ properties:
 
 
 ```
-### code for upload data
+## 2. Using gen3(uploading and extracting data) 
+### code for upload metadata by gen3 API
 prerequirement
 ```{python}
 import pandas as pd
@@ -446,5 +448,82 @@ for file_name in file_names:
 df['file_size'] = df['file_size'].astype(int)
 df.to_csv("/path/to/new/file.tsv", sep='\t', index=False)
 ```
+
+### code for upload raw data file by gen3 client(terminal)
+You can find the official instruction [here](https://gen3.org/resources/user/gen3-client/). 
+
+### extract metadata
+prerequisite
+```
+import os
+import sys
+import csv
+import gen3
+import json
+import mwtab
+import warnings
+import pandas as pd
+import matplotlib.pyplot as plt
+
+from io import StringIO
+from datetime import datetime
+from collections import OrderedDict
+from expansion import Gen3Expansion # os.system("wget https://raw.githubusercontent.com/cgmeyer/gen3sdk-python/master/expansion/expansion.py")
+
+from gen3.auth import Gen3Auth
+from gen3.index import Gen3Index
+from gen3.query import Gen3Query
+
+from gen3.submission import Gen3Submission
+
+current_date = datetime.now().date()
+formatted_date = current_date.strftime('%Y-%m-%d')
+
+warnings.filterwarnings("ignore", category=UserWarning)
+
+def process_node_data(node_name, data, key):
+    node_df = pd.read_csv(StringIO(data), sep='\t', header=0)
+    node_df[key] = node_df[key].str.split(',')
+    node_df = node_df.explode(key)
+    pattern = r'(^|\.)id($|\.)'
+    drop_columns = [col for col in node_df.columns if pd.Series(col).str.contains(pattern).any()]
+    node_df = node_df.drop(drop_columns, axis=1)
+    node_df = node_df.reset_index(drop=True)
+    return node_df
+
+def get_unique_values(dataframe, column_name):
+    unique_values = dataframe[column_name].unique()
+    unique_string = ','.join(map(str, unique_values))
+    return unique_string
+
+def remove_newlines(obj):
+    if isinstance(obj, dict):
+        return {key: remove_newlines(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [remove_newlines(element) for element in obj]
+    elif isinstance(obj, str):
+        return obj.replace('\n', '').replace('\r', '')
+    else:
+        return obj
+
+# Initiate instances of the Gen3 SDK Classes using credentials file for authentication.
+# Change the directory path in "cred" to reflect the location of your credentials file.
+api = "https://fairtox.com"
+cred = "path/to/credentials.json"
+auth = Gen3Auth(api, refresh_file=cred) # authentication class
+sub = Gen3Submission(api, auth) # submission class
+query = Gen3Query(auth) # query class
+exp = Gen3Expansion(api,auth,sub) # class with some custom scripts
+
+```
+
+get all the projects' names you have access to: 
+```
+exp.get_project_ids()
+```
+
+
+
+
 
 #### Wait for changes to propagate
