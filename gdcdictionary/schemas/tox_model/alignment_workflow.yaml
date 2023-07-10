@@ -1,0 +1,68 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "alignment_workflow"
+title: Alignment workflow
+type: object
+category: Biospecimen
+program: '*'
+project: '*'
+description: >
+  description.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+  - file_state
+  - error_type
+
+required:
+  - submitter_id
+  - type
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+links:
+  - name: aligned_reads
+    backref: alignment_workflows
+    label: member_of
+    target_type: aligned_read
+    multiplicity: many_to_many
+    required: true
+
+properties:
+  type:
+    enum: ["alignment_workflow"]
+  submitter_id:
+    type: string
+  aligned_reads:
+    $ref: "_definitions.yaml#/to_many"
+  
+  workflow_type:
+    type: string
+  workflow_link:
+    type: string
+  workflow_version:
+    type: string
+  
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  provenance: 
+    type: string
+    description: "template version"
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

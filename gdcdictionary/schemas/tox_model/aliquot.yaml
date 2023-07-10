@@ -52,16 +52,18 @@ properties:
     description: ""
     type:
       - string
-  extract_preservation_method:
-    description: ""
-    type:
-      - string
   analyte_protocol:
     description: "A protocols.io DOI"
     type:
       - string
   extract_preservation_method:
     $ref: "_definitions.yaml#/extract_preservation_method"
+  a260_a280_ratio:
+    type: number
+    description: "Numeric value that represents the sample ratio of nucleic acid absorbance at 260 nm and 280 nm, used to determine a measure of DNA purity."
+  RIN:
+    type: number
+    description: "A numerical assessment of the integrity of RNA based on the entire electrophoretic trace of the RNA sample including the presence or absence of degradation products."
   provenance:
     type: string
     description: "template version"

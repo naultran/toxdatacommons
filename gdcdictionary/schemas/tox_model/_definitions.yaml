@@ -289,6 +289,8 @@ analyte_type:
   term:
     $ref: "_terms.yaml#/analyte_type"
   enum: 
+    - mRNA
+    - cDNA
     - DNA
     - total RNA
     - microRNA
@@ -331,6 +333,17 @@ data_category:
   term:
     $ref: "_terms.yaml#/data_category"
   enum:
+    - DESeq2
+    - WGS
+    - WXS
+    - Low Pass WGS
+    - Validation
+    - RNA-seq
+    - miRNA-seq
+    - Total RNA-Seq
+    - DNA Panel
+    - snRNAseq
+    - Spatial Trancriptomics
     - biological imaging
     - flow cytometry
     - targeted metabolomics
@@ -345,6 +358,14 @@ data_type:
   term:
     $ref: "_terms.yaml#/data_type"
   enum:
+    - workspace
+    - export 
+    - Differential expression
+    - Aligned Reads
+    - Alignment Coordinates
+    - Unaligned Reads
+    - Aligned Read QC
+    - Unaligned Read QC
     - flow cytometry
     - integrated peaks
     - chromatograms
@@ -359,7 +380,17 @@ data_format:
   term:
     $ref: "_terms.yaml#/data_format"
   enum: 
-    - FCS
+    - wsp
+    - .xlsx
+    - RDATA
+    - H5AD
+    - BAM
+    - BED
+    - TXT
+    - FASTQC
+    - .FASTQ
+    - FCS mixed
+    - FCS unmixed
     - .txt
     - .csv
     - .RAW
@@ -1364,6 +1395,111 @@ route:
     - Oral Route of Administration
     - Other Route of Administration
     - Parenteral Route of Administration
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+
+workflow_type: 
+  enum:
+    - STAR
+    - BWA-aln
+    - BWA-mem
+    - spinnaker
+    - Salmon
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+
+instrument_model:
+  enum:
+    - 454 GS FLX Titanium
+    - AB SOLiD 4
+    - AB SOLiD 2
+    - AB SOLiD 3
+    - Complete Genomics
+    - Illumina HiSeq X Ten
+    - Illumina HiSeq X Five
+    - Illumina Genome Analyzer II
+    - Illumina Genome Analyzer IIx
+    - Illumina HiSeq 2000
+    - Illumina HiSeq 2500
+    - Illumina HiSeq 4000
+    - Illumina MiSeq
+    - Illumina NextSeq 500
+    - Illumina NextSeq 550
+    - Illumina NovaSeq 6000
+    - Ion Torrent PGM
+    - Ion Torrent Proton
+    - PacBio RS
+    - Ion S5 XL System, Ion 530 Chip
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+
+library_selection:
+  enum:
+    - Hybrid_Selection
+    - PCR
+    - Affinity_Enrichment
+    - Poly-T_Enrichment
+    - RNA_Depletion
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+
+library_Strand:
+  enum: 
+    - Unstranded
+    - First_Stranded
+    - Second_Stranded
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+
+library_strategy:
+  enum:
+    - WGS
+    - WXS
+    - RNA-Seq
+    - ChIP-Seq
+    - miRNA-Seq
+    - Bisulfite-Seq
+    - Validation
+    - Amplicon
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+
+platform:
+  enum:
+    - Illumina
+    - SOLiD
+    - LS454
+    - Ion Torrent
+    - Complete Genomics
+    - PacBio
+    - Not applicable
+    - Missing
+    - Not collected
+    - Not provided
+    - Restricted access
+
+
+spike_ins:
+  enum:
+    - ERCC RNA Spike-In Mix (Thermo Fisher)
     - Not applicable
     - Missing
     - Not collected

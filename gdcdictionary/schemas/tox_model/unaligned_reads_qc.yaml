@@ -1,0 +1,83 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "unaligned_reads_qc"
+title: unaligned reads QC
+type: object
+category: data_file
+program: '*'
+project: '*'
+description: >
+  description.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+  - file_state
+  - error_type
+
+required:
+  - submitter_id
+  - type
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+    - name: unaligned_reads
+      backref: unaligned_reads_qcs
+      label: member_of
+      target_type: unaligned_read
+      multiplicity: many_to_many
+      required: false
+    - name: read_groups
+      backref: unaligned_reads_qcs
+      label: data_from
+      target_type: read_group
+      multiplicity: many_to_many
+      required: true
+    - name: core_metadata_collections
+      backref: unaligned_reads_qcs
+      label: data_from
+      target_type: core_metadata_collection
+      multiplicity: many_to_many
+      required: false
+
+
+properties:
+  $ref: "_definitions.yaml#/data_file_properties"
+  type:
+    enum: [ "unaligned_reads_qc" ]
+  submitter_id:
+    type: string
+  read_groups: 
+    $ref: "_definitions.yaml#/to_many"
+  unaligned_reads:
+    $ref: "_definitions.yaml#/to_many"
+  file_name:
+    type: string
+  data_category:
+    $ref: "_definitions.yaml#/data_category"
+  data_type:
+    $ref: "_definitions.yaml#/data_type"
+  data_format:
+    $ref: "_definitions.yaml#/data_format"
+  SRA_accession_id:
+    type: string
+  provenance: 
+    type: string
+    description: "template version"     
+
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_many"
+
+
