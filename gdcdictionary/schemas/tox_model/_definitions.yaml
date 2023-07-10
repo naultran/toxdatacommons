@@ -360,6 +360,8 @@ data_type:
   enum:
     - workspace
     - export 
+    - FCS mixed
+    - FCS unmixed
     - Differential expression
     - Aligned Reads
     - Alignment Coordinates
@@ -380,26 +382,24 @@ data_format:
   term:
     $ref: "_terms.yaml#/data_format"
   enum: 
-    - wsp
+    - .wsp
     - .xlsx
-    - RDATA
-    - H5AD
-    - BAM
-    - BED
-    - TXT
-    - FASTQC
-    - .FASTQ
-    - FCS mixed
-    - FCS unmixed
+    - .Rdata
+    - .h5ad
+    - .bam
+    - .bed
+    - .fq
+    - .fastq
+    - .fcs
     - .txt
     - .csv
-    - .RAW
+    - .raw
     - .mzML
-    - zip
-    - gzip
-    - png
-    - tif
-    - tiff
+    - .zip
+    - .gzip
+    - .png
+    - .tif
+    - .tiff
     - Not applicable
     - Missing
     - Not collected
