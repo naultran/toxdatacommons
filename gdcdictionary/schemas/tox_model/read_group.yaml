@@ -72,7 +72,7 @@ properties:
   library_selection:
     $ref: "_definitions.yaml#/library_selection"
   library_strand:
-    $ref: "_definitions.yaml#/library_strand"
+    $ref: "_definitions.yaml#/library_Strand"
   library_strategy:
     $ref: "_definitions.yaml#/library_strategy"
   platform:
