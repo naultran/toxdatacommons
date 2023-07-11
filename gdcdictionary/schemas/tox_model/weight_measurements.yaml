@@ -1,0 +1,97 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "weight_measurement"
+title: Weight measurements
+type: object
+namespace: https://toxdatacommons.com
+category: data_file
+program: '*'
+project: '*'
+description: >
+  Weight measurements.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+  - file_state
+  - error_type
+
+required:
+  - submitter_id
+  - type
+
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+    - name: subjects
+      backref: weight_measurements
+      label: data_from
+      target_type: subject
+      multiplicity: many_to_one
+      required: false
+    - name: diets
+      backref: weight_measurements
+      label: data_from
+      target_type: diet
+      multiplicity: many_to_one
+      required: false      
+    - name: samples
+      backref: weight_measurements
+      label: data_from
+      target_type: sample
+      multiplicity: many_to_one
+      required: false     
+    - name: core_metadata_collections
+      backref: weight_measurements
+      label: data_from
+      target_type: core_metadata_collection
+      multiplicity: many_to_many
+      required: false
+
+properties:
+  $ref: "_definitions.yaml#/data_file_properties"
+  type:
+    enum: [ "slide_image" ]
+  data_category:
+    $ref: "_definitions.yaml#/data_category"
+  data_type:
+    $ref: "_definitions.yaml#/data_type"
+  data_format:
+    $ref: "_definitions.yaml#/data_format"
+  file_source_repository:
+    type: string
+  repository_accession_id:
+    type: string
+  repository_download_ftp:
+    type: string
+  subjects:
+    $ref: "_definitions.yaml#/to_one"
+  diets:
+    $ref: "_definitions.yaml#/to_one"
+  samples:
+    $ref: "_definitions.yaml#/to_one"
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_many"
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  provenance: 
+    type: string
+    description: "template version" 
