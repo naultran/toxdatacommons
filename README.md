@@ -154,6 +154,81 @@ docker image prune // delete all unused images
 6. Every time you update the portal, the search engine possibly remember the older version, therefore, the website's appearance seems to be the same as before. You could open a private window to check it, or simply clean the history.
 
 
+### Enabling ssjdispatcher
+SQS S3 Job Dispatcher (ssjdispatcher) monitors SQS jobs to compute hashes and size to register with indexd [see here](https://github.com/uc-cdis/ssjdispatcher/tree/master)
+
+1. Create an admin user for indexd
+
+Use `k9s` or an alternative method to enter the index-deployment pod. Run the following command:
+```
+python ./indexd/bin/index_admin.py create --username USERNAME --password PASSWORD
+```
+
+2. enable ssjdispatcher in the configuration yaml file and upgrade the helm chart
+```
+ssjdispatcher:
+  enabled: true
+  image:
+    repository: quay.io/cdis/ssjdispatcher
+  # -- (string) Docker pull policy.
+    pullPolicy: IfNotPresent
+  # -- (string) Overrides the image tag whose default is the chart appVersion.
+    tag: "2023.08"
+```
+
+3. Revise the credentials
+
+This is a method that worked for us but there are likely better alternatives.
+
+3.a. Get the metadata pods username and password:
+```
+kubectl edit secrets metadata-g3auto
+``` 
+copy the username and decode the password portion
+```
+echo '<password>' | base64 -d 
+```
+3.b. Create a credentials.json file that should look like this:
+```
+{
+"SQS": {
+  "url": "<url to SQS queue>"
+},
+"JOBS": [
+  {
+    "name": "indexing",
+    "pattern": "s3://<upload bucket>/*",
+    "imageConfig": {
+      "url": "http://indexd-service/index",
+      "username": "<indexd username>",
+      "password": "<indexd password>",
+      "metadataService": {
+        "url": "http://revproxy-service/mds",
+        "username": "<metadata username>",
+        "password": "<metadata password>"
+      }
+    },
+    "RequestCPU": "500m",
+    "RequestMem": "0.5Gi"
+  }
+],
+"AWS": {
+  "region": "us-east-1",
+  "user_name": "<credentials user name>",
+  "aws_access_key_id": "<aws access key id>",
+  "aws_secret_access_key": "<aws secret access key>"
+}
+}
+```
+3.c. Encode the credentials
+```
+cat credentials.json | base64
+```
+3.d. replace the credentials.json portion of ssjdispatcher-creds with the new encoded credentials
+```
+kubectl edit secrets ssjdispatcher-creds
+```
+
 ### building model for metadata(template)
 .yaml file
 normal node
