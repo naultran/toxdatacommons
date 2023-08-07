@@ -4,5 +4,3 @@
 # to create a link between all children to case
 # to expedite case filter on nodes
 enable_case_cache: false
-
-_dict_version: "1.0"
