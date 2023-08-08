@@ -1,0 +1,6 @@
+{
+	"title": "Gross Pathology Visualization",
+	"link": "https://rawcdn.githack.com/naultran/toxdatacommons/bcfe3c7b878e7179068657760ea97f57c8b4034d/example_notebooks/TDC_GrossPathologyVisualization/GrossPathologyViz.html",
+	"imageUrl": "https://raw.githubusercontent.com/naultran/toxdatacommons/main/example_notebooks/TDC_GrossPathologyVisualization/thumbnail.png",
+	"description": "This Jupyter notebook presents a use case for the toxdatacommons to plot basic endpoints such as body weight, food consumption, and terminal endpoints."
+}
