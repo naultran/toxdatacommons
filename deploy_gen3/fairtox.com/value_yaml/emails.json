@@ -1,0 +1,18 @@
+{
+    "MSUSRC_admin": {
+        "user1@sss.sss": {
+            "tags":{
+                "name": "user1",
+                "email": "user1@sss.sss"
+            }
+        }
+    },
+    "MSUSRC_member": {
+        "user2@sss.sss": {
+            "tags":{
+                "name": "user2",
+                "email": "user2@sss.sss"
+            }
+        }
+    }
+}

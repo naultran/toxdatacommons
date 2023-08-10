@@ -1,0 +1,30 @@
+elasticsearch:
+  enabled: false
+guppy:
+  enabled: true
+  # -- (int) Only relevant if tireAccessLevel is set to "regular". 
+  # The minimum amount of files unauthorized users can filter down to
+
+  image:
+    repository: quay.io/cdis/guppy
+    pullPolicy: Never
+    tag: "feat_es7"
+
+  # -- (list) Elasticsearch index configurations
+  indices:
+    - index: fairtox_etl
+      type: subject
+    - index: fairtox_file
+      type: file
+  # -- (string) The Elasticsearch configuration index
+  configIndex: fairtox_etl-array-config
+  # -- (string) The field used for access control and authorization filters
+  authFilterField: auth_resource_path
+  # -- (bool) Whether or not to enable encryption for specified fields
+  enableEncryptWhitelist: true
+  # -- (string) A comma-separated list of fields to encrypt
+  encryptWhitelist: test1
+
+  esEndpoint: "gen3-elasticsearch-master:9200"
+
+  dbRestore: False

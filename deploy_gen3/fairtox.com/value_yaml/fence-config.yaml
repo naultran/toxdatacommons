@@ -1,0 +1,16 @@
+fence:
+  FENCE_CONFIG:
+    OPENID_CONNECT:
+      google:
+        client_id: $google_client_id
+        client_secret: $google_client_secret
+    AWS_CREDENTIALS:
+      'CRED1':
+        aws_access_key_id: $aws_access_key_id
+        aws_secret_access_key: $aws_secret_access_key
+    S3_BUCKETS:
+      toxdatacommons-default-243323637959-upload:
+        cred: 'CRED1'
+        region: 'us-east-1'
+    DATA_UPLOAD_BUCKET: 'toxdatacommons-default-243323637959-upload'
+  USER_YAML: |

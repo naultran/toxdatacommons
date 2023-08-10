@@ -1,0 +1,322 @@
+{
+  "graphql": {
+    "boardCounts": [
+      {
+        "graphql": "_subject_count",
+        "name": "subject",
+        "plural": "subjects"
+      },
+      {
+        "graphql": "_sample_count",
+        "name": "sample",
+        "plural": "samples"
+      },
+      {
+        "graphql": "_study_count",
+        "name": "study",
+        "plural": "studies"
+      }
+    ],
+    "chartCounts": [
+      {
+        "graphql": "_subject_count",
+        "name": "subject"
+      },
+      {
+        "graphql": "_sample_count",
+        "name": "sample"
+      },
+      {
+        "graphql": "_study_count",
+        "name": "study"
+      }
+    ],
+    "projectDetails": "boardCounts"
+  },
+  "resourceBrowser":{
+    "title": "Jupyter Notebook Tutorials",
+    "public": true,
+    "description":"The Jupyter notebooks contained in this page show how to upload data to and  pull data from fairtox data common",
+    "resources": [
+      {
+        "title": "upload data",
+        "description": "This tutorial demonstrates how to upload data by fairtox data common's API",
+        "link": "/toxdatacommons/custom_configs/example_upload_data/gen3_test_upload2.html"
+      },
+      {
+        "title": "TDC2mwTab",
+        "description": "This tutorial demonstrates how to extract data from fairtox.com. It also demonstrate some simple data analysis",
+        "link": "/toxdatacommons/example_notebooks/TDC2mwTab/mwTab-build-Prj171.html"
+      },
+      {
+        "title": "TDC Gross Pathology Visualization", 
+        "link": "/toxdatacommons/example_notebooks/TDC_GrossPathologyVisualization/GrossPathologyViz.html",
+        "imageUrl": "/toxdatacommons/example_notebooks/TDC_GrossPathologyVisualization/thumbnail.png",
+        "description": "This Jupyter notebook presents a use case for the toxdatacommons to plot basic endpoints such as body weight, food consumption, and terminal endpoints."
+      }
+    ]
+  },
+  "components": {
+    "appName": "Tox Data Commons",
+    "index": {
+      "introduction": {
+        "heading": "Tox Data Commons",
+        "text": "The ToxDataCommons supports the data management, analysis, and sharing of environmental health research data and aims to accelerate the discovery and reuse of research data to protect human health and develop remediation techniques. The data commons supports cross-project analyses by harmonizing data from different projects through the collaborative development of a data dictionary, providing an API for data queries and download, and providing a cloud-based analysis workspace with rich tools and resources."
+      },
+      "buttons": [
+        {
+          "name": "Define Data Field",
+          "icon": "data-field-define",
+          "body": "The Generic Data Commons define the data in a general way. Please study the dictionary before you start browsing.",
+          "link": "/DD",
+          "label": "Learn more"
+        },
+        {
+          "name": "Explore Data",
+          "icon": "data-explore",
+          "body": "The Exploration Page gives you insights and a clear overview under selected factors.",
+          "link": "/explorer",
+          "label": "Explore data"
+        },
+        {
+          "name": "Access Data",
+          "icon": "data-access",
+          "body": "Use our selected tool to filter out the data you need.",
+          "link": "/query",
+          "label": "Query data"
+        }
+      ]
+    },
+    "navigation": {
+      "title": "Tox Data Commons",
+      "items": [
+        {
+          "icon": "dictionary",
+          "link": "/DD",
+          "name": "Dictionary"
+        },
+        {
+          "icon": "exploration",
+          "link": "/explorer",
+          "name": "Exploration"
+        },
+        {
+          "icon": "query",
+          "link": "/query",
+          "name": "Query"
+        },
+        {
+          "icon": "bar-chart",
+          "link": "/resource-Browser",
+          "tooltip": "learn how to use jupyternotebook to upload data to fairtox data common, and to explore and visualize data stored in fairtox data common.",
+          "name": "Notebook Example"
+        },
+        {
+          "icon": "profile",
+          "link": "/identity",
+          "name": "Profile"
+        }
+      ]
+    },
+    "topBar": {
+      "items": [
+        {
+          "link": "http://dh.toxdatacommons.com.s3-website-us-east-1.amazonaws.com/",
+          "name": "Tox Data Harmonizer"
+        },
+        {
+          "link": "https://github.com/naultran/toxdatacommons/tree/main",
+          "name": "Documentation"
+        }
+      ]
+    },
+    "login": {
+      "title": "Tox Data Commons",
+      "subTitle": "explore, analyze, and share research data",
+      "text": "This website analyzes and shares genomic architecture of tox and runs analysis, easy to navigate visualizations for data-driven discovery for tox.",
+      "contact": "If you have any questions about access or the registration process, please contact ",
+      "email": "naultran@msu.edu"
+    },
+    "footer":{
+      "links": [
+        {
+          "href": "http://dh.toxdatacommons.com.s3-website-us-east-1.amazonaws.com/",
+          "text": "Tox Data Harmonizer"
+        }
+      ]
+    },
+    "categorical9Colors": [
+      "#18453B",
+      "#F2DC5D",
+      "#616265",
+      "#FFA630",
+      "#40476D",
+      "#c23f10",
+      "#AE8799",
+      "#1A535C",
+      "#462255"
+    ]
+  },
+  "featureFlags": {
+    "discovery": true,
+    "explorer": true,
+    "analysis": true,
+    "explorerPublic": true
+  },
+  "explorerConfig": [
+    {
+      "tabTitle": "data",
+      "charts": {
+        "project_id": {
+          "chartType": "count",
+          "title": "Projects"
+        },
+        "studyID": {
+          "chartType": "count",
+          "title": "Studies"
+        },
+        "sex": {
+          "chartType": "fullPie",
+          "title": "Sex"
+        },
+        "treatment.test_article_name": {
+          "chartType": "fullPie",
+          "title": "Treatment Compounds"
+        },
+        "organism": {
+          "chartType": "fullPie",
+          "title": "Species"
+        }
+      },
+      "filters": {
+        "tabs": [
+          {
+            "title": "DATA",
+            "fields": [
+              "project_id",
+              "studyID",
+              "sex",
+              "treatment.test_article_name",
+              "organism"
+            ],
+            "searchFields": [
+              "submitter_id"
+            ]
+          }
+        ]
+      },
+      "table": {
+        "enabled": true,
+        "fields": [
+          "project_id",
+          "experimental_setting",
+          "strain",
+          "euthanasia_method",
+          "organism",
+          "sex", 
+          "treatment.test_article_name",
+          "data_format",
+          "data_type",
+          "file_name",
+          "submitter_id",
+          "studyID",
+          "_flow_data_count",
+          "_flow_analysis_data_count",
+          "_ms_raw_data_count",
+          "_ms_analysed_data_count",
+          "_weight_measurement_count",
+          "_slide_image_count",
+          "_unaligned_read_count",
+          "_unaligned_reads_qc_count",
+          "_aligned_read_count",
+          "_aligned_reads_analyzed_data_count"
+        ]
+      },
+      "guppyConfig": {
+        "dataType": "subject",
+        "tierAccessLevel": "libre",
+        "nodeCountTitle": "subjects",
+        "fieldMapping": [
+          {
+            "field": "organism",
+            "name": "species"
+          },
+          {
+            "field": "treatment.test_article_name",
+            "name": "treatment compounds"
+          }
+        ]
+      }
+    },
+    {
+      "tabTitle": "file",
+      "charts": {
+        "project_id": {
+          "chartType": "count",
+          "title": "Projects"
+        },
+        "_study_id": {
+          "chartType": "count",
+          "title": "Studies"
+        },
+        "data_format": {
+          "chartType": "fullPie",
+          "title": "Data Format"
+        },
+        "data_type": {
+          "chartType": "fullPie",
+          "title": "Data Type"
+        }
+      },
+      "filters": {
+        "tabs": [
+          {
+            "title": "FILE",
+            "fields": [
+              "project_id",
+              "study_submitter_id",
+              "data_type",
+              "data_format"
+            ],
+            "searchFields": [
+              "file_name"
+            ]
+          }
+        ]
+      },
+      "table": {
+        "enabled": true,
+        "fields": [
+          "project_id",
+          "study_submitter_id",
+          "file_name",
+          "file_size",
+          "object_id",
+          "data_format",
+          "data_type",
+          "SRA_accession_id"
+        ]
+      },
+      "guppyConfig": {
+        "dataType": "file",
+        "tierAccessLevel": "libre",
+        "nodeCountTitle": "files",
+        "fieldMapping": [
+          {
+            "field": "object_id",
+            "name": "GUID"
+          },
+          {
+            "field": "study_submitter_id",
+            "name": "studyID"
+          }
+        ],
+       "downloadAccessor": "object_id"
+      }
+    }
+  ],
+  "showArboristAuthzOnProfile": true,
+  "showFenceAuthzOnProfile": false
+}
+
+
