@@ -10,7 +10,6 @@ indexd:
     userdb:
       fence:
       sheepdog:
-      toxdatacommon_ssj_job: "ssj_job"
 ssjdispatcher:
   enabled: true
   image:

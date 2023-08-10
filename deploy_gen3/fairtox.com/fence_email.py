@@ -8,7 +8,7 @@ with open('./value_yaml/emails.json', 'r') as file:
     json_data = file.read()
 email_data = json.loads(json_data)
 
-group_names = ["MSUSRC_admin", "MSUSRC_member"]
+group_names = list(email_data.keys())
 for group_name in group_names:
     for group in users["authz"]["groups"]:
         if group['name'] == group_name:

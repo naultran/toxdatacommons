@@ -7,7 +7,7 @@ guppy:
 
   image:
     repository: quay.io/cdis/guppy
-    pullPolicy: Never
+    pullPolicy: IfNotPresent
     tag: "feat_es7"
 
   # -- (list) Elasticsearch index configurations

@@ -204,8 +204,8 @@ spec:
               /spark/sbin/start-all.sh
               while true; do sleep 15; done
         - name: tube
-          imagePullPolicy: Never
-          image: quay.io/cdis/tube:feat_helm_test_corrected
+          imagePullPolicy: IfNotPresent
+          image: quay.io/cdis/tube:feat_helm_test
           ports:
             - containerPort: 80
           env:
