@@ -508,108 +508,13 @@ esConfig:
 ```
 * editing the ```guppy_override.yaml``` and ```jawad_setting.yaml```
 ```jawad_setting.yaml```
-... //editing the following part with [instruction](https://github.com/uc-cdis/tube/blob/7450d5dc16ec875733bb2868782489921a622dc6/docs/configuration_file.md)
+```
+...
+//replacing etlMapping.yaml part  with instruction(https://github.com/uc-cdis/tube/blob/7450d5dc16ec875733bb2868782489921a622dc6/docs/configuration_file.md)
 etlMapping.yaml: |
     mappings:
-      - name: fairtox_etl
-        doc_type: subject
-        type: aggregator
-        root: subject
-        props:
-          - name: submitter_id
-          - name: project_id
-          - name: sex
-          - name: euthanasia_method
-          - name: strain
-        parent_props:
-          - path: studies[studyID:submitter_id, organism, study_design, study_type, experimental_setting]
-        nested_props:
-          - name: treatment
-            path: treatments
-            props:
-              - name: test_article_name
-        aggregated_props:
-          - name: _samples_count
-            path: samples
-            fn: count
-          - name: _aliquots_count
-            path: samples.aliquots
-            fn: count
-          - name: _flow_data_count
-            path: samples.aliquots.flow_cytometry_assays.flow_datas
-            fn: count
-          - name: _flow_analysis_data_count
-            path: samples.aliquots.flow_cytometry_assays.flow_datas.flow_analysises.flow_analysis_datas
-            fn: count
-          - name: _ms_raw_data_count
-            path: samples.aliquots.mass_spec_assays.ms_raw_datas
-            fn: count
-          - name: _ms_analysed_data_count
-            path: samples.aliquots.mass_spec_assays.ms_raw_datas.ms_analyses
-            fn: count
-          - name: _weight_measurement_count
-            path: housings.diets.weight_measurements
-            fn: count
-          - name: _slide_image_count
-            path: samples.aliquots.slides.slide_images
-            fn: count
-          - name: _unaligned_read_count
-            path: samples.aliquots.read_groups.unaligned_reads
-            fn: count
-          - name: _unaligned_reads_qc_count
-            path: samples.aliquots.read_groups.unaligned_reads_qcs
-            fn: count
-          - name: _aligned_read_count
-            path: samples.aliquots.read_groups.aligned_reads
-            fn: count
-          - name: _aligned_reads_analyzed_data_count
-            path: samples.aliquots.read_groups.aligned_reads.alignment_workflows.aligned_reads_analyzed_datas
-            fn: count
-        joining_props:
-          - index: file
-            join_on: _subject_id
-            props:
-              - name: data_format
-                src: data_format
-                fn: set
-              - name: data_type
-                src: data_type
-                fn: set
-              - name: file_name
-                src: file_name
-                fn: set
-
-      - name: fairtox_file
-        doc_type: file
-        type: collector
-        root: None
-        category: data_file
-        props:
-          - name: object_id
-          - name: md5sum
-          - name: file_name
-          - name: file_size
-          - name: data_format
-          - name: data_type
-          - name: state
-          - name: SRA_accession_id
-        injecting_props:
-          subject:
-            props:
-              - name: _subject_id
-                src: id
-                fn: set
-              - name: project_id
-          study:
-            props:
-              - name: study_submitter_id
-                src: submitter_id
-                fn: set
-              - name: _study_id
-                src: id
-                fn: set
-              - name: project_id
 ...
+```
 ```guppy_override.yaml```
 ```
 elasticsearch:
