@@ -568,6 +568,7 @@ esConfig:
     # Here we can add elasticsearch config
 ```
 * Edit the `guppy_override.yaml` and `elasticsearch_setting.yaml`
+
 ```elasticsearch_setting.yaml```
 ```yaml
 ...
@@ -592,7 +593,7 @@ guppy:
   ...
 
 ```
-* Put back the ```guppy_override.yaml``` __????__ and run ```deploy_gen3.sh```
+* Put ```guppy_override.yaml``` back  ```deploy_gen3.sh``` and run it
 * run the following code
 ```shell
 kubectl apply -f ./value_yaml/elasticsearch_setting.yaml
@@ -660,6 +661,6 @@ ssjdispatcher:
     metadataservicePassword: "ssj_job_metadataservice"
 ```
 *  Create a new admin user in the indexd pod to enable linking data files to data model nodes. This can be done as described [here](https://github.com/naultran/toxdatacommons/blob/c9addf2abb3baed0ecfd13dd3ae2f26cbbe7d958/README.md?plain=1#L160C1-L160C1).
-* After editing the `indexd_config.yaml` run `deploy_gen3.sh`
+* After editing the `indexd_config.yaml`, put it back `deploy_gen3.sh` and run it.
 * Following [these instructions](https://github.com/naultran/toxdatacommons/blob/main/README.md#enabling-ssjdispatcher) to enable ssjdispatcher.
 * run ```deploy_gen3.sh``` again.
