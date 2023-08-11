@@ -625,7 +625,7 @@ $KUBECTL_PATH apply -f ./value_yaml/elasticsearch_setting.yaml # replace this li
 ```
 * every time you upload new data, you should run ```update_exploration.sh```. Or, you could create a cronjob to run this file per hour.
 
-<a = 'indexd'></a>
+<a id='indexd'></a>
 ## Setting up Indexd
 The instruction below describe how to assign a prefix for indexd records and enable the monitoring and linking of data objects to their record in Gen3. _Note that some of these pieces are not optimized but they do work_. 
 * Edit the [`indexd_config`](google.com) file
