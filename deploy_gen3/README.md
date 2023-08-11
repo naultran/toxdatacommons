@@ -8,19 +8,19 @@ Editor: Shuangyu Zhao, Michigan State University
 This README is an overview on how to set up a local [Gen3](gen3.org) using the [Helm deployment workflow](https://helm.gen3.org/). 
 
 ### Table of Contents
-1. [Before you start!](#before-you-start)
-	a. [Installing rancher-desktop and Gen3 helm chart](#setup) 
-	b. [downloading this repository](#pull)
-2. [Building your data model](#data-modeling)
-3.  [Deploying a local Gen3 instance](#deploy)
-	a. [Setting up credentials](#credentials)
-	b. [Setting up permissions](#user.yaml)
-4. [Creating a certificate](#certificate)
-5. [Prebuilding a portal](#portal)
-6. [Data upload (AWS S3)](#s3)
-7. [Deploy using custom scripts](#deploy-sh)
-8. [Set up exploration tab](#explore)
-9. [Set up indexd](#indexd)
+1. [Before you start!](#before-you-start)<br>
+	a. [Installing rancher-desktop and Gen3 helm chart](#setup)<br>
+	b. [downloading this repository](#pull)<br>
+2. [Building your data model](#data-modeling)<br>
+3.  [Deploying a local Gen3 instance](#deploy)<br>
+	a. [Setting up credentials](#credentials)<br>
+	b. [Setting up permissions](#user.yaml)<br>
+4. [Creating a certificate](#certificate)<br>
+5. [Prebuilding a portal](#portal)<br>
+6. [Data upload (AWS S3)](#s3)<br>
+7. [Deploy using custom scripts](#deploy-sh)<br>
+8. [Set up exploration tab](#explore)<br>
+9. [Set up indexd](#indexd)<br>
 
 ---
 <a id='before-you-start'></a>
