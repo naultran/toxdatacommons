@@ -81,7 +81,7 @@ properties:
     type: string
   sequencing_center:
     type: string
-  sequencing_data:
+  sequencing_date:
     type: string
   size_selection_range:
     type: string

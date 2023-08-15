@@ -60,7 +60,7 @@ properties:
   detection_method:
     type: string
     
-  samples:
+  aliquots:
     $ref: "_definitions.yaml#/to_one"
   provenance:
     type: string
