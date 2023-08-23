@@ -602,7 +602,7 @@ kubectl apply -f ./value_yaml/elasticsearch_setting.yaml
 ```shell
 docker run -it --name correct_tube_image quay.io/cdis/tube:feat_helm_test /bin/bash
 # and then you access to the image folder
-cd ./tube/elt/outputs.es
+cd ./tube/elt/outputs/es
 vi timestamp.py
 ```
 changing the following code
