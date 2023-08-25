@@ -378,6 +378,9 @@ data_type:
     - Not collected
     - Not provided
     - Restricted access
+    - Body Weights
+    - Sample Weights
+    - Food Weights
 data_format:
   term:
     $ref: "_terms.yaml#/data_format"
