@@ -443,6 +443,7 @@ bedding_type:
     - ALPHA-dri
     - corn cob
     - wood shavings
+    - Aspen Chip Laboratory fiber chip
 
 chromatography_type:
   enum:
