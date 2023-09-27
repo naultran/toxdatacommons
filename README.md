@@ -1,5 +1,5 @@
 # MSU SRC Tox Data Commons
-Editor: Rance Nault & Shuangyu Zhao
+Editor: Rance Nault && Shuangyu Zhao
 ## 1. Deployment of developer (local) instance of Gen3 using  Helm
 
 For more instruction see [this](https://github.com/uc-cdis/gen3-helm/blob/master/docs/gen3_developer_environments.md#running-gen3-on-a-laptop-for-devs) and [this](https://github.com/uc-cdis/gen3-helm/blob/master/docs/gen3_developer_environments.md#local-dev-linux-ubuntu--rancher-desktop-problems) or the [Gen3 helm website](https://helm.gen3.org).
