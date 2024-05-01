@@ -1316,6 +1316,8 @@ strain:
     - Restricted access
     - C57BL/6NCrl
     - C57BL/6J
+    - C57BL/6NCrl_PkmΔDRE
+    - C57BL/6NCrl_WT
     - 129/Sv
     - FVB/N
     - BALB/cJ
