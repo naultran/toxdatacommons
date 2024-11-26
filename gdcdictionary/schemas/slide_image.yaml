@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "slide_image"
-title: Slide Data
+title: Slide imaging data
 type: object
 namespace: https://toxdatacommons.com
 category: data_file
@@ -22,6 +22,15 @@ systemProperties:
   - file_state
   - error_type
 
+required:
+  - submitter_id
+  - type
+
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
 links:
   - exclusive: false
     required: true
@@ -31,7 +40,7 @@ links:
       label: data_from
       target_type: slide
       multiplicity: many_to_one
-      required: false
+      required: true
     - name: core_metadata_collections
       backref: slide_images
       label: data_from
@@ -39,47 +48,34 @@ links:
       multiplicity: many_to_many
       required: false
 
-required:
-  - submitter_id
-  - type
-  - file_name
-  - file_size
-  - md5sum
-  - data_category
-  - data_type
-  - data_format
-
-uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
-
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
   type:
     enum: [ "slide_image" ]
   data_category:
-    term:
-      $ref: "_terms.yaml#/data_category"
-    enum:
-      - Slide scan
-      - Slide Image
-      - Mass Cytometry
+    $ref: "_definitions.yaml#/data_category"
   data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
-    enum:
-      - image
-      - Single Cell Image
-      - Raw IMC Data
-      - Single Channel IMC Image
-      - Antibody Panel Added
-      - scan
+    $ref: "_definitions.yaml#/data_type"
   data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
-    type: string 
-    
+    $ref: "_definitions.yaml#/data_format"
+  file_source_repository:
+    type: string
+  repository_accession_id:
+    type: string
+  repository_download_ftp:
+    type: string
   slides:
     $ref: "_definitions.yaml#/to_one"
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  provenance: 
+    type: string
+    description: "template version" 

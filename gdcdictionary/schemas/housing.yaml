@@ -1,19 +1,18 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "housing"
-title: Housing
+title: housing
 type: object
-namespace: https://toxdatacommons.com
-category: clinical
+category: administrative
 program: '*'
 project: '*'
 description: >
-  Update.
+  description of housing.
 additionalProperties: false
 submittable: true
 validators: null
 
-systemProperties:
+systemProperties: 
   - id
   - project_id
   - state
@@ -21,50 +20,57 @@ systemProperties:
   - updated_datetime
 
 required:
-  - submitter_id
   - type
+  - submitter_id
+
+#  - provenance
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
 
 links:
   - name: subjects
     backref: housings
-    label: describes
+    label: member_of
     target_type: subject
     multiplicity: many_to_many
     required: true
 
-uniqueKeys:
-  #unclear if want submitter ID for clinical
-  - [id]
-  - [project_id, submitter_id]
-
-properties:
+properties: 
   type:
-    enum: [ "housing" ]
-
+    enum: ["housing"]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
-
-  state:
-    $ref: "_definitions.yaml#/state"
-
   submitter_id:
-    type:
-      - string
-      - "null"
-  cage_id:
     type: string
-  bedding_type:
-    type: string
-  cage_type:
-    type: string
-  vivarium_light_cycle:
+  cageID:
     type: string
   subjects:
     $ref: "_definitions.yaml#/to_many"
+  housing_change_date:
+    type: string
+  bedding_type:
+    $ref: "_definitions.yaml#/bedding_type"
+  cage_type:
+    type: string
+  vivarium_temperature_C:
+    type: number
+  vivarium_humidity_percentage:
+    type: number
+  vivarium_light_cycle:
+    type: string
+  provenance:
+    type: string
+    description: "template version"
+  state:
+    $ref: "_definitions.yaml#/state"
   project_id:
     $ref: "_definitions.yaml#/project_id"
   created_datetime:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:
     $ref: "_definitions.yaml#/datetime"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"

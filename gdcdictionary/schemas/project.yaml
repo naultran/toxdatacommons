@@ -1,36 +1,41 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "project"
-title: Project
+title: project
 type: object
+category: administrative
 program: '*'
 project: '*'
-category: administrative
 description: >
-  Any specifically defined piece of work that is undertaken or attempted to meet a single
-  requirement. (NCIt C47885)
+  description of project.
 additionalProperties: false
 submittable: true
 validators: null
 
-systemProperties:
+systemProperties: 
   - id
   - state
   - released
   - releasable
   - intended_release_date
 
-required:
+required: 
+  - type
   - code
-  - name
+  - availability_type
   - dbgap_accession_number
   - programs
+  - description
 
-uniqueKeys:
+
+
+
+uniqueKeys: 
   - [ id ]
-  - [ code ]
+  - [code]
 
-links:
+
+links: 
   - name: programs
     backref: projects
     label: member_of
@@ -38,39 +43,13 @@ links:
     multiplicity: many_to_one
     required: true
 
-constraints: null
-
 properties:
   type:
-    enum: [ "project" ]
+    enum: ["project"]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
     description: "UUID for the project."
-  name:
-    type: string
-    description: "Display name/brief description for the project."
-  code:
-    type: string
-    description: "Unique identifier for the project."
-  investigator_name:
-    description: "Name of the principal investigator for the project."
-    type: string
-  investigator_affiliation:
-    description: "The investigator's affiliation with respect to a research institution."
-    type: string
-  investigator_orcid:
-    description: "The investigator's ORCID fom ORCID.org."
-    type: string
-  availability_type:
-    description: "Is the project open or restricted?"
-    enum:
-      - Open
-      - Restricted
-  programs:
-    $ref: "_definitions.yaml#/to_one"
-    description: >
-      Indicates that the project is logically part of the indicated project.
   state:
     description: |
       The possible states a project can be in.  All but `open` are
@@ -115,7 +94,32 @@ properties:
         # DEPRECATED(2016-03-01): synonymous with closed. included for
         #                         backwards compatibility
         - legacy
-        
+  code:
+    type: string
+    description: "Unique identifier for the project"
+  availability_type:
+    description: "Is the project open or restricted?"
+    enum:
+      - Open
+      - Restricted
+  programs:
+    $ref: "_definitions.yaml#/to_one"
+    description: >
+      Indicates that the project is logically part of the indicated project.
   dbgap_accession_number:
     type: string
     description: "The dbgap accession number provided for the project."
+  description:
+    type: string
+  contact_name:
+    type: string
+  institution:
+    type: string
+  email_address:
+    type: string
+  telephone_number:
+    type: string
+  address:
+    type: string
+
+

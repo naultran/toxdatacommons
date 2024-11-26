@@ -1,62 +1,64 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "publication"
-title: Publication
+title: publication
 type: object
-namespace: https://toxdatacommons.com
 category: administrative
 program: '*'
 project: '*'
-description: "Publication for an experiment."
+description: >
+  description of publication.
 additionalProperties: false
 submittable: true
 validators: null
 
-systemProperties:
+systemProperties: 
   - id
   - project_id
   - state
   - created_datetime
   - updated_datetime
 
-links:
-  - name: experiments
-    backref: publications
-    label: refers_to
-    target_type: experiment
-    multiplicity: many_to_many
-    required: true
-
 required:
-  - submitter_id
   - type
-  - experiments
+  - submitter_id
+
 
 uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ] 
+  - [id]
+  - [  project_id, submitter_id ]
 
+links:
+  - name: studies
+    backref: publications
+    label: member_of
+    target_type: study
+    multiplicity: many_to_one
+    required: true
 properties:
-  type:
-    enum: [ "publication" ] 
-  id:
+  id: 
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
+  type:
+    enum: ["publication"]
+  submitter_id:
+    type: string
+  studies:
+    $ref: "_definitions.yaml#/to_one"
+  PMC_id:
+    type: string
+  DOI:
+    type: string
+  PMID:
+    type: string
+  provenance:
+    type: string
   state:
     $ref: "_definitions.yaml#/state"
-  submitter_id:
-    type:
-      - string
-      - "null"
-  pmid:
-    type: string
-  doi:
-    type: string
-  experiments:
-    $ref: "_definitions.yaml#/to_many"
   project_id:
     $ref: "_definitions.yaml#/project_id"
   created_datetime:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:
     $ref: "_definitions.yaml#/datetime"
+

@@ -1,41 +1,44 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "program"
-title: Program
+title: program
 type: object
 category: administrative
 program: '*'
 project: '*'
 description: >
-  A broad framework of goals to be achieved. (NCIt C52647)
+  description of program.
 additionalProperties: false
-submittable: false
+submittable: true
 validators: null
 
-systemProperties:
+systemProperties: 
   - id
 
 required:
+  - type
   - name
   - dbgap_accession_number
+
 
 uniqueKeys:
   - [id]
   - [name]
 
 links: []
+# program is the root entity of miate and so it is the only entity
 
-# Program is the root entity and so it is the only entity
-# without a project or parents.
 properties:
-  type:
-    type: string
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
+  type:
+    enum: ["program"]
   name:
     type: string
-    description: "Full name/title of the program."
+    description: "investigationID"
   dbgap_accession_number:
     type: string
     description: "Short identifier for the program (e.g., MSUSRC)"
+  
+

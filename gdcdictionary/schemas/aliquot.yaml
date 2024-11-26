@@ -11,9 +11,9 @@ description: >
   volume or weight.
 additionalProperties: false
 submittable: true
-validators: []
+validators: null
 
-systemProperties:
+systemProperties: 
   - id
   - project_id
   - state
@@ -21,66 +21,58 @@ systemProperties:
   - updated_datetime
 
 required:
-  - submitter_id
   - type
-  - samples
-
+  - submitter_id
+  
 uniqueKeys:
   - [id]
-  - [project_id, submitter_id]
+  - [  project_id, submitter_id ]
 
 links:
   - name: samples
     backref: aliquots
     label: derived_from
-    multiplicity: many_to_many
     target_type: sample
+    multiplicity: many_to_one
     required: true
 
-constraints: null
-
-# Aliquot properties
 properties:
-  type:
-    type: string
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
-  state:
-    $ref: "_definitions.yaml#/state"
+  type:
+    enum: ["aliquot"]
   submitter_id:
-    type:
-      - string
-      - "null"
-    description: >
-      The legacy barcode used before prior to the use
-      UUIDs. For TCGA this is bcraliquotbarcode.
+    type: string
 
   analyte_type:
-    term:
-      $ref: "_terms.yaml#/analyte_type"
-    enum: 
-      - DNA
-      - total RNA
-      - microRNA
-      - Metabolites
-      - Protein
-      - Tisse section 
-      - Cell suspension
-      - Histology slide
-  analyte_preparation_protocol:
+    $ref: "_definitions.yaml#/analyte_type"
+
+  derivitization:
+    description: ""
+    type:
+      - string
+  analyte_protocol:
     description: "A protocols.io DOI"
     type:
       - string
-
-  project_id:
-    $ref: "_definitions.yaml#/project_id"
-  source_center:
-    term:
-      $ref: "_terms.yaml#/source_center"
+  extract_preservation_method:
+    $ref: "_definitions.yaml#/extract_preservation_method"
+  a260_a280_ratio:
+    type: number
+    description: "Numeric value that represents the sample ratio of nucleic acid absorbance at 260 nm and 280 nm, used to determine a measure of DNA purity."
+  RIN:
+    type: number
+    description: "A numerical assessment of the integrity of RNA based on the entire electrophoretic trace of the RNA sample including the presence or absence of degradation products."
+  provenance:
     type: string
+    description: "template version"
   samples:
     $ref: "_definitions.yaml#/to_one"
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
   created_datetime:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:

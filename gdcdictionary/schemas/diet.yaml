@@ -1,19 +1,18 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "diet"
-title: Diet
+title: diet
 type: object
-namespace: https://toxdatacommons.com
-category: clinical
+category: administrative
 program: '*'
 project: '*'
 description: >
-  Update.
+  description of diet.
 additionalProperties: false
 submittable: true
 validators: null
 
-systemProperties:
+systemProperties: 
   - id
   - project_id
   - state
@@ -21,54 +20,52 @@ systemProperties:
   - updated_datetime
 
 required:
-  - submitter_id
   - type
+  - submitter_id
+#  - provenance
+
+
+uniqueKeys:
+  - [id]
+  - [  project_id, submitter_id ]
 
 links:
   - name: housings
     backref: diets
-    label: describes
+    label: member_of
     target_type: housing
-    multiplicity: many_to_one
+    multiplicity: one_to_many
     required: true
 
-uniqueKeys:
-  #unclear if want submitter ID for clinical
-  - [id]
-  - [project_id, submitter_id]
-
-properties:
+properties: 
   type:
-    enum: [ "diet" ]
-
+    enum: ["diet"]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
-
-  state:
-    $ref: "_definitions.yaml#/state"
-
   submitter_id:
-    type:
-      - string
-      - "null"
-  feed_name:
     type: string
-  feed_description:
-    type: string
-  feed_source:
+  date:
     type: string
   feed_catalog_number:
     type: string
-  study_time:
-    type: number
-  feeding_approach:
-    enum:
-      - ad libitum
-      - night restricted diet
-      - day restricted diet  
   housings:
-    $ref: "_definitions.yaml#/to_many"
+    $ref: "_definitions.yaml#/to_many" 
+  feed_description:
+    type: string
+  feed_name:
+    type: string
+  feed_vendor:
+    type: string
+  water_type:
+    type: string
+  feed_paradigm:
+    $ref: "_definitions.yaml#/feed_paradigm" 
+  provenance:
+    type: string
+    description: "template version"
+  state:
+    $ref: "_definitions.yaml#/state"
   project_id:
     $ref: "_definitions.yaml#/project_id"
   created_datetime:

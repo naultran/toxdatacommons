@@ -1,116 +1,90 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "subject"
-title: Subject
+title: subject
 type: object
-namespace: https://toxdatacommons.com
 category: administrative
 program: '*'
 project: '*'
 description: >
-  The collection of all data related to a specific subject in the
-  context of a specific experiment. 
+  description of subject.
 additionalProperties: false
 submittable: true
 validators: null
 
-systemProperties:
+systemProperties: 
   - id
   - project_id
   - created_datetime
   - updated_datetime
   - state
 
-links:
-  - exclusive: false
-    required: true
-    subgroup:
-    - name: experiments 
-      backref: subjects
-      label: member_of
-      target_type: experiment
-      multiplicity: many_to_one
-      required: true
-    - name: treatments
-      backref: subjects
-      label: describes
-      target_type: treatment
-      multiplicity: many_to_many
-      required: false
-
 required:
-  - submitter_id
   - type
-  - experiments
+  - submitter_id
+
+#  - provenance
 
 uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
-# Case properties
-properties:
-  type:
-    type: string
+links:
+  - name: studies
+    backref: subjects
+    label: member_of
+    target_type: study
+    multiplicity: many_to_one
+    required: true
+
+properties: 
+  type: 
+    enum: ["subject"]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
-  state:
-    $ref: "_definitions.yaml#/state"
+  studies:
+    $ref: "_definitions.yaml#/to_one"
   submitter_id:
-    type:
-      - string
-      - "null"
-
-  strain:
-    description: "The species strain of the individual subject associated with the experiment. To add more strains please contact the commons administrators"
-    enum: 
-      - C57BL/6NCrl
-      - C57BL/6J
-      - 129/Sv
-      - FVB/N
-      - BALB/cJ
-      - C3H/HeJ
-      - Sprague-Dawley
-      - Dahl SS      
-  vendor: 
-    description: "The commercial or private source of the referenced material."
     type: string
-  sex: 
+  start_date:
+    type: string
     description: ""
-    enum:
-      - female
-      - male
-      - unknown
-      - unspecified
-      - not reported
-  age_assigned:
-    description: "Postnal age at which the biological replicate was received from the vendor or assigned to the experiment in days. This is the date considered as day 0"
+  start_date_age:
     type: number
-  study_start_age:
-    type: number
+    description: ""
   experiment_start_date:
     type: string
-  age_unit:
-    enum:
-      - postnatal day (PND)
-      - developmental age
-  age_assigned_date:
     description: ""
-    type: string
-  euthanasia_day:
-    description: "day of euthanasia relative to the start date (starting at 0)"
+  experiment_start_zt:
     type: number
+    description: ""
+  sex:
+    $ref: "_definitions.yaml#/sex"
+  strain:
+    $ref: "_definitions.yaml#/strain"
+  strain_source:
+    type: string
+    description: ""
+  euthanasia_date:
+    type: string
+    description: ""
+  euthanasia_zt:
+    type: string
+    description: ""
   euthanasia_method:
-    enum:
-      - Carbon dioxide asphyxiation
-      - Cervical dislocation
-  experiments: 
-    $ref: "_definitions.yaml#/to_one"
-  treatments: 
-    $ref: "_definitions.yaml#/to_many"
+    $ref: "_definitions.yaml#/euthanasia_method"
+  provenance: 
+    type: string
+    description: "template version"
+  state:
+    $ref: "_definitions.yaml#/state"
   project_id:
     $ref: "_definitions.yaml#/project_id"
   created_datetime:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:
     $ref: "_definitions.yaml#/datetime"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+
